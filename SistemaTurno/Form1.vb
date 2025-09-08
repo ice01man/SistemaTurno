@@ -42,6 +42,7 @@
         frmInicio.MdiParent = Me
         Me.ToolStripContainer1.ContentPanel.Controls.Add(frmInicio)
         frmInicio.Show()
+
     End Sub
 
     Private Sub PacientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuPacientes.Click
@@ -92,6 +93,7 @@
 
 
     End Sub
+
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 

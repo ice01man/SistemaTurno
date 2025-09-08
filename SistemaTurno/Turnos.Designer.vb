@@ -29,16 +29,17 @@ Partial Class Turnos
         TextBox1 = New TextBox()
         ListBox1 = New ListBox()
         GroupBox2 = New GroupBox()
-        DataGridView1 = New DataGridView()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        DGBPacientes = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
+        DGVTurnos = New DataGridView()
         Timer1 = New Timer(components)
+        DGVPacientes = New DataGridViewTextBoxColumn()
+        DGVConsultorio = New DataGridViewTextBoxColumn()
+        DGVDoctor = New DataGridViewTextBoxColumn()
+        DGVServicio = New DataGridViewTextBoxColumn()
+        DGVDia = New DataGridViewTextBoxColumn()
+        DGVHora = New DataGridViewTextBoxColumn()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' MonthCalendar1
@@ -85,7 +86,7 @@ Partial Class Turnos
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Controls.Add(DataGridView1)
+        GroupBox2.Controls.Add(DGVTurnos)
         GroupBox2.Location = New Point(126, 251)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(1052, 418)
@@ -93,58 +94,65 @@ Partial Class Turnos
         GroupBox2.TabStop = False
         GroupBox2.Text = "GroupBox2"
         ' 
-        ' DataGridView1
+        ' DGVTurnos
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column4, DGBPacientes, Column2, Column3})
-        DataGridView1.Dock = DockStyle.Fill
-        DataGridView1.Location = New Point(3, 23)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridView1.RowTemplate.Height = 30
-        DataGridView1.RowTemplate.Resizable = DataGridViewTriState.True
-        DataGridView1.Size = New Size(1046, 392)
-        DataGridView1.TabIndex = 2
+        DGVTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DGVTurnos.Columns.AddRange(New DataGridViewColumn() {DGVPacientes, DGVConsultorio, DGVDoctor, DGVServicio, DGVDia, DGVHora})
+        DGVTurnos.Dock = DockStyle.Fill
+        DGVTurnos.Location = New Point(3, 23)
+        DGVTurnos.Name = "DGVTurnos"
+        DGVTurnos.RowHeadersWidth = 51
+        DGVTurnos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DGVTurnos.RowTemplate.Height = 30
+        DGVTurnos.RowTemplate.Resizable = DataGridViewTriState.True
+        DGVTurnos.Size = New Size(1046, 392)
+        DGVTurnos.TabIndex = 2
         ' 
-        ' Column1
+        ' DGVPacientes
         ' 
-        Column1.HeaderText = "Doctor"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        Column1.Width = 125
+        DGVPacientes.HeaderText = "Pacientes"
+        DGVPacientes.MinimumWidth = 6
+        DGVPacientes.Name = "DGVPacientes"
+        DGVPacientes.Width = 125
         ' 
-        ' Column4
+        ' DGVConsultorio
         ' 
-        Column4.HeaderText = "Consultorio"
-        Column4.MinimumWidth = 6
-        Column4.Name = "Column4"
-        Column4.Width = 125
+        DGVConsultorio.HeaderText = "Consultorio"
+        DGVConsultorio.MinimumWidth = 6
+        DGVConsultorio.Name = "DGVConsultorio"
+        DGVConsultorio.Width = 125
         ' 
-        ' DGBPacientes
+        ' DGVDoctor
         ' 
-        DGBPacientes.HeaderText = "Pacientes"
-        DGBPacientes.MinimumWidth = 6
-        DGBPacientes.Name = "DGBPacientes"
-        DGBPacientes.Width = 125
+        DGVDoctor.HeaderText = "Doctor"
+        DGVDoctor.MinimumWidth = 6
+        DGVDoctor.Name = "DGVDoctor"
+        DGVDoctor.Width = 125
         ' 
-        ' Column2
+        ' DGVServicio
         ' 
-        Column2.HeaderText = "Turno Dia"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        Column2.Width = 125
+        DGVServicio.HeaderText = "Servicio"
+        DGVServicio.MinimumWidth = 6
+        DGVServicio.Name = "DGVServicio"
+        DGVServicio.Width = 125
         ' 
-        ' Column3
+        ' DGVDia
         ' 
-        Column3.HeaderText = "Turno Hora"
-        Column3.MinimumWidth = 6
-        Column3.Name = "Column3"
-        Column3.Width = 125
+        DGVDia.HeaderText = "Turno Dia"
+        DGVDia.MinimumWidth = 6
+        DGVDia.Name = "DGVDia"
+        DGVDia.Width = 125
+        ' 
+        ' DGVHora
+        ' 
+        DGVHora.HeaderText = "Turno Hora"
+        DGVHora.MinimumWidth = 6
+        DGVHora.Name = "DGVHora"
+        DGVHora.Width = 125
         ' 
         ' Turnos
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1450, 850)
@@ -157,7 +165,7 @@ Partial Class Turnos
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         GroupBox2.ResumeLayout(False)
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(DGVTurnos, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents MonthCalendar1 As MonthCalendar
@@ -166,11 +174,12 @@ Partial Class Turnos
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents DGBPacientes As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents DGVTurnos As DataGridView
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents DGVPacientes As DataGridViewTextBoxColumn
+    Friend WithEvents DGVConsultorio As DataGridViewTextBoxColumn
+    Friend WithEvents DGVDoctor As DataGridViewTextBoxColumn
+    Friend WithEvents DGVServicio As DataGridViewTextBoxColumn
+    Friend WithEvents DGVDia As DataGridViewTextBoxColumn
+    Friend WithEvents DGVHora As DataGridViewTextBoxColumn
 End Class

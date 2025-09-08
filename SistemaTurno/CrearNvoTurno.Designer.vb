@@ -22,17 +22,142 @@ Partial Class CrearNvoTurno
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        btnCancelar = New Button()
+        btnGuardar = New Button()
+        dtpHora = New DateTimePicker()
+        dtpFecha = New DateTimePicker()
+        cmbAsistencia = New ComboBox()
+        lblHora = New Label()
+        lblFecha = New Label()
+        lblAsistencia = New Label()
+        txtTelefono = New TextBox()
+        lblTelefono = New Label()
+        txtPaciente = New TextBox()
+        lblPaciente = New Label()
+        Label1 = New Label()
         ComboBox1 = New ComboBox()
         SuspendLayout()
+        ' 
+        ' btnCancelar
+        ' 
+        btnCancelar.Location = New Point(155, 391)
+        btnCancelar.Name = "btnCancelar"
+        btnCancelar.Size = New Size(94, 29)
+        btnCancelar.TabIndex = 28
+        btnCancelar.Text = "Cancelar"
+        btnCancelar.UseVisualStyleBackColor = True
+        ' 
+        ' btnGuardar
+        ' 
+        btnGuardar.Location = New Point(586, 391)
+        btnGuardar.Name = "btnGuardar"
+        btnGuardar.Size = New Size(94, 29)
+        btnGuardar.TabIndex = 27
+        btnGuardar.Text = "Guardar"
+        btnGuardar.UseVisualStyleBackColor = True
+        ' 
+        ' dtpHora
+        ' 
+        dtpHora.CalendarForeColor = SystemColors.ActiveCaption
+        dtpHora.Format = DateTimePickerFormat.Time
+        dtpHora.Location = New Point(331, 320)
+        dtpHora.Name = "dtpHora"
+        dtpHora.ShowUpDown = True
+        dtpHora.Size = New Size(292, 27)
+        dtpHora.TabIndex = 26
+        ' 
+        ' dtpFecha
+        ' 
+        dtpFecha.Location = New Point(331, 269)
+        dtpFecha.Name = "dtpFecha"
+        dtpFecha.Size = New Size(292, 27)
+        dtpFecha.TabIndex = 25
+        ' 
+        ' cmbAsistencia
+        ' 
+        cmbAsistencia.FormattingEnabled = True
+        cmbAsistencia.Items.AddRange(New Object() {"Consulta", "Estudio"})
+        cmbAsistencia.Location = New Point(331, 169)
+        cmbAsistencia.Name = "cmbAsistencia"
+        cmbAsistencia.Size = New Size(292, 28)
+        cmbAsistencia.TabIndex = 24
+        ' 
+        ' lblHora
+        ' 
+        lblHora.AutoSize = True
+        lblHora.Location = New Point(155, 320)
+        lblHora.Name = "lblHora"
+        lblHora.Size = New Size(42, 20)
+        lblHora.TabIndex = 23
+        lblHora.Text = "Hora"
+        ' 
+        ' lblFecha
+        ' 
+        lblFecha.AutoSize = True
+        lblFecha.Location = New Point(155, 269)
+        lblFecha.Name = "lblFecha"
+        lblFecha.Size = New Size(47, 20)
+        lblFecha.TabIndex = 22
+        lblFecha.Text = "Fecha"
+        ' 
+        ' lblAsistencia
+        ' 
+        lblAsistencia.AutoSize = True
+        lblAsistencia.Location = New Point(155, 172)
+        lblAsistencia.Name = "lblAsistencia"
+        lblAsistencia.Size = New Size(75, 20)
+        lblAsistencia.TabIndex = 21
+        lblAsistencia.Text = "Asistencia"
+        ' 
+        ' txtTelefono
+        ' 
+        txtTelefono.Location = New Point(331, 114)
+        txtTelefono.Name = "txtTelefono"
+        txtTelefono.Size = New Size(292, 27)
+        txtTelefono.TabIndex = 20
+        ' 
+        ' lblTelefono
+        ' 
+        lblTelefono.AutoSize = True
+        lblTelefono.Location = New Point(155, 117)
+        lblTelefono.Name = "lblTelefono"
+        lblTelefono.Size = New Size(67, 20)
+        lblTelefono.TabIndex = 19
+        lblTelefono.Text = "Teléfono"
+        ' 
+        ' txtPaciente
+        ' 
+        txtPaciente.Location = New Point(331, 63)
+        txtPaciente.Name = "txtPaciente"
+        txtPaciente.Size = New Size(292, 27)
+        txtPaciente.TabIndex = 18
+        ' 
+        ' lblPaciente
+        ' 
+        lblPaciente.AutoSize = True
+        lblPaciente.Location = New Point(155, 66)
+        lblPaciente.Name = "lblPaciente"
+        lblPaciente.Size = New Size(136, 20)
+        lblPaciente.TabIndex = 17
+        lblPaciente.Text = "Apellido y Nombre"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(155, 226)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(93, 20)
+        Label1.TabIndex = 29
+        Label1.Text = "Especialidad"
         ' 
         ' ComboBox1
         ' 
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Paciente 1 ", "Paciente 2 ", "Paciente 3 ", "Paciente 4 ", "Paciente 5 ", "Paciente 6 ", "Paciente 7 ", "Paciente 8 ", "Paciente 9 ", "Paciente 10 "})
-        ComboBox1.Location = New Point(288, 62)
+        ComboBox1.Items.AddRange(New Object() {"Seleccionar ", "Estudio Medicina Familiar", "Pediatría", "Ginecología y Obstetricia", "Cardiología", "Dermatología", "Neumología", "Neurología", "Urología", "Oftalmología"})
+        ComboBox1.Location = New Point(331, 220)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(151, 28)
-        ComboBox1.TabIndex = 0
+        ComboBox1.Size = New Size(292, 28)
+        ComboBox1.TabIndex = 30
         ' 
         ' CrearNvoTurno
         ' 
@@ -40,11 +165,38 @@ Partial Class CrearNvoTurno
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
         Controls.Add(ComboBox1)
+        Controls.Add(Label1)
+        Controls.Add(btnCancelar)
+        Controls.Add(btnGuardar)
+        Controls.Add(dtpHora)
+        Controls.Add(dtpFecha)
+        Controls.Add(cmbAsistencia)
+        Controls.Add(lblHora)
+        Controls.Add(lblFecha)
+        Controls.Add(lblAsistencia)
+        Controls.Add(txtTelefono)
+        Controls.Add(lblTelefono)
+        Controls.Add(txtPaciente)
+        Controls.Add(lblPaciente)
         Name = "CrearNvoTurno"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Sistema de Turnos - Crear Nuevo Turno"
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
+    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents dtpHora As DateTimePicker
+    Friend WithEvents dtpFecha As DateTimePicker
+    Friend WithEvents cmbAsistencia As ComboBox
+    Friend WithEvents lblHora As Label
+    Friend WithEvents lblFecha As Label
+    Friend WithEvents lblAsistencia As Label
+    Friend WithEvents txtTelefono As TextBox
+    Friend WithEvents lblTelefono As Label
+    Friend WithEvents txtPaciente As TextBox
+    Friend WithEvents lblPaciente As Label
+    Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
 End Class

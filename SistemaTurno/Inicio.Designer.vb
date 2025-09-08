@@ -27,7 +27,7 @@ Partial Class Inicio
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar1 = New MonthCalendar()
-        DataGridView1 = New DataGridView()
+        DGVTurnos = New DataGridView()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
         F1DgbTelefono = New DataGridViewTextBoxColumn()
         F1DgbServicio = New DataGridViewTextBoxColumn()
@@ -41,7 +41,8 @@ Partial Class Inicio
         Button3 = New Button()
         Button2 = New Button()
         ToolTip1 = New ToolTip(components)
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        lblTurnosDiaActual = New Label()
+        CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -51,15 +52,15 @@ Partial Class Inicio
         MonthCalendar1.Name = "MonthCalendar1"
         MonthCalendar1.TabIndex = 5
         ' 
-        ' DataGridView1
+        ' DGVTurnos
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {F1DgbPacientes, F1DgbTelefono, F1DgbServicio, F1DgbTurnoDia, F1DgbTurnohora, F1DgbbtnVer, F1DgbBtnEditar, F1DgbBtnEliminar})
-        DataGridView1.Location = New Point(83, 341)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1067, 317)
-        DataGridView1.TabIndex = 4
+        DGVTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DGVTurnos.Columns.AddRange(New DataGridViewColumn() {F1DgbPacientes, F1DgbTelefono, F1DgbServicio, F1DgbTurnoDia, F1DgbTurnohora, F1DgbbtnVer, F1DgbBtnEditar, F1DgbBtnEliminar})
+        DGVTurnos.Location = New Point(83, 341)
+        DGVTurnos.Name = "DGVTurnos"
+        DGVTurnos.RowHeadersWidth = 51
+        DGVTurnos.Size = New Size(1067, 317)
+        DGVTurnos.TabIndex = 4
         ' 
         ' F1DgbPacientes
         ' 
@@ -134,7 +135,7 @@ Partial Class Inicio
         GroupBox1.Controls.Add(Button2)
         GroupBox1.Location = New Point(83, 65)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(615, 258)
+        GroupBox1.Size = New Size(615, 207)
         GroupBox1.TabIndex = 3
         GroupBox1.TabStop = False
         ' 
@@ -174,26 +175,39 @@ Partial Class Inicio
         ' ToolTip1
         ' 
         ' 
+        ' lblTurnosDiaActual
+        ' 
+        lblTurnosDiaActual.AutoSize = True
+        lblTurnosDiaActual.Font = New Font("Segoe UI", 16F)
+        lblTurnosDiaActual.ForeColor = Color.Black
+        lblTurnosDiaActual.Location = New Point(83, 301)
+        lblTurnosDiaActual.Name = "lblTurnosDiaActual"
+        lblTurnosDiaActual.Size = New Size(174, 37)
+        lblTurnosDiaActual.TabIndex = 18
+        lblTurnosDiaActual.Text = "Turno de hoy"
+        ' 
         ' Inicio
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1450, 850)
+        Controls.Add(lblTurnosDiaActual)
         Controls.Add(MonthCalendar1)
-        Controls.Add(DataGridView1)
+        Controls.Add(DGVTurnos)
         Controls.Add(GroupBox1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inicio"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Inicio"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(DGVTurnos, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DGVTurnos As DataGridView
     Friend WithEvents F1DgbPacientes As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbTelefono As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbServicio As DataGridViewTextBoxColumn
@@ -207,4 +221,5 @@ Partial Class Inicio
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents lblTurnosDiaActual As Label
 End Class
