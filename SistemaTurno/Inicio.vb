@@ -20,6 +20,7 @@
 
         ' Limpiar las filas actuales para evitar duplicados
         'Dim v = DGVTurnos.Rows.Count
+        'Ultima Actualizacion 08/09/2025
 
         DGVTurnos.Rows.Clear()
 
