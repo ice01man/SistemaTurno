@@ -4,14 +4,11 @@
         CargarTurnosEnDataGridView()
     End Sub
 
-    Private Sub ToolTip1_Popup(sender As Object, e As PopupEventArgs) Handles ToolTip1.Popup
-
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Dim frmNuevoTurno As New frmNuevoTurno()
-        Dim frmNvoTurno As New CrearNvoTurno()
-        If frmNvoTurno.ShowDialog() = DialogResult.OK Then
+        Dim frmNvoTurno As New CrearNvoTurno
+        If frmNvoTurno.ShowDialog = DialogResult.OK Then
             ' Si el formulario se cerró con DialogResult.OK,
             ' significa que se guardó un nuevo turno, así que actualizamos el DataGridView.
             CargarTurnosEnDataGridView()
@@ -52,5 +49,6 @@
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVTurnos.CellContentClick
         CargarTurnosEnDataGridView()
     End Sub
+
 
 End Class

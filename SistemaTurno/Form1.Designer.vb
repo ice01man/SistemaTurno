@@ -58,7 +58,7 @@ Partial Class Form1
         MenuStrip1.Items.AddRange(New ToolStripItem() {MenuInicio, MenuPacientes, MenuTurnos})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(1251, 24)
+        MenuStrip1.Size = New Size(1382, 24)
         MenuStrip1.TabIndex = 2
         MenuStrip1.Text = "MenuStrip1"
         ' 
@@ -93,13 +93,13 @@ Partial Class Form1
         ToolStripContainer1.ContentPanel.BackgroundImage = CType(resources.GetObject("ToolStripContainer1.ContentPanel.BackgroundImage"), Image)
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
-        ToolStripContainer1.ContentPanel.Size = New Size(1251, 705)
+        ToolStripContainer1.ContentPanel.Size = New Size(1382, 754)
         ToolStripContainer1.Dock = DockStyle.Fill
         ToolStripContainer1.LeftToolStripPanelVisible = False
         ToolStripContainer1.Location = New Point(0, 24)
         ToolStripContainer1.Name = "ToolStripContainer1"
         ToolStripContainer1.RightToolStripPanelVisible = False
-        ToolStripContainer1.Size = New Size(1251, 730)
+        ToolStripContainer1.Size = New Size(1382, 779)
         ToolStripContainer1.TabIndex = 3
         ToolStripContainer1.Text = "ToolStripContainer1"
         ' 
@@ -183,13 +183,14 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1251, 754)
+        ClientSize = New Size(1382, 803)
         Controls.Add(ToolStripContainer1)
         Controls.Add(Button1)
         Controls.Add(MenuStrip1)
         IsMdiContainer = True
         MainMenuStrip = MenuStrip1
         Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Sistema de Turnos"
         MenuStrip1.ResumeLayout(False)
         MenuStrip1.PerformLayout()

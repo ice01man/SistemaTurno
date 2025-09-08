@@ -28,20 +28,21 @@ Partial Class Inicio
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar1 = New MonthCalendar()
         DGVTurnos = New DataGridView()
+        GroupBox1 = New GroupBox()
+        Label2 = New Label()
+        Button1 = New Button()
+        Label1 = New Label()
+        Button2 = New Button()
+        ToolTip1 = New ToolTip(components)
+        lblTurnosDiaActual = New Label()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
         F1DgbTelefono = New DataGridViewTextBoxColumn()
         F1DgbServicio = New DataGridViewTextBoxColumn()
         F1DgbTurnoDia = New DataGridViewTextBoxColumn()
         F1DgbTurnohora = New DataGridViewTextBoxColumn()
         F1DgbbtnVer = New DataGridViewButtonColumn()
-        F1DgbBtnEditar = New DataGridViewButtonColumn()
-        F1DgbBtnEliminar = New DataGridViewButtonColumn()
-        GroupBox1 = New GroupBox()
-        Button4 = New Button()
-        Button3 = New Button()
-        Button2 = New Button()
-        ToolTip1 = New ToolTip(components)
-        lblTurnosDiaActual = New Label()
+        F1DgbBtnAsistio = New DataGridViewButtonColumn()
+        F1DgbBtnAusente = New DataGridViewButtonColumn()
         CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
@@ -55,12 +56,75 @@ Partial Class Inicio
         ' DGVTurnos
         ' 
         DGVTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DGVTurnos.Columns.AddRange(New DataGridViewColumn() {F1DgbPacientes, F1DgbTelefono, F1DgbServicio, F1DgbTurnoDia, F1DgbTurnohora, F1DgbbtnVer, F1DgbBtnEditar, F1DgbBtnEliminar})
+        DGVTurnos.Columns.AddRange(New DataGridViewColumn() {F1DgbPacientes, F1DgbTelefono, F1DgbServicio, F1DgbTurnoDia, F1DgbTurnohora, F1DgbbtnVer, F1DgbBtnAsistio, F1DgbBtnAusente})
         DGVTurnos.Location = New Point(83, 341)
         DGVTurnos.Name = "DGVTurnos"
         DGVTurnos.RowHeadersWidth = 51
         DGVTurnos.Size = New Size(1067, 317)
         DGVTurnos.TabIndex = 4
+        ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(Label2)
+        GroupBox1.Controls.Add(Button1)
+        GroupBox1.Controls.Add(Label1)
+        GroupBox1.Controls.Add(Button2)
+        GroupBox1.Location = New Point(83, 65)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(615, 207)
+        GroupBox1.TabIndex = 3
+        GroupBox1.TabStop = False
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(224, 51)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(111, 20)
+        Label2.TabIndex = 3
+        Label2.Text = "Nuevo Paciente"
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = SystemColors.ActiveCaption
+        Button1.ForeColor = Color.Black
+        Button1.Location = New Point(224, 74)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(135, 61)
+        Button1.TabIndex = 2
+        Button1.Text = "👤 Paciente"
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(72, 51)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(94, 20)
+        Label1.TabIndex = 1
+        Label1.Text = "Nuevo Turno"
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = SystemColors.ActiveCaption
+        Button2.ForeColor = Color.Black
+        Button2.Location = New Point(72, 74)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(135, 61)
+        Button2.TabIndex = 0
+        Button2.Text = "➕ Turnos"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' lblTurnosDiaActual
+        ' 
+        lblTurnosDiaActual.AutoSize = True
+        lblTurnosDiaActual.Font = New Font("Segoe UI", 16F)
+        lblTurnosDiaActual.ForeColor = Color.Black
+        lblTurnosDiaActual.Location = New Point(83, 301)
+        lblTurnosDiaActual.Name = "lblTurnosDiaActual"
+        lblTurnosDiaActual.Size = New Size(174, 37)
+        lblTurnosDiaActual.TabIndex = 18
+        lblTurnosDiaActual.Text = "Turno de hoy"
         ' 
         ' F1DgbPacientes
         ' 
@@ -108,90 +172,32 @@ Partial Class Inicio
         F1DgbbtnVer.Text = "VER"
         F1DgbbtnVer.Width = 125
         ' 
-        ' F1DgbBtnEditar
+        ' F1DgbBtnAsistio
         ' 
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.NullValue = "Editar"
-        F1DgbBtnEditar.DefaultCellStyle = DataGridViewCellStyle2
-        F1DgbBtnEditar.HeaderText = "Editar"
-        F1DgbBtnEditar.MinimumWidth = 6
-        F1DgbBtnEditar.Name = "F1DgbBtnEditar"
-        F1DgbBtnEditar.Width = 125
+        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
+        F1DgbBtnAsistio.HeaderText = "Asistio"
+        F1DgbBtnAsistio.MinimumWidth = 6
+        F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
+        F1DgbBtnAsistio.Width = 125
         ' 
-        ' F1DgbBtnEliminar
+        ' F1DgbBtnAusente
         ' 
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.NullValue = "Eliminar"
-        F1DgbBtnEliminar.DefaultCellStyle = DataGridViewCellStyle3
-        F1DgbBtnEliminar.HeaderText = "Eliminar"
-        F1DgbBtnEliminar.MinimumWidth = 6
-        F1DgbBtnEliminar.Name = "F1DgbBtnEliminar"
-        F1DgbBtnEliminar.Width = 125
-        ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Controls.Add(Button4)
-        GroupBox1.Controls.Add(Button3)
-        GroupBox1.Controls.Add(Button2)
-        GroupBox1.Location = New Point(83, 65)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(615, 207)
-        GroupBox1.TabIndex = 3
-        GroupBox1.TabStop = False
-        ' 
-        ' Button4
-        ' 
-        Button4.BackColor = SystemColors.ActiveCaption
-        Button4.ForeColor = Color.Black
-        Button4.Location = New Point(390, 83)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(150, 61)
-        Button4.TabIndex = 2
-        Button4.Text = "👤 Pacientes"
-        Button4.UseVisualStyleBackColor = False
-        ' 
-        ' Button3
-        ' 
-        Button3.BackColor = SystemColors.ActiveCaption
-        Button3.ForeColor = Color.Black
-        Button3.Location = New Point(223, 83)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(148, 61)
-        Button3.TabIndex = 1
-        Button3.Text = "😊 Ver Turnos"
-        Button3.UseVisualStyleBackColor = False
-        ' 
-        ' Button2
-        ' 
-        Button2.BackColor = SystemColors.ActiveCaption
-        Button2.ForeColor = Color.Black
-        Button2.Location = New Point(67, 83)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(135, 61)
-        Button2.TabIndex = 0
-        Button2.Text = "➕ Turnos"
-        Button2.UseVisualStyleBackColor = False
-        ' 
-        ' ToolTip1
-        ' 
-        ' 
-        ' lblTurnosDiaActual
-        ' 
-        lblTurnosDiaActual.AutoSize = True
-        lblTurnosDiaActual.Font = New Font("Segoe UI", 16F)
-        lblTurnosDiaActual.ForeColor = Color.Black
-        lblTurnosDiaActual.Location = New Point(83, 301)
-        lblTurnosDiaActual.Name = "lblTurnosDiaActual"
-        lblTurnosDiaActual.Size = New Size(174, 37)
-        lblTurnosDiaActual.TabIndex = 18
-        lblTurnosDiaActual.Text = "Turno de hoy"
+        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
+        F1DgbBtnAusente.HeaderText = "Ausente"
+        F1DgbBtnAusente.MinimumWidth = 6
+        F1DgbBtnAusente.Name = "F1DgbBtnAusente"
+        F1DgbBtnAusente.Width = 125
         ' 
         ' Inicio
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1450, 850)
+        ClientSize = New Size(1269, 801)
         Controls.Add(lblTurnosDiaActual)
         Controls.Add(MonthCalendar1)
         Controls.Add(DGVTurnos)
@@ -202,24 +208,26 @@ Partial Class Inicio
         Text = "Inicio"
         CType(DGVTurnos, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents MonthCalendar1 As MonthCalendar
     Friend WithEvents DGVTurnos As DataGridView
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents lblTurnosDiaActual As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
     Friend WithEvents F1DgbPacientes As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbTelefono As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbServicio As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbTurnoDia As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbTurnohora As DataGridViewTextBoxColumn
     Friend WithEvents F1DgbbtnVer As DataGridViewButtonColumn
-    Friend WithEvents F1DgbBtnEditar As DataGridViewButtonColumn
-    Friend WithEvents F1DgbBtnEliminar As DataGridViewButtonColumn
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents lblTurnosDiaActual As Label
+    Friend WithEvents F1DgbBtnAsistio As DataGridViewButtonColumn
+    Friend WithEvents F1DgbBtnAusente As DataGridViewButtonColumn
 End Class

@@ -30,13 +30,13 @@ Partial Class Turnos
         ListBox1 = New ListBox()
         GroupBox2 = New GroupBox()
         DGVTurnos = New DataGridView()
-        Timer1 = New Timer(components)
         DGVPacientes = New DataGridViewTextBoxColumn()
         DGVConsultorio = New DataGridViewTextBoxColumn()
         DGVDoctor = New DataGridViewTextBoxColumn()
         DGVServicio = New DataGridViewTextBoxColumn()
         DGVDia = New DataGridViewTextBoxColumn()
         DGVHora = New DataGridViewTextBoxColumn()
+        Timer1 = New Timer(components)
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
@@ -152,15 +152,16 @@ Partial Class Turnos
         ' 
         ' Turnos
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1450, 850)
+        ClientSize = New Size(1269, 801)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Controls.Add(MonthCalendar1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Turnos"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Turnos"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()

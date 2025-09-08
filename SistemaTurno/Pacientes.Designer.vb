@@ -299,7 +299,7 @@ Partial Class Pacientes
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1450, 850)
+        ClientSize = New Size(1269, 801)
         Controls.Add(PacBuscador)
         Controls.Add(DataGridView1)
         Controls.Add(GroupBox1)
@@ -307,6 +307,7 @@ Partial Class Pacientes
         ForeColor = Color.Transparent
         FormBorderStyle = FormBorderStyle.None
         Name = "Pacientes"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Pacientes"
         InfoPaciente.ResumeLayout(False)
         InfoPaciente.PerformLayout()
