@@ -1,4 +1,6 @@
 ﻿Public Class Inicio
+
+    'Ultima Actualizacion 08/09/2025 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         CargarTurnosEnDataGridView()
@@ -18,9 +20,8 @@
     Private Sub CargarTurnosEnDataGridView()
         Dim rutaArchivo As String = "turnos.csv"
 
-        ' Limpiar las filas actuales para evitar duplicados
+        'Limpiar las filas actuales para evitar duplicados
         'Dim v = DGVTurnos.Rows.Count
-        'Ultima Actualizacion 08/09/2025
 
         DGVTurnos.Rows.Clear()
 
