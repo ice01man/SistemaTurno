@@ -90,7 +90,7 @@ Partial Class Form1
         ' ToolStripContainer1.ContentPanel
         ' 
         ToolStripContainer1.ContentPanel.BackColor = SystemColors.ControlText
-        ToolStripContainer1.ContentPanel.BackgroundImage = CType(resources.GetObject("ToolStripContainer1.ContentPanel.BackgroundImage"), Image)
+        ToolStripContainer1.ContentPanel.BackgroundImage = My.Resources.Resources.fondo_inicio
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
         ToolStripContainer1.ContentPanel.Size = New Size(1382, 754)

@@ -1,10 +1,11 @@
 ﻿Public Class Inicio
 
     'Ultima Actualizacion 08/09/2025 
-    Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'HOLA ES EL PRIMER COMMIT PULL 
-        CargarTurnosEnDataGridView()
-    End Sub
+
+    ' Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'HOLA ES EL PRIMER COMMIT PULL 
+    '    CargarTurnosEnDataGridView()
+    ' End Sub
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
