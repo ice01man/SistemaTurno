@@ -28,13 +28,6 @@ Partial Class Inicio
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar1 = New MonthCalendar()
         DGVTurnos = New DataGridView()
-        GroupBox1 = New GroupBox()
-        Label2 = New Label()
-        Button1 = New Button()
-        Label1 = New Label()
-        Button2 = New Button()
-        ToolTip1 = New ToolTip(components)
-        lblTurnosDiaActual = New Label()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
         F1DgbTelefono = New DataGridViewTextBoxColumn()
         F1DgbServicio = New DataGridViewTextBoxColumn()
@@ -43,6 +36,13 @@ Partial Class Inicio
         F1DgbbtnVer = New DataGridViewButtonColumn()
         F1DgbBtnAsistio = New DataGridViewButtonColumn()
         F1DgbBtnAusente = New DataGridViewButtonColumn()
+        GroupBox1 = New GroupBox()
+        Label2 = New Label()
+        Button1 = New Button()
+        Label1 = New Label()
+        Button2 = New Button()
+        ToolTip1 = New ToolTip(components)
+        lblTurnosDiaActual = New Label()
         CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
@@ -62,69 +62,6 @@ Partial Class Inicio
         DGVTurnos.RowHeadersWidth = 51
         DGVTurnos.Size = New Size(1067, 317)
         DGVTurnos.TabIndex = 4
-        ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Controls.Add(Label2)
-        GroupBox1.Controls.Add(Button1)
-        GroupBox1.Controls.Add(Label1)
-        GroupBox1.Controls.Add(Button2)
-        GroupBox1.Location = New Point(83, 65)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(615, 207)
-        GroupBox1.TabIndex = 3
-        GroupBox1.TabStop = False
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(224, 51)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(111, 20)
-        Label2.TabIndex = 3
-        Label2.Text = "Nuevo Paciente"
-        ' 
-        ' Button1
-        ' 
-        Button1.BackColor = SystemColors.ActiveCaption
-        Button1.ForeColor = Color.Black
-        Button1.Location = New Point(224, 74)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(135, 61)
-        Button1.TabIndex = 2
-        Button1.Text = "👤 Paciente"
-        Button1.UseVisualStyleBackColor = False
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(72, 51)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(94, 20)
-        Label1.TabIndex = 1
-        Label1.Text = "Nuevo Turno"
-        ' 
-        ' Button2
-        ' 
-        Button2.BackColor = SystemColors.ActiveCaption
-        Button2.ForeColor = Color.Black
-        Button2.Location = New Point(72, 74)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(135, 61)
-        Button2.TabIndex = 0
-        Button2.Text = "➕ Turnos"
-        Button2.UseVisualStyleBackColor = False
-        ' 
-        ' lblTurnosDiaActual
-        ' 
-        lblTurnosDiaActual.AutoSize = True
-        lblTurnosDiaActual.Font = New Font("Segoe UI", 16F)
-        lblTurnosDiaActual.ForeColor = Color.Black
-        lblTurnosDiaActual.Location = New Point(83, 301)
-        lblTurnosDiaActual.Name = "lblTurnosDiaActual"
-        lblTurnosDiaActual.Size = New Size(174, 37)
-        lblTurnosDiaActual.TabIndex = 18
-        lblTurnosDiaActual.Text = "Turno de hoy"
         ' 
         ' F1DgbPacientes
         ' 
@@ -192,12 +129,75 @@ Partial Class Inicio
         F1DgbBtnAusente.Name = "F1DgbBtnAusente"
         F1DgbBtnAusente.Width = 125
         ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(Label2)
+        GroupBox1.Controls.Add(Button1)
+        GroupBox1.Controls.Add(Label1)
+        GroupBox1.Controls.Add(Button2)
+        GroupBox1.Location = New Point(83, 65)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(615, 207)
+        GroupBox1.TabIndex = 3
+        GroupBox1.TabStop = False
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(224, 51)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(111, 20)
+        Label2.TabIndex = 3
+        Label2.Text = "Nuevo Paciente"
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = SystemColors.ActiveCaption
+        Button1.ForeColor = Color.Black
+        Button1.Location = New Point(224, 74)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(135, 61)
+        Button1.TabIndex = 2
+        Button1.Text = "👤 Paciente"
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(72, 51)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(94, 20)
+        Label1.TabIndex = 1
+        Label1.Text = "Nuevo Turno"
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = SystemColors.ActiveCaption
+        Button2.ForeColor = Color.Black
+        Button2.Location = New Point(72, 74)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(135, 61)
+        Button2.TabIndex = 0
+        Button2.Text = "➕ Turnos"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' lblTurnosDiaActual
+        ' 
+        lblTurnosDiaActual.AutoSize = True
+        lblTurnosDiaActual.Font = New Font("Segoe UI", 16F)
+        lblTurnosDiaActual.ForeColor = Color.Black
+        lblTurnosDiaActual.Location = New Point(83, 301)
+        lblTurnosDiaActual.Name = "lblTurnosDiaActual"
+        lblTurnosDiaActual.Size = New Size(174, 37)
+        lblTurnosDiaActual.TabIndex = 18
+        lblTurnosDiaActual.Text = "Turno de hoy"
+        ' 
         ' Inicio
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1269, 801)
+        ClientSize = New Size(1400, 850)
         Controls.Add(lblTurnosDiaActual)
         Controls.Add(MonthCalendar1)
         Controls.Add(DGVTurnos)

@@ -155,7 +155,7 @@ Partial Class Turnos
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1269, 801)
+        ClientSize = New Size(1400, 850)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Controls.Add(MonthCalendar1)

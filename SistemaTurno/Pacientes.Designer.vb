@@ -299,7 +299,7 @@ Partial Class Pacientes
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1269, 801)
+        ClientSize = New Size(1400, 850)
         Controls.Add(PacBuscador)
         Controls.Add(DataGridView1)
         Controls.Add(GroupBox1)
