@@ -116,7 +116,5 @@
         frmAdmin.Show()
     End Sub
 
-    Private Sub LogintxtUsuario_TextChanged(sender As Object, e As EventArgs) Handles LogintxtUsuario.TextChanged
 
-    End Sub
 End Class

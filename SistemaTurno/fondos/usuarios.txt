@@ -1,0 +1,6 @@
+admin,1234,Administrador
+paulo,5678,Administrador
+prueba,asdfg,Usuario
+clara,qwert,Administrador
+victoria,1qaz,Administrador
+pepito,12345,Consultor

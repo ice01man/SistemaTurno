@@ -40,6 +40,8 @@ Partial Class Admin
         DGV_Usuario = New DataGridViewTextBoxColumn()
         DGV_Contrasena = New DataGridViewTextBoxColumn()
         DGV_Rol = New DataGridViewTextBoxColumn()
+        TextBox1 = New TextBox()
+        Label1 = New Label()
         GroupBox1.SuspendLayout()
         PanelUsuarios.SuspendLayout()
         Panel2.SuspendLayout()
@@ -77,6 +79,8 @@ Partial Class Admin
         ' 
         ' PanelUsuarios
         ' 
+        PanelUsuarios.Controls.Add(Label1)
+        PanelUsuarios.Controls.Add(TextBox1)
         PanelUsuarios.Controls.Add(Chboxad)
         PanelUsuarios.Controls.Add(Button2)
         PanelUsuarios.Controls.Add(admin_combo)
@@ -95,7 +99,7 @@ Partial Class Admin
         ' 
         Chboxad.FormattingEnabled = True
         Chboxad.Items.AddRange(New Object() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"})
-        Chboxad.Location = New Point(220, 226)
+        Chboxad.Location = New Point(220, 183)
         Chboxad.Name = "Chboxad"
         Chboxad.Size = New Size(232, 158)
         Chboxad.TabIndex = 4
@@ -104,7 +108,7 @@ Partial Class Admin
         ' 
         Button2.BackColor = Color.GreenYellow
         Button2.ForeColor = Color.Black
-        Button2.Location = New Point(358, 399)
+        Button2.Location = New Point(358, 421)
         Button2.Name = "Button2"
         Button2.Size = New Size(94, 29)
         Button2.TabIndex = 3
@@ -115,7 +119,7 @@ Partial Class Admin
         ' 
         admin_combo.FormattingEnabled = True
         admin_combo.Items.AddRange(New Object() {"Seleccione", "Usuario", "Administrador", "Consultor"})
-        admin_combo.Location = New Point(220, 170)
+        admin_combo.Location = New Point(220, 149)
         admin_combo.Name = "admin_combo"
         admin_combo.Size = New Size(232, 28)
         admin_combo.TabIndex = 3
@@ -125,7 +129,7 @@ Partial Class Admin
         Labelad3.AutoSize = True
         Labelad3.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Labelad3.ForeColor = Color.Black
-        Labelad3.Location = New Point(50, 166)
+        Labelad3.Location = New Point(52, 158)
         Labelad3.Name = "Labelad3"
         Labelad3.Size = New Size(40, 28)
         Labelad3.TabIndex = 5
@@ -136,18 +140,18 @@ Partial Class Admin
         Labelad2.AutoSize = True
         Labelad2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Labelad2.ForeColor = Color.Black
-        Labelad2.Location = New Point(50, 110)
+        Labelad2.Location = New Point(52, 83)
         Labelad2.Name = "Labelad2"
-        Labelad2.Size = New Size(110, 28)
+        Labelad2.Size = New Size(86, 28)
         Labelad2.TabIndex = 4
-        Labelad2.Text = "Contraseña"
+        Labelad2.Text = "Apellido"
         ' 
         ' Labelad1
         ' 
         Labelad1.AutoSize = True
         Labelad1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Labelad1.ForeColor = Color.Black
-        Labelad1.Location = New Point(50, 50)
+        Labelad1.Location = New Point(52, 50)
         Labelad1.Name = "Labelad1"
         Labelad1.Size = New Size(79, 28)
         Labelad1.TabIndex = 3
@@ -155,7 +159,7 @@ Partial Class Admin
         ' 
         ' admin_contrasena
         ' 
-        admin_contrasena.Location = New Point(220, 110)
+        admin_contrasena.Location = New Point(220, 83)
         admin_contrasena.Name = "admin_contrasena"
         admin_contrasena.Size = New Size(232, 27)
         admin_contrasena.TabIndex = 1
@@ -219,6 +223,24 @@ Partial Class Admin
         DGV_Rol.ReadOnly = True
         DGV_Rol.Width = 125
         ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(220, 116)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(232, 27)
+        TextBox1.TabIndex = 6
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.Black
+        Label1.Location = New Point(52, 116)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(110, 28)
+        Label1.TabIndex = 7
+        Label1.Text = "Contraseña"
+        ' 
         ' Admin
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -258,4 +280,6 @@ Partial Class Admin
     Friend WithEvents DGV_Rol As DataGridViewTextBoxColumn
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Chboxad As CheckedListBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
 End Class

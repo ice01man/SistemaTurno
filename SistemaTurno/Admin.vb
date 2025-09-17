@@ -19,6 +19,7 @@
 
                 Dim rutaArchivo = "usuarios.txt"
                 DataGridViewAdmin.Rows.Clear()
+                DataGridViewAdmin.Columns.Clear()
 
                 If My.Computer.FileSystem.FileExists(rutaArchivo) Then
                     Try
@@ -45,21 +46,21 @@
                 MsgBox("Seleccionaste: " & seleccion)
 
             Case "Doctores"
+
                 PanelUsuarios.Visible = True
                 admin_combo.Visible = False
                 Chboxad.Visible = True
-
 
                 Labelad1.Text = "Dr/a:"
                 Labelad2.Text = "Especialidad"
                 Labelad3.Text = "Dia Laboral"
                 Chboxad.Location = New Point(220, 170)
 
-                Dim rutaArchivo = "doctores.csv"
                 DataGridViewAdmin.Rows.Clear()
                 DataGridViewAdmin.Columns.Clear()
                 DataGridViewAdmin.AutoGenerateColumns = False
 
+                Dim rutaArchivo = "doctores.csv"
                 Dim primeraLinea = System.IO.File.ReadLines(rutaArchivo).FirstOrDefault()
 
 
