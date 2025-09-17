@@ -25,21 +25,23 @@ Partial Class Admin
         GroupBox1 = New GroupBox()
         ComboBox1 = New ComboBox()
         Button1 = New Button()
-        Panel1 = New Panel()
+        PanelUsuarios = New Panel()
+        Chboxad = New CheckedListBox()
         Button2 = New Button()
         admin_combo = New ComboBox()
-        Label3 = New Label()
-        Label2 = New Label()
-        Label1 = New Label()
+        Labelad3 = New Label()
+        Labelad2 = New Label()
+        Labelad1 = New Label()
         admin_contrasena = New TextBox()
         admin_usuario = New TextBox()
         Panel2 = New Panel()
+        ComboBox2 = New ComboBox()
         DataGridViewAdmin = New DataGridView()
         DGV_Usuario = New DataGridViewTextBoxColumn()
         DGV_Contrasena = New DataGridViewTextBoxColumn()
         DGV_Rol = New DataGridViewTextBoxColumn()
         GroupBox1.SuspendLayout()
-        Panel1.SuspendLayout()
+        PanelUsuarios.SuspendLayout()
         Panel2.SuspendLayout()
         CType(DataGridViewAdmin, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -58,7 +60,7 @@ Partial Class Admin
         ' ComboBox1
         ' 
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Seleccione", "Pantalla", "Usuarios", "Colores"})
+        ComboBox1.Items.AddRange(New Object() {"Seleccione", "Usuarios", "Doctores", "Pantalla"})
         ComboBox1.Location = New Point(55, 27)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(421, 28)
@@ -73,25 +75,36 @@ Partial Class Admin
         Button1.Text = "ir"
         Button1.UseVisualStyleBackColor = True
         ' 
-        ' Panel1
+        ' PanelUsuarios
         ' 
-        Panel1.Controls.Add(Button2)
-        Panel1.Controls.Add(admin_combo)
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
-        Panel1.Controls.Add(admin_contrasena)
-        Panel1.Controls.Add(admin_usuario)
-        Panel1.Location = New Point(67, 142)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(554, 326)
-        Panel1.TabIndex = 1
+        PanelUsuarios.Controls.Add(Chboxad)
+        PanelUsuarios.Controls.Add(Button2)
+        PanelUsuarios.Controls.Add(admin_combo)
+        PanelUsuarios.Controls.Add(Labelad3)
+        PanelUsuarios.Controls.Add(Labelad2)
+        PanelUsuarios.Controls.Add(Labelad1)
+        PanelUsuarios.Controls.Add(admin_contrasena)
+        PanelUsuarios.Controls.Add(admin_usuario)
+        PanelUsuarios.Location = New Point(70, 140)
+        PanelUsuarios.Name = "PanelUsuarios"
+        PanelUsuarios.Size = New Size(554, 465)
+        PanelUsuarios.TabIndex = 1
+        PanelUsuarios.Visible = False
+        ' 
+        ' Chboxad
+        ' 
+        Chboxad.FormattingEnabled = True
+        Chboxad.Items.AddRange(New Object() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"})
+        Chboxad.Location = New Point(220, 226)
+        Chboxad.Name = "Chboxad"
+        Chboxad.Size = New Size(232, 158)
+        Chboxad.TabIndex = 4
         ' 
         ' Button2
         ' 
         Button2.BackColor = Color.GreenYellow
         Button2.ForeColor = Color.Black
-        Button2.Location = New Point(358, 249)
+        Button2.Location = New Point(358, 399)
         Button2.Name = "Button2"
         Button2.Size = New Size(94, 29)
         Button2.TabIndex = 3
@@ -107,38 +120,38 @@ Partial Class Admin
         admin_combo.Size = New Size(232, 28)
         admin_combo.TabIndex = 3
         ' 
-        ' Label3
+        ' Labelad3
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.ForeColor = Color.Black
-        Label3.Location = New Point(90, 166)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(40, 28)
-        Label3.TabIndex = 5
-        Label3.Text = "Rol"
+        Labelad3.AutoSize = True
+        Labelad3.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Labelad3.ForeColor = Color.Black
+        Labelad3.Location = New Point(50, 166)
+        Labelad3.Name = "Labelad3"
+        Labelad3.Size = New Size(40, 28)
+        Labelad3.TabIndex = 5
+        Labelad3.Text = "Rol"
         ' 
-        ' Label2
+        ' Labelad2
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.Black
-        Label2.Location = New Point(90, 110)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(110, 28)
-        Label2.TabIndex = 4
-        Label2.Text = "Contraseña"
+        Labelad2.AutoSize = True
+        Labelad2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Labelad2.ForeColor = Color.Black
+        Labelad2.Location = New Point(50, 110)
+        Labelad2.Name = "Labelad2"
+        Labelad2.Size = New Size(110, 28)
+        Labelad2.TabIndex = 4
+        Labelad2.Text = "Contraseña"
         ' 
-        ' Label1
+        ' Labelad1
         ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.Black
-        Label1.Location = New Point(90, 49)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(79, 28)
-        Label1.TabIndex = 3
-        Label1.Text = "Usuario"
+        Labelad1.AutoSize = True
+        Labelad1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Labelad1.ForeColor = Color.Black
+        Labelad1.Location = New Point(50, 50)
+        Labelad1.Name = "Labelad1"
+        Labelad1.Size = New Size(79, 28)
+        Labelad1.TabIndex = 3
+        Labelad1.Text = "Usuario"
         ' 
         ' admin_contrasena
         ' 
@@ -149,24 +162,34 @@ Partial Class Admin
         ' 
         ' admin_usuario
         ' 
-        admin_usuario.Location = New Point(220, 49)
+        admin_usuario.Location = New Point(220, 50)
         admin_usuario.Name = "admin_usuario"
         admin_usuario.Size = New Size(232, 27)
         admin_usuario.TabIndex = 0
         ' 
         ' Panel2
         ' 
+        Panel2.Controls.Add(ComboBox2)
         Panel2.Controls.Add(DataGridViewAdmin)
-        Panel2.Location = New Point(678, 142)
+        Panel2.Location = New Point(678, 140)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(575, 565)
         Panel2.TabIndex = 2
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"Seleccione", "Usuarios", "Doctores", "Pantalla"})
+        ComboBox2.Location = New Point(56, 48)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(429, 28)
+        ComboBox2.TabIndex = 3
         ' 
         ' DataGridViewAdmin
         ' 
         DataGridViewAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewAdmin.Columns.AddRange(New DataGridViewColumn() {DGV_Usuario, DGV_Contrasena, DGV_Rol})
-        DataGridViewAdmin.Location = New Point(57, 39)
+        DataGridViewAdmin.Location = New Point(56, 110)
         DataGridViewAdmin.Name = "DataGridViewAdmin"
         DataGridViewAdmin.RowHeadersWidth = 51
         DataGridViewAdmin.Size = New Size(429, 414)
@@ -203,15 +226,15 @@ Partial Class Admin
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1382, 803)
         Controls.Add(Panel2)
-        Controls.Add(Panel1)
+        Controls.Add(PanelUsuarios)
         Controls.Add(GroupBox1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Admin"
         ShowInTaskbar = False
         Text = "Admin"
         GroupBox1.ResumeLayout(False)
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
+        PanelUsuarios.ResumeLayout(False)
+        PanelUsuarios.PerformLayout()
         Panel2.ResumeLayout(False)
         CType(DataGridViewAdmin, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -220,17 +243,19 @@ Partial Class Admin
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents PanelUsuarios As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Labelad1 As Label
     Friend WithEvents admin_contrasena As TextBox
     Friend WithEvents admin_usuario As TextBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents Labelad2 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents admin_combo As ComboBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents Labelad3 As Label
     Friend WithEvents DataGridViewAdmin As DataGridView
     Friend WithEvents DGV_Usuario As DataGridViewTextBoxColumn
     Friend WithEvents DGV_Contrasena As DataGridViewTextBoxColumn
     Friend WithEvents DGV_Rol As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Chboxad As CheckedListBox
 End Class
