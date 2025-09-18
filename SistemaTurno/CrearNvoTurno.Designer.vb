@@ -32,11 +32,11 @@ Partial Class CrearNvoTurno
         lblAsistencia = New Label()
         txtTelefono = New TextBox()
         lblTelefono = New Label()
-        txtPaciente = New TextBox()
         lblPaciente = New Label()
         Label1 = New Label()
         ComboBox1 = New ComboBox()
-        buscar = New Button()
+        btnBuscar = New Button()
+        cmbPaciente = New ComboBox()
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -126,13 +126,6 @@ Partial Class CrearNvoTurno
         lblTelefono.TabIndex = 19
         lblTelefono.Text = "Teléfono"
         ' 
-        ' txtPaciente
-        ' 
-        txtPaciente.Location = New Point(331, 63)
-        txtPaciente.Name = "txtPaciente"
-        txtPaciente.Size = New Size(292, 27)
-        txtPaciente.TabIndex = 18
-        ' 
         ' lblPaciente
         ' 
         lblPaciente.AutoSize = True
@@ -160,21 +153,30 @@ Partial Class CrearNvoTurno
         ComboBox1.Size = New Size(292, 28)
         ComboBox1.TabIndex = 30
         ' 
-        ' buscar
+        ' btnBuscar
         ' 
-        buscar.Location = New Point(651, 63)
-        buscar.Name = "buscar"
-        buscar.Size = New Size(94, 29)
-        buscar.TabIndex = 31
-        buscar.Text = "Buscar"
-        buscar.UseVisualStyleBackColor = True
+        btnBuscar.Location = New Point(651, 63)
+        btnBuscar.Name = "btnBuscar"
+        btnBuscar.Size = New Size(94, 29)
+        btnBuscar.TabIndex = 31
+        btnBuscar.Text = "Buscar"
+        btnBuscar.UseVisualStyleBackColor = True
+        ' 
+        ' cmbPaciente
+        ' 
+        cmbPaciente.FormattingEnabled = True
+        cmbPaciente.Location = New Point(331, 63)
+        cmbPaciente.Name = "cmbPaciente"
+        cmbPaciente.Size = New Size(292, 28)
+        cmbPaciente.TabIndex = 32
         ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
-        Controls.Add(buscar)
+        Controls.Add(cmbPaciente)
+        Controls.Add(btnBuscar)
         Controls.Add(ComboBox1)
         Controls.Add(Label1)
         Controls.Add(btnCancelar)
@@ -187,7 +189,6 @@ Partial Class CrearNvoTurno
         Controls.Add(lblAsistencia)
         Controls.Add(txtTelefono)
         Controls.Add(lblTelefono)
-        Controls.Add(txtPaciente)
         Controls.Add(lblPaciente)
         Name = "CrearNvoTurno"
         StartPosition = FormStartPosition.CenterScreen
@@ -206,9 +207,9 @@ Partial Class CrearNvoTurno
     Friend WithEvents lblAsistencia As Label
     Friend WithEvents txtTelefono As TextBox
     Friend WithEvents lblTelefono As Label
-    Friend WithEvents txtPaciente As TextBox
     Friend WithEvents lblPaciente As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents buscar As Button
+    Friend WithEvents btnBuscar As Button
+    Friend WithEvents cmbPaciente As ComboBox
 End Class
