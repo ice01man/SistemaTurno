@@ -26,22 +26,22 @@ Partial Class Admin
         ComboBox1 = New ComboBox()
         Button1 = New Button()
         PanelUsuarios = New Panel()
+        Labelad4 = New Label()
+        admin_texto3 = New TextBox()
         Chboxad = New CheckedListBox()
         Button2 = New Button()
         admin_combo = New ComboBox()
         Labelad3 = New Label()
         Labelad2 = New Label()
         Labelad1 = New Label()
-        admin_contrasena = New TextBox()
-        admin_usuario = New TextBox()
+        admin_texto2 = New TextBox()
+        admin_texto1 = New TextBox()
         Panel2 = New Panel()
-        ComboBox2 = New ComboBox()
+        lbl_buscarEspecialidad = New Label()
+        txt_buscadorEspe = New TextBox()
+        Buscador = New Label()
+        txt_buscador = New TextBox()
         DataGridViewAdmin = New DataGridView()
-        DGV_Usuario = New DataGridViewTextBoxColumn()
-        DGV_Contrasena = New DataGridViewTextBoxColumn()
-        DGV_Rol = New DataGridViewTextBoxColumn()
-        TextBox1 = New TextBox()
-        Label1 = New Label()
         GroupBox1.SuspendLayout()
         PanelUsuarios.SuspendLayout()
         Panel2.SuspendLayout()
@@ -79,24 +79,43 @@ Partial Class Admin
         ' 
         ' PanelUsuarios
         ' 
-        PanelUsuarios.Controls.Add(Label1)
-        PanelUsuarios.Controls.Add(TextBox1)
+        PanelUsuarios.Controls.Add(Labelad4)
+        PanelUsuarios.Controls.Add(admin_texto3)
         PanelUsuarios.Controls.Add(Chboxad)
         PanelUsuarios.Controls.Add(Button2)
         PanelUsuarios.Controls.Add(admin_combo)
         PanelUsuarios.Controls.Add(Labelad3)
         PanelUsuarios.Controls.Add(Labelad2)
         PanelUsuarios.Controls.Add(Labelad1)
-        PanelUsuarios.Controls.Add(admin_contrasena)
-        PanelUsuarios.Controls.Add(admin_usuario)
+        PanelUsuarios.Controls.Add(admin_texto2)
+        PanelUsuarios.Controls.Add(admin_texto1)
         PanelUsuarios.Location = New Point(70, 140)
         PanelUsuarios.Name = "PanelUsuarios"
-        PanelUsuarios.Size = New Size(554, 465)
+        PanelUsuarios.Size = New Size(510, 465)
         PanelUsuarios.TabIndex = 1
         PanelUsuarios.Visible = False
         ' 
+        ' Labelad4
+        ' 
+        Labelad4.AutoSize = True
+        Labelad4.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Labelad4.ForeColor = Color.Black
+        Labelad4.Location = New Point(52, 149)
+        Labelad4.Name = "Labelad4"
+        Labelad4.Size = New Size(74, 28)
+        Labelad4.TabIndex = 7
+        Labelad4.Text = "Texto 4"
+        ' 
+        ' admin_texto3
+        ' 
+        admin_texto3.Location = New Point(220, 116)
+        admin_texto3.Name = "admin_texto3"
+        admin_texto3.Size = New Size(232, 27)
+        admin_texto3.TabIndex = 6
+        ' 
         ' Chboxad
         ' 
+        Chboxad.ForeColor = Color.Black
         Chboxad.FormattingEnabled = True
         Chboxad.Items.AddRange(New Object() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"})
         Chboxad.Location = New Point(220, 183)
@@ -129,11 +148,11 @@ Partial Class Admin
         Labelad3.AutoSize = True
         Labelad3.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Labelad3.ForeColor = Color.Black
-        Labelad3.Location = New Point(52, 158)
+        Labelad3.Location = New Point(52, 116)
         Labelad3.Name = "Labelad3"
-        Labelad3.Size = New Size(40, 28)
+        Labelad3.Size = New Size(74, 28)
         Labelad3.TabIndex = 5
-        Labelad3.Text = "Rol"
+        Labelad3.Text = "Texto 3"
         ' 
         ' Labelad2
         ' 
@@ -142,9 +161,9 @@ Partial Class Admin
         Labelad2.ForeColor = Color.Black
         Labelad2.Location = New Point(52, 83)
         Labelad2.Name = "Labelad2"
-        Labelad2.Size = New Size(86, 28)
+        Labelad2.Size = New Size(74, 28)
         Labelad2.TabIndex = 4
-        Labelad2.Text = "Apellido"
+        Labelad2.Text = "Texto 2"
         ' 
         ' Labelad1
         ' 
@@ -153,93 +172,81 @@ Partial Class Admin
         Labelad1.ForeColor = Color.Black
         Labelad1.Location = New Point(52, 50)
         Labelad1.Name = "Labelad1"
-        Labelad1.Size = New Size(79, 28)
+        Labelad1.Size = New Size(74, 28)
         Labelad1.TabIndex = 3
-        Labelad1.Text = "Usuario"
+        Labelad1.Text = "Texto 1"
         ' 
-        ' admin_contrasena
+        ' admin_texto2
         ' 
-        admin_contrasena.Location = New Point(220, 83)
-        admin_contrasena.Name = "admin_contrasena"
-        admin_contrasena.Size = New Size(232, 27)
-        admin_contrasena.TabIndex = 1
+        admin_texto2.Location = New Point(220, 83)
+        admin_texto2.Name = "admin_texto2"
+        admin_texto2.Size = New Size(232, 27)
+        admin_texto2.TabIndex = 1
         ' 
-        ' admin_usuario
+        ' admin_texto1
         ' 
-        admin_usuario.Location = New Point(220, 50)
-        admin_usuario.Name = "admin_usuario"
-        admin_usuario.Size = New Size(232, 27)
-        admin_usuario.TabIndex = 0
+        admin_texto1.Location = New Point(220, 50)
+        admin_texto1.Name = "admin_texto1"
+        admin_texto1.Size = New Size(232, 27)
+        admin_texto1.TabIndex = 0
         ' 
         ' Panel2
         ' 
-        Panel2.Controls.Add(ComboBox2)
+        Panel2.Controls.Add(lbl_buscarEspecialidad)
+        Panel2.Controls.Add(txt_buscadorEspe)
+        Panel2.Controls.Add(Buscador)
+        Panel2.Controls.Add(txt_buscador)
         Panel2.Controls.Add(DataGridViewAdmin)
-        Panel2.Location = New Point(678, 140)
+        Panel2.Location = New Point(603, 140)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(575, 565)
+        Panel2.Size = New Size(708, 565)
         Panel2.TabIndex = 2
         ' 
-        ' ComboBox2
+        ' lbl_buscarEspecialidad
         ' 
-        ComboBox2.FormattingEnabled = True
-        ComboBox2.Items.AddRange(New Object() {"Seleccione", "Usuarios", "Doctores", "Pantalla"})
-        ComboBox2.Location = New Point(56, 48)
-        ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(429, 28)
-        ComboBox2.TabIndex = 3
+        lbl_buscarEspecialidad.AutoSize = True
+        lbl_buscarEspecialidad.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lbl_buscarEspecialidad.ForeColor = Color.Black
+        lbl_buscarEspecialidad.Location = New Point(376, 24)
+        lbl_buscarEspecialidad.Name = "lbl_buscarEspecialidad"
+        lbl_buscarEspecialidad.Size = New Size(112, 23)
+        lbl_buscarEspecialidad.TabIndex = 10
+        lbl_buscarEspecialidad.Text = "Especialidad: "
+        ' 
+        ' txt_buscadorEspe
+        ' 
+        txt_buscadorEspe.Location = New Point(376, 50)
+        txt_buscadorEspe.Name = "txt_buscadorEspe"
+        txt_buscadorEspe.Size = New Size(260, 27)
+        txt_buscadorEspe.TabIndex = 9
+        ' 
+        ' Buscador
+        ' 
+        Buscador.AutoSize = True
+        Buscador.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Buscador.ForeColor = Color.Black
+        Buscador.Location = New Point(19, 24)
+        Buscador.Name = "Buscador"
+        Buscador.Size = New Size(89, 23)
+        Buscador.TabIndex = 8
+        Buscador.Text = "Buscador: "
+        ' 
+        ' txt_buscador
+        ' 
+        txt_buscador.Location = New Point(19, 50)
+        txt_buscador.Name = "txt_buscador"
+        txt_buscador.Size = New Size(333, 27)
+        txt_buscador.TabIndex = 8
         ' 
         ' DataGridViewAdmin
         ' 
+        DataGridViewAdmin.AllowUserToAddRows = False
         DataGridViewAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewAdmin.Columns.AddRange(New DataGridViewColumn() {DGV_Usuario, DGV_Contrasena, DGV_Rol})
-        DataGridViewAdmin.Location = New Point(56, 110)
+        DataGridViewAdmin.Location = New Point(19, 94)
         DataGridViewAdmin.Name = "DataGridViewAdmin"
         DataGridViewAdmin.RowHeadersWidth = 51
-        DataGridViewAdmin.Size = New Size(429, 414)
+        DataGridViewAdmin.Size = New Size(631, 414)
         DataGridViewAdmin.TabIndex = 0
-        ' 
-        ' DGV_Usuario
-        ' 
-        DGV_Usuario.HeaderText = "Usuarios"
-        DGV_Usuario.MinimumWidth = 6
-        DGV_Usuario.Name = "DGV_Usuario"
-        DGV_Usuario.ReadOnly = True
-        DGV_Usuario.Width = 125
-        ' 
-        ' DGV_Contrasena
-        ' 
-        DGV_Contrasena.HeaderText = "Contraseña"
-        DGV_Contrasena.MinimumWidth = 6
-        DGV_Contrasena.Name = "DGV_Contrasena"
-        DGV_Contrasena.ReadOnly = True
-        DGV_Contrasena.Width = 125
-        ' 
-        ' DGV_Rol
-        ' 
-        DGV_Rol.HeaderText = "Roles"
-        DGV_Rol.MinimumWidth = 6
-        DGV_Rol.Name = "DGV_Rol"
-        DGV_Rol.ReadOnly = True
-        DGV_Rol.Width = 125
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.Location = New Point(220, 116)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(232, 27)
-        TextBox1.TabIndex = 6
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.Black
-        Label1.Location = New Point(52, 116)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(110, 28)
-        Label1.TabIndex = 7
-        Label1.Text = "Contraseña"
         ' 
         ' Admin
         ' 
@@ -258,6 +265,7 @@ Partial Class Admin
         PanelUsuarios.ResumeLayout(False)
         PanelUsuarios.PerformLayout()
         Panel2.ResumeLayout(False)
+        Panel2.PerformLayout()
         CType(DataGridViewAdmin, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -268,18 +276,18 @@ Partial Class Admin
     Friend WithEvents PanelUsuarios As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Labelad1 As Label
-    Friend WithEvents admin_contrasena As TextBox
-    Friend WithEvents admin_usuario As TextBox
+    Friend WithEvents admin_texto2 As TextBox
+    Friend WithEvents admin_texto1 As TextBox
     Friend WithEvents Labelad2 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents admin_combo As ComboBox
     Friend WithEvents Labelad3 As Label
     Friend WithEvents DataGridViewAdmin As DataGridView
-    Friend WithEvents DGV_Usuario As DataGridViewTextBoxColumn
-    Friend WithEvents DGV_Contrasena As DataGridViewTextBoxColumn
-    Friend WithEvents DGV_Rol As DataGridViewTextBoxColumn
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Chboxad As CheckedListBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents admin_texto3 As TextBox
+    Friend WithEvents Labelad4 As Label
+    Friend WithEvents txt_buscador As TextBox
+    Friend WithEvents Buscador As Label
+    Friend WithEvents lbl_buscarEspecialidad As Label
+    Friend WithEvents txt_buscadorEspe As TextBox
 End Class

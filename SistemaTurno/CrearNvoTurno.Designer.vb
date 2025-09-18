@@ -36,6 +36,7 @@ Partial Class CrearNvoTurno
         lblPaciente = New Label()
         Label1 = New Label()
         ComboBox1 = New ComboBox()
+        buscar = New Button()
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -159,11 +160,21 @@ Partial Class CrearNvoTurno
         ComboBox1.Size = New Size(292, 28)
         ComboBox1.TabIndex = 30
         ' 
+        ' buscar
+        ' 
+        buscar.Location = New Point(651, 63)
+        buscar.Name = "buscar"
+        buscar.Size = New Size(94, 29)
+        buscar.TabIndex = 31
+        buscar.Text = "Buscar"
+        buscar.UseVisualStyleBackColor = True
+        ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
+        Controls.Add(buscar)
         Controls.Add(ComboBox1)
         Controls.Add(Label1)
         Controls.Add(btnCancelar)
@@ -199,4 +210,5 @@ Partial Class CrearNvoTurno
     Friend WithEvents lblPaciente As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents buscar As Button
 End Class

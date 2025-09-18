@@ -176,6 +176,7 @@ Partial Class Form1
         ' 
         LogintxtPassword.Location = New Point(45, 281)
         LogintxtPassword.Name = "LogintxtPassword"
+        LogintxtPassword.PasswordChar = "*"c
         LogintxtPassword.Size = New Size(222, 27)
         LogintxtPassword.TabIndex = 1
         ' 
