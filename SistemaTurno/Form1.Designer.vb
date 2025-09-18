@@ -97,11 +97,12 @@ Partial Class Form1
         ' 
         ' ToolStripContainer1.ContentPanel
         ' 
-        ToolStripContainer1.ContentPanel.BackColor = SystemColors.ControlText
+        ToolStripContainer1.ContentPanel.BackColor = SystemColors.ActiveCaption
         ToolStripContainer1.ContentPanel.BackgroundImage = CType(resources.GetObject("ToolStripContainer1.ContentPanel.BackgroundImage"), Image)
+        ToolStripContainer1.ContentPanel.BackgroundImageLayout = ImageLayout.Stretch
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
-        ToolStripContainer1.ContentPanel.Size = New Size(1382, 754)
+        ToolStripContainer1.ContentPanel.Size = New Size(1382, 779)
         ToolStripContainer1.Dock = DockStyle.Fill
         ToolStripContainer1.LeftToolStripPanelVisible = False
         ToolStripContainer1.Location = New Point(0, 24)
@@ -121,7 +122,7 @@ Partial Class Form1
         GroupBox1.Controls.Add(LogintxtPassword)
         GroupBox1.Controls.Add(LogintxtUsuario)
         GroupBox1.ForeColor = SystemColors.ButtonHighlight
-        GroupBox1.Location = New Point(440, 143)
+        GroupBox1.Location = New Point(550, 200)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(314, 386)
         GroupBox1.TabIndex = 0
