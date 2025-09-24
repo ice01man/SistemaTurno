@@ -2,6 +2,8 @@
 Imports System.Runtime.InteropServices.JavaScript.JSType
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
+'Actualizacion al 24 de septiembre 2025 
+
 Public Class Admin
 
 

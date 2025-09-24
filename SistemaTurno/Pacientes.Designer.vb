@@ -99,9 +99,9 @@ Partial Class Pacientes
         Label1.ForeColor = Color.Black
         Label1.Location = New Point(61, 263)
         Label1.Name = "Label1"
-        Label1.Size = New Size(49, 20)
+        Label1.Size = New Size(88, 20)
         Label1.TabIndex = 9
-        Label1.Text = "EDAD"
+        Label1.Text = "FECHA NAC"
         ' 
         ' PaclblCredencial
         ' 
@@ -127,7 +127,7 @@ Partial Class Pacientes
         ' 
         PacLblApellido.AutoSize = True
         PacLblApellido.ForeColor = Color.Black
-        PacLblApellido.Location = New Point(61, 150)
+        PacLblApellido.Location = New Point(61, 78)
         PacLblApellido.Name = "PacLblApellido"
         PacLblApellido.Size = New Size(75, 20)
         PacLblApellido.TabIndex = 6
@@ -137,7 +137,7 @@ Partial Class Pacientes
         ' 
         PacLblNombre.AutoSize = True
         PacLblNombre.ForeColor = Color.Black
-        PacLblNombre.Location = New Point(61, 81)
+        PacLblNombre.Location = New Point(61, 150)
         PacLblNombre.Name = "PacLblNombre"
         PacLblNombre.Size = New Size(70, 20)
         PacLblNombre.TabIndex = 5
