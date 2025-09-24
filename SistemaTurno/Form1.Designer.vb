@@ -177,6 +177,7 @@ Partial Class Form1
         LogintxtPassword.Location = New Point(45, 281)
         LogintxtPassword.Name = "LogintxtPassword"
         LogintxtPassword.PasswordChar = "*"c
+        LogintxtPassword.PlaceholderText = "   Contraseña"
         LogintxtPassword.Size = New Size(222, 27)
         LogintxtPassword.TabIndex = 1
         ' 
@@ -185,6 +186,7 @@ Partial Class Form1
         LogintxtUsuario.BorderStyle = BorderStyle.FixedSingle
         LogintxtUsuario.Location = New Point(45, 210)
         LogintxtUsuario.Name = "LogintxtUsuario"
+        LogintxtUsuario.PlaceholderText = "    Usuario"
         LogintxtUsuario.Size = New Size(222, 27)
         LogintxtUsuario.TabIndex = 0
         ' 

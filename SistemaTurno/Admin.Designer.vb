@@ -23,7 +23,7 @@ Partial Class Admin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         GroupBox1 = New GroupBox()
-        ComboBox1 = New ComboBox()
+        Combobox_admin = New ComboBox()
         Button1 = New Button()
         PanelUsuarios = New Panel()
         Labelad4 = New Label()
@@ -50,7 +50,7 @@ Partial Class Admin
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(ComboBox1)
+        GroupBox1.Controls.Add(Combobox_admin)
         GroupBox1.Controls.Add(Button1)
         GroupBox1.Location = New Point(67, 35)
         GroupBox1.Name = "GroupBox1"
@@ -59,14 +59,14 @@ Partial Class Admin
         GroupBox1.TabStop = False
         GroupBox1.Text = "Administracion"
         ' 
-        ' ComboBox1
+        ' Combobox_admin
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Seleccione", "Usuarios", "Doctores", "Pantalla"})
-        ComboBox1.Location = New Point(55, 27)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(421, 28)
-        ComboBox1.TabIndex = 2
+        Combobox_admin.FormattingEnabled = True
+        Combobox_admin.Items.AddRange(New Object() {"Seleccione", "Usuarios", "Doctores", "Pantalla"})
+        Combobox_admin.Location = New Point(55, 27)
+        Combobox_admin.Name = "Combobox_admin"
+        Combobox_admin.Size = New Size(421, 28)
+        Combobox_admin.TabIndex = 2
         ' 
         ' Button1
         ' 
@@ -271,7 +271,7 @@ Partial Class Admin
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Combobox_admin As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents PanelUsuarios As Panel
     Friend WithEvents Panel2 As Panel

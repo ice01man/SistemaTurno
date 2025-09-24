@@ -1,12 +1,12 @@
 ﻿Imports System.Net.Http
 Imports System.Runtime.InteropServices.JavaScript.JSType
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Admin
-    Private dt As New DataTable()
-    Private dv As New DataView()
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Dim seleccion = ComboBox1.SelectedItem.ToString
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combobox_admin.SelectedIndexChanged
+        Dim seleccion = Combobox_admin.SelectedItem.ToString
 
 
         Select Case seleccion
@@ -198,7 +198,18 @@ Public Class Admin
 
     End Sub
 
+    Private Sub LimpiarAdmintrador(ByVal contenedor As Control)
 
+        admin_texto1.Text = ""
+        admin_texto2.Text = ""
+        admin_texto3.Text = ""
+        admin_combo.Text = ""
+        txt_buscador.Text = ""
+        For i As Integer = 0 To Chboxad.Items.Count - 1
+            Chboxad.SetItemChecked(i, False)
+        Next
+
+    End Sub
 
     Private Sub txt_buscador_TextChanged(sender As Object, e As EventArgs) Handles txt_buscador.TextChanged
         ' Si el TextBox está vacío, muestra todas las filas
@@ -207,6 +218,7 @@ Public Class Admin
                 row.Visible = True
             Next
         Else
+            ' ToLower para hacer la búsqueda llevando todas las letas a minúsculas
             Dim searchText = txt_buscador.Text.ToLower
             Dim textoCompleto = ""
             Dim nombre = ""
@@ -231,7 +243,6 @@ Public Class Admin
                         apellido = apellidoCelda.Value.ToString
                     End If
 
-
                 End If
 
                 ' Obtiene el valor de la celda "Nombre" de forma segura
@@ -245,9 +256,9 @@ Public Class Admin
                 If Not String.IsNullOrWhiteSpace(textoCompleto) Then
                     ' Verifica si el texto de búsqueda está contenido en alguna de las celdas
                     If textoCompleto.Contains(searchText) Then
-                        row.Visible = True ' Muestra la fila si hay coincidencia
+                        row.Visible = True                  ' Muestra la fila si hay coincidencia
                     Else
-                        row.Visible = False ' Oculta la fila si no hay coincidencia
+                        row.Visible = False                 ' Oculta la fila si no hay coincidencia
                     End If
 
                 End If
@@ -257,20 +268,11 @@ Public Class Admin
 
     End Sub
 
-    Private Sub LimpiarAdmintrador(ByVal contenedor As Control)
 
-        admin_texto1.Text = ""
-        admin_texto2.Text = ""
-        admin_texto3.Text = ""
-        admin_combo.Text = ""
-        txt_buscador.Text = ""
-        For i As Integer = 0 To Chboxad.Items.Count - 1
-            Chboxad.SetItemChecked(i, False)
-        Next
-
-    End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txt_buscadorEspe.TextChanged
+
+        'Buscadores por Especialidad 
 
         If String.IsNullOrEmpty(txt_buscadorEspe.Text) Then
             For Each row As DataGridViewRow In DataGridViewAdmin.Rows
@@ -293,9 +295,9 @@ Public Class Admin
                 If Not String.IsNullOrWhiteSpace(Especialidad) Then
                     ' Verifica si el texto de búsqueda está contenido en alguna de las celdas
                     If Especialidad.Contains(searchText) Then
-                        row.Visible = True ' Muestra la fila si hay coincidencia
+                        row.Visible = True              ' Muestra la fila si hay coincidencia
                     Else
-                        row.Visible = False ' Oculta la fila si no hay coincidencia
+                        row.Visible = False             ' Oculta la fila si no hay coincidencia
                     End If
 
                 End If
@@ -304,4 +306,72 @@ Public Class Admin
         End If
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim valorSeleccionado As String
+        'admin_texto1.Text = ""
+        'admin_texto2.Text = ""
+        'admin_texto3.Text = ""
+        'admin_combo.Text = ""
+
+
+        If Not IsNothing(Combobox_admin.SelectedItem) Then
+            ' Leer el elemento seleccionado y convertirlo a String.
+            valorSeleccionado = Combobox_admin.SelectedItem.ToString()
+
+            Select Case valorSeleccionado
+                Case "Usuarios"
+                    Labelad1.Text = "Usuarios"
+                    Labelad2.Text = "Contraseña"
+                    Labelad3.Text = "Roles"
+                    Labelad4.Visible = False
+                    Dim nombre As String = admin_texto1.Text
+                    Dim apellido As String = admin_texto2.Text
+                    Dim rol As String = admin_texto3.Text
+                Case "Doctores"
+                    LimpiarAdmintrador(Me)
+            End Select
+
+            If String.IsNullOrWhiteSpace(admin_texto1.Text) Then
+                ' El TextBox está vacío, o solo contiene espacios.
+                MessageBox.Show("El campo de texto está vacío o solo contiene espacios en blanco.")
+            Else
+                admin_texto1.Text
+            End If
+
+            ' Mostrar el valor en un cuadro de mensaje como prueba.
+            MessageBox.Show("Has seleccionado: " & valorSeleccionado)
+        Else
+
+        End If
+
+
+    End Sub
+
+    Private Sub OrdenarArchivo(ByVal contenedor As Control)
+
+        Dim rutaArchivo = "usuarios.txt"
+
+        If File.Exists(rutaArchivo) Then
+            Try
+                ' PASO 1: Leer el archivo en una lista
+                Dim lineasArray As String() = File.ReadAllLines(rutaArchivo)
+                Dim listaDeLineas As New List(Of String)(lineasArray)
+
+                ' PASO 2: Ordenar la lista alfabéticamente
+                listaDeLineas.Sort()
+
+                ' PASO 3: Reescribir el archivo con el contenido ordenado
+                File.WriteAllLines(rutaArchivo, listaDeLineas)
+
+                MessageBox.Show("El archivo se ha ordenado y guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show("Ocurrió un error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("El archivo no se encontró.", "Archivo Faltante", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
 End Class
