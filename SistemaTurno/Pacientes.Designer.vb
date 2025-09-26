@@ -24,30 +24,31 @@ Partial Class Pacientes
     Private Sub InitializeComponent()
         InfoPaciente = New GroupBox()
         Label2 = New Label()
-        TextBox6 = New TextBox()
+        TextEmail = New TextBox()
         Label1 = New Label()
         PaclblCredencial = New Label()
         PaclblTelefono = New Label()
         PacLblApellido = New Label()
         PacLblNombre = New Label()
-        TextBox5 = New TextBox()
-        TextBox4 = New TextBox()
-        TextBox3 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox1 = New TextBox()
+        TextTelefono = New TextBox()
+        TextFechaNac = New TextBox()
+        TextDNI = New TextBox()
+        TextNombre = New TextBox()
+        TextApellido = New TextBox()
         GroupBox1 = New GroupBox()
         Label5 = New Label()
         Label7 = New Label()
-        TextBox13 = New TextBox()
-        TextBox14 = New TextBox()
+        TextNCredencial = New TextBox()
+        TextOSocial = New TextBox()
         DataGridView1 = New DataGridView()
         DGBTurnosPaciente = New DataGridViewTextBoxColumn()
         DGBServicios = New DataGridViewTextBoxColumn()
         DGBDIA = New DataGridViewTextBoxColumn()
-        TextBox7 = New TextBox()
+        TextBuscar = New TextBox()
         ComboBox1 = New ComboBox()
         BtnBuscar = New Button()
         PacBuscador = New GroupBox()
+        BtnAgregar = New Button()
         InfoPaciente.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -56,18 +57,19 @@ Partial Class Pacientes
         ' 
         ' InfoPaciente
         ' 
+        InfoPaciente.Controls.Add(BtnAgregar)
         InfoPaciente.Controls.Add(Label2)
-        InfoPaciente.Controls.Add(TextBox6)
+        InfoPaciente.Controls.Add(TextEmail)
         InfoPaciente.Controls.Add(Label1)
         InfoPaciente.Controls.Add(PaclblCredencial)
         InfoPaciente.Controls.Add(PaclblTelefono)
         InfoPaciente.Controls.Add(PacLblApellido)
         InfoPaciente.Controls.Add(PacLblNombre)
-        InfoPaciente.Controls.Add(TextBox5)
-        InfoPaciente.Controls.Add(TextBox4)
-        InfoPaciente.Controls.Add(TextBox3)
-        InfoPaciente.Controls.Add(TextBox2)
-        InfoPaciente.Controls.Add(TextBox1)
+        InfoPaciente.Controls.Add(TextTelefono)
+        InfoPaciente.Controls.Add(TextFechaNac)
+        InfoPaciente.Controls.Add(TextDNI)
+        InfoPaciente.Controls.Add(TextNombre)
+        InfoPaciente.Controls.Add(TextApellido)
         InfoPaciente.ForeColor = Color.Black
         InfoPaciente.Location = New Point(72, 102)
         InfoPaciente.Name = "InfoPaciente"
@@ -86,12 +88,12 @@ Partial Class Pacientes
         Label2.TabIndex = 12
         Label2.Text = "DNI"
         ' 
-        ' TextBox6
+        ' TextEmail
         ' 
-        TextBox6.Location = New Point(202, 383)
-        TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(249, 27)
-        TextBox6.TabIndex = 10
+        TextEmail.Location = New Point(202, 383)
+        TextEmail.Name = "TextEmail"
+        TextEmail.Size = New Size(249, 27)
+        TextEmail.TabIndex = 10
         ' 
         ' Label1
         ' 
@@ -143,47 +145,47 @@ Partial Class Pacientes
         PacLblNombre.TabIndex = 5
         PacLblNombre.Text = "NOMBRE"
         ' 
-        ' TextBox5
+        ' TextTelefono
         ' 
-        TextBox5.Location = New Point(202, 326)
-        TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(249, 27)
-        TextBox5.TabIndex = 4
+        TextTelefono.Location = New Point(202, 326)
+        TextTelefono.Name = "TextTelefono"
+        TextTelefono.Size = New Size(249, 27)
+        TextTelefono.TabIndex = 4
         ' 
-        ' TextBox4
+        ' TextFechaNac
         ' 
-        TextBox4.Location = New Point(202, 260)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(249, 27)
-        TextBox4.TabIndex = 3
+        TextFechaNac.Location = New Point(202, 260)
+        TextFechaNac.Name = "TextFechaNac"
+        TextFechaNac.Size = New Size(249, 27)
+        TextFechaNac.TabIndex = 3
         ' 
-        ' TextBox3
+        ' TextDNI
         ' 
-        TextBox3.Location = New Point(202, 201)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(249, 27)
-        TextBox3.TabIndex = 2
+        TextDNI.Location = New Point(202, 201)
+        TextDNI.Name = "TextDNI"
+        TextDNI.Size = New Size(249, 27)
+        TextDNI.TabIndex = 2
         ' 
-        ' TextBox2
+        ' TextNombre
         ' 
-        TextBox2.Location = New Point(202, 143)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(249, 27)
-        TextBox2.TabIndex = 1
+        TextNombre.Location = New Point(202, 143)
+        TextNombre.Name = "TextNombre"
+        TextNombre.Size = New Size(249, 27)
+        TextNombre.TabIndex = 1
         ' 
-        ' TextBox1
+        ' TextApellido
         ' 
-        TextBox1.Location = New Point(202, 78)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(249, 27)
-        TextBox1.TabIndex = 0
+        TextApellido.Location = New Point(202, 78)
+        TextApellido.Name = "TextApellido"
+        TextApellido.Size = New Size(249, 27)
+        TextApellido.TabIndex = 0
         ' 
         ' GroupBox1
         ' 
         GroupBox1.Controls.Add(Label5)
         GroupBox1.Controls.Add(Label7)
-        GroupBox1.Controls.Add(TextBox13)
-        GroupBox1.Controls.Add(TextBox14)
+        GroupBox1.Controls.Add(TextNCredencial)
+        GroupBox1.Controls.Add(TextOSocial)
         GroupBox1.ForeColor = Color.Black
         GroupBox1.Location = New Point(617, 102)
         GroupBox1.Name = "GroupBox1"
@@ -212,19 +214,19 @@ Partial Class Pacientes
         Label7.TabIndex = 6
         Label7.Text = "O. SOCIAL"
         ' 
-        ' TextBox13
+        ' TextNCredencial
         ' 
-        TextBox13.Location = New Point(202, 143)
-        TextBox13.Name = "TextBox13"
-        TextBox13.Size = New Size(249, 27)
-        TextBox13.TabIndex = 1
+        TextNCredencial.Location = New Point(202, 143)
+        TextNCredencial.Name = "TextNCredencial"
+        TextNCredencial.Size = New Size(249, 27)
+        TextNCredencial.TabIndex = 1
         ' 
-        ' TextBox14
+        ' TextOSocial
         ' 
-        TextBox14.Location = New Point(202, 78)
-        TextBox14.Name = "TextBox14"
-        TextBox14.Size = New Size(249, 27)
-        TextBox14.TabIndex = 0
+        TextOSocial.Location = New Point(202, 78)
+        TextOSocial.Name = "TextOSocial"
+        TextOSocial.Size = New Size(249, 27)
+        TextOSocial.TabIndex = 0
         ' 
         ' DataGridView1
         ' 
@@ -257,12 +259,12 @@ Partial Class Pacientes
         DGBDIA.Name = "DGBDIA"
         DGBDIA.Width = 125
         ' 
-        ' TextBox7
+        ' TextBuscar
         ' 
-        TextBox7.Location = New Point(23, 31)
-        TextBox7.Name = "TextBox7"
-        TextBox7.Size = New Size(214, 27)
-        TextBox7.TabIndex = 15
+        TextBuscar.Location = New Point(23, 31)
+        TextBuscar.Name = "TextBuscar"
+        TextBuscar.Size = New Size(214, 27)
+        TextBuscar.TabIndex = 15
         ' 
         ' ComboBox1
         ' 
@@ -284,7 +286,7 @@ Partial Class Pacientes
         ' 
         ' PacBuscador
         ' 
-        PacBuscador.Controls.Add(TextBox7)
+        PacBuscador.Controls.Add(TextBuscar)
         PacBuscador.Controls.Add(ComboBox1)
         PacBuscador.Controls.Add(BtnBuscar)
         PacBuscador.Location = New Point(72, 12)
@@ -294,9 +296,20 @@ Partial Class Pacientes
         PacBuscador.TabStop = False
         PacBuscador.Text = "Buscador de Pacientes"
         ' 
+        ' BtnAgregar
+        ' 
+        BtnAgregar.BackColor = Color.CadetBlue
+        BtnAgregar.ForeColor = Color.Transparent
+        BtnAgregar.Location = New Point(347, 460)
+        BtnAgregar.Name = "BtnAgregar"
+        BtnAgregar.Size = New Size(104, 51)
+        BtnAgregar.TabIndex = 13
+        BtnAgregar.Text = "Agregar"
+        BtnAgregar.UseVisualStyleBackColor = False
+        ' 
         ' Pacientes
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1400, 850)
@@ -321,28 +334,29 @@ Partial Class Pacientes
 
     Friend WithEvents InfoPaciente As GroupBox
     Friend WithEvents PacLblNombre As Label
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextTelefono As TextBox
+    Friend WithEvents TextFechaNac As TextBox
+    Friend WithEvents TextDNI As TextBox
+    Friend WithEvents TextNombre As TextBox
+    Friend WithEvents TextApellido As TextBox
     Friend WithEvents PaclblCredencial As Label
     Friend WithEvents PaclblTelefono As Label
     Friend WithEvents PacLblApellido As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextEmail As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox13 As TextBox
-    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents TextNCredencial As TextBox
+    Friend WithEvents TextOSocial As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DGBTurnosPaciente As DataGridViewTextBoxColumn
     Friend WithEvents DGBServicios As DataGridViewTextBoxColumn
     Friend WithEvents DGBDIA As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TextBuscar As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents BtnBuscar As Button
     Friend WithEvents PacBuscador As GroupBox
+    Friend WithEvents BtnAgregar As Button
 End Class
