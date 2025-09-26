@@ -59,7 +59,7 @@ Partial Class Form1
         MenuStrip1.Items.AddRange(New ToolStripItem() {MenuInicio, MenuPacientes, MenuTurnos, MenuAdmin})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(1382, 24)
+        MenuStrip1.Size = New Size(1382, 28)
         MenuStrip1.TabIndex = 2
         MenuStrip1.Text = "MenuStrip1"
         ' 
@@ -102,13 +102,17 @@ Partial Class Form1
         ToolStripContainer1.ContentPanel.BackgroundImageLayout = ImageLayout.Stretch
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
+<<<<<<< HEAD
+        ToolStripContainer1.ContentPanel.Size = New Size(1382, 750)
+=======
         ToolStripContainer1.ContentPanel.Size = New Size(1382, 779)
+>>>>>>> 9f8a5d50fc47fa05c610446560a02cf11545fe70
         ToolStripContainer1.Dock = DockStyle.Fill
         ToolStripContainer1.LeftToolStripPanelVisible = False
-        ToolStripContainer1.Location = New Point(0, 24)
+        ToolStripContainer1.Location = New Point(0, 28)
         ToolStripContainer1.Name = "ToolStripContainer1"
         ToolStripContainer1.RightToolStripPanelVisible = False
-        ToolStripContainer1.Size = New Size(1382, 779)
+        ToolStripContainer1.Size = New Size(1382, 775)
         ToolStripContainer1.TabIndex = 3
         ToolStripContainer1.Text = "ToolStripContainer1"
         ' 
@@ -178,6 +182,7 @@ Partial Class Form1
         LogintxtPassword.Location = New Point(45, 281)
         LogintxtPassword.Name = "LogintxtPassword"
         LogintxtPassword.PasswordChar = "*"c
+        LogintxtPassword.PlaceholderText = "   Contraseña"
         LogintxtPassword.Size = New Size(222, 27)
         LogintxtPassword.TabIndex = 1
         ' 
@@ -186,6 +191,7 @@ Partial Class Form1
         LogintxtUsuario.BorderStyle = BorderStyle.FixedSingle
         LogintxtUsuario.Location = New Point(45, 210)
         LogintxtUsuario.Name = "LogintxtUsuario"
+        LogintxtUsuario.PlaceholderText = "    Usuario"
         LogintxtUsuario.Size = New Size(222, 27)
         LogintxtUsuario.TabIndex = 0
         ' 
