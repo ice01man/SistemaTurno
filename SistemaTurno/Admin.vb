@@ -337,8 +337,7 @@ Public Class Admin
             If String.IsNullOrWhiteSpace(admin_texto1.Text) Then
                 ' El TextBox está vacío, o solo contiene espacios.
                 MessageBox.Show("El campo de texto está vacío o solo contiene espacios en blanco.")
-            Else
-                admin_texto1.Text
+
             End If
 
             ' Mostrar el valor en un cuadro de mensaje como prueba.
@@ -354,26 +353,7 @@ Public Class Admin
 
         Dim rutaArchivo = "usuarios.txt"
 
-        If File.Exists(rutaArchivo) Then
-            Try
-                ' PASO 1: Leer el archivo en una lista
-                Dim lineasArray As String() = File.ReadAllLines(rutaArchivo)
-                Dim listaDeLineas As New List(Of String)(lineasArray)
 
-                ' PASO 2: Ordenar la lista alfabéticamente
-                listaDeLineas.Sort()
-
-                ' PASO 3: Reescribir el archivo con el contenido ordenado
-                File.WriteAllLines(rutaArchivo, listaDeLineas)
-
-                MessageBox.Show("El archivo se ha ordenado y guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            Catch ex As Exception
-                MessageBox.Show("Ocurrió un error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            MessageBox.Show("El archivo no se encontró.", "Archivo Faltante", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
     End Sub
 
 End Class
