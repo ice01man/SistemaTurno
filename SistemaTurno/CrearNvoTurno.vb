@@ -1,14 +1,62 @@
 ﻿Imports System.IO
-Imports System.Text
 
+
+' Actualizado el 30/09/25
 Public Class CrearNvoTurno
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        'Validar campos
-        If cmbPaciente.Text = "" Then
-            MessageBox.Show("Ingrese el Apellido y Nombre del paciente.")
-            cmbPaciente.Focus()
-            Exit Sub
 
+    Private Class Persona
+        Public Property ApellidoNombre As String
+        Public Property Telefono As String
+    End Class
+
+    Private pacientes As New List(Of Persona)
+
+
+    Public Sub New()
+        InitializeComponent()
+        CargarPacientes()
+    End Sub
+
+    ' Cargar pacientes desde pacientes.csv y configurar autocompletado
+    Private Sub CargarPacientes()
+        Dim rutaArchivo As String = "pacientes.csv"
+
+        If IO.File.Exists(rutaArchivo) Then
+            Dim lineas = IO.File.ReadAllLines(rutaArchivo)
+            pacientes.Clear()
+
+            For i As Integer = 1 To lineas.Length - 1
+                Dim datos = lineas(i).Split(","c)
+
+                If datos.Length >= 8 Then
+                    Dim apellido As String = datos(1).Trim()
+                    Dim nombre As String = datos(2).Trim()
+                    Dim telefono As String = datos(5).Trim()
+
+                    pacientes.Add(New Persona With {
+                        .ApellidoNombre = $"{apellido} {nombre}",
+                        .Telefono = telefono
+                    })
+                End If
+            Next
+
+            ' Config autocompletado
+            Dim autoComplete As New AutoCompleteStringCollection()
+            autoComplete.AddRange(pacientes.Select(Function(p) p.ApellidoNombre).ToArray())
+
+            Txt_ApellidoNombre.AutoCompleteCustomSource = autoComplete
+            Txt_ApellidoNombre.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            Txt_ApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource
+        End If
+    End Sub
+
+    ' Guardar turno
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        ' Validar campos
+        If Txt_ApellidoNombre.Text = "" Then
+            MessageBox.Show("Ingrese el Apellido y Nombre del paciente.")
+            Txt_ApellidoNombre.Focus()
+            Exit Sub
         End If
 
         If cmbAsistencia.SelectedIndex = -1 Then
@@ -17,92 +65,61 @@ Public Class CrearNvoTurno
             Exit Sub
         End If
 
-        ' --- Lógica para guardar en el archivo ---
-        Dim rutaArchivo = "turnos.csv"
-        Dim datosTurno = String.Join(",", New String() {
-        dtpFecha.Value.ToString("yyyy-MM-dd"), ' Formato de fecha para ordenar
-        dtpHora.Value.ToShortTimeString,
-        cmbPaciente.Text,
-        txtTelefono.Text,
-        cmbAsistencia.Text
-    })
+        ' Guardar datos
+        Dim rutaArchivo As String = "turnos.csv"
+        Dim datosTurno As String = String.Join(",", New String() {
+            dtpFecha.Value.ToString("yyyy-MM-dd"),
+            dtpHora.Value.ToShortTimeString,
+            Txt_ApellidoNombre.Text,
+            txtTelefono.Text,
+            cmbAsistencia.Text
+        })
 
         Try
-            ' El segundo parámetro (True) hace que se agregue al final del archivo sin borrar lo anterior
             My.Computer.FileSystem.WriteAllText(rutaArchivo, datosTurno & Environment.NewLine, True)
             MessageBox.Show("Turno guardado con éxito.")
-            ' --- Aquí está el cambio ---
-            DialogResult = DialogResult.OK ' Indica que la operación fue exitosa
+            DialogResult = DialogResult.OK
             Close()
         Catch ex As Exception
             MessageBox.Show("Ocurrió un error al guardar el turno: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            DialogResult = DialogResult.Cancel ' Opcional: Indica que la operación falló
+            DialogResult = DialogResult.Cancel
         End Try
-        ' --- Fin de la lógica para guardar ---
-
     End Sub
 
-
-    '------------------------------------------------------------------------------
-
+    ' Cancelar
 
 
-    ' Clase interna para representar un paciente
-    Private Class Persona
-            Public Property ApellidoNombre As String
-            Public Property Telefono As String
-        End Class
+    ' Al escribir en Apellido y Nombre, verificar si existe y completar teléfono
+    Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.TextChanged
+        Dim textoIngresado As String = Txt_ApellidoNombre.Text.Trim()
 
-        ' Lista de pacientes cargados desde el CSV
-        Private pacientes As New List(Of Persona)
+        If String.IsNullOrWhiteSpace(textoIngresado) Then
+            txtTelefono.Clear()
+            btnAgregar.Enabled = False
+            Return
+        End If
 
-        ' Constructor del formulario
-        Public Sub New()
-            InitializeComponent()   ' <-- crea los controles del diseñador
-            CargarPacientes()       ' <-- carga los datos desde el archivo
-        End Sub
+        Dim pacienteExistente = pacientes.FirstOrDefault(Function(p) String.Equals(p.ApellidoNombre, textoIngresado, StringComparison.OrdinalIgnoreCase))
 
-        ' Leer el archivo pacientes.csv y llenar el ComboBox
-        Private Sub CargarPacientes()
-            Dim rutaArchivo As String = "pacientes.csv"
-
-            If IO.File.Exists(rutaArchivo) Then
-            Dim lineas = IO.File.ReadAllLines(rutaArchivo)
-
-            pacientes.Clear()
-
-            For i As Integer = 1 To lineas.Length - 1
-                Dim datos = lineas(i).Split(","c)
-
-                If datos.Length >= 5 Then
-                    Dim apellido As String = datos(0).Trim()
-                    Dim nombre As String = datos(1).Trim()
-                    Dim telefono As String = datos(4).Trim()
-
-                    pacientes.Add(New Persona With {
-                    .ApellidoNombre = apellido & " " & nombre,
-                    .Telefono = telefono
-                })
-                End If
-            Next
-
-            ' Enlazar la lista al ComboBox
-            cmbPaciente.DataSource = Nothing
-            cmbPaciente.DataSource = pacientes
-            cmbPaciente.DisplayMember = "ApellidoNombre"
-            cmbPaciente.ValueMember = "Telefono"
+        If pacienteExistente IsNot Nothing Then
+            txtTelefono.Text = pacienteExistente.Telefono
+            btnAgregar.Enabled = False
+        Else
+            txtTelefono.Clear()
+            btnAgregar.Enabled = True
         End If
     End Sub
 
-    ' Cuando seleccionás un paciente, que aparezca el teléfono
-    Private Sub cmbPaciente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPaciente.SelectedIndexChanged
-            Dim seleccionado As Persona = TryCast(cmbPaciente.SelectedItem, Persona)
-            If seleccionado IsNot Nothing Then
-                txtTelefono.Text = seleccionado.Telefono
-            End If
-        End Sub
+    ' Acción del botón Agregar
 
 
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim formularioPacientes As New Pacientes()
+        formularioPacientes.ShowDialog() ' Usá Show() si querés que no bloquee el formulario actual
+
+        ' Opcional: recargar pacientes después de cerrar el formulario
+        CargarPacientes()
+    End Sub
 
 
     '----------------------------------------------------------------------------------------------
@@ -134,4 +151,9 @@ Public Class CrearNvoTurno
     Private Sub CrearNvoTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    'Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.TextChanged
+
+    'End Sub
+
 End Class

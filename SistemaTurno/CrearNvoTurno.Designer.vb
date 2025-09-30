@@ -35,8 +35,8 @@ Partial Class CrearNvoTurno
         lblPaciente = New Label()
         Label1 = New Label()
         ComboBox1 = New ComboBox()
-        btnBuscar = New Button()
-        cmbPaciente = New ComboBox()
+        btnAgregar = New Button()
+        Txt_ApellidoNombre = New TextBox()
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -153,30 +153,29 @@ Partial Class CrearNvoTurno
         ComboBox1.Size = New Size(292, 28)
         ComboBox1.TabIndex = 30
         ' 
-        ' btnBuscar
+        ' btnAgregar
         ' 
-        btnBuscar.Location = New Point(651, 63)
-        btnBuscar.Name = "btnBuscar"
-        btnBuscar.Size = New Size(94, 29)
-        btnBuscar.TabIndex = 31
-        btnBuscar.Text = "Buscar"
-        btnBuscar.UseVisualStyleBackColor = True
+        btnAgregar.Location = New Point(651, 63)
+        btnAgregar.Name = "btnAgregar"
+        btnAgregar.Size = New Size(94, 29)
+        btnAgregar.TabIndex = 31
+        btnAgregar.Text = "+ Agregar"
+        btnAgregar.UseVisualStyleBackColor = True
         ' 
-        ' cmbPaciente
+        ' Txt_ApellidoNombre
         ' 
-        cmbPaciente.FormattingEnabled = True
-        cmbPaciente.Location = New Point(331, 63)
-        cmbPaciente.Name = "cmbPaciente"
-        cmbPaciente.Size = New Size(292, 28)
-        cmbPaciente.TabIndex = 32
+        Txt_ApellidoNombre.Location = New Point(331, 63)
+        Txt_ApellidoNombre.Name = "Txt_ApellidoNombre"
+        Txt_ApellidoNombre.Size = New Size(292, 27)
+        Txt_ApellidoNombre.TabIndex = 32
         ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
-        Controls.Add(cmbPaciente)
-        Controls.Add(btnBuscar)
+        Controls.Add(Txt_ApellidoNombre)
+        Controls.Add(btnAgregar)
         Controls.Add(ComboBox1)
         Controls.Add(Label1)
         Controls.Add(btnCancelar)
@@ -210,6 +209,6 @@ Partial Class CrearNvoTurno
     Friend WithEvents lblPaciente As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents btnBuscar As Button
-    Friend WithEvents cmbPaciente As ComboBox
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents Txt_ApellidoNombre As TextBox
 End Class

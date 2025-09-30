@@ -152,4 +152,7 @@ Public Class Pacientes
         End If
     End Sub
 
+    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
+
+    End Sub
 End Class

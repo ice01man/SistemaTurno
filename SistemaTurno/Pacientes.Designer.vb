@@ -24,6 +24,7 @@ Partial Class Pacientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         InfoPaciente = New GroupBox()
+        BtnAgregar = New Button()
         Label2 = New Label()
         TextEmail = New TextBox()
         Label1 = New Label()
@@ -49,7 +50,6 @@ Partial Class Pacientes
         ComboBox1 = New ComboBox()
         BtnBuscar = New Button()
         PacBuscador = New GroupBox()
-        BtnAgregar = New Button()
         InfoPaciente.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -78,6 +78,17 @@ Partial Class Pacientes
         InfoPaciente.TabIndex = 0
         InfoPaciente.TabStop = False
         InfoPaciente.Text = "Info del Paciente"
+        ' 
+        ' BtnAgregar
+        ' 
+        BtnAgregar.BackColor = Color.CadetBlue
+        BtnAgregar.ForeColor = Color.Transparent
+        BtnAgregar.Location = New Point(347, 460)
+        BtnAgregar.Name = "BtnAgregar"
+        BtnAgregar.Size = New Size(104, 51)
+        BtnAgregar.TabIndex = 13
+        BtnAgregar.Text = "Agregar"
+        BtnAgregar.UseVisualStyleBackColor = False
         ' 
         ' Label2
         ' 
@@ -297,20 +308,9 @@ Partial Class Pacientes
         PacBuscador.TabStop = False
         PacBuscador.Text = "Buscador de Pacientes"
         ' 
-        ' BtnAgregar
-        ' 
-        BtnAgregar.BackColor = Color.CadetBlue
-        BtnAgregar.ForeColor = Color.Transparent
-        BtnAgregar.Location = New Point(347, 460)
-        BtnAgregar.Name = "BtnAgregar"
-        BtnAgregar.Size = New Size(104, 51)
-        BtnAgregar.TabIndex = 13
-        BtnAgregar.Text = "Agregar"
-        BtnAgregar.UseVisualStyleBackColor = False
-        ' 
         ' Pacientes
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1400, 850)
