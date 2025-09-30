@@ -25,7 +25,6 @@ Partial Class CrearNvoTurno
         btnCancelar = New Button()
         btnGuardar = New Button()
         dtpHora = New DateTimePicker()
-        dtpFecha = New DateTimePicker()
         cmbAsistencia = New ComboBox()
         lblHora = New Label()
         lblFecha = New Label()
@@ -34,9 +33,10 @@ Partial Class CrearNvoTurno
         lblTelefono = New Label()
         lblPaciente = New Label()
         Label1 = New Label()
-        ComboBox1 = New ComboBox()
+        cmbEspecialidad = New ComboBox()
         btnAgregar = New Button()
         Txt_ApellidoNombre = New TextBox()
+        CmbTurnos = New ComboBox()
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -59,20 +59,10 @@ Partial Class CrearNvoTurno
         ' 
         ' dtpHora
         ' 
-        dtpHora.CalendarForeColor = SystemColors.ActiveCaption
-        dtpHora.Format = DateTimePickerFormat.Time
-        dtpHora.Location = New Point(331, 320)
+        dtpHora.Location = New Point(331, 269)
         dtpHora.Name = "dtpHora"
-        dtpHora.ShowUpDown = True
         dtpHora.Size = New Size(292, 27)
-        dtpHora.TabIndex = 26
-        ' 
-        ' dtpFecha
-        ' 
-        dtpFecha.Location = New Point(331, 269)
-        dtpFecha.Name = "dtpFecha"
-        dtpFecha.Size = New Size(292, 27)
-        dtpFecha.TabIndex = 25
+        dtpHora.TabIndex = 25
         ' 
         ' cmbAsistencia
         ' 
@@ -144,14 +134,14 @@ Partial Class CrearNvoTurno
         Label1.TabIndex = 29
         Label1.Text = "Especialidad"
         ' 
-        ' ComboBox1
+        ' cmbEspecialidad
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Seleccionar ", "Estudio Medicina Familiar", "Pediatría", "Ginecología y Obstetricia", "Cardiología", "Dermatología", "Neumología", "Neurología", "Urología", "Oftalmología"})
-        ComboBox1.Location = New Point(331, 220)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(292, 28)
-        ComboBox1.TabIndex = 30
+        cmbEspecialidad.FormattingEnabled = True
+        cmbEspecialidad.Items.AddRange(New Object() {"Seleccionar ", "Estudio Medicina Familiar", "Pediatría", "Ginecología y Obstetricia", "Cardiología", "Dermatología", "Neumología", "Neurología", "Urología", "Oftalmología"})
+        cmbEspecialidad.Location = New Point(331, 220)
+        cmbEspecialidad.Name = "cmbEspecialidad"
+        cmbEspecialidad.Size = New Size(292, 28)
+        cmbEspecialidad.TabIndex = 30
         ' 
         ' btnAgregar
         ' 
@@ -169,19 +159,27 @@ Partial Class CrearNvoTurno
         Txt_ApellidoNombre.Size = New Size(292, 27)
         Txt_ApellidoNombre.TabIndex = 32
         ' 
+        ' CmbTurnos
+        ' 
+        CmbTurnos.FormattingEnabled = True
+        CmbTurnos.Location = New Point(331, 320)
+        CmbTurnos.Name = "CmbTurnos"
+        CmbTurnos.Size = New Size(151, 28)
+        CmbTurnos.TabIndex = 33
+        ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
+        Controls.Add(CmbTurnos)
         Controls.Add(Txt_ApellidoNombre)
         Controls.Add(btnAgregar)
-        Controls.Add(ComboBox1)
+        Controls.Add(cmbEspecialidad)
         Controls.Add(Label1)
         Controls.Add(btnCancelar)
         Controls.Add(btnGuardar)
         Controls.Add(dtpHora)
-        Controls.Add(dtpFecha)
         Controls.Add(cmbAsistencia)
         Controls.Add(lblHora)
         Controls.Add(lblFecha)
@@ -199,7 +197,6 @@ Partial Class CrearNvoTurno
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents dtpHora As DateTimePicker
-    Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents cmbAsistencia As ComboBox
     Friend WithEvents lblHora As Label
     Friend WithEvents lblFecha As Label
@@ -208,7 +205,8 @@ Partial Class CrearNvoTurno
     Friend WithEvents lblTelefono As Label
     Friend WithEvents lblPaciente As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbEspecialidad As ComboBox
     Friend WithEvents btnAgregar As Button
     Friend WithEvents Txt_ApellidoNombre As TextBox
+    Friend WithEvents CmbTurnos As ComboBox
 End Class
