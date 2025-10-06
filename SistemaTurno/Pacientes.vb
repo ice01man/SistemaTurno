@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox
 'Actualización al 24 de septiembre
 
 Public Class Pacientes
@@ -152,4 +151,7 @@ Public Class Pacientes
         End If
     End Sub
 
+    Private Sub TextApellido_TextChanged(sender As Object, e As EventArgs) Handles TextApellido.TextChanged
+
+    End Sub
 End Class

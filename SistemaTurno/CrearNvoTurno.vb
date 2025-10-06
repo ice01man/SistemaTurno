@@ -1,7 +1,4 @@
-﻿Imports System.IO
-Imports System.Text
-
-Public Class CrearNvoTurno
+﻿Public Class CrearNvoTurno
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         'Validar campos
         If cmbPaciente.Text = "" Then
@@ -49,24 +46,24 @@ Public Class CrearNvoTurno
 
     ' Clase interna para representar un paciente
     Private Class Persona
-            Public Property ApellidoNombre As String
-            Public Property Telefono As String
-        End Class
+        Public Property ApellidoNombre As String
+        Public Property Telefono As String
+    End Class
 
-        ' Lista de pacientes cargados desde el CSV
-        Private pacientes As New List(Of Persona)
+    ' Lista de pacientes cargados desde el CSV
+    Private pacientes As New List(Of Persona)
 
-        ' Constructor del formulario
-        Public Sub New()
-            InitializeComponent()   ' <-- crea los controles del diseñador
-            CargarPacientes()       ' <-- carga los datos desde el archivo
-        End Sub
+    ' Constructor del formulario
+    Public Sub New()
+        InitializeComponent()   ' <-- crea los controles del diseñador
+        CargarPacientes()       ' <-- carga los datos desde el archivo
+    End Sub
 
-        ' Leer el archivo pacientes.csv y llenar el ComboBox
-        Private Sub CargarPacientes()
-            Dim rutaArchivo As String = "pacientes.csv"
+    ' Leer el archivo pacientes.csv y llenar el ComboBox
+    Private Sub CargarPacientes()
+        Dim rutaArchivo As String = "pacientes.csv"
 
-            If IO.File.Exists(rutaArchivo) Then
+        If IO.File.Exists(rutaArchivo) Then
             Dim lineas = IO.File.ReadAllLines(rutaArchivo)
 
             pacientes.Clear()
@@ -96,42 +93,15 @@ Public Class CrearNvoTurno
 
     ' Cuando seleccionás un paciente, que aparezca el teléfono
     Private Sub cmbPaciente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPaciente.SelectedIndexChanged
-            Dim seleccionado As Persona = TryCast(cmbPaciente.SelectedItem, Persona)
-            If seleccionado IsNot Nothing Then
-                txtTelefono.Text = seleccionado.Telefono
-            End If
-        End Sub
+        Dim seleccionado As Persona = TryCast(cmbPaciente.SelectedItem, Persona)
+        If seleccionado IsNot Nothing Then
+            txtTelefono.Text = seleccionado.Telefono
+        End If
+    End Sub
 
 
 
 
     '----------------------------------------------------------------------------------------------
 
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        Me.Close()
-    End Sub
-
-    Private Sub cmbAsistencia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAsistencia.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub txtPaciente_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub CrearNvoTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

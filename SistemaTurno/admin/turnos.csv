@@ -1,0 +1,20 @@
+﻿Fecha     , HORA ,NombreApellido    , DNI   , TEL      , TIPOConsulta, Especialidad  
+2025-09-08,12:13,Paulo Reta  		,		,115 12345 ,Consulta
+2025-09-08,12:57,paulo,22334567,Consulta
+2025-09-08,13:14,Victoria ,2345678,Estudio
+2025-09-08,13:20,Carla,2345678,Estudio
+2025-09-08,13:21,socio N1,2345678,Consulta
+2025-09-09,12:30,Clara,123456789,Consulta
+2025-09-24,11:10,reta paulo,1123456789,Estudio
+2025-09-18,10:53,paulo,,Consulta
+2025-09-18,15:53,adasdads,23456789,Consulta
+
+
+ForEach () {
+
+	If (Especialidad in ArrayEspecial){
+		next
+		}
+	 else{
+	 ArrayEspecial + espacialidad 
+	 }

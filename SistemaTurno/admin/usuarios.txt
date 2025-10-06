@@ -1,3 +1,7 @@
-admin,1234
-paulo,5678
-usuario,abcd
+id,Nombre,password,permisos
+1,admin,1234,Administrador
+2,paulo,5678,Administrador
+3,prueba,asdfg,Usuario
+4,clara,qwert,Administrador
+5,victoria,1qaz,Administrador
+6,pepito,12345,Consultor
