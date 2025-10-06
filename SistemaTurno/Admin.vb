@@ -1,10 +1,15 @@
 ﻿'Actualizacion al 24 de septiembre 2025 
+Imports System.IO
+Imports System.Linq
+Imports System.Runtime.InteropServices.JavaScript.JSType
 
 Public Class Admin
 
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combobox_admin.SelectedIndexChanged
         Dim seleccion = Combobox_admin.SelectedItem.ToString
+        btnGuardar.Visible = False
+        txt_id.Visible = False
 
 
         Select Case seleccion
@@ -30,45 +35,12 @@ Public Class Admin
                 'DataGridViewAdmin.Rows.Clear()
                 Dim rutaArchivo = "usuarios.txt"
 
-                DataGridViewAdmin.Columns.Clear()
+                Try
+                    CargarDatosDataGridview(rutaArchivo)
+                Catch ex As Exception
+                    MessageBox.Show("Ocurrió un error al cargar los turnos en el DataGridView: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
 
-                If My.Computer.FileSystem.FileExists(rutaArchivo) Then
-                    Try
-                        ' Leer todas las líneas del archivo
-                        Dim lineas = My.Computer.FileSystem.ReadAllText(rutaArchivo).Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
-                        Dim contador = 0
-
-                        ' Recorrer cada línea del archivo
-                        For Each linea In lineas
-                            ' Separar los datos por la coma
-                            Dim datos = linea.Split(","c)
-
-                            If contador = 0 Then
-                                datos = linea.Split(","c)
-                                For Each dato In datos
-                                    'id,Nombre,Apellido,Especialidad,Dia_Laboral,Horario, Vacaciones, Etc 
-                                    Dim coldato As New DataGridViewTextBoxColumn
-                                    coldato.HeaderText = dato                       ' El texto que se muestra en el encabezado
-                                    coldato.Name = dato                             ' El nombre interno de la columna (útil para referenciarla)
-                                    DataGridViewAdmin.Columns.Add(coldato)          ' Agregamos la columna al DataGridView
-                                    If dato = "id" Then
-                                        coldato.Visible = False
-                                    End If
-                                Next
-
-                                contador += 1
-                                Continue For                                        ' Salta al inicio del siguiente bucle
-                            End If
-                            If datos.Length >= 3 Then                               ' Asegurarse de que la línea tiene todos los campos necesarios
-
-                                DataGridViewAdmin.Rows.Add(datos(0), datos(1), datos(2), datos(3))
-
-                            End If
-                        Next
-                    Catch ex As Exception
-                        MessageBox.Show("Ocurrió un error al cargar los turnos en el DataGridView: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End Try
-                End If
 
             Case "Pantalla"
                 MsgBox("Seleccionaste: " & seleccion)
@@ -102,39 +74,7 @@ Public Class Admin
 
                 If My.Computer.FileSystem.FileExists(rutaArchivo) Then
                     Try
-                        ' Leer todas las líneas del archivo
-                        Dim lineas = My.Computer.FileSystem.ReadAllText(rutaArchivo).Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
-
-                        Dim contador = 0
-                        ' Recorrer cada línea del archivo
-                        For Each linea In lineas
-
-                            ' Separar los datos por la coma
-                            Dim datos = linea.Split(","c)
-                            If contador = 0 Then
-                                datos = linea.Split(","c)
-                                For Each dato In datos
-                                    'id,Nombre,Apellido,Especialidad,Dia_Laboral,Horario, Vacaciones, Etc 
-                                    Dim coldato As New DataGridViewTextBoxColumn
-                                    coldato.HeaderText = dato                   ' El texto que se muestra en el encabezado
-                                    coldato.Name = dato                         ' El nombre interno de la columna (útil para referenciarla)
-                                    DataGridViewAdmin.Columns.Add(coldato)      ' Agregamos la columna al DataGridView
-                                    If dato = "id" Then
-                                        coldato.Visible = False
-                                    End If
-                                Next
-
-                                contador += 1
-                                Continue For ' Salta al inicio del siguiente bucle
-                            End If
-
-                            If datos.Length >= 2 Then ' Asegurarse de que la línea tiene todos los campos necesarios
-                                ' Agregar una nueva fila al DataGridView con los datos de la línea
-                                DataGridViewAdmin.Size = New Size(660, 414)
-                                DataGridViewAdmin.Rows.Add(datos(0), datos(1), datos(2), datos(3), datos(4))
-
-                            End If
-                        Next
+                        CargarDatosDataGridview(rutaArchivo)
                     Catch ex As Exception
                         MessageBox.Show("Ocurrió un error al cargar los turnos en el DataGridView: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
@@ -151,6 +91,43 @@ Public Class Admin
 
     End Sub
 
+    Private Sub CargarDatosDataGridview(ByVal rutaArchivo As String)
+        'Dim rutaArchivo = "usuarios.txt"
+        ' Leer todas las líneas del archivo
+        Dim lineas = My.Computer.FileSystem.ReadAllText(rutaArchivo).Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
+        Dim contador = 0
+
+        DataGridViewAdmin.Columns.Clear()
+        ' Recorrer cada línea del archivo
+        For Each linea In lineas
+            ' Separar los datos por la coma
+            Dim datos = linea.Split(","c)
+
+            If contador = 0 Then
+                datos = linea.Split(","c)
+                For Each dato In datos
+                    'id,Nombre,Apellido,Especialidad,Dia_Laboral,Horario, Vacaciones, Etc 
+                    Dim coldato As New DataGridViewTextBoxColumn
+                    coldato.HeaderText = dato                       ' El texto que se muestra en el encabezado
+                    coldato.Name = dato                             ' El nombre interno de la columna (útil para referenciarla)
+                    DataGridViewAdmin.Columns.Add(coldato)          ' Agregamos la columna al DataGridView
+                    If dato = "id" Then
+                        coldato.Visible = False
+                    End If
+                Next
+                contador += 1
+                Continue For                                        ' Salta al inicio del siguiente bucle
+            End If
+            If datos.Length = 4 Then
+                DataGridViewAdmin.Rows.Add(datos(0), datos(1), datos(2), datos(3))          ' Armo el Grid de Usuarios
+            Else
+                DataGridViewAdmin.Size = New Size(660, 414)
+                DataGridViewAdmin.Rows.Add(datos(0), datos(1), datos(2), datos(3), datos(4)) ' Armo el Grid de Doctores
+            End If
+        Next
+
+    End Sub
+
     Private Sub DataGridViewAdmin_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewAdmin.CellMouseDoubleClick
         If e.RowIndex >= 0 Then
 
@@ -164,17 +141,19 @@ Public Class Admin
 
             Dim numeroDeColumnas As Integer = DataGridViewAdmin.ColumnCount
 
-            Dim idDeLaFila0 As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(1).Value.ToString()
-            Dim idDeLaFila1 As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(2).Value.ToString()
-            Dim idDeLaFila2 As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(3).Value.ToString()
+            Dim idDeLaFila As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(0).Value.ToString()
+            Dim txt1DeLaFila As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(1).Value.ToString()
+            Dim txt2DeLaFila As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(2).Value.ToString()
+            Dim txt3DeLaFila As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(3).Value.ToString()
 
-            textBox_texto1.Text = idDeLaFila0
-            textBox_texto2.Text = idDeLaFila1
-            textBox_texto3.Text = idDeLaFila2
+            txt_id.Text = idDeLaFila
+            textBox_texto1.Text = txt1DeLaFila
+            textBox_texto2.Text = txt2DeLaFila
+            textBox_texto3.Text = txt3DeLaFila
 
             If (numeroDeColumnas > 4) Then
-                Dim idDeLaFila3 As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(4).Value.ToString()
-                Dim datos = idDeLaFila3.Split("/"c)
+                Dim txt4DeLaFila As String = DataGridViewAdmin.Rows(e.RowIndex).Cells(4).Value.ToString()
+                Dim datos = txt4DeLaFila.Split("/"c)
 
                 For i As Integer = 0 To Chboxad.Items.Count - 1
                     Dim xx = Chboxad.GetItemText(Chboxad.Items(i))
@@ -188,7 +167,9 @@ Public Class Admin
                 Next
             End If
 
-            textBox_combo.Text = idDeLaFila2
+            textBox_combo.Text = txt3DeLaFila
+
+            btnGuardar.Visible = True
 
 
         End If
@@ -305,52 +286,93 @@ Public Class Admin
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim valorSeleccionado As String
-        'admin_texto1.Text = ""
-        'admin_texto2.Text = ""
-        'admin_texto3.Text = ""
-        'admin_combo.Text = ""
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
+        ' Leo el elemento seleccionado y convertirlo a String.
+        Dim valorSeleccionado = Combobox_admin.SelectedItem.ToString()
 
-        If Not IsNothing(Combobox_admin.SelectedItem) Then
-            ' Leer el elemento seleccionado y convertirlo a String.
-            valorSeleccionado = Combobox_admin.SelectedItem.ToString()
+        Select Case valorSeleccionado
+            Case "Usuarios"
 
-            Select Case valorSeleccionado
-                Case "Usuarios"
-                    Labelad1.Text = "Usuarios"
-                    Labelad2.Text = "Contraseña"
-                    Labelad3.Text = "Roles"
-                    Labelad4.Visible = False
-                    Dim nombre As String = admin_texto1.Text
-                    Dim apellido As String = admin_texto2.Text
-                    Dim rol As String = admin_texto3.Text
-                Case "Doctores"
-                    LimpiarAdmintrador(Me)
-            End Select
+                Dim id As String = txt_id.Text
+                Dim nombre As String = admin_texto1.Text
+                Dim contrasena As String = admin_texto2.Text
+                Dim rol As String = admin_combo.Text
 
-            If String.IsNullOrWhiteSpace(admin_texto1.Text) Then
-                ' El TextBox está vacío, o solo contiene espacios.
-                MessageBox.Show("El campo de texto está vacío o solo contiene espacios en blanco.")
-            Else
+                Dim rutaArchivo = "usuarios.txt"
+                Try
+                    Dim lineas As String() = File.ReadAllLines(rutaArchivo)
+                    Dim cabecera As String = lineas(0)
+                    Dim cuerpo As String() = lineas.Skip(1).ToArray()
+                    Dim haycambios As Boolean = False
 
-            End If
+                    For i As Integer = 1 To lineas.Length - 1
+                        Dim datos = lineas(i).Split(","c)
+                        If id = datos(0) Then
+                            lineas(i) = String.Join(",", id, nombre, contrasena, rol)
+                            haycambios = True
+                        End If
 
-            ' Mostrar el valor en un cuadro de mensaje como prueba.
-            MessageBox.Show("Has seleccionado: " & valorSeleccionado)
-        Else
+                    Next
 
-        End If
+                    If haycambios Then
+
+                        File.WriteAllLines(rutaArchivo, lineas)
+                        CargarDatosDataGridview(rutaArchivo)
+                        LimpiarAdmintrador(Me)
+                        btnGuardar.Visible = False
+                    End If
+
+                Catch ex As Exception
+
+                End Try
+
+                'ActualizarArchivo(rutaArchivo)
+            Case "Doctores"
+
+                Dim id As String = txt_id.Text
+                Dim texto1 As String = admin_texto1.Text
+                Dim texto2 As String = admin_texto2.Text
+                Dim texto3 As String = admin_texto3.Text
+                Dim texto4 As String = admin_combo.Text
+
+                Dim rutaArchivo = "doctores.csv"
+
+                Try
+                    Dim lineas As String() = File.ReadAllLines(rutaArchivo)
+                    Dim cabecera As String = lineas(0)
+                    Dim cuerpo As String() = lineas.Skip(1).ToArray()
+                    Dim haycambios As Boolean = False
+
+                    For i As Integer = 1 To lineas.Length - 1
+                        Dim datos = lineas(i).Split(","c)
+                        If id = datos(0) Then
+                            Dim itemsSeleccionados As String() = Chboxad.CheckedItems.Cast(Of String)().ToArray()
+                            Dim resultado As String = String.Join("/", itemsSeleccionados)
+                            lineas(i) = String.Join(",", id, texto1, texto2, texto3, resultado)
+                            haycambios = True
+
+                        End If
+
+                    Next
+
+                    If haycambios Then
+
+                        File.WriteAllLines(rutaArchivo, lineas)
+
+                        CargarDatosDataGridview(rutaArchivo)
+                        LimpiarAdmintrador(Me)
+                        btnGuardar.Visible = False
+                    End If
+                Catch ex As Exception
+
+                End Try
+        End Select
+
 
 
     End Sub
 
-    Private Sub OrdenarArchivo(ByVal contenedor As Control)
 
-        Dim rutaArchivo = "usuarios.txt"
-
-
-    End Sub
 
 End Class

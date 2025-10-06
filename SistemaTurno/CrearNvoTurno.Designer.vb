@@ -24,7 +24,6 @@ Partial Class CrearNvoTurno
     Private Sub InitializeComponent()
         btnCancelar = New Button()
         btnGuardar = New Button()
-        dtpHora = New DateTimePicker()
         dtpFecha = New DateTimePicker()
         cmbAsistencia = New ComboBox()
         lblHora = New Label()
@@ -37,6 +36,7 @@ Partial Class CrearNvoTurno
         ComboBox1 = New ComboBox()
         btnBuscar = New Button()
         cmbPaciente = New ComboBox()
+        ComboHorarios = New ComboBox()
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -56,16 +56,6 @@ Partial Class CrearNvoTurno
         btnGuardar.TabIndex = 27
         btnGuardar.Text = "Guardar"
         btnGuardar.UseVisualStyleBackColor = True
-        ' 
-        ' dtpHora
-        ' 
-        dtpHora.CalendarForeColor = SystemColors.ActiveCaption
-        dtpHora.Format = DateTimePickerFormat.Time
-        dtpHora.Location = New Point(331, 320)
-        dtpHora.Name = "dtpHora"
-        dtpHora.ShowUpDown = True
-        dtpHora.Size = New Size(292, 27)
-        dtpHora.TabIndex = 26
         ' 
         ' dtpFecha
         ' 
@@ -170,18 +160,26 @@ Partial Class CrearNvoTurno
         cmbPaciente.Size = New Size(292, 28)
         cmbPaciente.TabIndex = 32
         ' 
+        ' ComboHorarios
+        ' 
+        ComboHorarios.FormattingEnabled = True
+        ComboHorarios.Location = New Point(331, 320)
+        ComboHorarios.Name = "ComboHorarios"
+        ComboHorarios.Size = New Size(292, 28)
+        ComboHorarios.TabIndex = 33
+        ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
+        Controls.Add(ComboHorarios)
         Controls.Add(cmbPaciente)
         Controls.Add(btnBuscar)
         Controls.Add(ComboBox1)
         Controls.Add(Label1)
         Controls.Add(btnCancelar)
         Controls.Add(btnGuardar)
-        Controls.Add(dtpHora)
         Controls.Add(dtpFecha)
         Controls.Add(cmbAsistencia)
         Controls.Add(lblHora)
@@ -199,7 +197,6 @@ Partial Class CrearNvoTurno
 
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnGuardar As Button
-    Friend WithEvents dtpHora As DateTimePicker
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents cmbAsistencia As ComboBox
     Friend WithEvents lblHora As Label
@@ -212,4 +209,5 @@ Partial Class CrearNvoTurno
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents cmbPaciente As ComboBox
+    Friend WithEvents ComboHorarios As ComboBox
 End Class

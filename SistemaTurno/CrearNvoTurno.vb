@@ -18,7 +18,6 @@
         Dim rutaArchivo = "turnos.csv"
         Dim datosTurno = String.Join(",", New String() {
         dtpFecha.Value.ToString("yyyy-MM-dd"), ' Formato de fecha para ordenar
-        dtpHora.Value.ToShortTimeString,
         cmbPaciente.Text,
         txtTelefono.Text,
         cmbAsistencia.Text
@@ -98,6 +97,28 @@
             txtTelefono.Text = seleccionado.Telefono
         End If
     End Sub
+
+    Private Sub dtpHora_ValueChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ComboHorarios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboHorarios.SelectedIndexChanged
+        Dim rutaArchivo = "horarios.csv"
+
+        ComboHorarios.Items.Clear()
+
+        If IO.File.Exists(rutaArchivo) Then
+            Dim lineas = IO.File.ReadAllLines(rutaArchivo)
+            For i = 1 To lineas.Length - 1
+                Dim datos = lineas(i).Split(","c)
+                If datos.Length >= 2 Then
+                    Dim hora = datos(0).Trim
+                    ComboHorarios.Items.Add(hora)
+                End If
+            Next
+        End If
+    End Sub
+
 
 
 

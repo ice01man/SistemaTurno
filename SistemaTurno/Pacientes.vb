@@ -12,8 +12,8 @@ Public Class Pacientes
         ConfigurarAutoComplete()
 
 
-        If Not BtnBuscar Is Nothing Then AddHandler BtnBuscar.Click, AddressOf BtnBuscar_Click
-        If Not BtnAgregar Is Nothing Then AddHandler BtnAgregar.Click, AddressOf BtnGuardar_Click
+        ' If Not Btn_Pac_Agregar Is Nothing Then AddHandler Btn_Pac_Agregar.Click, AddressOf BtnBuscar_Click
+        '  If Not BtnAgregar Is Nothing Then AddHandler BtnAgregar.Click, AddressOf BtnGuardar_Click
         ' Enter en TextBuscar hace la búsqueda
         If Not TextBuscar Is Nothing Then AddHandler TextBuscar.KeyDown, AddressOf TextBuscar_KeyDown
     End Sub
@@ -149,6 +149,8 @@ Public Class Pacientes
             BtnBuscar_Click(Nothing, EventArgs.Empty)
             e.SuppressKeyPress = True
         End If
+
+        BtnAgregar.Text = "Editar"
     End Sub
 
     Private Sub TextApellido_TextChanged(sender As Object, e As EventArgs) Handles TextApellido.TextChanged
