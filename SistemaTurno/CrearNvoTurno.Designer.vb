@@ -36,7 +36,11 @@ Partial Class CrearNvoTurno
         cmbEspecialidad = New ComboBox()
         btnAgregar = New Button()
         Txt_ApellidoNombre = New TextBox()
-        CmbTurnos = New ComboBox()
+        cmbHora = New ComboBox()
+        lblProfesional = New Label()
+        cmbProfesional = New ComboBox()
+        lblDNI = New Label()
+        txtDNI = New TextBox()
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -59,7 +63,7 @@ Partial Class CrearNvoTurno
         ' 
         ' dtpHora
         ' 
-        dtpHora.Location = New Point(331, 269)
+        dtpHora.Location = New Point(331, 293)
         dtpHora.Name = "dtpHora"
         dtpHora.Size = New Size(292, 27)
         dtpHora.TabIndex = 25
@@ -68,7 +72,7 @@ Partial Class CrearNvoTurno
         ' 
         cmbAsistencia.FormattingEnabled = True
         cmbAsistencia.Items.AddRange(New Object() {"Consulta", "Estudio"})
-        cmbAsistencia.Location = New Point(331, 169)
+        cmbAsistencia.Location = New Point(331, 150)
         cmbAsistencia.Name = "cmbAsistencia"
         cmbAsistencia.Size = New Size(292, 28)
         cmbAsistencia.TabIndex = 24
@@ -76,7 +80,7 @@ Partial Class CrearNvoTurno
         ' lblHora
         ' 
         lblHora.AutoSize = True
-        lblHora.Location = New Point(155, 320)
+        lblHora.Location = New Point(155, 344)
         lblHora.Name = "lblHora"
         lblHora.Size = New Size(42, 20)
         lblHora.TabIndex = 23
@@ -85,7 +89,7 @@ Partial Class CrearNvoTurno
         ' lblFecha
         ' 
         lblFecha.AutoSize = True
-        lblFecha.Location = New Point(155, 269)
+        lblFecha.Location = New Point(155, 293)
         lblFecha.Name = "lblFecha"
         lblFecha.Size = New Size(47, 20)
         lblFecha.TabIndex = 22
@@ -94,7 +98,7 @@ Partial Class CrearNvoTurno
         ' lblAsistencia
         ' 
         lblAsistencia.AutoSize = True
-        lblAsistencia.Location = New Point(155, 172)
+        lblAsistencia.Location = New Point(155, 153)
         lblAsistencia.Name = "lblAsistencia"
         lblAsistencia.Size = New Size(75, 20)
         lblAsistencia.TabIndex = 21
@@ -102,7 +106,7 @@ Partial Class CrearNvoTurno
         ' 
         ' txtTelefono
         ' 
-        txtTelefono.Location = New Point(331, 114)
+        txtTelefono.Location = New Point(331, 117)
         txtTelefono.Name = "txtTelefono"
         txtTelefono.Size = New Size(292, 27)
         txtTelefono.TabIndex = 20
@@ -110,7 +114,7 @@ Partial Class CrearNvoTurno
         ' lblTelefono
         ' 
         lblTelefono.AutoSize = True
-        lblTelefono.Location = New Point(155, 117)
+        lblTelefono.Location = New Point(155, 120)
         lblTelefono.Name = "lblTelefono"
         lblTelefono.Size = New Size(67, 20)
         lblTelefono.TabIndex = 19
@@ -119,7 +123,7 @@ Partial Class CrearNvoTurno
         ' lblPaciente
         ' 
         lblPaciente.AutoSize = True
-        lblPaciente.Location = New Point(155, 66)
+        lblPaciente.Location = New Point(155, 47)
         lblPaciente.Name = "lblPaciente"
         lblPaciente.Size = New Size(136, 20)
         lblPaciente.TabIndex = 17
@@ -128,7 +132,7 @@ Partial Class CrearNvoTurno
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(155, 226)
+        Label1.Location = New Point(155, 207)
         Label1.Name = "Label1"
         Label1.Size = New Size(93, 20)
         Label1.TabIndex = 29
@@ -138,14 +142,14 @@ Partial Class CrearNvoTurno
         ' 
         cmbEspecialidad.FormattingEnabled = True
         cmbEspecialidad.Items.AddRange(New Object() {"Seleccionar ", "Estudio Medicina Familiar", "Pediatría", "Ginecología y Obstetricia", "Cardiología", "Dermatología", "Neumología", "Neurología", "Urología", "Oftalmología"})
-        cmbEspecialidad.Location = New Point(331, 220)
+        cmbEspecialidad.Location = New Point(331, 201)
         cmbEspecialidad.Name = "cmbEspecialidad"
         cmbEspecialidad.Size = New Size(292, 28)
         cmbEspecialidad.TabIndex = 30
         ' 
         ' btnAgregar
         ' 
-        btnAgregar.Location = New Point(651, 63)
+        btnAgregar.Location = New Point(651, 44)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(94, 29)
         btnAgregar.TabIndex = 31
@@ -154,25 +158,63 @@ Partial Class CrearNvoTurno
         ' 
         ' Txt_ApellidoNombre
         ' 
-        Txt_ApellidoNombre.Location = New Point(331, 63)
+        Txt_ApellidoNombre.Location = New Point(331, 44)
         Txt_ApellidoNombre.Name = "Txt_ApellidoNombre"
         Txt_ApellidoNombre.Size = New Size(292, 27)
         Txt_ApellidoNombre.TabIndex = 32
         ' 
-        ' CmbTurnos
+        ' cmbHora
         ' 
-        CmbTurnos.FormattingEnabled = True
-        CmbTurnos.Location = New Point(331, 320)
-        CmbTurnos.Name = "CmbTurnos"
-        CmbTurnos.Size = New Size(151, 28)
-        CmbTurnos.TabIndex = 33
+        cmbHora.FormattingEnabled = True
+        cmbHora.Location = New Point(331, 344)
+        cmbHora.Name = "cmbHora"
+        cmbHora.Size = New Size(151, 28)
+        cmbHora.TabIndex = 33
+        ' 
+        ' lblProfesional
+        ' 
+        lblProfesional.AutoSize = True
+        lblProfesional.Location = New Point(155, 248)
+        lblProfesional.Name = "lblProfesional"
+        lblProfesional.Size = New Size(83, 20)
+        lblProfesional.TabIndex = 34
+        lblProfesional.Text = "Profesional"
+        ' 
+        ' cmbProfesional
+        ' 
+        cmbProfesional.FormattingEnabled = True
+        cmbProfesional.Items.AddRange(New Object() {"Seleccionar ", "Estudio Medicina Familiar", "Pediatría", "Ginecología y Obstetricia", "Cardiología", "Dermatología", "Neumología", "Neurología", "Urología", "Oftalmología"})
+        cmbProfesional.Location = New Point(331, 245)
+        cmbProfesional.Name = "cmbProfesional"
+        cmbProfesional.Size = New Size(292, 28)
+        cmbProfesional.TabIndex = 35
+        ' 
+        ' lblDNI
+        ' 
+        lblDNI.AutoSize = True
+        lblDNI.Location = New Point(155, 85)
+        lblDNI.Name = "lblDNI"
+        lblDNI.Size = New Size(35, 20)
+        lblDNI.TabIndex = 36
+        lblDNI.Text = "DNI"
+        ' 
+        ' txtDNI
+        ' 
+        txtDNI.Location = New Point(331, 85)
+        txtDNI.Name = "txtDNI"
+        txtDNI.Size = New Size(194, 27)
+        txtDNI.TabIndex = 37
         ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
-        Controls.Add(CmbTurnos)
+        Controls.Add(txtDNI)
+        Controls.Add(lblDNI)
+        Controls.Add(cmbProfesional)
+        Controls.Add(lblProfesional)
+        Controls.Add(cmbHora)
         Controls.Add(Txt_ApellidoNombre)
         Controls.Add(btnAgregar)
         Controls.Add(cmbEspecialidad)
@@ -208,5 +250,9 @@ Partial Class CrearNvoTurno
     Friend WithEvents cmbEspecialidad As ComboBox
     Friend WithEvents btnAgregar As Button
     Friend WithEvents Txt_ApellidoNombre As TextBox
-    Friend WithEvents CmbTurnos As ComboBox
+    Friend WithEvents cmbHora As ComboBox
+    Friend WithEvents lblProfesional As Label
+    Friend WithEvents cmbProfesional As ComboBox
+    Friend WithEvents lblDNI As Label
+    Friend WithEvents txtDNI As TextBox
 End Class

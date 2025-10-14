@@ -356,4 +356,7 @@ Public Class Admin
 
     End Sub
 
+    Private Sub admin_texto1_TextChanged(sender As Object, e As EventArgs) Handles admin_texto1.TextChanged
+
+    End Sub
 End Class
