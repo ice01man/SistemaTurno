@@ -116,7 +116,5 @@
         frmAdmin.Show()
     End Sub
 
-    Private Sub ToolStripContainer1_ContentPanel_Load(sender As Object, e As EventArgs) Handles ToolStripContainer1.ContentPanel.Load
 
-    End Sub
 End Class

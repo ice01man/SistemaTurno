@@ -47,8 +47,6 @@ Partial Class Pacientes
         DGBServicios = New DataGridViewTextBoxColumn()
         DGBDIA = New DataGridViewTextBoxColumn()
         TextBuscar = New TextBox()
-        ComboBox1 = New ComboBox()
-        BtnBuscar = New Button()
         PacBuscador = New GroupBox()
         InfoPaciente.SuspendLayout()
         GroupBox1.SuspendLayout()
@@ -275,32 +273,12 @@ Partial Class Pacientes
         ' 
         TextBuscar.Location = New Point(23, 31)
         TextBuscar.Name = "TextBuscar"
-        TextBuscar.Size = New Size(214, 27)
+        TextBuscar.Size = New Size(408, 27)
         TextBuscar.TabIndex = 15
-        ' 
-        ' ComboBox1
-        ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(383, 31)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(343, 28)
-        ComboBox1.TabIndex = 16
-        ' 
-        ' BtnBuscar
-        ' 
-        BtnBuscar.BackColor = Color.CadetBlue
-        BtnBuscar.Location = New Point(258, 21)
-        BtnBuscar.Name = "BtnBuscar"
-        BtnBuscar.Size = New Size(94, 47)
-        BtnBuscar.TabIndex = 17
-        BtnBuscar.Text = "Buscar"
-        BtnBuscar.UseVisualStyleBackColor = False
         ' 
         ' PacBuscador
         ' 
         PacBuscador.Controls.Add(TextBuscar)
-        PacBuscador.Controls.Add(ComboBox1)
-        PacBuscador.Controls.Add(BtnBuscar)
         PacBuscador.Location = New Point(72, 12)
         PacBuscador.Name = "PacBuscador"
         PacBuscador.Size = New Size(753, 84)
@@ -356,8 +334,6 @@ Partial Class Pacientes
     Friend WithEvents DGBServicios As DataGridViewTextBoxColumn
     Friend WithEvents DGBDIA As DataGridViewTextBoxColumn
     Friend WithEvents TextBuscar As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents BtnBuscar As Button
     Friend WithEvents PacBuscador As GroupBox
     Friend WithEvents BtnAgregar As Button
 End Class

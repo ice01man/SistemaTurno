@@ -24,7 +24,11 @@ Partial Class CrearNvoTurno
     Private Sub InitializeComponent()
         btnCancelar = New Button()
         btnGuardar = New Button()
+<<<<<<< HEAD
         dtpHora = New DateTimePicker()
+=======
+        dtpFecha = New DateTimePicker()
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
         cmbAsistencia = New ComboBox()
         lblHora = New Label()
         lblFecha = New Label()
@@ -33,6 +37,7 @@ Partial Class CrearNvoTurno
         lblTelefono = New Label()
         lblPaciente = New Label()
         Label1 = New Label()
+<<<<<<< HEAD
         cmbEspecialidad = New ComboBox()
         btnAgregar = New Button()
         Txt_ApellidoNombre = New TextBox()
@@ -41,6 +46,12 @@ Partial Class CrearNvoTurno
         cmbProfesional = New ComboBox()
         lblDNI = New Label()
         txtDNI = New TextBox()
+=======
+        ComboBox1 = New ComboBox()
+        btnBuscar = New Button()
+        cmbPaciente = New ComboBox()
+        ComboHorarios = New ComboBox()
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
         SuspendLayout()
         ' 
         ' btnCancelar
@@ -61,12 +72,21 @@ Partial Class CrearNvoTurno
         btnGuardar.Text = "Guardar"
         btnGuardar.UseVisualStyleBackColor = True
         ' 
+<<<<<<< HEAD
         ' dtpHora
         ' 
         dtpHora.Location = New Point(331, 293)
         dtpHora.Name = "dtpHora"
         dtpHora.Size = New Size(292, 27)
         dtpHora.TabIndex = 25
+=======
+        ' dtpFecha
+        ' 
+        dtpFecha.Location = New Point(331, 269)
+        dtpFecha.Name = "dtpFecha"
+        dtpFecha.Size = New Size(292, 27)
+        dtpFecha.TabIndex = 25
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
         ' 
         ' cmbAsistencia
         ' 
@@ -205,11 +225,20 @@ Partial Class CrearNvoTurno
         txtDNI.Size = New Size(194, 27)
         txtDNI.TabIndex = 37
         ' 
+        ' ComboHorarios
+        ' 
+        ComboHorarios.FormattingEnabled = True
+        ComboHorarios.Location = New Point(331, 320)
+        ComboHorarios.Name = "ComboHorarios"
+        ComboHorarios.Size = New Size(292, 28)
+        ComboHorarios.TabIndex = 33
+        ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(882, 453)
+<<<<<<< HEAD
         Controls.Add(txtDNI)
         Controls.Add(lblDNI)
         Controls.Add(cmbProfesional)
@@ -222,6 +251,16 @@ Partial Class CrearNvoTurno
         Controls.Add(btnCancelar)
         Controls.Add(btnGuardar)
         Controls.Add(dtpHora)
+=======
+        Controls.Add(ComboHorarios)
+        Controls.Add(cmbPaciente)
+        Controls.Add(btnBuscar)
+        Controls.Add(ComboBox1)
+        Controls.Add(Label1)
+        Controls.Add(btnCancelar)
+        Controls.Add(btnGuardar)
+        Controls.Add(dtpFecha)
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
         Controls.Add(cmbAsistencia)
         Controls.Add(lblHora)
         Controls.Add(lblFecha)
@@ -238,7 +277,11 @@ Partial Class CrearNvoTurno
 
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnGuardar As Button
+<<<<<<< HEAD
     Friend WithEvents dtpHora As DateTimePicker
+=======
+    Friend WithEvents dtpFecha As DateTimePicker
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
     Friend WithEvents cmbAsistencia As ComboBox
     Friend WithEvents lblHora As Label
     Friend WithEvents lblFecha As Label
@@ -247,6 +290,7 @@ Partial Class CrearNvoTurno
     Friend WithEvents lblTelefono As Label
     Friend WithEvents lblPaciente As Label
     Friend WithEvents Label1 As Label
+<<<<<<< HEAD
     Friend WithEvents cmbEspecialidad As ComboBox
     Friend WithEvents btnAgregar As Button
     Friend WithEvents Txt_ApellidoNombre As TextBox
@@ -255,4 +299,10 @@ Partial Class CrearNvoTurno
     Friend WithEvents cmbProfesional As ComboBox
     Friend WithEvents lblDNI As Label
     Friend WithEvents txtDNI As TextBox
+=======
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents btnBuscar As Button
+    Friend WithEvents cmbPaciente As ComboBox
+    Friend WithEvents ComboHorarios As ComboBox
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
 End Class

@@ -24,12 +24,12 @@ Partial Class Admin
     Private Sub InitializeComponent()
         GroupBox1 = New GroupBox()
         Combobox_admin = New ComboBox()
-        Button1 = New Button()
         PanelUsuarios = New Panel()
+        txt_id = New Label()
         Labelad4 = New Label()
         admin_texto3 = New TextBox()
         Chboxad = New CheckedListBox()
-        Button2 = New Button()
+        btnGuardar = New Button()
         admin_combo = New ComboBox()
         Labelad3 = New Label()
         Labelad2 = New Label()
@@ -51,7 +51,6 @@ Partial Class Admin
         ' GroupBox1
         ' 
         GroupBox1.Controls.Add(Combobox_admin)
-        GroupBox1.Controls.Add(Button1)
         GroupBox1.Location = New Point(67, 35)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(1186, 71)
@@ -62,27 +61,19 @@ Partial Class Admin
         ' Combobox_admin
         ' 
         Combobox_admin.FormattingEnabled = True
-        Combobox_admin.Items.AddRange(New Object() {"Seleccione", "Usuarios", "Doctores", "Pantalla"})
+        Combobox_admin.Items.AddRange(New Object() {"Usuarios", "Doctores"})
         Combobox_admin.Location = New Point(55, 27)
         Combobox_admin.Name = "Combobox_admin"
-        Combobox_admin.Size = New Size(421, 28)
+        Combobox_admin.Size = New Size(483, 28)
         Combobox_admin.TabIndex = 2
-        ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(508, 27)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(94, 29)
-        Button1.TabIndex = 2
-        Button1.Text = "ir"
-        Button1.UseVisualStyleBackColor = True
         ' 
         ' PanelUsuarios
         ' 
+        PanelUsuarios.Controls.Add(txt_id)
         PanelUsuarios.Controls.Add(Labelad4)
         PanelUsuarios.Controls.Add(admin_texto3)
         PanelUsuarios.Controls.Add(Chboxad)
-        PanelUsuarios.Controls.Add(Button2)
+        PanelUsuarios.Controls.Add(btnGuardar)
         PanelUsuarios.Controls.Add(admin_combo)
         PanelUsuarios.Controls.Add(Labelad3)
         PanelUsuarios.Controls.Add(Labelad2)
@@ -94,6 +85,17 @@ Partial Class Admin
         PanelUsuarios.Size = New Size(510, 465)
         PanelUsuarios.TabIndex = 1
         PanelUsuarios.Visible = False
+        ' 
+        ' txt_id
+        ' 
+        txt_id.AutoSize = True
+        txt_id.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txt_id.ForeColor = Color.Black
+        txt_id.Location = New Point(52, 19)
+        txt_id.Name = "txt_id"
+        txt_id.Size = New Size(29, 28)
+        txt_id.TabIndex = 8
+        txt_id.Text = "id"
         ' 
         ' Labelad4
         ' 
@@ -123,16 +125,16 @@ Partial Class Admin
         Chboxad.Size = New Size(232, 158)
         Chboxad.TabIndex = 4
         ' 
-        ' Button2
+        ' btnGuardar
         ' 
-        Button2.BackColor = Color.GreenYellow
-        Button2.ForeColor = Color.Black
-        Button2.Location = New Point(358, 421)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(94, 29)
-        Button2.TabIndex = 3
-        Button2.Text = "Guardar"
-        Button2.UseVisualStyleBackColor = False
+        btnGuardar.BackColor = Color.GreenYellow
+        btnGuardar.ForeColor = Color.Black
+        btnGuardar.Location = New Point(358, 421)
+        btnGuardar.Name = "btnGuardar"
+        btnGuardar.Size = New Size(94, 29)
+        btnGuardar.TabIndex = 3
+        btnGuardar.Text = "Guardar"
+        btnGuardar.UseVisualStyleBackColor = False
         ' 
         ' admin_combo
         ' 
@@ -272,14 +274,13 @@ Partial Class Admin
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Combobox_admin As ComboBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents PanelUsuarios As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Labelad1 As Label
     Friend WithEvents admin_texto2 As TextBox
     Friend WithEvents admin_texto1 As TextBox
     Friend WithEvents Labelad2 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnGuardar As Button
     Friend WithEvents admin_combo As ComboBox
     Friend WithEvents Labelad3 As Label
     Friend WithEvents DataGridViewAdmin As DataGridView
@@ -290,4 +291,5 @@ Partial Class Admin
     Friend WithEvents Buscador As Label
     Friend WithEvents lbl_buscarEspecialidad As Label
     Friend WithEvents txt_buscadorEspe As TextBox
+    Friend WithEvents txt_id As Label
 End Class

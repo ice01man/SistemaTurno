@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 ﻿Imports System.IO
 
 
 ' Actualizado el 14/10/25
 Public Class CrearNvoTurno
+=======
+﻿Public Class CrearNvoTurno
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        'Validar campos
+        If cmbPaciente.Text = "" Then
+            MessageBox.Show("Ingrese el Apellido y Nombre del paciente.")
+            cmbPaciente.Focus()
+            Exit Sub
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
 
     Private pacientes As New List(Of Persona)
     Private dtpFecha As Object
@@ -13,7 +23,18 @@ Public Class CrearNvoTurno
         Public Property DNI As String
     End Class
 
+<<<<<<< HEAD
     '-----
+=======
+        ' --- Lógica para guardar en el archivo ---
+        Dim rutaArchivo = "turnos.csv"
+        Dim datosTurno = String.Join(",", New String() {
+        dtpFecha.Value.ToString("yyyy-MM-dd"), ' Formato de fecha para ordenar
+        cmbPaciente.Text,
+        txtTelefono.Text,
+        cmbAsistencia.Text
+    })
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
 
     Public Sub New()
         InitializeComponent()
@@ -28,6 +49,30 @@ Public Class CrearNvoTurno
     Private Sub CargarPacientes()
         Dim rutaArchivo As String = "pacientes.csv"
 
+<<<<<<< HEAD
+=======
+
+
+    ' Clase interna para representar un paciente
+    Private Class Persona
+        Public Property ApellidoNombre As String
+        Public Property Telefono As String
+    End Class
+
+    ' Lista de pacientes cargados desde el CSV
+    Private pacientes As New List(Of Persona)
+
+    ' Constructor del formulario
+    Public Sub New()
+        InitializeComponent()   ' <-- crea los controles del diseñador
+        CargarPacientes()       ' <-- carga los datos desde el archivo
+    End Sub
+
+    ' Leer el archivo pacientes.csv y llenar el ComboBox
+    Private Sub CargarPacientes()
+        Dim rutaArchivo As String = "pacientes.csv"
+
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
         If IO.File.Exists(rutaArchivo) Then
             Dim lineas = IO.File.ReadAllLines(rutaArchivo)
             Pacientes.Clear()
@@ -61,6 +106,7 @@ Public Class CrearNvoTurno
         End If
     End Sub
 
+<<<<<<< HEAD
 
     Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.TextChanged
         Dim textoIngresado As String = Txt_ApellidoNombre.Text.Trim()
@@ -115,6 +161,37 @@ Public Class CrearNvoTurno
             MessageBox.Show("Error al cargar especialidades: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+=======
+    ' Cuando seleccionás un paciente, que aparezca el teléfono
+    Private Sub cmbPaciente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPaciente.SelectedIndexChanged
+        Dim seleccionado As Persona = TryCast(cmbPaciente.SelectedItem, Persona)
+        If seleccionado IsNot Nothing Then
+            txtTelefono.Text = seleccionado.Telefono
+        End If
+    End Sub
+
+    Private Sub dtpHora_ValueChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ComboHorarios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboHorarios.SelectedIndexChanged
+        Dim rutaArchivo = "horarios.csv"
+
+        ComboHorarios.Items.Clear()
+
+        If IO.File.Exists(rutaArchivo) Then
+            Dim lineas = IO.File.ReadAllLines(rutaArchivo)
+            For i = 1 To lineas.Length - 1
+                Dim datos = lineas(i).Split(","c)
+                If datos.Length >= 2 Then
+                    Dim hora = datos(0).Trim
+                    ComboHorarios.Items.Add(hora)
+                End If
+            Next
+        End If
+    End Sub
+
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
 
 
     ' Botón Agregar
@@ -237,6 +314,7 @@ Public Class CrearNvoTurno
 
     '----------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Me.Close()
     End Sub
@@ -284,4 +362,6 @@ Public Class CrearNvoTurno
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtDNI.TextChanged
 
     End Sub
+=======
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
 End Class

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 id,Apellido,Nombre,Especialidad,Dia_laboral
 1,Iglesias,Valentina,Medicina General,Sábado
 2,Romero,Mía,Dermatología,Martes
@@ -199,3 +200,174 @@ id,Apellido,Nombre,Especialidad,Dia_laboral
 198,Vega,Agustina,Nutrición,Miércoles
 199,Benítez,Mía,Endocrinología,Sábado
 200,Romero,Joaquín,Neurología,Viernes
+=======
+id,Nombre,Apellido,Especialidad,Dia_Laboral
+1,Siegfried,Hammerberger,pediatria,Lunes/Jueves/Miercoles
+2,Joshia,Grelik,clinica medica,Martes/Viernes/Jueves
+3,Kore,Frowde,tocoginecologia,Miercoles/Sabado/Viernes
+4,Biddie,Redbourn,cardiologia,Jueves/Domingo/Sabado
+5,Hilario,Klaessen,psiquiatria,Viernes/Lunes/Domingo
+6,Christin,Siviter,cirugia general,Sabado/Martes/Lunes
+7,Lydia,Lilion,ortopedia y traumatologia,Domingo/Miercoles/Martes
+8,Erda,Ruggiero,diagnostico por imagenes,Lunes/Jueves/Miercoles
+9,Che,Nunns,oftalmologia,Martes/Viernes/Jueves
+10,Corliss,Cristofolo,medicina general y/o medicina de familia,Miercoles/Sabado/Viernes
+11,Ephrayim,Galsworthy,anestesiologia,Jueves/Domingo/Sabado
+12,Sherlock,Reedie,dermatologia,Viernes/Lunes/Domingo
+13,Humphrey,Tremolieres,pediatria,Sabado/Martes/Lunes
+14,Nertie,Quilleash,clinica medica,Domingo/Miercoles/Martes
+15,Tallie,Tankard,tocoginecologia,Lunes/Jueves/Miercoles
+16,Gray,Krink,cardiologia,Martes/Viernes/Jueves
+17,Heather,Alejandri,psiquiatria,Miercoles/Sabado/Viernes
+18,Wilow,Boycott,cirugia general,Jueves/Domingo/Sabado
+19,Lita,Blacker,ortopedia y traumatologia,Viernes/Lunes/Domingo
+20,Bebe,Thackray,diagnostico por imagenes,Sabado/Martes/Lunes
+21,Gayel,Cush,oftalmologia,Domingo/Miercoles/Martes
+22,Kalle,Cumberpatch,medicina general y/o medicina de familia,Lunes/Jueves/Miercoles
+23,Joelie,Smalman,anestesiologia,Martes/Viernes/Jueves
+24,Tris,Sibthorp,dermatologia,Miercoles/Sabado/Viernes
+25,Carling,Lightbourne,pediatria,Jueves/Domingo/Sabado
+26,Rolando,Goadbie,clinica medica,Viernes/Lunes/Domingo
+27,Rudie,Boddie,tocoginecologia,Sabado/Martes/Lunes
+28,Freddy,Danilovich,cardiologia,Domingo/Miercoles/Martes
+29,Karina,Tomovic,psiquiatria,Lunes/Jueves/Miercoles
+30,Sylvia,Bloschke,cirugia general,Martes/Viernes/Jueves
+31,Warren,Belvin,ortopedia y traumatologia,Miercoles/Sabado/Viernes
+32,Fin,Alcock,diagnostico por imagenes,Jueves/Domingo/Sabado
+33,Kane,O'Doireidh,oftalmologia,Viernes/Lunes/Domingo
+34,Donetta,Nestor,medicina general y/o medicina de familia,Sabado/Martes/Lunes
+35,Janessa,Kopmann,anestesiologia,Domingo/Miercoles/Martes
+36,Calv,Dragonette,dermatologia,Lunes/Jueves/Miercoles
+37,Phillipp,Kulas,pediatria,Martes/Viernes/Jueves
+38,Isacco,Beeble,clinica medica,Miercoles/Sabado/Viernes
+39,Ricardo,Dilger,tocoginecologia,Jueves/Domingo/Sabado
+40,Madonna,Robinet,cardiologia,Viernes/Lunes/Domingo
+41,Sue,Kohler,psiquiatria,Sabado/Martes/Lunes
+42,Mildrid,Thireau,cirugia general,Domingo/Miercoles/Martes
+43,Beniamino,Chalcraft,ortopedia y traumatologia,Lunes/Jueves/Miercoles
+44,Lorri,Keddey,diagnostico por imagenes,Martes/Viernes/Jueves
+45,Arnold,Bunclark,oftalmologia,Miercoles/Sabado/Viernes
+46,Hastie,Giral,medicina general y/o medicina de familia,Jueves/Domingo/Sabado
+47,Brigitte,MacQuaker,anestesiologia,Viernes/Lunes/Domingo
+48,Pascale,Scutchings,dermatologia,Sabado/Martes/Lunes
+49,Agathe,Krysztofiak,pediatria,Domingo/Miercoles/Martes
+50,Ardath,Van den Broek,clinica medica,Lunes/Jueves/Miercoles
+51,Vivyan,Steventon,tocoginecologia,Martes/Viernes/Jueves
+52,Annetta,Barnewall,cardiologia,Miercoles/Sabado/Viernes
+53,Clevey,Gillbe,psiquiatria,Jueves/Domingo/Sabado
+54,Genovera,Hamlet,cirugia general,Viernes/Lunes/Domingo
+55,Hart,Jouanny,ortopedia y traumatologia,Sabado/Martes/Lunes
+56,Stephani,Looks,diagnostico por imagenes,Domingo/Miercoles/Martes
+57,Cletus,Carnier,oftalmologia,Lunes/Jueves/Miercoles
+58,Karine,O'Nions,medicina general y/o medicina de familia,Martes/Viernes/Jueves
+59,Glen,Hoyland,anestesiologia,Miercoles/Sabado/Viernes
+60,Shepherd,Adolf,dermatologia,Jueves/Domingo/Sabado
+61,Nicolis,Ingolotti,pediatria,Viernes/Lunes/Domingo
+62,Cahra,Muxworthy,clinica medica,Sabado/Martes/Lunes
+63,Briano,Chasmoor,tocoginecologia,Domingo/Miercoles/Martes
+64,Arny,Skirvin,cardiologia,Lunes/Jueves/Miercoles
+65,Benoit,Matveiko,psiquiatria,Martes/Viernes/Jueves
+66,Jenilee,Huffey,cirugia general,Miercoles/Sabado/Viernes
+67,Marlo,Gantz,ortopedia y traumatologia,Jueves/Domingo/Sabado
+68,Harrie,McSperrin,diagnostico por imagenes,Viernes/Lunes/Domingo
+69,Hughie,Greader,oftalmologia,Sabado/Martes/Lunes
+70,Dun,Creeboe,medicina general y/o medicina de familia,Domingo/Miercoles/Martes
+71,Pamella,Tease,anestesiologia,Lunes/Jueves/Miercoles
+72,Laura,Larenson,dermatologia,Martes/Viernes/Jueves
+73,Shane,Urwen,pediatria,Miercoles/Sabado/Viernes
+74,Gusty,Grestie,clinica medica,Jueves/Domingo/Sabado
+75,Rosanne,Starzaker,tocoginecologia,Viernes/Lunes/Domingo
+76,Aldis,Selwyn,cardiologia,Sabado/Martes/Lunes
+77,Paddy,Barry,psiquiatria,Domingo/Miercoles/Martes
+78,Kassi,Chatelain,cirugia general,Lunes/Jueves/Miercoles
+79,Sherwynd,Nicol,ortopedia y traumatologia,Martes/Viernes/Jueves
+80,Maxine,Cordes,diagnostico por imagenes,Miercoles/Sabado/Viernes
+81,Fanchon,Mattiacci,oftalmologia,Jueves/Domingo/Sabado
+82,Alasteir,Sichardt,medicina general y/o medicina de familia,Viernes/Lunes/Domingo
+83,Barnard,Drever,anestesiologia,Sabado/Martes/Lunes
+84,Brandea,Lehrer,dermatologia,Domingo/Miercoles/Martes
+85,Madelin,Dugall,pediatria,Lunes/Jueves/Miercoles
+86,Janaya,Ianizzi,clinica medica,Martes/Viernes/Jueves
+87,Willow,Mines,tocoginecologia,Miercoles/Sabado/Viernes
+88,Darrell,Lambdon,cardiologia,Jueves/Domingo/Sabado
+89,Bel,Widmore,psiquiatria,Viernes/Lunes/Domingo
+90,Zerk,Jobin,cirugia general,Sabado/Martes/Lunes
+91,Cassandry,Nolleau,ortopedia y traumatologia,Domingo/Miercoles/Martes
+92,Lorrin,Sitwell,diagnostico por imagenes,Lunes/Jueves/Miercoles
+93,Aigneis,Mattimoe,oftalmologia,Martes/Viernes/Jueves
+94,Phillipp,Nibley,medicina general y/o medicina de familia,Miercoles/Sabado/Viernes
+95,Sylvia,Bachellier,anestesiologia,Jueves/Domingo/Sabado
+96,Gregorio,Walne,dermatologia,Viernes/Lunes/Domingo
+97,Isidor,Camoletto,pediatria,Sabado/Martes/Lunes
+98,Myrtia,Shedd,clinica medica,Domingo/Miercoles/Martes
+99,Pippa,Wimbury,tocoginecologia,Lunes/Jueves/Miercoles
+100,Gilburt,Wolverson,cardiologia,Martes/Viernes/Jueves
+101,Rahel,Lanaway,psiquiatria,Miercoles/Sabado/Viernes
+102,Saloma,Sobey,cirugia general,Jueves/Domingo/Sabado
+103,Beckie,Fattori,ortopedia y traumatologia,Viernes/Lunes/Domingo
+104,Belia,Venner,diagnostico por imagenes,Sabado/Martes/Lunes
+105,Cammi,Bantham,oftalmologia,Domingo/Miercoles/Martes
+106,Chad,Savery,medicina general y/o medicina de familia,Lunes/Jueves/Miercoles
+107,Brigitte,Yakutin,anestesiologia,Martes/Viernes/Jueves
+108,Devin,Farenden,dermatologia,Miercoles/Sabado/Viernes
+109,Zorine,Jordison,pediatria,Jueves/Domingo/Sabado
+110,Amitie,Topper,clinica medica,Viernes/Lunes/Domingo
+111,Marys,Pifford,tocoginecologia,Sabado/Martes/Lunes
+112,Riobard,Folker,cardiologia,Domingo/Miercoles/Martes
+113,Tye,McCromley,psiquiatria,Lunes/Jueves/Miercoles
+114,Hamil,Kobierski,cirugia general,Martes/Viernes/Jueves
+115,Lexi,Luttgert,ortopedia y traumatologia,Miercoles/Sabado/Viernes
+116,See,Stallwood,diagnostico por imagenes,Jueves/Domingo/Sabado
+117,Enoch,Bidewel,oftalmologia,Viernes/Lunes/Domingo
+118,Bryn,Cromblehome,medicina general y/o medicina de familia,Sabado/Martes/Lunes
+119,Brew,Renouf,anestesiologia,Domingo/Miercoles/Martes
+120,Neille,Sutworth,dermatologia,Lunes/Jueves/Miercoles
+121,Francisca,Butt,pediatria,Martes/Viernes/Jueves
+122,Kirby,Renzini,clinica medica,Miercoles/Sabado/Viernes
+123,Jolyn,Brideaux,tocoginecologia,Jueves/Domingo/Sabado
+124,Livia,Kynder,cardiologia,Viernes/Lunes/Domingo
+125,Sigismond,Jacobssen,psiquiatria,Sabado/Martes/Lunes
+126,Sollie,Jackways,cirugia general,Domingo/Miercoles/Martes
+127,Mirella,Lamperd,ortopedia y traumatologia,Lunes/Jueves/Miercoles
+128,Isaac,Dominik,diagnostico por imagenes,Martes/Viernes/Jueves
+129,Joela,Jowers,oftalmologia,Miercoles/Sabado/Viernes
+130,Madalyn,Theuff,medicina general y/o medicina de familia,Jueves/Domingo/Sabado
+131,Amory,Bullingham,anestesiologia,Viernes/Lunes/Domingo
+132,Karylin,Berston,dermatologia,Sabado/Martes/Lunes
+133,Leola,Crowson,pediatria,Domingo/Miercoles/Martes
+134,Mariel,Baldazzi,clinica medica,Lunes/Jueves/Miercoles
+135,Homer,Foort,tocoginecologia,Martes/Viernes/Jueves
+136,Jerry,Pope,cardiologia,Miercoles/Sabado/Viernes
+137,Thaxter,Habbal,psiquiatria,Jueves/Domingo/Sabado
+138,Kaja,Thomann,cirugia general,Viernes/Lunes/Domingo
+139,Chrissy,Dartnall,ortopedia y traumatologia,Sabado/Martes/Lunes
+140,Anette,Blodg,diagnostico por imagenes,Domingo/Miercoles/Martes
+141,Harli,Killiam,oftalmologia,Lunes/Jueves/Miercoles
+142,Joleen,Canacott,medicina general y/o medicina de familia,Martes/Viernes/Jueves
+143,Fairleigh,Ohrtmann,anestesiologia,Miercoles/Sabado/Viernes
+144,Raychel,Felder,dermatologia,Jueves/Domingo/Sabado
+145,Manya,Balsom,pediatria,Viernes/Lunes/Domingo
+146,Kala,Kitley,clinica medica,Sabado/Martes/Lunes
+147,Christal,Treadway,tocoginecologia,Domingo/Miercoles/Martes
+148,Brig,Staig,cardiologia,Lunes/Jueves/Miercoles
+149,Lizette,Avrahamov,psiquiatria,Martes/Viernes/Jueves
+150,Valida,Kisbee,cirugia general,Miercoles/Sabado/Viernes
+151,Quinn,McTavish,ortopedia y traumatologia,Jueves/Domingo/Sabado
+152,Aviva,Stiling,diagnostico por imagenes,Viernes/Lunes/Domingo
+153,Celestine,Gritland,oftalmologia,Sabado/Martes/Lunes
+154,Arlette,Klulisek,medicina general y/o medicina de familia,Domingo/Miercoles/Martes
+155,Andrea,Lebbon,anestesiologia,Lunes/Jueves/Miercoles
+156,Humfrid,Rubinovitsch,dermatologia,Martes/Viernes/Jueves
+157,Paddy,Southcott,pediatria,Miercoles/Sabado/Viernes
+158,Delphine,Kemmet,clinica medica,Jueves/Domingo/Sabado
+159,Marsh,Dubs,tocoginecologia,Viernes/Lunes/Domingo
+160,Radcliffe,Spraggs,cardiologia,Sabado/Martes/Lunes
+161,Phylis,Chooter,psiquiatria,Domingo/Miercoles/Martes
+162,Marcelo,Vasilic,cirugia general,Lunes/Jueves/Miercoles
+163,Verne,Dacks,ortopedia y traumatologia,Martes/Viernes/Jueves
+164,Joly,Batho,diagnostico por imagenes,Miercoles/Sabado/Viernes
+165,Lila,Thurbon,oftalmologia,Jueves/Domingo/Sabado
+166,Oswald,Dri,medicina general y/o medicina de familia,Viernes/Lunes/Domingo
+167,Stanislaw,Anespie,anestesiologia,Sabado/Martes/Lunes
+168,Dominga,Dunford,dermatologia,Domingo/Miercoles/Martes
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055

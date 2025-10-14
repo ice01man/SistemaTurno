@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox
 'Actualización al 24 de septiembre
 
 Public Class Pacientes
@@ -13,8 +12,8 @@ Public Class Pacientes
         ConfigurarAutoComplete()
 
 
-        If Not BtnBuscar Is Nothing Then AddHandler BtnBuscar.Click, AddressOf BtnBuscar_Click
-        If Not BtnAgregar Is Nothing Then AddHandler BtnAgregar.Click, AddressOf BtnGuardar_Click
+        ' If Not Btn_Pac_Agregar Is Nothing Then AddHandler Btn_Pac_Agregar.Click, AddressOf BtnBuscar_Click
+        '  If Not BtnAgregar Is Nothing Then AddHandler BtnAgregar.Click, AddressOf BtnGuardar_Click
         ' Enter en TextBuscar hace la búsqueda
         If Not TextBuscar Is Nothing Then AddHandler TextBuscar.KeyDown, AddressOf TextBuscar_KeyDown
     End Sub
@@ -150,12 +149,17 @@ Public Class Pacientes
             BtnBuscar_Click(Nothing, EventArgs.Empty)
             e.SuppressKeyPress = True
         End If
+
+        BtnAgregar.Text = "Editar"
     End Sub
 
+<<<<<<< HEAD
     Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
 
     End Sub
 
+=======
+>>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
     Private Sub TextApellido_TextChanged(sender As Object, e As EventArgs) Handles TextApellido.TextChanged
 
     End Sub
