@@ -13,12 +13,15 @@
                 Dim datos As String() = linea.Split(","c)
 
                 ' Verifica que la línea tenga 2 partes (usuario y contraseña)
-                If datos.Length > 1 Then
+                If datos.Length >= 4 Then
 
-                    If datos(1).Trim() = usuario.Trim() AndAlso datos(2).Trim() = password.Trim() Then
+                    If datos(1).Trim().Equals(usuario.Trim(), StringComparison.OrdinalIgnoreCase) AndAlso
+                        datos(2).Trim().Equals(password.Trim(), StringComparison.Ordinal) Then
+
+                        ' Credenciales correctas, devolvemos el Rol
                         Dim rol As String = datos(3).Trim()
-
                         Return rol
+
                     End If
                 End If
             Next
