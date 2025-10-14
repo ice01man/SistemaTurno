@@ -102,12 +102,9 @@ Partial Class Form1
         ToolStripContainer1.ContentPanel.BackgroundImageLayout = ImageLayout.Stretch
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
-<<<<<<< HEAD
         ToolStripContainer1.ContentPanel.Size = New Size(1382, 750)
         ToolStripContainer1.ContentPanel.Size = New Size(1382, 779)
-=======
         ToolStripContainer1.ContentPanel.Size = New Size(1382, 754)
->>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
         ToolStripContainer1.Dock = DockStyle.Fill
         ToolStripContainer1.LeftToolStripPanelVisible = False
         ToolStripContainer1.Location = New Point(0, 24)

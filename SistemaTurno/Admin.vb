@@ -299,20 +299,20 @@ Public Class Admin
                 Dim contrasena As String = admin_texto2.Text
                 Dim rol As String = admin_combo.Text
 
-<<<<<<< HEAD
-            If String.IsNullOrWhiteSpace(admin_texto1.Text) Then
+
+                If String.IsNullOrWhiteSpace(admin_texto1.Text) Then
                 ' El TextBox está vacío, o solo contiene espacios.
                 MessageBox.Show("El campo de texto está vacío o solo contiene espacios en blanco.")
 
             End If
-=======
+
                 Dim rutaArchivo = "usuarios.txt"
                 Try
                     Dim lineas As String() = File.ReadAllLines(rutaArchivo)
                     Dim cabecera As String = lineas(0)
                     Dim cuerpo As String() = lineas.Skip(1).ToArray()
                     Dim haycambios As Boolean = False
->>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
+
 
                     For i As Integer = 1 To lineas.Length - 1
                         Dim datos = lineas(i).Split(","c)
@@ -381,14 +381,6 @@ Public Class Admin
 
     End Sub
 
-
-<<<<<<< HEAD
-        Dim rutaArchivo = "usuarios.txt"
-
-
-    End Sub
-=======
->>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
 
     Private Sub admin_texto1_TextChanged(sender As Object, e As EventArgs) Handles admin_texto1.TextChanged
 

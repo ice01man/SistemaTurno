@@ -153,14 +153,4 @@ Public Class Pacientes
         BtnAgregar.Text = "Editar"
     End Sub
 
-<<<<<<< HEAD
-    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
-
-    End Sub
-
-=======
->>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
-    Private Sub TextApellido_TextChanged(sender As Object, e As EventArgs) Handles TextApellido.TextChanged
-
-    End Sub
 End Class
