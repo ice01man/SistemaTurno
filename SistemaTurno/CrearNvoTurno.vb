@@ -1,10 +1,11 @@
 Imports System.IO
 
+'Actualizado el 21/10
 
-' Actualizado el 14/10/25
 Public Class CrearNvoTurno
 
     Private pacientes As New List(Of Persona)
+    Private doctores As New List(Of Doctor)
 
     Private Class Persona
         Public Property ApellidoNombre As String
@@ -12,65 +13,52 @@ Public Class CrearNvoTurno
         Public Property DNI As String
     End Class
 
-    '-----
+    Private Class Doctor
+        Public Property Id As Integer
+        Public Property Apellido As String
+        Public Property Nombre As String
+        Public Property Especialidad As String
+        Public Property DiaLaboral As String
+        Public Property HoraInicio As TimeSpan
+        Public Property HoraFin As TimeSpan
+    End Class
 
     Public Sub New()
         InitializeComponent()
         CargarPacientes()
-        CargarEspecialidades("doctores.csv")
-
+        CargarDoctores("doctores.csv")
+        CargarEspecialidades()
         dtpHora.MinDate = DateTime.Today
     End Sub
 
-
-    ' Cargar pacientes desde pacientes.csv y configurar autocompletado
+    'carga de pacientes
     Private Sub CargarPacientes()
         Dim rutaArchivo As String = "pacientes.csv"
+        If Not File.Exists(rutaArchivo) Then Return
 
-        If IO.File.Exists(rutaArchivo) Then
-            Dim lineas = IO.File.ReadAllLines(rutaArchivo)
-            pacientes.Clear()
+        Dim lineas = File.ReadAllLines(rutaArchivo)
+        pacientes.Clear()
 
-            For i As Integer = 1 To lineas.Length - 1
-                Dim datos = lineas(i).Split(","c)
-                If datos.Length >= 8 Then
-                    Dim apellido As String = datos(1).Trim()
-                    Dim nombre As String = datos(2).Trim()
-                    Dim dni As String = datos(3).Trim()
-                    Dim telefono As String = datos(5).Trim()
+        For i As Integer = 1 To lineas.Length - 1
+            Dim datos = lineas(i).Split(","c)
+            If datos.Length >= 6 Then
+                pacientes.Add(New Persona With {
+                    .ApellidoNombre = $"{datos(1).Trim()} {datos(2).Trim()}",
+                    .DNI = datos(3).Trim(),
+                    .Telefono = datos(5).Trim()
+                })
+            End If
+        Next
 
-                    pacientes.Add(New Persona With {
-                        .ApellidoNombre = $"{apellido} {nombre}",
-                        .Telefono = telefono,
-                        .DNI = dni
-                    })
-                End If
-            Next
-
-            ' Autocompletado
-
-            Dim autoComplete As New AutoCompleteStringCollection()
-            autoComplete.AddRange(pacientes.Select(Function(p) p.ApellidoNombre).ToArray())
-
-            Txt_ApellidoNombre.AutoCompleteCustomSource = autoComplete
-            Txt_ApellidoNombre.AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            Txt_ApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource
-        Else
-            MessageBox.Show("No se encontró el archivo pacientes.csv", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
+        Dim autoComplete As New AutoCompleteStringCollection()
+        autoComplete.AddRange(pacientes.Select(Function(p) p.ApellidoNombre).ToArray())
+        Txt_ApellidoNombre.AutoCompleteCustomSource = autoComplete
+        Txt_ApellidoNombre.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+        Txt_ApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource
     End Sub
-
 
     Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.TextChanged
         Dim textoIngresado As String = Txt_ApellidoNombre.Text.Trim()
-
-        If String.IsNullOrWhiteSpace(textoIngresado) Then
-            txtTelefono.Clear()
-            txtDNI.Clear()
-            btnAgregar.Enabled = False
-            Return
-        End If
-
         Dim pacienteExistente = pacientes.FirstOrDefault(Function(p) String.Equals(p.ApellidoNombre, textoIngresado, StringComparison.OrdinalIgnoreCase))
 
         If pacienteExistente IsNot Nothing Then
@@ -84,126 +72,248 @@ Public Class CrearNvoTurno
         End If
     End Sub
 
-    Private Sub CargarEspecialidades(rutaArchivo As String)
-        Try
-            If File.Exists(rutaArchivo) Then
-                Dim especialidades As New HashSet(Of String)()
-                Dim lineas() As String = File.ReadAllLines(rutaArchivo)
 
-                For i As Integer = 1 To lineas.Length - 1
-                    Dim columnas() As String = lineas(i).Split(","c)
-                    If columnas.Length >= 4 Then
-                        Dim especialidad As String = columnas(3).Trim()
-                        If Not String.IsNullOrWhiteSpace(especialidad) Then
-                            especialidades.Add(especialidad)
-                        End If
-                    End If
-                Next
+    'doctores
 
-                Dim listaOrdenada = especialidades.ToList()
-                listaOrdenada.Sort()
+    Private allowedDayOfWeek As Nullable(Of DayOfWeek) = Nothing
 
-                cmbEspecialidad.Items.Clear()
-                For Each esp In listaOrdenada
-                    cmbEspecialidad.Items.Add(esp)
-                Next
-            Else
-                MessageBox.Show("No se encontró el archivo doctores.csv", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    Private Sub CargarDoctores(rutaArchivo As String)
+        doctores.Clear()
+        If Not File.Exists(rutaArchivo) Then Return
+
+        Dim lineas = File.ReadAllLines(rutaArchivo)
+        For i As Integer = 1 To lineas.Length - 1
+            Dim c = lineas(i).Split(","c)
+            If c.Length >= 7 Then
+                doctores.Add(New Doctor With {
+                    .Id = Integer.Parse(c(0)),
+                    .Apellido = c(1).Trim(),
+                    .Nombre = c(2).Trim(),
+                    .Especialidad = c(3).Trim(),
+                    .DiaLaboral = c(4).Trim(),
+                    .HoraInicio = TimeSpan.Parse(c(5)),
+                    .HoraFin = TimeSpan.Parse(c(6))
+                })
             End If
-        Catch ex As Exception
-            MessageBox.Show("Error al cargar especialidades: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        Next
     End Sub
-
-
-    ' Botón Agregar
-
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim formularioPacientes As New Pacientes()
-        formularioPacientes.ShowDialog()
-
-
-        CargarPacientes()
-    End Sub
-
-    Private Sub FormTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CargarHorasDesdeCSV("horarios.csv")
-        CargarEspecialidades("doctores.csv")
-    End Sub
-
-    Private Sub CargarHorasDesdeCSV(rutaArchivo As String)
-        Try
-
-            If File.Exists(rutaArchivo) Then
-
-                Dim lineas() As String = File.ReadAllLines(rutaArchivo)
-
-
-                cmbHora.Items.Clear()
-
-                For Each hora As String In lineas
-                    If Not String.IsNullOrWhiteSpace(hora) Then
-                        cmbHora.Items.Add(hora.Trim())
-                    End If
-                Next
-            Else
-                MessageBox.Show("No se encontró el archivo de horarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Error al leer horarios: " & ex.Message)
-        End Try
+    Private Sub CargarEspecialidades()
+        Dim especialidades = doctores.Select(Function(d) d.Especialidad).Distinct().OrderBy(Function(e) e).ToList()
+        cmbEspecialidad.Items.Clear()
+        cmbEspecialidad.Items.AddRange(especialidades.ToArray())
     End Sub
 
     Private Sub cmbEspecialidad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbEspecialidad.SelectedIndexChanged
-        Dim especialidadSeleccionada As String = cmbEspecialidad.SelectedItem?.ToString()
-        If Not String.IsNullOrEmpty(especialidadSeleccionada) Then
-            CargarProfXEspecialidad(especialidadSeleccionada)
-        Else
-            cmbProfesional.Items.Clear()
-        End If
-    End Sub
-
-
-
-    Private Sub CargarProfXEspecialidad(especialidad As String)
-        Dim rutaArchivo As String = "doctores.csv"
         cmbProfesional.Items.Clear()
+        If cmbEspecialidad.SelectedIndex = -1 Then Exit Sub
 
-        If IO.File.Exists(rutaArchivo) Then
-            Dim lineas = IO.File.ReadAllLines(rutaArchivo)
+        Dim esp = cmbEspecialidad.SelectedItem.ToString()
+        Dim profesionales = doctores.Where(Function(d) d.Especialidad = esp).Select(Function(d) $"{d.Apellido} {d.Nombre}").Distinct().ToList()
 
-            For i As Integer = 1 To lineas.Length - 1
-                Dim columnas = lineas(i).Split(","c)
-                If columnas.Length >= 4 Then
-                    Dim esp = columnas(3).Trim()
-                    If esp.Equals(especialidad, StringComparison.OrdinalIgnoreCase) Then
-                        Dim apellido = columnas(1).Trim()
-                        Dim nombre = columnas(2).Trim()
-                        cmbProfesional.Items.Add($"{apellido} {nombre}")
-                    End If
-                End If
-            Next
-        Else
-            MessageBox.Show("No se encontró el archivo doctores.csv", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
+        cmbProfesional.Items.AddRange(profesionales.ToArray())
     End Sub
 
+
+
+
+    '==================== FILTROS POR DÍA Y HORA ====================
+
+    Private Function ParseDayNameToDayOfWeek(dayName As String) As Nullable(Of DayOfWeek)
+        If String.IsNullOrWhiteSpace(dayName) Then Return Nothing
+        Dim s As String = dayName.Trim().ToLowerInvariant()
+        ' normalizar acentos simples (very simple replacement)
+        s = s.Replace("á", "a").Replace("é", "e").Replace("í", "i").Replace("ó", "o").Replace("ú", "u").Replace("ñ", "n")
+        Select Case s
+            Case "lunes"
+                Return DayOfWeek.Monday
+            Case "martes"
+                Return DayOfWeek.Tuesday
+            Case "miercoles", "mierc" ' fallback
+                Return DayOfWeek.Wednesday
+            Case "jueves"
+                Return DayOfWeek.Thursday
+            Case "viernes"
+                Return DayOfWeek.Friday
+            Case "sabado", "sab"
+                Return DayOfWeek.Saturday
+            Case "domingo", "dom"
+                Return DayOfWeek.Sunday
+            Case Else
+                Return Nothing
+        End Select
+    End Function
+
+
+    Private Sub cmbProfesional_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbProfesional.SelectedIndexChanged
+        If cmbProfesional.SelectedIndex = -1 Then
+            allowedDayOfWeek = Nothing
+            Return
+        End If
+
+        Dim profesional = cmbProfesional.SelectedItem.ToString()
+        Dim doctorSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesional)
+        If doctorSel Is Nothing Then
+            allowedDayOfWeek = Nothing
+            Return
+        End If
+
+        ' obtener DayOfWeek correcto desde el string del CSV (maneja acentos)
+        allowedDayOfWeek = ParseDayNameToDayOfWeek(doctorSel.DiaLaboral)
+        If allowedDayOfWeek Is Nothing Then
+            ' si no se reconoce el día, avisar y permitir selección normal
+            MessageBox.Show($"No se pudo interpretar el día laboral del profesional: '{doctorSel.DiaLaboral}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' fijar dtpHora al próximo día que coincida con el día laboral
+        Dim fecha As DateTime = DateTime.Today
+        Dim attempts As Integer = 0
+        While fecha.DayOfWeek <> allowedDayOfWeek.Value And attempts < 14
+            fecha = fecha.AddDays(1)
+            attempts += 1
+        End While
+        dtpHora.Value = fecha
+
+        ' actualizar horas disponibles inmediatamente
+        CargarHorasDisponibles()
+    End Sub
+
+    ' ----------------------
+    ' al cambiar la fecha
+    ' ----------------------
+
+    Private ReadOnly DayOfWeekMap As New Dictionary(Of DayOfWeek, String) From {
+    {DayOfWeek.Monday, "lunes"},
+    {DayOfWeek.Tuesday, "martes"},
+    {DayOfWeek.Wednesday, "miércoles"},
+    {DayOfWeek.Thursday, "jueves"},
+    {DayOfWeek.Friday, "viernes"},
+    {DayOfWeek.Saturday, "sábado"},
+    {DayOfWeek.Sunday, "domingo"}
+}
+
+    Private Sub dtpHora_ValueChanged(sender As Object, e As EventArgs) Handles dtpHora.ValueChanged
+        ' si hay un día permitido, validamos
+        If allowedDayOfWeek IsNot Nothing Then
+            If dtpHora.Value.DayOfWeek <> allowedDayOfWeek.Value Then
+                ' evitar bloquear UX—limpiar horas y avisar
+                cmbHora.Items.Clear()
+                MessageBox.Show($"El profesional seleccionado sólo atiende los {DayOfWeekMap(allowedDayOfWeek.Value)}. Elegí una fecha en ese día.", "Fecha no disponible", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+        End If
+
+        ' si todo OK, cargar horas
+        CargarHorasDisponibles()
+    End Sub
+
+    ' ----------------------
+    ' cargar horas disponibles (dentro del rango del doctor y sin duplicados)
+    ' ----------------------
+    Private Sub CargarHorasDisponibles()
+        cmbHora.Items.Clear()
+        cmbHora.Text = ""
+
+        If cmbProfesional.SelectedIndex = -1 Then
+            Return
+        End If
+
+        Dim profesional = cmbProfesional.SelectedItem.ToString()
+        Dim doctorSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesional)
+        If doctorSel Is Nothing Then Return
+
+        ' rango laboral del doctor
+        Dim horaInicio As TimeSpan = doctorSel.HoraInicio
+        Dim horaFin As TimeSpan = doctorSel.HoraFin
+
+        ' generar slots de 30 minutos usando formato HH:mm (24h)
+        Dim listaHoras As New List(Of String)
+        Dim cur = horaInicio
+        While cur < horaFin
+            listaHoras.Add(cur.ToString("hh\:mm")) ' preserve leading zeros
+            cur = cur.Add(TimeSpan.FromMinutes(30))
+        End While
+
+        ' cargar turnos ocupados para esa fecha y profesional
+        Dim fechaSel As String = dtpHora.Value.ToString("dd/MM/yyyy") ' formato con el que se guardan
+        Dim ocupadas = CargarTurnosOcupados(doctorSel, fechaSel)
+
+        ' filtrar (aseguramos formatos iguales: hora ocupada también debe estar en HH:mm o hh:mm)
+        Dim disponibles = listaHoras.Where(Function(h) Not ocupadas.Contains(h) AndAlso Not ocupadas.Contains(h.Replace("h", ":"))).ToList()
+
+        If disponibles.Count = 0 Then
+            ' no hay horarios libres
+            MessageBox.Show("No hay horarios disponibles para este profesional en la fecha seleccionada.", "Sin disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        cmbHora.Items.AddRange(disponibles.ToArray())
+    End Sub
+
+    ' ----------------------
+    ' cargar turnos ocupados (compara profesional y fecha)
+    ' ----------------------
+    Private Function CargarTurnosOcupados(doc As Doctor, fecha As String) As HashSet(Of String)
+        Dim ocupadas As New HashSet(Of String)
+        Dim ruta As String = "turnos.csv"
+        If Not File.Exists(ruta) Then Return ocupadas
+
+        Dim lineas = File.ReadAllLines(ruta)
+        For i As Integer = 1 To lineas.Length - 1
+            Dim c = lineas(i).Split(","c)
+            If c.Length >= 7 Then
+                Dim profesional = c(4).Trim()
+                Dim fechaTurno = c(5).Trim()
+                Dim hora = c(6).Trim()
+
+                ' Normalizar horas a formato HH:mm (si vienen en otro)
+                Dim horaNorm As String = hora
+                ' Si tiene AM/PM u otro formato, sería necesario parsear; asumimos HH:mm
+                If profesional = $"{doc.Apellido} {doc.Nombre}" AndAlso fechaTurno = fecha Then
+                    ocupadas.Add(horaNorm)
+                End If
+            End If
+        Next
+        Return ocupadas
+    End Function
+
+    ' ----------------------
+    ' guardar turno: validación más específica y mensajes
+    ' ----------------------
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             Dim archivoTurnos As String = "turnos.csv"
-
             Dim paciente = Txt_ApellidoNombre.Text.Trim()
             Dim telefono = txtTelefono.Text.Trim()
             Dim dni = txtDNI.Text.Trim()
-            Dim especialidad = cmbEspecialidad.SelectedItem?.ToString()
-            Dim profesional = cmbProfesional.SelectedItem?.ToString()
+            Dim especialidad = If(cmbEspecialidad.SelectedItem, String.Empty)?.ToString()
+            Dim profesional = If(cmbProfesional.SelectedItem, String.Empty)?.ToString()
             Dim fecha = dtpHora.Value.ToString("dd/MM/yyyy")
-            Dim hora = cmbHora.SelectedItem?.ToString()
+            Dim hora = If(cmbHora.SelectedItem, String.Empty)?.ToString()
 
-            If String.IsNullOrWhiteSpace(paciente) OrElse String.IsNullOrWhiteSpace(especialidad) OrElse
-               String.IsNullOrWhiteSpace(profesional) OrElse String.IsNullOrWhiteSpace(hora) Then
-                MessageBox.Show("Complete todos los campos antes de guardar el turno.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            ' Validaciones especificas: mostrar qué falta
+            Dim faltan As New List(Of String)
+            If String.IsNullOrWhiteSpace(paciente) Then faltan.Add("Paciente")
+            If String.IsNullOrWhiteSpace(dni) Then faltan.Add("DNI")
+            If String.IsNullOrWhiteSpace(telefono) Then faltan.Add("Teléfono")
+            If String.IsNullOrWhiteSpace(especialidad) Then faltan.Add("Especialidad")
+            If String.IsNullOrWhiteSpace(profesional) Then faltan.Add("Profesional")
+            If String.IsNullOrWhiteSpace(hora) Then faltan.Add("Hora")
+
+            If faltan.Count > 0 Then
+                Dim lista = String.Join(", ", faltan)
+                MessageBox.Show("Faltan campos: " & lista & vbCrLf & "Complete todos los campos antes de guardar el turno.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
+            End If
+
+            ' Evitar duplicar turno
+            Dim docSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesional)
+            If docSel IsNot Nothing Then
+                Dim ocupadas = CargarTurnosOcupados(docSel, fecha)
+                If ocupadas.Contains(hora) Then
+                    MessageBox.Show("Ese horario ya está ocupado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return
+                End If
             End If
 
             Dim linea As String = $"{paciente},{dni},{telefono},{especialidad},{profesional},{fecha},{hora}"
@@ -224,14 +334,26 @@ Public Class CrearNvoTurno
         End Try
     End Sub
 
+    '==================== BOTONES ====================
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim formularioPacientes As New Pacientes()
+        formularioPacientes.ShowDialog()
+        CargarPacientes()
+    End Sub
+
+
+
     Private Sub LimpiarCampos()
         Txt_ApellidoNombre.Clear()
         txtTelefono.Clear()
         txtDNI.Clear()
         cmbEspecialidad.SelectedIndex = -1
         cmbProfesional.Items.Clear()
-        cmbHora.SelectedIndex = -1
+        cmbHora.Items.Clear()
     End Sub
 
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
+    End Sub
 
 End Class

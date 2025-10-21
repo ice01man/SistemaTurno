@@ -6,6 +6,8 @@ Public Class Pacientes
     ' Diccionario para guardar pacientes cargados desde el CSV
     Private pacientesData As New Dictionary(Of String, String())
 
+    Public Property FormReferencia As Form
+
 
     Private Sub Pacientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarPacientesDesdeCSV()
@@ -153,4 +155,14 @@ Public Class Pacientes
         BtnAgregar.Text = "Editar"
     End Sub
 
+    Private Sub brnVolver_Click(sender As Object, e As EventArgs) Handles brnVolver.Click
+        If FormReferencia IsNot Nothing Then
+            FormReferencia.Show()
+        End If
+        Me.Close()
+    End Sub
+
+    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
+
+    End Sub
 End Class

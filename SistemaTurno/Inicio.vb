@@ -1,15 +1,18 @@
 ﻿Public Class Inicio
 
+    ' Ultima actualizacion 21/10
     'Ultima Actualizacion 17/09/2025 
     'Actualizacion al 14/10/2025
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-      
+
         CargarTurnosEnDataGridView()
     End Sub
 
-    Private Sub button1_click(sender As Object, e As EventArgs) Handles Button1.Click
-
-
+    Private Sub btnPaciente_Click(sender As Object, e As EventArgs) Handles btnPaciente.Click
+        Dim ventanaPacientes As New Pacientes()
+        ventanaPacientes.FormReferencia = Me
+        ventanaPacientes.Show()
+        Me.Hide()
 
     End Sub
 
@@ -54,5 +57,7 @@
         CargarTurnosEnDataGridView()
     End Sub
 
+    Private Sub lblTurnosDiaActual_Click(sender As Object, e As EventArgs) Handles lblTurnosDiaActual.Click
 
+    End Sub
 End Class

@@ -1,373 +1,101 @@
-<<<<<<< HEAD
-id,Apellido,Nombre,Especialidad,Dia_laboral
-1,Iglesias,Valentina,Medicina General,Sábado
-2,Romero,Mía,Dermatología,Martes
-3,Méndez,Valentina,Oftalmología,Sábado
-4,Núñez,Martina,Cardiología,Viernes
-5,Vargas,Sofía,Medicina General,Lunes
-6,Pérez,Mía,Ginecología,Viernes
-7,González,Martina,Dermatología,Sábado
-8,Iglesias,Juan,Ginecología,Jueves
-9,Sánchez,Nicolás,Traumatología,Miércoles
-10,Rojas,Antonella,Medicina General,Martes
-11,Suárez,Lucía,Psicología,Miércoles
-12,López,Matías,Neurología,Miércoles
-13,Fernández,Lucas,Kinesiología,Lunes
-14,Ruiz,Antonella,Psicología,Viernes
-15,Romero,Florencia,Medicina General,Sábado
-16,Castro,Martina,Cardiología,Jueves
-17,Gómez,Martina,Odontología,Sábado
-18,Herrera,Pablo,Endocrinología,Miércoles
-19,Flores,Matías,Infectología,Lunes
-20,Rodríguez,Mara,Dermatología,Miércoles
-21,Gómez,Antonella,Dermatología,Lunes
-22,Alvarez,Santiago,Nutrición,Sábado
-23,Ortiz,Julieta,Pediatría,Miércoles
-24,Ruiz,Matías,Oftalmología,Miércoles
-25,Suárez,Rocío,Oftalmología,Sábado
-26,Gómez,Paula,Oftalmología,Martes
-27,Moreira,Carolina,Dermatología,Martes
-28,Castro,Diego,Odontología,Sábado
-29,Suárez,Martina,Dermatología,Sábado
-30,Torres,Emiliano,Neurología,Lunes
-31,Sánchez,Emiliano,Medicina General,Miércoles
-32,Alvarez,Santiago,Cardiología,Martes
-33,Marín,Bruno,Oncología,Sábado
-34,Torres,Matías,Oftalmología,Jueves
-35,Alvarez,Pablo,Oncología,Sábado
-36,Castro,Benjamín,Odontología,Martes
-37,Sánchez,Carolina,Ginecología,Viernes
-38,Romero,Carolina,Traumatología,Jueves
-39,Núñez,Bruno,Kinesiología,Miércoles
-40,Sánchez,Benjamín,Ginecología,Jueves
-41,Gómez,Joaquín,Medicina General,Lunes
-42,López,Federico,Pediatría,Sábado
-43,Vargas,Paula,Cardiología,Jueves
-44,Alvarez,Paula,Nutrición,Viernes
-45,Romero,Martina,Endocrinología,Lunes
-46,Molina,Carolina,Cardiología,Sábado
-47,Núñez,Martina,Neurología,Miércoles
-48,Benítez,Federico,Psicología,Lunes
-49,Díaz,Lucía,Pediatría,Jueves
-50,González,Carolina,Oncología,Sábado
-51,Romero,Facundo,Neurología,Martes
-52,Silva,Rocío,Cardiología,Sábado
-53,Díaz,Emiliano,Oftalmología,Viernes
-54,Herrera,Matías,Pediatría,Miércoles
-55,Benítez,Camila,Ginecología,Viernes
-56,Marín,Martín,Traumatología,Miércoles
-57,Rossi,Martín,Cardiología,Miércoles
-58,Núñez,Emiliano,Neurología,Miércoles
-59,Sánchez,Sofía,Dermatología,Viernes
-60,Gómez,Lucas,Infectología,Jueves
-61,Ortiz,Lucas,Neurología,Viernes
-62,Benítez,Benjamín,Pediatría,Sábado
-63,Rossi,Martina,Pediatría,Miércoles
-64,Silva,Antonella,Traumatología,Jueves
-65,Pérez,Rocío,Ginecología,Sábado
-66,Suárez,Matías,Infectología,Miércoles
-67,Alvarez,Mara,Oftalmología,Miércoles
-68,Castro,Pablo,Ginecología,Jueves
-69,Fernández,Mía,Dermatología,Lunes
-70,Torres,Martín,Traumatología,Viernes
-71,Sánchez,Bruno,Dermatología,Lunes
-72,Gómez,Juan,Oftalmología,Lunes
-73,Sánchez,Lucas,Oncología,Lunes
-74,Vega,Tomás,Cardiología,Viernes
-75,Sánchez,Santiago,Oftalmología,Jueves
-76,Pérez,Martina,Pediatría,Sábado
-77,Marín,Pablo,Traumatología,Viernes
-78,Rossi,Mía,Neurología,Jueves
-79,Rojas,Lucía,Dermatología,Lunes
-80,Fernández,Mara,Kinesiología,Miércoles
-81,Vargas,Lucía,Nutrición,Sábado
-82,Rodríguez,Mara,Oftalmología,Sábado
-83,Fernández,Sofía,Kinesiología,Sábado
-84,Torres,Florencia,Endocrinología,Lunes
-85,Sánchez,Matías,Dermatología,Viernes
-86,Castro,Benjamín,Kinesiología,Martes
-87,Romero,Nicolás,Dermatología,Lunes
-88,Castro,Florencia,Endocrinología,Viernes
-89,Fernández,Sofía,Oftalmología,Viernes
-90,Ortiz,Martín,Cardiología,Martes
-91,Martínez,Lucía,Nutrición,Jueves
-92,Pérez,Antonella,Kinesiología,Lunes
-93,Martínez,Diego,Medicina General,Jueves
-94,Romero,Rocío,Neurología,Jueves
-95,Díaz,Lucía,Infectología,Sábado
-96,Rojas,Martina,Oftalmología,Sábado
-97,Rossi,Benjamín,Dermatología,Miércoles
-98,Pérez,Sofía,Traumatología,Sábado
-99,Moreira,Sofía,Infectología,Miércoles
-100,Rodríguez,Sofía,Traumatología,Jueves
-101,Silva,Rocío,Endocrinología,Viernes
-102,Martínez,Sofía,Ginecología,Lunes
-103,Vega,Camila,Cardiología,Viernes
-104,Gómez,Mara,Endocrinología,Martes
-105,Alvarez,Valentina,Oncología,Viernes
-106,Sánchez,Bruno,Traumatología,Lunes
-107,Herrera,Lucas,Kinesiología,Sábado
-108,Flores,Bruno,Ginecología,Miércoles
-109,Marín,Santiago,Dermatología,Sábado
-110,Suárez,Tomás,Dermatología,Miércoles
-111,Alvarez,Benjamín,Oftalmología,Sábado
-112,Díaz,Nicolás,Psicología,Lunes
-113,González,Nicolás,Traumatología,Viernes
-114,Fernández,Lucas,Ginecología,Martes
-115,Silva,Santiago,Pediatría,Miércoles
-116,Núñez,Lucas,Oncología,Martes
-117,Ruiz,Isabella,Pediatría,Jueves
-118,Ortiz,Martina,Infectología,Miércoles
-119,Herrera,Florencia,Oftalmología,Viernes
-120,González,Mara,Endocrinología,Viernes
-121,Díaz,Rocío,Oftalmología,Lunes
-122,Núñez,Benjamín,Odontología,Lunes
-123,Núñez,Valentina,Infectología,Viernes
-124,López,Santiago,Odontología,Viernes
-125,Pérez,Juan,Psicología,Martes
-126,Molina,Federico,Endocrinología,Miércoles
-127,Silva,Agustina,Odontología,Lunes
-128,Gómez,Federico,Kinesiología,Miércoles
-129,Rodríguez,Martín,Psicología,Martes
-130,Iglesias,Santiago,Pediatría,Sábado
-131,Castro,Martina,Infectología,Jueves
-132,Moreira,Martín,Cardiología,Lunes
-133,Núñez,Juan,Oncología,Martes
-134,Moreira,Sofía,Endocrinología,Miércoles
-135,Flores,Martina,Pediatría,Jueves
-136,López,Sofía,Odontología,Miércoles
-137,Núñez,Rocío,Neurología,Lunes
-138,Núñez,Julieta,Dermatología,Sábado
-139,Sánchez,Mara,Cardiología,Miércoles
-140,Benítez,Martina,Oncología,Jueves
-141,Herrera,Carolina,Pediatría,Martes
-142,Vega,Camila,Neurología,Martes
-143,Núñez,Lucía,Medicina General,Martes
-144,Méndez,Rocío,Psicología,Jueves
-145,Rojas,Mara,Endocrinología,Sábado
-146,Rojas,Mía,Odontología,Martes
-147,Rojas,Juan,Cardiología,Jueves
-148,Vega,Sofía,Endocrinología,Jueves
-149,Sánchez,Matías,Endocrinología,Jueves
-150,Ruiz,Isabella,Endocrinología,Martes
-151,Sánchez,Martín,Oftalmología,Martes
-152,Alvarez,Tomás,Odontología,Lunes
-153,Benítez,Santiago,Psicología,Sábado
-154,Silva,Diego,Oftalmología,Viernes
-155,Torres,Martín,Cardiología,Miércoles
-156,Martínez,Bruno,Odontología,Lunes
-157,Fernández,Paula,Kinesiología,Miércoles
-158,Méndez,Florencia,Psicología,Jueves
-159,Herrera,Facundo,Cardiología,Jueves
-160,Núñez,Bruno,Dermatología,Miércoles
-161,Rodríguez,Juan,Kinesiología,Lunes
-162,Silva,Rocío,Neurología,Viernes
-163,Molina,Carolina,Infectología,Sábado
-164,Molina,Matías,Psicología,Jueves
-165,Gómez,Mara,Oncología,Miércoles
-166,Herrera,Tomás,Oftalmología,Lunes
-167,Méndez,Pablo,Odontología,Viernes
-168,Díaz,Mara,Kinesiología,Miércoles
-169,Alvarez,Juan,Odontología,Viernes
-170,López,Matías,Kinesiología,Sábado
-171,Alvarez,Mara,Infectología,Martes
-172,Herrera,Bruno,Odontología,Jueves
-173,Moreira,Emiliano,Medicina General,Miércoles
-174,Díaz,Matías,Kinesiología,Viernes
-175,Herrera,Federico,Psicología,Jueves
-176,Castro,Nicolás,Oftalmología,Martes
-177,Silva,Agustina,Neurología,Sábado
-178,Martínez,Mara,Cardiología,Miércoles
-179,Silva,Mara,Oftalmología,Viernes
-180,Torres,Lucas,Endocrinología,Martes
-181,Molina,Isabella,Dermatología,Martes
-182,López,Martín,Medicina General,Martes
-183,Rossi,Paula,Endocrinología,Lunes
-184,Castro,Lucía,Oncología,Sábado
-185,Flores,Matías,Infectología,Sábado
-186,Alvarez,Agustina,Kinesiología,Martes
-187,López,Federico,Infectología,Lunes
-188,Núñez,Joaquín,Endocrinología,Lunes
-189,Benítez,Lucía,Dermatología,Martes
-190,Rojas,Juan,Ginecología,Jueves
-191,Rodríguez,Martina,Dermatología,Lunes
-192,Castro,Benjamín,Neurología,Jueves
-193,Molina,Facundo,Ginecología,Viernes
-194,Torres,Joaquín,Oncología,Jueves
-195,Herrera,Emiliano,Infectología,Viernes
-196,Vargas,Emiliano,Oncología,Viernes
-197,Castro,Pablo,Pediatría,Sábado
-198,Vega,Agustina,Nutrición,Miércoles
-199,Benítez,Mía,Endocrinología,Sábado
-200,Romero,Joaquín,Neurología,Viernes
-=======
-id,Nombre,Apellido,Especialidad,Dia_Laboral
-1,Siegfried,Hammerberger,pediatria,Lunes/Jueves/Miercoles
-2,Joshia,Grelik,clinica medica,Martes/Viernes/Jueves
-3,Kore,Frowde,tocoginecologia,Miercoles/Sabado/Viernes
-4,Biddie,Redbourn,cardiologia,Jueves/Domingo/Sabado
-5,Hilario,Klaessen,psiquiatria,Viernes/Lunes/Domingo
-6,Christin,Siviter,cirugia general,Sabado/Martes/Lunes
-7,Lydia,Lilion,ortopedia y traumatologia,Domingo/Miercoles/Martes
-8,Erda,Ruggiero,diagnostico por imagenes,Lunes/Jueves/Miercoles
-9,Che,Nunns,oftalmologia,Martes/Viernes/Jueves
-10,Corliss,Cristofolo,medicina general y/o medicina de familia,Miercoles/Sabado/Viernes
-11,Ephrayim,Galsworthy,anestesiologia,Jueves/Domingo/Sabado
-12,Sherlock,Reedie,dermatologia,Viernes/Lunes/Domingo
-13,Humphrey,Tremolieres,pediatria,Sabado/Martes/Lunes
-14,Nertie,Quilleash,clinica medica,Domingo/Miercoles/Martes
-15,Tallie,Tankard,tocoginecologia,Lunes/Jueves/Miercoles
-16,Gray,Krink,cardiologia,Martes/Viernes/Jueves
-17,Heather,Alejandri,psiquiatria,Miercoles/Sabado/Viernes
-18,Wilow,Boycott,cirugia general,Jueves/Domingo/Sabado
-19,Lita,Blacker,ortopedia y traumatologia,Viernes/Lunes/Domingo
-20,Bebe,Thackray,diagnostico por imagenes,Sabado/Martes/Lunes
-21,Gayel,Cush,oftalmologia,Domingo/Miercoles/Martes
-22,Kalle,Cumberpatch,medicina general y/o medicina de familia,Lunes/Jueves/Miercoles
-23,Joelie,Smalman,anestesiologia,Martes/Viernes/Jueves
-24,Tris,Sibthorp,dermatologia,Miercoles/Sabado/Viernes
-25,Carling,Lightbourne,pediatria,Jueves/Domingo/Sabado
-26,Rolando,Goadbie,clinica medica,Viernes/Lunes/Domingo
-27,Rudie,Boddie,tocoginecologia,Sabado/Martes/Lunes
-28,Freddy,Danilovich,cardiologia,Domingo/Miercoles/Martes
-29,Karina,Tomovic,psiquiatria,Lunes/Jueves/Miercoles
-30,Sylvia,Bloschke,cirugia general,Martes/Viernes/Jueves
-31,Warren,Belvin,ortopedia y traumatologia,Miercoles/Sabado/Viernes
-32,Fin,Alcock,diagnostico por imagenes,Jueves/Domingo/Sabado
-33,Kane,O'Doireidh,oftalmologia,Viernes/Lunes/Domingo
-34,Donetta,Nestor,medicina general y/o medicina de familia,Sabado/Martes/Lunes
-35,Janessa,Kopmann,anestesiologia,Domingo/Miercoles/Martes
-36,Calv,Dragonette,dermatologia,Lunes/Jueves/Miercoles
-37,Phillipp,Kulas,pediatria,Martes/Viernes/Jueves
-38,Isacco,Beeble,clinica medica,Miercoles/Sabado/Viernes
-39,Ricardo,Dilger,tocoginecologia,Jueves/Domingo/Sabado
-40,Madonna,Robinet,cardiologia,Viernes/Lunes/Domingo
-41,Sue,Kohler,psiquiatria,Sabado/Martes/Lunes
-42,Mildrid,Thireau,cirugia general,Domingo/Miercoles/Martes
-43,Beniamino,Chalcraft,ortopedia y traumatologia,Lunes/Jueves/Miercoles
-44,Lorri,Keddey,diagnostico por imagenes,Martes/Viernes/Jueves
-45,Arnold,Bunclark,oftalmologia,Miercoles/Sabado/Viernes
-46,Hastie,Giral,medicina general y/o medicina de familia,Jueves/Domingo/Sabado
-47,Brigitte,MacQuaker,anestesiologia,Viernes/Lunes/Domingo
-48,Pascale,Scutchings,dermatologia,Sabado/Martes/Lunes
-49,Agathe,Krysztofiak,pediatria,Domingo/Miercoles/Martes
-50,Ardath,Van den Broek,clinica medica,Lunes/Jueves/Miercoles
-51,Vivyan,Steventon,tocoginecologia,Martes/Viernes/Jueves
-52,Annetta,Barnewall,cardiologia,Miercoles/Sabado/Viernes
-53,Clevey,Gillbe,psiquiatria,Jueves/Domingo/Sabado
-54,Genovera,Hamlet,cirugia general,Viernes/Lunes/Domingo
-55,Hart,Jouanny,ortopedia y traumatologia,Sabado/Martes/Lunes
-56,Stephani,Looks,diagnostico por imagenes,Domingo/Miercoles/Martes
-57,Cletus,Carnier,oftalmologia,Lunes/Jueves/Miercoles
-58,Karine,O'Nions,medicina general y/o medicina de familia,Martes/Viernes/Jueves
-59,Glen,Hoyland,anestesiologia,Miercoles/Sabado/Viernes
-60,Shepherd,Adolf,dermatologia,Jueves/Domingo/Sabado
-61,Nicolis,Ingolotti,pediatria,Viernes/Lunes/Domingo
-62,Cahra,Muxworthy,clinica medica,Sabado/Martes/Lunes
-63,Briano,Chasmoor,tocoginecologia,Domingo/Miercoles/Martes
-64,Arny,Skirvin,cardiologia,Lunes/Jueves/Miercoles
-65,Benoit,Matveiko,psiquiatria,Martes/Viernes/Jueves
-66,Jenilee,Huffey,cirugia general,Miercoles/Sabado/Viernes
-67,Marlo,Gantz,ortopedia y traumatologia,Jueves/Domingo/Sabado
-68,Harrie,McSperrin,diagnostico por imagenes,Viernes/Lunes/Domingo
-69,Hughie,Greader,oftalmologia,Sabado/Martes/Lunes
-70,Dun,Creeboe,medicina general y/o medicina de familia,Domingo/Miercoles/Martes
-71,Pamella,Tease,anestesiologia,Lunes/Jueves/Miercoles
-72,Laura,Larenson,dermatologia,Martes/Viernes/Jueves
-73,Shane,Urwen,pediatria,Miercoles/Sabado/Viernes
-74,Gusty,Grestie,clinica medica,Jueves/Domingo/Sabado
-75,Rosanne,Starzaker,tocoginecologia,Viernes/Lunes/Domingo
-76,Aldis,Selwyn,cardiologia,Sabado/Martes/Lunes
-77,Paddy,Barry,psiquiatria,Domingo/Miercoles/Martes
-78,Kassi,Chatelain,cirugia general,Lunes/Jueves/Miercoles
-79,Sherwynd,Nicol,ortopedia y traumatologia,Martes/Viernes/Jueves
-80,Maxine,Cordes,diagnostico por imagenes,Miercoles/Sabado/Viernes
-81,Fanchon,Mattiacci,oftalmologia,Jueves/Domingo/Sabado
-82,Alasteir,Sichardt,medicina general y/o medicina de familia,Viernes/Lunes/Domingo
-83,Barnard,Drever,anestesiologia,Sabado/Martes/Lunes
-84,Brandea,Lehrer,dermatologia,Domingo/Miercoles/Martes
-85,Madelin,Dugall,pediatria,Lunes/Jueves/Miercoles
-86,Janaya,Ianizzi,clinica medica,Martes/Viernes/Jueves
-87,Willow,Mines,tocoginecologia,Miercoles/Sabado/Viernes
-88,Darrell,Lambdon,cardiologia,Jueves/Domingo/Sabado
-89,Bel,Widmore,psiquiatria,Viernes/Lunes/Domingo
-90,Zerk,Jobin,cirugia general,Sabado/Martes/Lunes
-91,Cassandry,Nolleau,ortopedia y traumatologia,Domingo/Miercoles/Martes
-92,Lorrin,Sitwell,diagnostico por imagenes,Lunes/Jueves/Miercoles
-93,Aigneis,Mattimoe,oftalmologia,Martes/Viernes/Jueves
-94,Phillipp,Nibley,medicina general y/o medicina de familia,Miercoles/Sabado/Viernes
-95,Sylvia,Bachellier,anestesiologia,Jueves/Domingo/Sabado
-96,Gregorio,Walne,dermatologia,Viernes/Lunes/Domingo
-97,Isidor,Camoletto,pediatria,Sabado/Martes/Lunes
-98,Myrtia,Shedd,clinica medica,Domingo/Miercoles/Martes
-99,Pippa,Wimbury,tocoginecologia,Lunes/Jueves/Miercoles
-100,Gilburt,Wolverson,cardiologia,Martes/Viernes/Jueves
-101,Rahel,Lanaway,psiquiatria,Miercoles/Sabado/Viernes
-102,Saloma,Sobey,cirugia general,Jueves/Domingo/Sabado
-103,Beckie,Fattori,ortopedia y traumatologia,Viernes/Lunes/Domingo
-104,Belia,Venner,diagnostico por imagenes,Sabado/Martes/Lunes
-105,Cammi,Bantham,oftalmologia,Domingo/Miercoles/Martes
-106,Chad,Savery,medicina general y/o medicina de familia,Lunes/Jueves/Miercoles
-107,Brigitte,Yakutin,anestesiologia,Martes/Viernes/Jueves
-108,Devin,Farenden,dermatologia,Miercoles/Sabado/Viernes
-109,Zorine,Jordison,pediatria,Jueves/Domingo/Sabado
-110,Amitie,Topper,clinica medica,Viernes/Lunes/Domingo
-111,Marys,Pifford,tocoginecologia,Sabado/Martes/Lunes
-112,Riobard,Folker,cardiologia,Domingo/Miercoles/Martes
-113,Tye,McCromley,psiquiatria,Lunes/Jueves/Miercoles
-114,Hamil,Kobierski,cirugia general,Martes/Viernes/Jueves
-115,Lexi,Luttgert,ortopedia y traumatologia,Miercoles/Sabado/Viernes
-116,See,Stallwood,diagnostico por imagenes,Jueves/Domingo/Sabado
-117,Enoch,Bidewel,oftalmologia,Viernes/Lunes/Domingo
-118,Bryn,Cromblehome,medicina general y/o medicina de familia,Sabado/Martes/Lunes
-119,Brew,Renouf,anestesiologia,Domingo/Miercoles/Martes
-120,Neille,Sutworth,dermatologia,Lunes/Jueves/Miercoles
-121,Francisca,Butt,pediatria,Martes/Viernes/Jueves
-122,Kirby,Renzini,clinica medica,Miercoles/Sabado/Viernes
-123,Jolyn,Brideaux,tocoginecologia,Jueves/Domingo/Sabado
-124,Livia,Kynder,cardiologia,Viernes/Lunes/Domingo
-125,Sigismond,Jacobssen,psiquiatria,Sabado/Martes/Lunes
-126,Sollie,Jackways,cirugia general,Domingo/Miercoles/Martes
-127,Mirella,Lamperd,ortopedia y traumatologia,Lunes/Jueves/Miercoles
-128,Isaac,Dominik,diagnostico por imagenes,Martes/Viernes/Jueves
-129,Joela,Jowers,oftalmologia,Miercoles/Sabado/Viernes
-130,Madalyn,Theuff,medicina general y/o medicina de familia,Jueves/Domingo/Sabado
-131,Amory,Bullingham,anestesiologia,Viernes/Lunes/Domingo
-132,Karylin,Berston,dermatologia,Sabado/Martes/Lunes
-133,Leola,Crowson,pediatria,Domingo/Miercoles/Martes
-134,Mariel,Baldazzi,clinica medica,Lunes/Jueves/Miercoles
-135,Homer,Foort,tocoginecologia,Martes/Viernes/Jueves
-136,Jerry,Pope,cardiologia,Miercoles/Sabado/Viernes
-137,Thaxter,Habbal,psiquiatria,Jueves/Domingo/Sabado
-138,Kaja,Thomann,cirugia general,Viernes/Lunes/Domingo
-139,Chrissy,Dartnall,ortopedia y traumatologia,Sabado/Martes/Lunes
-140,Anette,Blodg,diagnostico por imagenes,Domingo/Miercoles/Martes
-141,Harli,Killiam,oftalmologia,Lunes/Jueves/Miercoles
-142,Joleen,Canacott,medicina general y/o medicina de familia,Martes/Viernes/Jueves
-143,Fairleigh,Ohrtmann,anestesiologia,Miercoles/Sabado/Viernes
-144,Raychel,Felder,dermatologia,Jueves/Domingo/Sabado
-145,Manya,Balsom,pediatria,Viernes/Lunes/Domingo
-146,Kala,Kitley,clinica medica,Sabado/Martes/Lunes
-147,Christal,Treadway,tocoginecologia,Domingo/Miercoles/Martes
-148,Brig,Staig,cardiologia,Lunes/Jueves/Miercoles
-149,Lizette,Avrahamov,psiquiatria,Martes/Viernes/Jueves
-150,Valida,Kisbee,cirugia general,Miercoles/Sabado/Viernes
-151,Quinn,McTavish,ortopedia y traumatologia,Jueves/Domingo/Sabado
-152,Aviva,Stiling,diagnostico por imagenes,Viernes/Lunes/Domingo
-153,Celestine,Gritland,oftalmologia,Sabado/Martes/Lunes
-154,Arlette,Klulisek,medicina general y/o medicina de familia,Domingo/Miercoles/Martes
-155,Andrea,Lebbon,anestesiologia,Lunes/Jueves/Miercoles
-156,Humfrid,Rubinovitsch,dermatologia,Martes/Viernes/Jueves
-157,Paddy,Southcott,pediatria,Miercoles/Sabado/Viernes
-158,Delphine,Kemmet,clinica medica,Jueves/Domingo/Sabado
-159,Marsh,Dubs,tocoginecologia,Viernes/Lunes/Domingo
-160,Radcliffe,Spraggs,cardiologia,Sabado/Martes/Lunes
-161,Phylis,Chooter,psiquiatria,Domingo/Miercoles/Martes
-162,Marcelo,Vasilic,cirugia general,Lunes/Jueves/Miercoles
-163,Verne,Dacks,ortopedia y traumatologia,Martes/Viernes/Jueves
-164,Joly,Batho,diagnostico por imagenes,Miercoles/Sabado/Viernes
-165,Lila,Thurbon,oftalmologia,Jueves/Domingo/Sabado
-166,Oswald,Dri,medicina general y/o medicina de familia,Viernes/Lunes/Domingo
-167,Stanislaw,Anespie,anestesiologia,Sabado/Martes/Lunes
-168,Dominga,Dunford,dermatologia,Domingo/Miercoles/Martes
->>>>>>> 004e269285548fbece1a3300a33ce5d15a269055
+id,Apellido,Nombre,Especialidad,Dia_laboral,HoraInicio,HoraFin
+1,Vargas,Sofía,Medicina General,Lunes,08:00,14:00
+2,Rojas,Antonella,Medicina General,Martes,10:00,16:00
+3,Núñez,Martina,Cardiología,Miércoles,09:00,15:00
+4,Pérez,Mía,Ginecología,Jueves,12:00,18:00
+5,Sánchez,Nicolás,Traumatología,Viernes,08:00,14:00
+6,Suárez,Lucía,Psicología,Lunes,10:00,16:00
+7,López,Matías,Neurología,Martes,08:00,14:00
+8,Fernández,Lucas,Kinesiología,Miércoles,09:00,15:00
+9,Ruiz,Antonella,Psicología,Jueves,08:00,14:00
+10,Castro,Martina,Cardiología,Viernes,12:00,18:00
+11,Herrera,Pablo,Endocrinología,Lunes,08:00,14:00
+12,Flores,Matías,Infectología,Martes,10:00,16:00
+13,Gómez,Antonella,Dermatología,Miércoles,09:00,15:00
+14,Ortiz,Julieta,Pediatría,Jueves,12:00,18:00
+15,Ruiz,Matías,Oftalmología,Viernes,08:00,14:00
+16,Alvarez,Santiago,Nutrición,Lunes,09:00,15:00
+17,Suárez,Rocío,Oftalmología,Martes,08:00,14:00
+18,Moreira,Carolina,Dermatología,Miércoles,12:00,18:00
+19,Castro,Diego,Odontología,Jueves,10:00,16:00
+20,Torres,Emiliano,Neurología,Viernes,08:00,14:00
+21,Sánchez,Carolina,Ginecología,Lunes,08:00,14:00
+22,Romero,Carolina,Traumatología,Martes,10:00,16:00
+23,Núñez,Bruno,Kinesiología,Miércoles,12:00,18:00
+24,Sánchez,Benjamín,Ginecología,Jueves,08:00,14:00
+25,Gómez,Joaquín,Medicina General,Viernes,09:00,15:00
+26,López,Federico,Pediatría,Lunes,10:00,16:00
+27,Vargas,Paula,Cardiología,Martes,08:00,14:00
+28,Alvarez,Paula,Nutrición,Miércoles,09:00,15:00
+29,Romero,Martina,Endocrinología,Jueves,12:00,18:00
+30,Molina,Carolina,Cardiología,Viernes,08:00,14:00
+31,Benítez,Federico,Psicología,Lunes,08:00,14:00
+32,Díaz,Lucía,Pediatría,Martes,10:00,16:00
+33,González,Carolina,Oncología,Miércoles,12:00,18:00
+34,Silva,Rocío,Cardiología,Jueves,08:00,14:00
+35,Díaz,Emiliano,Oftalmología,Viernes,09:00,15:00
+36,Herrera,Matías,Pediatría,Lunes,08:00,14:00
+37,Benítez,Camila,Ginecología,Martes,10:00,16:00
+38,Marín,Martín,Traumatología,Miércoles,09:00,15:00
+39,Rossi,Martín,Cardiología,Jueves,12:00,18:00
+40,Núñez,Emiliano,Neurología,Viernes,08:00,14:00
+41,Sánchez,Sofía,Dermatología,Lunes,08:00,14:00
+42,Gómez,Lucas,Infectología,Martes,10:00,16:00
+43,Ortiz,Lucas,Neurología,Miércoles,09:00,15:00
+44,Benítez,Benjamín,Pediatría,Jueves,12:00,18:00
+45,Rossi,Martina,Pediatría,Viernes,08:00,14:00
+46,Pérez,Rocío,Ginecología,Lunes,08:00,14:00
+47,Suárez,Matías,Infectología,Martes,10:00,16:00
+48,Alvarez,Mara,Oftalmología,Miércoles,12:00,18:00
+49,Castro,Pablo,Ginecología,Jueves,08:00,14:00
+50,Fernández,Mía,Dermatología,Viernes,09:00,15:00
+51,Torres,Martín,Traumatología,Lunes,10:00,16:00
+52,Marín,Pablo,Traumatología,Martes,08:00,14:00
+53,Rojas,Lucía,Dermatología,Miércoles,09:00,15:00
+54,Fernández,Mara,Kinesiología,Jueves,12:00,18:00
+55,Vargas,Lucía,Nutrición,Viernes,08:00,14:00
+56,Benítez,Martina,Oncología,Lunes,08:00,14:00
+57,Herrera,Carolina,Pediatría,Martes,10:00,16:00
+58,Vega,Camila,Cardiología,Miércoles,12:00,18:00
+59,Romero,Rocío,Neurología,Jueves,09:00,15:00
+60,Díaz,Lucía,Infectología,Viernes,08:00,14:00
+61,Silva,Rocío,Endocrinología,Lunes,08:00,14:00
+62,Romero,Facundo,Neurología,Martes,10:00,16:00
+63,Gómez,Mara,Endocrinología,Miércoles,09:00,15:00
+64,Flores,Matías,Infectología,Jueves,12:00,18:00
+65,Alvarez,Agustina,Kinesiología,Viernes,08:00,14:00
+66,Molina,Carolina,Infectología,Lunes,09:00,15:00
+67,Núñez,Joaquín,Endocrinología,Martes,10:00,16:00
+68,Benítez,Lucía,Dermatología,Miércoles,08:00,14:00
+69,Rodríguez,Martina,Dermatología,Jueves,12:00,18:00
+70,Castro,Benjamín,Neurología,Viernes,09:00,15:00
+71,Molina,Facundo,Ginecología,Lunes,08:00,14:00
+72,Vega,Camila,Nutrición,Martes,10:00,16:00
+73,Fernández,Paula,Kinesiología,Miércoles,09:00,15:00
+74,Díaz,Mara,Kinesiología,Jueves,12:00,18:00
+75,Herrera,Federico,Psicología,Viernes,08:00,14:00
+76,Silva,Agustina,Neurología,Lunes,08:00,14:00
+77,Martínez,Mara,Cardiología,Martes,10:00,16:00
+78,Núñez,Lucía,Medicina General,Miércoles,09:00,15:00
+79,Alvarez,Tomás,Odontología,Jueves,12:00,18:00
+80,Castro,Florencia,Endocrinología,Viernes,08:00,14:00
+81,López,Santiago,Odontología,Lunes,10:00,16:00
+82,Rojas,Juan,Cardiología,Martes,08:00,14:00
+83,Fernández,Sofía,Oftalmología,Miércoles,09:00,15:00
+84,Torres,Florencia,Endocrinología,Jueves,12:00,18:00
+85,Ruiz,Isabella,Pediatría,Viernes,08:00,14:00
+86,Herrera,Matías,Pediatría,Lunes,09:00,15:00
+87,Sánchez,Lucas,Oncología,Martes,08:00,14:00
+88,Alvarez,Valentina,Oncología,Miércoles,10:00,16:00
+89,Rodríguez,Juan,Kinesiología,Jueves,09:00,15:00
+90,Suárez,Tomás,Dermatología,Viernes,12:00,18:00
+91,Flores,Bruno,Ginecología,Lunes,08:00,14:00
+92,Marín,Santiago,Dermatología,Martes,10:00,16:00
+93,Torres,Joaquín,Oncología,Miércoles,08:00,14:00
+94,Romero,Joaquín,Neurología,Jueves,09:00,15:00
+95,Martínez,Lucía,Nutrición,Viernes,12:00,18:00
+96,Silva,Diego,Oftalmología,Lunes,08:00,14:00
+97,Castro,Nicolás,Oftalmología,Martes,10:00,16:00
+98,Fernández,Lucas,Ginecología,Miércoles,09:00,15:00
+99,Núñez,Rocío,Neurología,Jueves,12:00,18:00
+100,Ortiz,Martín,Cardiología,Viernes,08:00,14:00

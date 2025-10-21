@@ -48,6 +48,7 @@ Partial Class Pacientes
         DGBDIA = New DataGridViewTextBoxColumn()
         TextBuscar = New TextBox()
         PacBuscador = New GroupBox()
+        brnVolver = New Button()
         InfoPaciente.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -279,12 +280,23 @@ Partial Class Pacientes
         ' PacBuscador
         ' 
         PacBuscador.Controls.Add(TextBuscar)
-        PacBuscador.Location = New Point(72, 12)
+        PacBuscador.Location = New Point(72, 13)
         PacBuscador.Name = "PacBuscador"
         PacBuscador.Size = New Size(753, 84)
         PacBuscador.TabIndex = 18
         PacBuscador.TabStop = False
         PacBuscador.Text = "Buscador de Pacientes"
+        ' 
+        ' brnVolver
+        ' 
+        brnVolver.BackColor = Color.CadetBlue
+        brnVolver.ForeColor = Color.Transparent
+        brnVolver.Location = New Point(861, 32)
+        brnVolver.Name = "brnVolver"
+        brnVolver.Size = New Size(265, 51)
+        brnVolver.TabIndex = 19
+        brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
+        brnVolver.UseVisualStyleBackColor = False
         ' 
         ' Pacientes
         ' 
@@ -292,12 +304,13 @@ Partial Class Pacientes
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1400, 850)
+        Controls.Add(brnVolver)
         Controls.Add(PacBuscador)
         Controls.Add(DataGridView1)
         Controls.Add(GroupBox1)
         Controls.Add(InfoPaciente)
         ForeColor = Color.Transparent
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Pacientes"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Pacientes"
@@ -336,4 +349,5 @@ Partial Class Pacientes
     Friend WithEvents TextBuscar As TextBox
     Friend WithEvents PacBuscador As GroupBox
     Friend WithEvents BtnAgregar As Button
+    Friend WithEvents brnVolver As Button
 End Class
