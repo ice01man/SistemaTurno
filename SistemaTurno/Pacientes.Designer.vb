@@ -2,6 +2,8 @@
 Partial Class Pacientes
     Inherits System.Windows.Forms.Form
 
+    Public Property Form1 As Form1
+
     'Actualizacion de prueba
     'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -303,16 +305,17 @@ Partial Class Pacientes
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1400, 850)
+        ClientSize = New Size(1364, 756)
         Controls.Add(brnVolver)
         Controls.Add(PacBuscador)
         Controls.Add(DataGridView1)
         Controls.Add(GroupBox1)
         Controls.Add(InfoPaciente)
         ForeColor = Color.Transparent
-        FormBorderStyle = FormBorderStyle.FixedSingle
+        FormBorderStyle = FormBorderStyle.None
         Name = "Pacientes"
-        StartPosition = FormStartPosition.CenterScreen
+        ShowInTaskbar = False
+        StartPosition = FormStartPosition.CenterParent
         Text = "Pacientes"
         InfoPaciente.ResumeLayout(False)
         InfoPaciente.PerformLayout()

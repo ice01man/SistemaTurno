@@ -40,29 +40,24 @@
         End Try
     End Function
 
-    Private Sub InicioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuInicio.Click
-        Me.ToolStripContainer1.ContentPanel.Controls.Clear()
-        Dim frmInicio As New Inicio
-        frmInicio.MdiParent = Me
-        Me.ToolStripContainer1.ContentPanel.Controls.Add(frmInicio)
-        frmInicio.Show()
+    Public Sub MostrarFormulario(ByVal nuevoForm As Form)
+        Dim menuTemp As Control = Nothing
+        For Each ctrl As Control In Me.ToolStripContainer1.ContentPanel.Controls
+            If TypeOf ctrl Is MenuStrip Then
+                Me.ToolStripContainer1.ContentPanel.Controls.Remove(ctrl)
+                ctrl.Dispose() ' Importante para liberar recursos
 
-    End Sub
+                Exit For
+            End If
+        Next
+        nuevoForm.TopLevel = False
+        nuevoForm.FormBorderStyle = FormBorderStyle.None
+        nuevoForm.Dock = DockStyle.Fill
 
-    Private Sub PacientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuPacientes.Click
-        Me.ToolStripContainer1.ContentPanel.Controls.Clear()
-        Dim frmPacientes As New Pacientes
-        frmPacientes.MdiParent = Me
-        Me.ToolStripContainer1.ContentPanel.Controls.Add(frmPacientes)
-        frmPacientes.Show()
-    End Sub
+        Me.ToolStripContainer1.ContentPanel.Controls.Add(nuevoForm)
+        nuevoForm.Show()
+        nuevoForm.BringToFront() ' Asegura que esté al frente
 
-    Private Sub TurnosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuTurnos.Click
-        Me.ToolStripContainer1.ContentPanel.Controls.Clear()
-        Dim frmTurnos As New Turnos
-        frmTurnos.MdiParent = Me
-        Me.ToolStripContainer1.ContentPanel.Controls.Add(frmTurnos)
-        frmTurnos.Show()
     End Sub
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
@@ -74,28 +69,27 @@
         'If ValidarCredenciales(usuarioIngresado, passwordIngresada) Then
         If Not String.IsNullOrEmpty(rolObtenido) Then
             ' Las credenciales son correctas
-            Me.ToolStripContainer1.ContentPanel.Controls.Clear()
-            Dim frmInicio As New Inicio
-            frmInicio.MdiParent = Me
-            Me.ToolStripContainer1.ContentPanel.Controls.Add(frmInicio)
-            frmInicio.Show()
+            'MostrarFormulario(New Inicio())
+            Dim frmInicio As New Inicio()
+            frmInicio.FormPrincipal = Me   ' <<< Aquí se pasa la referencia al principal
+            MostrarFormulario(frmInicio)
 
             ' Habilitar las opciones del menú
             Select Case rolObtenido
                 Case "Administrador"
                     MenuInicio.Visible = True
                     MenuPacientes.Visible = True
-                    MenuTurnos.Visible = True
+                    ' MenuTurnos.Visible = True
                     MenuAdmin.Visible = True
                 Case "Usuario"
                     MenuInicio.Visible = True
                     MenuPacientes.Visible = True
-                    MenuTurnos.Visible = True
+                    ' MenuTurnos.Visible = True
                     MenuAdmin.Visible = False
                 Case Else
                     MenuInicio.Visible = True
                     MenuPacientes.Visible = False
-                    MenuTurnos.Visible = False
+                    ' MenuTurnos.Visible = False
                     MenuAdmin.Visible = False
             End Select
 
@@ -110,14 +104,32 @@
 
     End Sub
 
+    Private Sub MenuInicio_Click(sender As Object, e As EventArgs) Handles MenuInicio.Click
+        Dim frmInicio As New Inicio
+        frmInicio.FormPrincipal = Me
+        MostrarFormulario(frmInicio)
 
-    Private Sub AdminToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuAdmin.Click
-        Me.ToolStripContainer1.ContentPanel.Controls.Clear()
-        Dim frmAdmin As New Admin
-        frmAdmin.MdiParent = Me
-        Me.ToolStripContainer1.ContentPanel.Controls.Add(frmAdmin)
-        frmAdmin.Show()
+        'MostrarFormulario(New Inicio())
     End Sub
 
+    Private Sub MenuPacientes_Click(sender As Object, e As EventArgs) Handles MenuPacientes.Click
+        Dim frmPacientes As New Pacientes
+        frmPacientes.FormPrincipal = Me
+        MostrarFormulario(frmPacientes)
+    End Sub
 
+    'Private Sub MenuTurnos_Click(sender As Object, e As EventArgs) Handles MenuTurnos.Click
+    '    MostrarFormulario(New Turnos())
+    'End Sub
+
+    Private Sub MenuAdmin_Click(sender As Object, e As EventArgs) Handles MenuAdmin.Click
+        Dim frmAdmin As New Admin
+        frmAdmin.FormPrincipal = Me
+        MostrarFormulario(frmAdmin)
+
+    End Sub
+
+    Private Sub ToolStripContainer1_TopToolStripPanel_Click(sender As Object, e As EventArgs) Handles ToolStripContainer1.TopToolStripPanel.Click
+
+    End Sub
 End Class

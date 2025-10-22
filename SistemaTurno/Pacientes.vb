@@ -1,22 +1,21 @@
 ﻿Imports System.IO
 'Actualización al 24 de septiembre
 
+
+
 Public Class Pacientes
 
     ' Diccionario para guardar pacientes cargados desde el CSV
     Private pacientesData As New Dictionary(Of String, String())
 
-    Public Property FormReferencia As Form
+    'Public Property FormReferencia As Form
+    Public Property FormPrincipal As Form1
 
 
     Private Sub Pacientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarPacientesDesdeCSV()
         ConfigurarAutoComplete()
 
-
-        ' If Not Btn_Pac_Agregar Is Nothing Then AddHandler Btn_Pac_Agregar.Click, AddressOf BtnBuscar_Click
-        '  If Not BtnAgregar Is Nothing Then AddHandler BtnAgregar.Click, AddressOf BtnGuardar_Click
-        ' Enter en TextBuscar hace la búsqueda
         If Not TextBuscar Is Nothing Then AddHandler TextBuscar.KeyDown, AddressOf TextBuscar_KeyDown
     End Sub
 
@@ -156,13 +155,12 @@ Public Class Pacientes
     End Sub
 
     Private Sub brnVolver_Click(sender As Object, e As EventArgs) Handles brnVolver.Click
-        If FormReferencia IsNot Nothing Then
-            FormReferencia.Show()
+        If FormPrincipal IsNot Nothing Then
+            Dim frmInicio As New Inicio()
+            frmInicio.FormPrincipal = FormPrincipal
+            FormPrincipal.MostrarFormulario(frmInicio)
         End If
-        Me.Close()
     End Sub
 
-    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
 
-    End Sub
 End Class

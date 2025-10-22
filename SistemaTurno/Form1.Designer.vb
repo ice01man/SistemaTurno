@@ -24,11 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Button1 = New Button()
-        MenuStrip1 = New MenuStrip()
-        MenuInicio = New ToolStripMenuItem()
-        MenuPacientes = New ToolStripMenuItem()
-        MenuTurnos = New ToolStripMenuItem()
-        MenuAdmin = New ToolStripMenuItem()
         ToolStripContainer1 = New ToolStripContainer()
         GroupBox1 = New GroupBox()
         BtnLogin = New Button()
@@ -37,11 +32,16 @@ Partial Class Form1
         Label1 = New Label()
         LogintxtPassword = New TextBox()
         LogintxtUsuario = New TextBox()
-        MenuStrip1.SuspendLayout()
+        MenuStrip1 = New MenuStrip()
+        MenuInicio = New ToolStripMenuItem()
+        MenuPacientes = New ToolStripMenuItem()
+        MenuAdmin = New ToolStripMenuItem()
         ToolStripContainer1.ContentPanel.SuspendLayout()
+        ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         ToolStripContainer1.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -52,44 +52,6 @@ Partial Class Form1
         Button1.TabIndex = 0
         Button1.Text = "Button1"
         Button1.UseVisualStyleBackColor = True
-        ' 
-        ' MenuStrip1
-        ' 
-        MenuStrip1.ImageScalingSize = New Size(20, 20)
-        MenuStrip1.Items.AddRange(New ToolStripItem() {MenuInicio, MenuPacientes, MenuTurnos, MenuAdmin})
-        MenuStrip1.Location = New Point(0, 0)
-        MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(1382, 28)
-        MenuStrip1.TabIndex = 2
-        MenuStrip1.Text = "MenuStrip1"
-        ' 
-        ' MenuInicio
-        ' 
-        MenuInicio.Name = "MenuInicio"
-        MenuInicio.Size = New Size(59, 24)
-        MenuInicio.Text = "Inicio"
-        MenuInicio.Visible = False
-        ' 
-        ' MenuPacientes
-        ' 
-        MenuPacientes.Name = "MenuPacientes"
-        MenuPacientes.Size = New Size(84, 24)
-        MenuPacientes.Text = "Pacientes"
-        MenuPacientes.Visible = False
-        ' 
-        ' MenuTurnos
-        ' 
-        MenuTurnos.Name = "MenuTurnos"
-        MenuTurnos.Size = New Size(67, 24)
-        MenuTurnos.Text = "Turnos"
-        MenuTurnos.Visible = False
-        ' 
-        ' MenuAdmin
-        ' 
-        MenuAdmin.Name = "MenuAdmin"
-        MenuAdmin.Size = New Size(67, 24)
-        MenuAdmin.Text = "Admin"
-        MenuAdmin.Visible = False
         ' 
         ' ToolStripContainer1
         ' 
@@ -102,15 +64,22 @@ Partial Class Form1
         ToolStripContainer1.ContentPanel.BackgroundImageLayout = ImageLayout.Stretch
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
-        ToolStripContainer1.ContentPanel.Size = New Size(1382, 750)
-        ToolStripContainer1.Dock = DockStyle.Fill
+        ToolStripContainer1.ContentPanel.Size = New Size(1382, 775)
+        ToolStripContainer1.Dock = DockStyle.Top
         ToolStripContainer1.LeftToolStripPanelVisible = False
-        ToolStripContainer1.Location = New Point(0, 28)
+        ToolStripContainer1.Location = New Point(0, 0)
         ToolStripContainer1.Name = "ToolStripContainer1"
         ToolStripContainer1.RightToolStripPanelVisible = False
-        ToolStripContainer1.Size = New Size(1382, 775)
+        ToolStripContainer1.Size = New Size(1382, 803)
         ToolStripContainer1.TabIndex = 3
         ToolStripContainer1.Text = "ToolStripContainer1"
+        ' 
+        ' ToolStripContainer1.TopToolStripPanel
+        ' 
+        ToolStripContainer1.TopToolStripPanel.BackColor = Color.SteelBlue
+        ToolStripContainer1.TopToolStripPanel.Controls.Add(MenuStrip1)
+        ToolStripContainer1.TopToolStripPanel.ForeColor = Color.Black
+        ToolStripContainer1.TopToolStripPanel.RenderMode = ToolStripRenderMode.System
         ' 
         ' GroupBox1
         ' 
@@ -191,6 +160,38 @@ Partial Class Form1
         LogintxtUsuario.Size = New Size(222, 27)
         LogintxtUsuario.TabIndex = 0
         ' 
+        ' MenuStrip1
+        ' 
+        MenuStrip1.Dock = DockStyle.None
+        MenuStrip1.ImageScalingSize = New Size(20, 20)
+        MenuStrip1.Items.AddRange(New ToolStripItem() {MenuInicio, MenuPacientes, MenuAdmin})
+        MenuStrip1.Location = New Point(0, 0)
+        MenuStrip1.Name = "MenuStrip1"
+        MenuStrip1.Size = New Size(1382, 28)
+        MenuStrip1.TabIndex = 4
+        MenuStrip1.Text = "MenuStrip1"
+        ' 
+        ' MenuInicio
+        ' 
+        MenuInicio.Name = "MenuInicio"
+        MenuInicio.Size = New Size(59, 24)
+        MenuInicio.Text = "Inicio"
+        MenuInicio.Visible = False
+        ' 
+        ' MenuPacientes
+        ' 
+        MenuPacientes.Name = "MenuPacientes"
+        MenuPacientes.Size = New Size(84, 24)
+        MenuPacientes.Text = "Pacientes"
+        MenuPacientes.Visible = False
+        ' 
+        ' MenuAdmin
+        ' 
+        MenuAdmin.Name = "MenuAdmin"
+        MenuAdmin.Size = New Size(67, 24)
+        MenuAdmin.Text = "Admin"
+        MenuAdmin.Visible = False
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -198,29 +199,24 @@ Partial Class Form1
         ClientSize = New Size(1382, 803)
         Controls.Add(ToolStripContainer1)
         Controls.Add(Button1)
-        Controls.Add(MenuStrip1)
         IsMdiContainer = True
-        MainMenuStrip = MenuStrip1
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Sistema de Turnos"
-        MenuStrip1.ResumeLayout(False)
-        MenuStrip1.PerformLayout()
         ToolStripContainer1.ContentPanel.ResumeLayout(False)
+        ToolStripContainer1.TopToolStripPanel.ResumeLayout(False)
+        ToolStripContainer1.TopToolStripPanel.PerformLayout()
         ToolStripContainer1.ResumeLayout(False)
         ToolStripContainer1.PerformLayout()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        MenuStrip1.ResumeLayout(False)
+        MenuStrip1.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents MenuInicio As ToolStripMenuItem
-    Friend WithEvents MenuPacientes As ToolStripMenuItem
-    Friend WithEvents MenuTurnos As ToolStripMenuItem
     Friend WithEvents ToolStripContainer1 As ToolStripContainer
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
@@ -229,6 +225,9 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BtnLogin As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuInicio As ToolStripMenuItem
+    Friend WithEvents MenuPacientes As ToolStripMenuItem
     Friend WithEvents MenuAdmin As ToolStripMenuItem
 
 End Class

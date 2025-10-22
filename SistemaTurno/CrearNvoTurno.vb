@@ -6,6 +6,7 @@ Public Class CrearNvoTurno
 
     Private pacientes As New List(Of Persona)
     Private doctores As New List(Of Doctor)
+    Public Property FormPrincipal As Form1
 
     Private Class Persona
         Public Property ApellidoNombre As String
@@ -356,4 +357,7 @@ Public Class CrearNvoTurno
         Me.Close()
     End Sub
 
+    Private Sub CrearNvoTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

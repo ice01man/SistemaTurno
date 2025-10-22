@@ -5,6 +5,7 @@ Imports System.Runtime.InteropServices.JavaScript.JSType
 
 Public Class Admin
 
+    Public Property FormPrincipal As Form1
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combobox_admin.SelectedIndexChanged
         Dim seleccion = Combobox_admin.SelectedItem.ToString
@@ -301,10 +302,10 @@ Public Class Admin
 
 
                 If String.IsNullOrWhiteSpace(admin_texto1.Text) Then
-                ' El TextBox está vacío, o solo contiene espacios.
-                MessageBox.Show("El campo de texto está vacío o solo contiene espacios en blanco.")
+                    ' El TextBox está vacío, o solo contiene espacios.
+                    MessageBox.Show("El campo de texto está vacío o solo contiene espacios en blanco.")
 
-            End If
+                End If
 
                 Dim rutaArchivo = "usuarios.txt"
                 Try
@@ -382,7 +383,4 @@ Public Class Admin
     End Sub
 
 
-    Private Sub admin_texto1_TextChanged(sender As Object, e As EventArgs) Handles admin_texto1.TextChanged
-
-    End Sub
 End Class
