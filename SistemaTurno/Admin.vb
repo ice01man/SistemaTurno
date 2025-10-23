@@ -42,10 +42,6 @@ Public Class Admin
                     MessageBox.Show("Ocurrió un error al cargar los turnos en el DataGridView: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
 
-
-            Case "Pantalla"
-                MsgBox("Seleccionaste: " & seleccion)
-
             Case "Doctores"
 
                 LimpiarAdmintrador(Me)

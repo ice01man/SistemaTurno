@@ -33,7 +33,7 @@ Public Class Pacientes
                     Dim campos() As String = linea.Split(","c)
 
                     If campos.Length >= 8 Then
-                        Dim apellido As String = campos(0).Trim()
+                        Dim apellido As String = campos(1).Trim()
                         If Not pacientesData.ContainsKey(apellido) Then
                             pacientesData.Add(apellido, campos)
                         Else
@@ -62,6 +62,44 @@ Public Class Pacientes
         End Try
     End Sub
 
+    Private Sub buscardatagrid()
+
+        Dim apellido = TextApellido.Text
+
+        Dim rutaArchivo As String = "turnos.csv"
+
+        DataGridPacientes.Rows.Clear()
+
+        If My.Computer.FileSystem.FileExists(rutaArchivo) Then
+            Try
+                ' Leer todas las líneas del archivo
+                Dim lineas As String() = My.Computer.FileSystem.ReadAllText(rutaArchivo).Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
+
+                ' Recorrer cada línea del archivo
+                For Each linea As String In lineas
+                    ' Separar los datos por la coma
+                    Dim datos() As String = linea.Split(","c)
+
+
+                    If datos.Length >= 5 Then ' Asegurarse de que la línea tiene todos los campos necesarios
+                        ' Agregar una nueva fila al DataGridView con los datos de la línea
+                        If datos(2).Trim() = apellido Then
+                            DataGridPacientes.Rows.Add(datos(7), datos(6), datos(0), datos(1))
+                            ' DataGridPacientes.ForeColor = BLACK
+                        End If
+
+                    End If
+
+                Next
+            Catch ex As Exception
+                MessageBox.Show("Ocurrió un error al cargar los turnos en el DataGridView: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+
+
+    End Sub
+
+
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs)
         Dim apellido As String = If(TextBuscar?.Text, String.Empty).Trim()
@@ -73,20 +111,25 @@ Public Class Pacientes
 
         If pacientesData.ContainsKey(apellido) Then
             Dim datos = pacientesData(apellido)
-            TextApellido.Text = datos(0)
-            TextNombre.Text = datos(1)
-            TextDNI.Text = datos(2)
-            TextFechaNac.Text = datos(3)
-            TextTelefono.Text = datos(4)
-            TextEmail.Text = datos(5)
-            TextOSocial.Text = datos(6)
-            TextNCredencial.Text = datos(7)
+            TextApellido.Text = datos(1)
+            TextNombre.Text = datos(2)
+            TextDNI.Text = datos(3)
+            TextFechaNac.Text = datos(4)
+            TextTelefono.Text = datos(5)
+            TextEmail.Text = datos(6)
+            TextOSocial.Text = datos(7)
+            TextNCredencial.Text = datos(8)
         Else
             MessageBox.Show("Paciente no encontrado. Puede cargarlo como nuevo.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             LimpiarFormulario()
             TextApellido.Text = apellido
         End If
+
+        buscardatagrid()
+
+
     End Sub
+
 
 
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs)
@@ -130,6 +173,8 @@ Public Class Pacientes
                 sw.WriteLine(String.Join(",", kvp.Value))
             Next
         End Using
+
+        LimpiarFormulario()
     End Sub
 
 
@@ -142,6 +187,8 @@ Public Class Pacientes
         TextEmail.Clear()
         TextOSocial.Clear()
         TextNCredencial.Clear()
+
+        DataGridPacientes.Rows.Clear()
     End Sub
 
 
@@ -151,16 +198,22 @@ Public Class Pacientes
             e.SuppressKeyPress = True
         End If
 
-        BtnAgregar.Text = "Editar"
+        BtnAgregar.Text = "Guardar"
     End Sub
 
-    Private Sub brnVolver_Click(sender As Object, e As EventArgs) Handles brnVolver.Click
-        If FormPrincipal IsNot Nothing Then
-            Dim frmInicio As New Inicio()
-            frmInicio.FormPrincipal = FormPrincipal
-            FormPrincipal.MostrarFormulario(frmInicio)
-        End If
+    '  Private Sub brnVolver_Click(sender As Object, e As EventArgs)
+    '  If FormPrincipal IsNot Nothing Then
+    '  Dim frmInicio As New Inicio
+    '       frmInicio.FormPrincipal = FormPrincipal
+    '       FormPrincipal.MostrarFormulario(frmInicio)
+    ' End If
+    ' End Sub
+
+    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
+
     End Sub
 
-
+    Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
+        GuardarPacientesEnCSV()
+    End Sub
 End Class
