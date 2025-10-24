@@ -3,27 +3,40 @@
     ' Ultima actualizacion 21/10
     'Ultima Actualizacion 17/09/2025 
     'Actualizacion al 14/10/2025
+
+    Public Property FormPrincipal As Form1
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         CargarTurnosEnDataGridView()
     End Sub
 
     Private Sub btnPaciente_Click(sender As Object, e As EventArgs) Handles btnPaciente.Click
-        Dim ventanaPacientes As New Pacientes()
-        ventanaPacientes.FormReferencia = Me
-        ventanaPacientes.Show()
-        Me.Hide()
-
+        If FormPrincipal IsNot Nothing Then
+            Dim pacientes As New Pacientes()
+            pacientes.FormPrincipal = FormPrincipal
+            FormPrincipal.MostrarFormulario(pacientes)
+        Else
+            MessageBox.Show("No se encontró el formulario principal.")
+        End If
     End Sub
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Dim frmNuevoTurno As New frmNuevoTurno()
-        Dim frmNvoTurno As New CrearNvoTurno
-        If frmNvoTurno.ShowDialog = DialogResult.OK Then
-            ' Si el formulario se cerró con DialogResult.OK,
 
-            CargarTurnosEnDataGridView()
+        'Dim frmNvoTurno As New CrearNvoTurno
+        'If frmNvoTurno.ShowDialog = DialogResult.OK Then
+        'Si el formulario se cerró con DialogResult.OK,
+        'CargarTurnosEnDataGridView()
+        'End If
+
+        If Me.FormPrincipal IsNot Nothing Then
+            Dim frmNuevoTurno As New CrearNvoTurno()
+
+            ' Llama a la función del formulario principal (Form1) para cargarlo en el ContentPanel
+            Me.FormPrincipal.MostrarFormulario(frmNuevoTurno)
+        Else
+            MsgBox("Error: Referencia al Formulario Principal no encontrada.")
         End If
     End Sub
 

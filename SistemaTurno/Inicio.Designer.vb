@@ -23,9 +23,9 @@ Partial Class Inicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle10 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar1 = New MonthCalendar()
         DGVTurnos = New DataGridView()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
@@ -99,9 +99,9 @@ Partial Class Inicio
         ' 
         ' F1DgbbtnVer
         ' 
-        DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.NullValue = "Ver"
-        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = "Ver"
+        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle1
         F1DgbbtnVer.HeaderText = "Ver"
         F1DgbbtnVer.MinimumWidth = 6
         F1DgbbtnVer.Name = "F1DgbbtnVer"
@@ -110,9 +110,9 @@ Partial Class Inicio
         ' 
         ' F1DgbBtnAsistio
         ' 
-        DataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.NullValue = "Editar"
-        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = "Editar"
+        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
         F1DgbBtnAsistio.HeaderText = "Asistio"
         F1DgbBtnAsistio.MinimumWidth = 6
         F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
@@ -120,9 +120,9 @@ Partial Class Inicio
         ' 
         ' F1DgbBtnAusente
         ' 
-        DataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.NullValue = "Eliminar"
-        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = "Eliminar"
+        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
         F1DgbBtnAusente.HeaderText = "Ausente"
         F1DgbBtnAusente.MinimumWidth = 6
         F1DgbBtnAusente.Name = "F1DgbBtnAusente"
@@ -178,7 +178,7 @@ Partial Class Inicio
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1231, 850)
+        ClientSize = New Size(1382, 803)
         Controls.Add(lblTurnosDiaActual)
         Controls.Add(MonthCalendar1)
         Controls.Add(DGVTurnos)

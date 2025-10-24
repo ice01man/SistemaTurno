@@ -6,6 +6,7 @@ Public Class CrearNvoTurno
 
     Private pacientes As New List(Of Persona)
     Private doctores As New List(Of Doctor)
+    Public Property FormPrincipal As Form1
 
     Private Class Persona
         Public Property ApellidoNombre As String
@@ -283,30 +284,37 @@ Public Class CrearNvoTurno
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             Dim archivoTurnos As String = "turnos.csv"
-            Dim paciente = Txt_ApellidoNombre.Text.Trim()
+            Dim nombreCompleto = Txt_ApellidoNombre.Text.Trim()
             Dim telefono = txtTelefono.Text.Trim()
             Dim dni = txtDNI.Text.Trim()
             Dim especialidad = If(cmbEspecialidad.SelectedItem, String.Empty)?.ToString()
             Dim profesional = If(cmbProfesional.SelectedItem, String.Empty)?.ToString()
+            Dim tipoConsulta = If(cmbAsistencia.SelectedItem, String.Empty)?.ToString()
             Dim fecha = dtpHora.Value.ToString("dd/MM/yyyy")
             Dim hora = If(cmbHora.SelectedItem, String.Empty)?.ToString()
 
-            ' Validaciones especificas: mostrar qué falta
+            ' ===== Validaciones =====
             Dim faltan As New List(Of String)
-            If String.IsNullOrWhiteSpace(paciente) Then faltan.Add("Paciente")
+            If String.IsNullOrWhiteSpace(nombreCompleto) Then faltan.Add("Paciente")
             If String.IsNullOrWhiteSpace(dni) Then faltan.Add("DNI")
             If String.IsNullOrWhiteSpace(telefono) Then faltan.Add("Teléfono")
             If String.IsNullOrWhiteSpace(especialidad) Then faltan.Add("Especialidad")
             If String.IsNullOrWhiteSpace(profesional) Then faltan.Add("Profesional")
+            If String.IsNullOrWhiteSpace(tipoConsulta) Then faltan.Add("Tipo de Consulta")
             If String.IsNullOrWhiteSpace(hora) Then faltan.Add("Hora")
 
             If faltan.Count > 0 Then
-                Dim lista = String.Join(", ", faltan)
-                MessageBox.Show("Faltan campos: " & lista & vbCrLf & "Complete todos los campos antes de guardar el turno.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Faltan campos: " & String.Join(", ", faltan),
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
 
-            ' Evitar duplicar turno
+            ' ===== Separar Apellido y Nombre =====
+            Dim partes() As String = nombreCompleto.Split(" "c, 2)
+            Dim apellido As String = partes(0).Trim()
+            Dim nombre As String = If(partes.Length > 1, partes(1).Trim(), "")
+
+            ' ===== Validar turno duplicado =====
             Dim docSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesional)
             If docSel IsNot Nothing Then
                 Dim ocupadas = CargarTurnosOcupados(docSel, fecha)
@@ -316,12 +324,13 @@ Public Class CrearNvoTurno
                 End If
             End If
 
-            Dim linea As String = $"{paciente},{dni},{telefono},{especialidad},{profesional},{fecha},{hora}"
-            Dim existeArchivo As Boolean = File.Exists(archivoTurnos)
+            ' ===== Crear línea en orden correcto =====
+            Dim linea As String = $"{apellido},{nombre},{dni},{telefono},{especialidad},{tipoConsulta},{fecha},{hora}"
 
+            Dim existeArchivo As Boolean = File.Exists(archivoTurnos)
             Using sw As New StreamWriter(archivoTurnos, True)
                 If Not existeArchivo Then
-                    sw.WriteLine("Paciente,DNI,Telefono,Especialidad,Profesional,Fecha,Hora")
+                    sw.WriteLine("Apellido,Nombre,DNI,Telefono,Especialidad,TipoConsulta,Fecha,Hora")
                 End If
                 sw.WriteLine(linea)
             End Using
@@ -333,6 +342,50 @@ Public Class CrearNvoTurno
             MessageBox.Show("Error al guardar el turno: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    ' Dias laborales
+
+    Private Sub btnDiasTrabajo_Click_Nuevo(sender As Object, e As EventArgs) Handles btnDiasTrabajo.Click
+        Try
+            Dim profesionalSel As String = If(cmbProfesional.SelectedItem, "").ToString().Trim()
+
+            If String.IsNullOrWhiteSpace(profesionalSel) Then
+                MessageBox.Show("Por favor, seleccione un profesional primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Buscar al profesional en la lista de doctores
+            Dim docSeleccionado = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesionalSel)
+
+            If docSeleccionado Is Nothing Then
+                MessageBox.Show("No se encontró el profesional seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            ' Filtrar todos los registros de ese profesional (puede tener más de un día laboral)
+            Dim dias = doctores.
+            Where(Function(d) d.Apellido = docSeleccionado.Apellido AndAlso d.Nombre = docSeleccionado.Nombre).
+            Select(Function(d) $"{d.DiaLaboral} ({d.HoraInicio} - {d.HoraFin})").
+            ToList()
+
+            If dias.Count = 0 Then
+                MessageBox.Show("Este profesional no tiene días laborales cargados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                Dim mensaje = "🩺 Días laborales de " & profesionalSel & ":" & vbCrLf & vbCrLf & String.Join(vbCrLf, dias)
+                MessageBox.Show(mensaje, "Disponibilidad del Profesional", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error al consultar los días laborales: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+
+
+
+
+
 
     '==================== BOTONES ====================
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -356,4 +409,15 @@ Public Class CrearNvoTurno
         Me.Close()
     End Sub
 
+    Private Sub CrearNvoTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs) Handles btnDiasTrabajo.Click
+
+    End Sub
 End Class
