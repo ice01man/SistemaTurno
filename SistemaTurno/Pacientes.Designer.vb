@@ -295,7 +295,7 @@ Partial Class Pacientes
         brnVolver.Name = "brnVolver"
         brnVolver.Size = New Size(265, 51)
         brnVolver.TabIndex = 19
-        brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
+        brnVolver.Text = "VOLVER AL MENÚ ANTERIOR"
         brnVolver.UseVisualStyleBackColor = False
         ' 
         ' Pacientes
