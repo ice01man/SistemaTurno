@@ -231,6 +231,7 @@ Partial Class CrearNvoTurno
         btnDiasTrabajo.Name = "btnDiasTrabajo"
         btnDiasTrabajo.Size = New Size(292, 29)
         btnDiasTrabajo.TabIndex = 39
+        btnDiasTrabajo.Text = "VER"
         btnDiasTrabajo.UseVisualStyleBackColor = True
         ' 
         ' CrearNvoTurno

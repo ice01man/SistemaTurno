@@ -1,4 +1,5 @@
 Imports System.IO
+Imports System.Reflection
 
 'Actualizado el 21/10
 
@@ -340,6 +341,7 @@ Public Class CrearNvoTurno
 
         Catch ex As Exception
             MessageBox.Show("Error al guardar el turno: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            LimpiarCampos()
         End Try
     End Sub
 
@@ -397,12 +399,56 @@ Public Class CrearNvoTurno
 
 
     Private Sub LimpiarCampos()
+        ' TextBox
         Txt_ApellidoNombre.Clear()
-        txtTelefono.Clear()
         txtDNI.Clear()
+        txtTelefono.Clear()
+
+        ' ComboBox
+        cmbAsistencia.SelectedIndex = -1
+        cmbAsistencia.Text = ""
         cmbEspecialidad.SelectedIndex = -1
-        cmbProfesional.Items.Clear()
-        cmbHora.Items.Clear()
+        cmbEspecialidad.Text = ""
+        cmbProfesional.SelectedIndex = -1
+        cmbProfesional.Text = ""
+        cmbHora.SelectedIndex = -1
+        cmbHora.Text = ""
+
+        dtpHora.Value = DateTime.Today
+
+        ' Días laborales (botón o label asociado)
+        btnDiasTrabajo.Enabled = True
+        btnDiasTrabajo.BackColor = Color.FromArgb(224, 224, 224)
+
+    End Sub
+    Private Sub CrearNvoTurno_Load_(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' --- Botón GUARDAR ---
+        btnGuardar.BackColor = Color.FromArgb(30, 144, 255)
+        btnGuardar.ForeColor = Color.White
+        btnGuardar.FlatStyle = FlatStyle.Flat
+        btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 204)
+        btnGuardar.FlatAppearance.BorderSize = 1
+
+        ' --- Botón CANCELAR ---
+        btnCancelar.BackColor = Color.FromArgb(220, 53, 69)
+        btnCancelar.ForeColor = Color.White
+        btnCancelar.FlatStyle = FlatStyle.Flat
+        btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(200, 35, 51)
+        btnCancelar.FlatAppearance.BorderSize = 1
+
+        ' --- Botón VER (gris suave) ---
+        btnDiasTrabajo.BackColor = Color.FromArgb(224, 224, 224)  ' gris claro
+        btnDiasTrabajo.ForeColor = Color.FromArgb(64, 64, 64)     ' texto gris oscuro
+        btnDiasTrabajo.FlatStyle = FlatStyle.Flat
+        btnDiasTrabajo.FlatAppearance.BorderColor = Color.FromArgb(180, 180, 180)
+        btnDiasTrabajo.FlatAppearance.BorderSize = 1
+    End Sub
+    Private Sub btnVer_MouseEnter(sender As Object, e As EventArgs) Handles btnDiasTrabajo.MouseEnter
+        btnDiasTrabajo.BackColor = Color.FromArgb(200, 200, 200)
+    End Sub
+
+    Private Sub btnVer_MouseLeave(sender As Object, e As EventArgs) Handles btnDiasTrabajo.MouseLeave
+        btnDiasTrabajo.BackColor = Color.FromArgb(224, 224, 224)
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -418,6 +464,10 @@ Public Class CrearNvoTurno
     End Sub
 
     Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs) Handles btnDiasTrabajo.Click
+
+    End Sub
+
+    Private Sub cmbHora_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbHora.SelectedIndexChanged
 
     End Sub
 End Class
