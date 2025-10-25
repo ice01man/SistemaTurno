@@ -42,12 +42,12 @@ Partial Class CrearNvoTurno
         lblDNI = New Label()
         txtDNI = New TextBox()
         Label2 = New Label()
-        btnDiasTrabajo = New Button()
+        lblDiasTrabajo1 = New Label()
         SuspendLayout()
         ' 
         ' btnCancelar
         ' 
-        btnCancelar.Location = New Point(431, 543)
+        btnCancelar.Location = New Point(431, 588)
         btnCancelar.Name = "btnCancelar"
         btnCancelar.Size = New Size(94, 29)
         btnCancelar.TabIndex = 28
@@ -56,7 +56,7 @@ Partial Class CrearNvoTurno
         ' 
         ' btnGuardar
         ' 
-        btnGuardar.Location = New Point(801, 543)
+        btnGuardar.Location = New Point(801, 588)
         btnGuardar.Name = "btnGuardar"
         btnGuardar.Size = New Size(94, 29)
         btnGuardar.TabIndex = 27
@@ -65,7 +65,7 @@ Partial Class CrearNvoTurno
         ' 
         ' dtpHora
         ' 
-        dtpHora.Location = New Point(565, 435)
+        dtpHora.Location = New Point(565, 480)
         dtpHora.Name = "dtpHora"
         dtpHora.Size = New Size(292, 27)
         dtpHora.TabIndex = 25
@@ -83,7 +83,7 @@ Partial Class CrearNvoTurno
         ' 
         lblHora.AutoSize = True
         lblHora.ForeColor = Color.Black
-        lblHora.Location = New Point(389, 475)
+        lblHora.Location = New Point(389, 520)
         lblHora.Name = "lblHora"
         lblHora.Size = New Size(42, 20)
         lblHora.TabIndex = 23
@@ -93,7 +93,7 @@ Partial Class CrearNvoTurno
         ' 
         lblFecha.AutoSize = True
         lblFecha.ForeColor = Color.Black
-        lblFecha.Location = New Point(389, 435)
+        lblFecha.Location = New Point(389, 480)
         lblFecha.Name = "lblFecha"
         lblFecha.Size = New Size(47, 20)
         lblFecha.TabIndex = 22
@@ -174,7 +174,7 @@ Partial Class CrearNvoTurno
         ' cmbHora
         ' 
         cmbHora.FormattingEnabled = True
-        cmbHora.Location = New Point(565, 475)
+        cmbHora.Location = New Point(565, 520)
         cmbHora.Name = "cmbHora"
         cmbHora.Size = New Size(151, 28)
         cmbHora.TabIndex = 33
@@ -225,14 +225,14 @@ Partial Class CrearNvoTurno
         Label2.TabIndex = 38
         Label2.Text = "Ver días laborales"
         ' 
-        ' btnDiasTrabajo
+        ' lblDiasTrabajo1
         ' 
-        btnDiasTrabajo.Location = New Point(565, 395)
-        btnDiasTrabajo.Name = "btnDiasTrabajo"
-        btnDiasTrabajo.Size = New Size(292, 29)
-        btnDiasTrabajo.TabIndex = 39
-        btnDiasTrabajo.Text = "VER"
-        btnDiasTrabajo.UseVisualStyleBackColor = True
+        lblDiasTrabajo1.BackColor = Color.LightGray
+        lblDiasTrabajo1.Location = New Point(565, 395)
+        lblDiasTrabajo1.MaximumSize = New Size(250, 0)
+        lblDiasTrabajo1.Name = "lblDiasTrabajo1"
+        lblDiasTrabajo1.Size = New Size(250, 60)
+        lblDiasTrabajo1.TabIndex = 39
         ' 
         ' CrearNvoTurno
         ' 
@@ -240,7 +240,7 @@ Partial Class CrearNvoTurno
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1364, 756)
-        Controls.Add(btnDiasTrabajo)
+        Controls.Add(lblDiasTrabajo1)
         Controls.Add(Label2)
         Controls.Add(txtDNI)
         Controls.Add(lblDNI)
@@ -294,5 +294,5 @@ Partial Class CrearNvoTurno
     Friend WithEvents cmbPaciente As ComboBox
     Friend WithEvents ComboHorarios As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnDiasTrabajo As Button
+    Friend WithEvents lblDiasTrabajo1 As Label
 End Class

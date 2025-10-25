@@ -1,13 +1,17 @@
 Imports System.IO
 Imports System.Reflection
 
-'Actualizado el 21/10
+'Actualizado el 25/10
 
 Public Class CrearNvoTurno
 
     Private pacientes As New List(Of Persona)
     Private doctores As New List(Of Doctor)
     Public Property FormPrincipal As Form1
+    Private turnosFile As String = "turnos.csv"
+    Private doctoresFile As String = "doctores.csv"
+
+
 
     Private Class Persona
         Public Property ApellidoNombre As String
@@ -78,6 +82,7 @@ Public Class CrearNvoTurno
     'doctores
 
     Private allowedDayOfWeek As Nullable(Of DayOfWeek) = Nothing
+    Private fechaAnterior As Date
 
     Private Sub CargarDoctores(rutaArchivo As String)
         doctores.Clear()
@@ -102,35 +107,35 @@ Public Class CrearNvoTurno
     Private Sub CargarEspecialidades()
         Dim especialidades = doctores.Select(Function(d) d.Especialidad).Distinct().OrderBy(Function(e) e).ToList()
         cmbEspecialidad.Items.Clear()
-        cmbEspecialidad.Items.AddRange(especialidades.ToArray())
+        For Each esp In especialidades
+            cmbEspecialidad.Items.Add(esp)
+        Next
     End Sub
 
     Private Sub cmbEspecialidad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbEspecialidad.SelectedIndexChanged
         cmbProfesional.Items.Clear()
-        If cmbEspecialidad.SelectedIndex = -1 Then Exit Sub
-
-        Dim esp = cmbEspecialidad.SelectedItem.ToString()
-        Dim profesionales = doctores.Where(Function(d) d.Especialidad = esp).Select(Function(d) $"{d.Apellido} {d.Nombre}").Distinct().ToList()
-
-        cmbProfesional.Items.AddRange(profesionales.ToArray())
+        Dim seleccion = cmbEspecialidad.Text
+        Dim listaProfes = doctores.Where(Function(d) d.Especialidad = seleccion).ToList()
+        For Each doc In listaProfes
+            cmbProfesional.Items.Add($"{doc.Apellido} {doc.Nombre}")
+        Next
     End Sub
 
-
-
-
-    '==================== FILTROS POR DÍA Y HORA ====================
+    'hora y dia
 
     Private Function ParseDayNameToDayOfWeek(dayName As String) As Nullable(Of DayOfWeek)
         If String.IsNullOrWhiteSpace(dayName) Then Return Nothing
         Dim s As String = dayName.Trim().ToLowerInvariant()
-        ' normalizar acentos simples (very simple replacement)
+
+        ' normalizar acentos simples 
+
         s = s.Replace("á", "a").Replace("é", "e").Replace("í", "i").Replace("ó", "o").Replace("ú", "u").Replace("ñ", "n")
         Select Case s
             Case "lunes"
                 Return DayOfWeek.Monday
             Case "martes"
                 Return DayOfWeek.Tuesday
-            Case "miercoles", "mierc" ' fallback
+            Case "miercoles", "mierc"
                 Return DayOfWeek.Wednesday
             Case "jueves"
                 Return DayOfWeek.Thursday
@@ -145,44 +150,80 @@ Public Class CrearNvoTurno
         End Select
     End Function
 
-
     Private Sub cmbProfesional_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbProfesional.SelectedIndexChanged
-        If cmbProfesional.SelectedIndex = -1 Then
-            allowedDayOfWeek = Nothing
-            Return
-        End If
+        Try
 
-        Dim profesional = cmbProfesional.SelectedItem.ToString()
-        Dim doctorSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesional)
-        If doctorSel Is Nothing Then
-            allowedDayOfWeek = Nothing
-            Return
-        End If
+            ' validar selección
 
-        ' obtener DayOfWeek correcto desde el string del CSV (maneja acentos)
-        allowedDayOfWeek = ParseDayNameToDayOfWeek(doctorSel.DiaLaboral)
-        If allowedDayOfWeek Is Nothing Then
-            ' si no se reconoce el día, avisar y permitir selección normal
-            MessageBox.Show($"No se pudo interpretar el día laboral del profesional: '{doctorSel.DiaLaboral}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
+            If cmbProfesional.SelectedIndex = -1 Then
+                allowedDayOfWeek = Nothing
+                lblDiasTrabajo1.Text = "Seleccione un profesional para ver disponibilidad."
+                lblDiasTrabajo1.BackColor = Color.FromArgb(224, 224, 224)
+                lblDiasTrabajo1.ForeColor = Color.FromArgb(64, 64, 64)
+                cmbHora.Items.Clear()
+                Return
+            End If
 
-        ' fijar dtpHora al próximo día que coincida con el día laboral
-        Dim fecha As DateTime = DateTime.Today
-        Dim attempts As Integer = 0
-        While fecha.DayOfWeek <> allowedDayOfWeek.Value And attempts < 14
-            fecha = fecha.AddDays(1)
-            attempts += 1
-        End While
-        dtpHora.Value = fecha
+            Dim profesionalSel As String = cmbProfesional.SelectedItem.ToString()
+            Dim doctorSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesionalSel)
 
-        ' actualizar horas disponibles inmediatamente
-        CargarHorasDisponibles()
+            If doctorSel Is Nothing Then
+                lblDiasTrabajo1.Text = "No se encontró el profesional seleccionado."
+                lblDiasTrabajo1.BackColor = Color.FromArgb(255, 230, 230)
+                lblDiasTrabajo1.ForeColor = Color.DarkRed
+                allowedDayOfWeek = Nothing
+                cmbHora.Items.Clear()
+                Return
+            End If
+
+
+            ' mostrar días laborales
+
+            Dim dias = doctores.
+               Where(Function(d) d.Apellido = doctorSel.Apellido AndAlso d.Nombre = doctorSel.Nombre).
+               Select(Function(d) $"{d.DiaLaboral} ({d.HoraInicio:hh\:mm} - {d.HoraFin:hh\:mm})").
+               ToList()
+
+            If dias.Count = 0 Then
+                lblDiasTrabajo1.Text = "este profesional no tiene días laborales cargados."
+                lblDiasTrabajo1.BackColor = Color.FromArgb(255, 250, 205)
+                lblDiasTrabajo1.ForeColor = Color.FromArgb(102, 51, 0)
+            Else
+                lblDiasTrabajo1.Text = "🩺 días laborales de " & profesionalSel & ":" & vbCrLf & String.Join(vbCrLf, dias)
+                lblDiasTrabajo1.BackColor = Color.FromArgb(210, 240, 255)
+                lblDiasTrabajo1.ForeColor = Color.DarkBlue
+            End If
+
+            ' configurar día permitido (si solo hay un día en el registro principal se usa)
+            allowedDayOfWeek = ParseDayNameToDayOfWeek(doctorSel.DiaLaboral)
+            If allowedDayOfWeek Is Nothing Then
+                ' si no se puede interpretar, permitimos elegir pero avisamos
+                MessageBox.Show($"no se pudo interpretar el/los días laborales: '{doctorSel.DiaLaboral}'", "aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                ' fijar dtp al próximo dia valido
+                Dim fecha As DateTime = DateTime.Today
+                Dim attempts As Integer = 0
+                While fecha.DayOfWeek <> allowedDayOfWeek.Value And attempts < 14
+                    fecha = fecha.AddDays(1)
+                    attempts += 1
+                End While
+                dtpHora.Value = fecha
+                fechaAnterior = dtpHora.Value
+            End If
+
+            ' cargar horas disponibles para la fecha actual
+            CargarHorasDisponibles()
+
+        Catch ex As Exception
+            lblDiasTrabajo1.Text = "⚠ error al consultar los días laborales."
+            lblDiasTrabajo1.BackColor = Color.FromArgb(255, 230, 230)
+            lblDiasTrabajo1.ForeColor = Color.DarkRed
+            cmbHora.Items.Clear()
+        End Try
     End Sub
 
-    ' ----------------------
+
     ' al cambiar la fecha
-    ' ----------------------
 
     Private ReadOnly DayOfWeekMap As New Dictionary(Of DayOfWeek, String) From {
     {DayOfWeek.Monday, "lunes"},
@@ -195,23 +236,27 @@ Public Class CrearNvoTurno
 }
 
     Private Sub dtpHora_ValueChanged(sender As Object, e As EventArgs) Handles dtpHora.ValueChanged
+
         ' si hay un día permitido, validamos
+
         If allowedDayOfWeek IsNot Nothing Then
             If dtpHora.Value.DayOfWeek <> allowedDayOfWeek.Value Then
-                ' evitar bloquear UX—limpiar horas y avisar
                 cmbHora.Items.Clear()
-                MessageBox.Show($"El profesional seleccionado sólo atiende los {DayOfWeekMap(allowedDayOfWeek.Value)}. Elegí una fecha en ese día.", "Fecha no disponible", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show($"el profesional seleccionado sólo atiende los {DayOfWeekMap(allowedDayOfWeek.Value)}. elegí una fecha en ese día.", "fecha no disponible", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                ' revertir a la fecha anterior valida
+                dtpHora.Value = fechaAnterior
                 Return
             End If
         End If
 
-        ' si todo OK, cargar horas
+        ' si ok, actualizar horas disponibles y guardar fecha anterior
         CargarHorasDisponibles()
+        fechaAnterior = dtpHora.Value
     End Sub
 
-    ' ----------------------
+
     ' cargar horas disponibles (dentro del rango del doctor y sin duplicados)
-    ' ----------------------
+
     Private Sub CargarHorasDisponibles()
         cmbHora.Items.Clear()
         cmbHora.Text = ""
@@ -225,37 +270,36 @@ Public Class CrearNvoTurno
         If doctorSel Is Nothing Then Return
 
         ' rango laboral del doctor
+
         Dim horaInicio As TimeSpan = doctorSel.HoraInicio
         Dim horaFin As TimeSpan = doctorSel.HoraFin
 
-        ' generar slots de 30 minutos usando formato HH:mm (24h)
+        'generar slots de 30 minutos 
+
         Dim listaHoras As New List(Of String)
         Dim cur = horaInicio
         While cur < horaFin
-            listaHoras.Add(cur.ToString("hh\:mm")) ' preserve leading zeros
+            listaHoras.Add(cur.ToString("hh\:mm"))
             cur = cur.Add(TimeSpan.FromMinutes(30))
         End While
 
-        ' cargar turnos ocupados para esa fecha y profesional
-        Dim fechaSel As String = dtpHora.Value.ToString("dd/MM/yyyy") ' formato con el que se guardan
-        Dim ocupadas = CargarTurnosOcupados(doctorSel, fechaSel)
+        ' obtener horarios ocupados desde turnos.csv
+        Dim fechaSel As String = dtpHora.Value.ToString("dd/MM/yyyy")
+        Dim ocupadas = cargarturnosocupados_por_especialidad(doctorSel.Especialidad, fechaSel) ' nota: comparacion por especialidad por formato actual del csv
 
-        ' filtrar (aseguramos formatos iguales: hora ocupada también debe estar en HH:mm o hh:mm)
-        Dim disponibles = listaHoras.Where(Function(h) Not ocupadas.Contains(h) AndAlso Not ocupadas.Contains(h.Replace("h", ":"))).ToList()
+        ' filtrar horarios disponibles
+        Dim disponibles = listaHoras.Where(Function(h) Not ocupadas.contains(h)).ToList()
 
         If disponibles.Count = 0 Then
-            ' no hay horarios libres
-            MessageBox.Show("No hay horarios disponibles para este profesional en la fecha seleccionada.", "Sin disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' no hay horarios libres en ese rango
+            MessageBox.Show("No hay horarios disponibles para este profesional en la fecha seleccionada.", "sin disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
         cmbHora.Items.AddRange(disponibles.ToArray())
     End Sub
 
-    ' ----------------------
-    ' cargar turnos ocupados (compara profesional y fecha)
-    ' ----------------------
-    Private Function CargarTurnosOcupados(doc As Doctor, fecha As String) As HashSet(Of String)
+    Private Function cargarturnosocupados_por_especialidad(especialidad As String, fecha As String) As HashSet(Of String)
         Dim ocupadas As New HashSet(Of String)
         Dim ruta As String = "turnos.csv"
         If Not File.Exists(ruta) Then Return ocupadas
@@ -263,25 +307,22 @@ Public Class CrearNvoTurno
         Dim lineas = File.ReadAllLines(ruta)
         For i As Integer = 1 To lineas.Length - 1
             Dim c = lineas(i).Split(","c)
-            If c.Length >= 7 Then
-                Dim profesional = c(4).Trim()
-                Dim fechaTurno = c(5).Trim()
-                Dim hora = c(6).Trim()
-
-                ' Normalizar horas a formato HH:mm (si vienen en otro)
-                Dim horaNorm As String = hora
-                ' Si tiene AM/PM u otro formato, sería necesario parsear; asumimos HH:mm
-                If profesional = $"{doc.Apellido} {doc.Nombre}" AndAlso fechaTurno = fecha Then
-                    ocupadas.Add(horaNorm)
+            ' proteger si la linea está mal formateada
+            If c.Length >= 8 Then
+                Dim especialidadTurno = c(4).Trim()     ' indice 4 -> especialidad
+                Dim fechaTurno = c(6).Trim()           ' indice 6 -> fecha
+                Dim hora = c(7).Trim()                 ' indice 7 -> hora
+                If especialidadTurno = especialidad AndAlso fechaTurno = fecha Then
+                    ocupadas.Add(hora)
                 End If
             End If
         Next
         Return ocupadas
     End Function
 
-    ' ----------------------
+
     ' guardar turno: validación más específica y mensajes
-    ' ----------------------
+
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             Dim archivoTurnos As String = "turnos.csv"
@@ -294,7 +335,8 @@ Public Class CrearNvoTurno
             Dim fecha = dtpHora.Value.ToString("dd/MM/yyyy")
             Dim hora = If(cmbHora.SelectedItem, String.Empty)?.ToString()
 
-            ' ===== Validaciones =====
+            ' validaciones 
+
             Dim faltan As New List(Of String)
             If String.IsNullOrWhiteSpace(nombreCompleto) Then faltan.Add("Paciente")
             If String.IsNullOrWhiteSpace(dni) Then faltan.Add("DNI")
@@ -305,39 +347,40 @@ Public Class CrearNvoTurno
             If String.IsNullOrWhiteSpace(hora) Then faltan.Add("Hora")
 
             If faltan.Count > 0 Then
-                MessageBox.Show("Faltan campos: " & String.Join(", ", faltan),
-                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("faltan campos: " & String.Join(", ", faltan), "aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
                 Return
             End If
 
-            ' ===== Separar Apellido y Nombre =====
+            ' separar apellido y nombre 
+
             Dim partes() As String = nombreCompleto.Split(" "c, 2)
             Dim apellido As String = partes(0).Trim()
             Dim nombre As String = If(partes.Length > 1, partes(1).Trim(), "")
 
-            ' ===== Validar turno duplicado =====
-            Dim docSel = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesional)
-            If docSel IsNot Nothing Then
-                Dim ocupadas = CargarTurnosOcupados(docSel, fecha)
-                If ocupadas.Contains(hora) Then
-                    MessageBox.Show("Ese horario ya está ocupado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return
-                End If
+            ' validar turno duplicado 
+
+            Dim ocupadas = cargarturnosocupados_por_especialidad(especialidad, fecha)
+            If ocupadas.Contains(hora) Then
+                MessageBox.Show("ese horario ya está ocupado para la especialidad seleccionada.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
             End If
 
-            ' ===== Crear línea en orden correcto =====
+            ' crear línea en orden correcto 
+
             Dim linea As String = $"{apellido},{nombre},{dni},{telefono},{especialidad},{tipoConsulta},{fecha},{hora}"
 
             Dim existeArchivo As Boolean = File.Exists(archivoTurnos)
             Using sw As New StreamWriter(archivoTurnos, True)
                 If Not existeArchivo Then
-                    sw.WriteLine("Apellido,Nombre,DNI,Telefono,Especialidad,TipoConsulta,Fecha,Hora")
+                    sw.WriteLine("Apellido,Nombre,Dni,Telefono,Especialidad,TipoConsulta,Fecha,Hora")
                 End If
                 sw.WriteLine(linea)
             End Using
 
             MessageBox.Show("Turno guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
             LimpiarCampos()
+            CargarHorasDisponibles()
 
         Catch ex As Exception
             MessageBox.Show("Error al guardar el turno: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -345,51 +388,19 @@ Public Class CrearNvoTurno
         End Try
     End Sub
 
-    ' Dias laborales
+    ' dias laborales
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    Private Sub btnDiasTrabajo_Click_Nuevo(sender As Object, e As EventArgs) Handles btnDiasTrabajo.Click
-        Try
-            Dim profesionalSel As String = If(cmbProfesional.SelectedItem, "").ToString().Trim()
+        ' configuración visual del Label
 
-            If String.IsNullOrWhiteSpace(profesionalSel) Then
-                MessageBox.Show("Por favor, seleccione un profesional primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
-
-            ' Buscar al profesional en la lista de doctores
-            Dim docSeleccionado = doctores.FirstOrDefault(Function(d) $"{d.Apellido} {d.Nombre}" = profesionalSel)
-
-            If docSeleccionado Is Nothing Then
-                MessageBox.Show("No se encontró el profesional seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
-            End If
-
-            ' Filtrar todos los registros de ese profesional (puede tener más de un día laboral)
-            Dim dias = doctores.
-            Where(Function(d) d.Apellido = docSeleccionado.Apellido AndAlso d.Nombre = docSeleccionado.Nombre).
-            Select(Function(d) $"{d.DiaLaboral} ({d.HoraInicio} - {d.HoraFin})").
-            ToList()
-
-            If dias.Count = 0 Then
-                MessageBox.Show("Este profesional no tiene días laborales cargados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                Dim mensaje = "🩺 Días laborales de " & profesionalSel & ":" & vbCrLf & vbCrLf & String.Join(vbCrLf, dias)
-                MessageBox.Show(mensaje, "Disponibilidad del Profesional", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error al consultar los días laborales: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        lblDiasTrabajo1.AutoSize = False
+        lblDiasTrabajo1.MaximumSize = New Size(250, 0)
+        lblDiasTrabajo1.ForeColor = Color.DarkBlue
+        lblDiasTrabajo1.Font = New Font("Segoe UI", 9, FontStyle.Italic)
+        lblDiasTrabajo1.Text = "Seleccione un profesional para ver disponibilidad."
     End Sub
 
-
-
-
-
-
-
-
-    '==================== BOTONES ====================
+    ' botones
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim formularioPacientes As New Pacientes()
         formularioPacientes.ShowDialog()
@@ -399,12 +410,17 @@ Public Class CrearNvoTurno
 
 
     Private Sub LimpiarCampos()
-        ' TextBox
+        RemoveHandler dtpHora.ValueChanged, AddressOf dtpHora_ValueChanged
+        If cmbProfesional.SelectedIndex = -1 Then Exit Sub
+
+        ' textBox
+
         Txt_ApellidoNombre.Clear()
         txtDNI.Clear()
         txtTelefono.Clear()
 
-        ' ComboBox
+        ' comboBox
+
         cmbAsistencia.SelectedIndex = -1
         cmbAsistencia.Text = ""
         cmbEspecialidad.SelectedIndex = -1
@@ -416,39 +432,44 @@ Public Class CrearNvoTurno
 
         dtpHora.Value = DateTime.Today
 
-        ' Días laborales (botón o label asociado)
-        btnDiasTrabajo.Enabled = True
-        btnDiasTrabajo.BackColor = Color.FromArgb(224, 224, 224)
+        ' label
+
+        lblDiasTrabajo1.Text = "Seleccione un profesional para ver disponibilidad."
+        lblDiasTrabajo1.BackColor = Color.FromArgb(224, 224, 224)
+        lblDiasTrabajo1.ForeColor = Color.FromArgb(64, 64, 64)
+
+        ' resetear variables de control
+        allowedDayOfWeek = Nothing
+
+        ' volver a activar el evento
+        AddHandler dtpHora.ValueChanged, AddressOf dtpHora_ValueChanged
 
     End Sub
     Private Sub CrearNvoTurno_Load_(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' --- Botón GUARDAR ---
+
+        ' boton guardar
+
         btnGuardar.BackColor = Color.FromArgb(30, 144, 255)
         btnGuardar.ForeColor = Color.White
         btnGuardar.FlatStyle = FlatStyle.Flat
         btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 204)
         btnGuardar.FlatAppearance.BorderSize = 1
 
-        ' --- Botón CANCELAR ---
+        ' boton cancelar
+
         btnCancelar.BackColor = Color.FromArgb(220, 53, 69)
         btnCancelar.ForeColor = Color.White
         btnCancelar.FlatStyle = FlatStyle.Flat
         btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(200, 35, 51)
         btnCancelar.FlatAppearance.BorderSize = 1
 
-        ' --- Botón VER (gris suave) ---
-        btnDiasTrabajo.BackColor = Color.FromArgb(224, 224, 224)  ' gris claro
-        btnDiasTrabajo.ForeColor = Color.FromArgb(64, 64, 64)     ' texto gris oscuro
-        btnDiasTrabajo.FlatStyle = FlatStyle.Flat
-        btnDiasTrabajo.FlatAppearance.BorderColor = Color.FromArgb(180, 180, 180)
-        btnDiasTrabajo.FlatAppearance.BorderSize = 1
     End Sub
-    Private Sub btnVer_MouseEnter(sender As Object, e As EventArgs) Handles btnDiasTrabajo.MouseEnter
-        btnDiasTrabajo.BackColor = Color.FromArgb(200, 200, 200)
+    Private Sub btnVer_MouseEnter(sender As Object, e As EventArgs)
+        lblDiasTrabajo1.BackColor = Color.FromArgb(200, 200, 200)
     End Sub
 
-    Private Sub btnVer_MouseLeave(sender As Object, e As EventArgs) Handles btnDiasTrabajo.MouseLeave
-        btnDiasTrabajo.BackColor = Color.FromArgb(224, 224, 224)
+    Private Sub btnVer_MouseLeave(sender As Object, e As EventArgs)
+        lblDiasTrabajo1.BackColor = Color.FromArgb(224, 224, 224)
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -463,11 +484,16 @@ Public Class CrearNvoTurno
 
     End Sub
 
-    Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs) Handles btnDiasTrabajo.Click
+    Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs)
 
     End Sub
 
     Private Sub cmbHora_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbHora.SelectedIndexChanged
 
     End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles lblDiasTrabajo1.Click
+
+    End Sub
 End Class
+
