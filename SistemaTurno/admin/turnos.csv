@@ -1,8 +1,4 @@
-Apellido,Nombre,DNI,Telefono,Especialidad,TipoConsulta,Fecha,Hora
-Marqués,Leire,24926207,7426261270,Dermatología,Consulta,24/10/2025,10:30
-Galan,Sebastián,90079718,2598847599,Pediatría,Consulta,27/10/2025,11:00
-Tur,Jose Ignacio,55652575,9992806629,Oncología,Consulta,29/10/2025,13:30
-Reguera,Andrés Felipe,43851878,9357699928,Neurología,Consulta,30/10/2025,10:30
-Ugarte,Chucho,28526483,4866975446,Medicina General,Estudio,24/10/2025,10:30
-ugarte,Chucho,28526483,4866975446,Ginecología,Estudio,27/10/2025,09:00
-Ugarte,Viviana,39052822,7671078312,Endocrinología,Estudio,29/10/2025,13:00
+Apellido,Nombre,DNI,Telefono,Asistencia,Especialidad,Profesional,Fecha,Hora
+Torres,Agustin,24602776,11002378911,Cardiología,Consulta,29/10/2025,09:00
+Garcia,Cecilia,28845623,11108550110,Cardiología,Consulta,29/10/2025,09:30
+Fernandez,Ana,24061758,11909143317,Cardiología,Consulta,29/10/2025,11:00
