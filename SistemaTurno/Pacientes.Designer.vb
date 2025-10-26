@@ -1,12 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Pacientes
     Inherits System.Windows.Forms.Form
 
-    Public Property Form1 As Form1
-
-    'Actualizacion de prueba
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -17,328 +14,324 @@ Partial Class Pacientes
         End Try
     End Sub
 
-    'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
 
-    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
-    'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        InfoPaciente = New GroupBox()
-        BtnAgregar = New Button()
-        Label2 = New Label()
-        TextEmail = New TextBox()
-        Label1 = New Label()
-        PaclblCredencial = New Label()
-        PaclblTelefono = New Label()
-        PacLblApellido = New Label()
-        PacLblNombre = New Label()
-        TextTelefono = New TextBox()
-        TextFechaNac = New TextBox()
-        TextDNI = New TextBox()
-        TextNombre = New TextBox()
-        TextApellido = New TextBox()
-        GroupBox1 = New GroupBox()
-        Label5 = New Label()
-        Label7 = New Label()
-        TextNCredencial = New TextBox()
-        TextOSocial = New TextBox()
-        DataGridPacientes = New DataGridView()
-        DGBTurnosPaciente = New DataGridViewTextBoxColumn()
-        DGBServicios = New DataGridViewTextBoxColumn()
-        DGBDIA = New DataGridViewTextBoxColumn()
-        TextBuscar = New TextBox()
-        PacBuscador = New GroupBox()
-        InfoPaciente.SuspendLayout()
-        GroupBox1.SuspendLayout()
-        CType(DataGridPacientes, ComponentModel.ISupportInitialize).BeginInit()
-        PacBuscador.SuspendLayout()
-        SuspendLayout()
-        ' 
-        ' InfoPaciente
-        ' 
-        InfoPaciente.Controls.Add(BtnAgregar)
-        InfoPaciente.Controls.Add(Label2)
-        InfoPaciente.Controls.Add(TextEmail)
-        InfoPaciente.Controls.Add(Label1)
-        InfoPaciente.Controls.Add(PaclblCredencial)
-        InfoPaciente.Controls.Add(PaclblTelefono)
-        InfoPaciente.Controls.Add(PacLblApellido)
-        InfoPaciente.Controls.Add(PacLblNombre)
-        InfoPaciente.Controls.Add(TextTelefono)
-        InfoPaciente.Controls.Add(TextFechaNac)
-        InfoPaciente.Controls.Add(TextDNI)
-        InfoPaciente.Controls.Add(TextNombre)
-        InfoPaciente.Controls.Add(TextApellido)
-        InfoPaciente.ForeColor = Color.Black
-        InfoPaciente.Location = New Point(72, 102)
-        InfoPaciente.Name = "InfoPaciente"
-        InfoPaciente.Size = New Size(509, 574)
-        InfoPaciente.TabIndex = 0
-        InfoPaciente.TabStop = False
-        InfoPaciente.Text = "Info del Paciente"
-        ' 
-        ' BtnAgregar
-        ' 
-        BtnAgregar.BackColor = Color.CadetBlue
-        BtnAgregar.ForeColor = Color.Transparent
-        BtnAgregar.Location = New Point(347, 460)
-        BtnAgregar.Name = "BtnAgregar"
-        BtnAgregar.Size = New Size(104, 51)
-        BtnAgregar.TabIndex = 13
-        BtnAgregar.Text = "Agregar"
-        BtnAgregar.UseVisualStyleBackColor = False
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.ForeColor = Color.Black
-        Label2.Location = New Point(61, 208)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(35, 20)
-        Label2.TabIndex = 12
-        Label2.Text = "DNI"
-        ' 
-        ' TextEmail
-        ' 
-        TextEmail.Location = New Point(202, 383)
-        TextEmail.Name = "TextEmail"
-        TextEmail.Size = New Size(249, 27)
-        TextEmail.TabIndex = 10
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.ForeColor = Color.Black
-        Label1.Location = New Point(61, 263)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(88, 20)
-        Label1.TabIndex = 9
-        Label1.Text = "FECHA NAC"
-        ' 
-        ' PaclblCredencial
-        ' 
-        PaclblCredencial.AutoSize = True
-        PaclblCredencial.ForeColor = Color.Black
-        PaclblCredencial.Location = New Point(61, 390)
-        PaclblCredencial.Name = "PaclblCredencial"
-        PaclblCredencial.Size = New Size(51, 20)
-        PaclblCredencial.TabIndex = 8
-        PaclblCredencial.Text = "EMAIL"
-        ' 
-        ' PaclblTelefono
-        ' 
-        PaclblTelefono.AutoSize = True
-        PaclblTelefono.ForeColor = Color.Black
-        PaclblTelefono.Location = New Point(61, 326)
-        PaclblTelefono.Name = "PaclblTelefono"
-        PaclblTelefono.Size = New Size(80, 20)
-        PaclblTelefono.TabIndex = 7
-        PaclblTelefono.Text = "TELEFONO"
-        ' 
-        ' PacLblApellido
-        ' 
-        PacLblApellido.AutoSize = True
-        PacLblApellido.ForeColor = Color.Black
-        PacLblApellido.Location = New Point(61, 78)
-        PacLblApellido.Name = "PacLblApellido"
-        PacLblApellido.Size = New Size(75, 20)
-        PacLblApellido.TabIndex = 6
-        PacLblApellido.Text = "APELLIDO"
-        ' 
-        ' PacLblNombre
-        ' 
-        PacLblNombre.AutoSize = True
-        PacLblNombre.ForeColor = Color.Black
-        PacLblNombre.Location = New Point(61, 150)
-        PacLblNombre.Name = "PacLblNombre"
-        PacLblNombre.Size = New Size(70, 20)
-        PacLblNombre.TabIndex = 5
-        PacLblNombre.Text = "NOMBRE"
-        ' 
-        ' TextTelefono
-        ' 
-        TextTelefono.Location = New Point(202, 326)
-        TextTelefono.Name = "TextTelefono"
-        TextTelefono.Size = New Size(249, 27)
-        TextTelefono.TabIndex = 4
-        ' 
-        ' TextFechaNac
-        ' 
-        TextFechaNac.Location = New Point(202, 260)
-        TextFechaNac.Name = "TextFechaNac"
-        TextFechaNac.Size = New Size(249, 27)
-        TextFechaNac.TabIndex = 3
-        ' 
-        ' TextDNI
-        ' 
-        TextDNI.Location = New Point(202, 201)
-        TextDNI.Name = "TextDNI"
-        TextDNI.Size = New Size(249, 27)
-        TextDNI.TabIndex = 2
-        ' 
-        ' TextNombre
-        ' 
-        TextNombre.Location = New Point(202, 143)
-        TextNombre.Name = "TextNombre"
-        TextNombre.Size = New Size(249, 27)
-        TextNombre.TabIndex = 1
-        ' 
-        ' TextApellido
-        ' 
-        TextApellido.Location = New Point(202, 78)
-        TextApellido.Name = "TextApellido"
-        TextApellido.Size = New Size(249, 27)
-        TextApellido.TabIndex = 0
-        ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Controls.Add(Label5)
-        GroupBox1.Controls.Add(Label7)
-        GroupBox1.Controls.Add(TextNCredencial)
-        GroupBox1.Controls.Add(TextOSocial)
-        GroupBox1.ForeColor = Color.Black
-        GroupBox1.Location = New Point(617, 102)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(509, 228)
-        GroupBox1.TabIndex = 13
-        GroupBox1.TabStop = False
-        GroupBox1.Text = "Info del Paciente"
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.ForeColor = Color.Black
-        Label5.Location = New Point(61, 146)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(120, 20)
-        Label5.TabIndex = 8
-        Label5.Text = "N^ CEDRENCIAL"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.ForeColor = Color.Black
-        Label7.Location = New Point(61, 81)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(76, 20)
-        Label7.TabIndex = 6
-        Label7.Text = "O. SOCIAL"
-        ' 
-        ' TextNCredencial
-        ' 
-        TextNCredencial.Location = New Point(202, 143)
-        TextNCredencial.Name = "TextNCredencial"
-        TextNCredencial.Size = New Size(249, 27)
-        TextNCredencial.TabIndex = 1
-        ' 
-        ' TextOSocial
-        ' 
-        TextOSocial.Location = New Point(202, 78)
-        TextOSocial.Name = "TextOSocial"
-        TextOSocial.Size = New Size(249, 27)
-        TextOSocial.TabIndex = 0
-        ' 
-        ' DataGridPacientes
-        ' 
-        DataGridPacientes.BackgroundColor = Color.DarkGray
-        DataGridPacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridPacientes.Columns.AddRange(New DataGridViewColumn() {DGBTurnosPaciente, DGBServicios, DGBDIA})
-        DataGridPacientes.GridColor = Color.Black
-        DataGridPacientes.Location = New Point(617, 365)
-        DataGridPacientes.Name = "DataGridPacientes"
-        DataGridPacientes.ReadOnly = True
-        DataGridPacientes.RowHeadersWidth = 51
-        DataGridPacientes.RowTemplate.ReadOnly = True
-        DataGridPacientes.Size = New Size(509, 311)
-        DataGridPacientes.TabIndex = 14
-        ' 
-        ' DGBTurnosPaciente
-        ' 
-        DataGridViewCellStyle1.ForeColor = Color.Black
-        DGBTurnosPaciente.DefaultCellStyle = DataGridViewCellStyle1
-        DGBTurnosPaciente.HeaderText = "Turnos"
-        DGBTurnosPaciente.MinimumWidth = 6
-        DGBTurnosPaciente.Name = "DGBTurnosPaciente"
-        DGBTurnosPaciente.ReadOnly = True
-        DGBTurnosPaciente.Width = 125
-        ' 
-        ' DGBServicios
-        ' 
-        DataGridViewCellStyle2.ForeColor = Color.Black
-        DGBServicios.DefaultCellStyle = DataGridViewCellStyle2
-        DGBServicios.HeaderText = "Servicios"
-        DGBServicios.MinimumWidth = 6
-        DGBServicios.Name = "DGBServicios"
-        DGBServicios.ReadOnly = True
-        DGBServicios.Width = 125
-        ' 
-        ' DGBDIA
-        ' 
-        DataGridViewCellStyle3.ForeColor = Color.Black
-        DGBDIA.DefaultCellStyle = DataGridViewCellStyle3
-        DGBDIA.HeaderText = "DIA Turno"
-        DGBDIA.MinimumWidth = 6
-        DGBDIA.Name = "DGBDIA"
-        DGBDIA.ReadOnly = True
-        DGBDIA.Width = 125
-        ' 
-        ' TextBuscar
-        ' 
-        TextBuscar.Location = New Point(23, 31)
-        TextBuscar.Name = "TextBuscar"
-        TextBuscar.Size = New Size(408, 27)
-        TextBuscar.TabIndex = 15
-        ' 
-        ' PacBuscador
-        ' 
-        PacBuscador.Controls.Add(TextBuscar)
-        PacBuscador.Location = New Point(72, 13)
-        PacBuscador.Name = "PacBuscador"
-        PacBuscador.Size = New Size(753, 84)
-        PacBuscador.TabIndex = 18
-        PacBuscador.TabStop = False
-        PacBuscador.Text = "Buscador de Pacientes"
-        ' 
-        ' brnVolver
-        ' 
-        brnVolver.BackColor = Color.CadetBlue
-        brnVolver.ForeColor = Color.Transparent
-        brnVolver.Location = New Point(861, 32)
-        brnVolver.Name = "brnVolver"
-        brnVolver.Size = New Size(265, 51)
-        brnVolver.TabIndex = 19
-        brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
-        brnVolver.UseVisualStyleBackColor = False
-        ' 
-        ' Pacientes
-        ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
-        AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1364, 756)
-        Controls.Add(PacBuscador)
-        Controls.Add(DataGridPacientes)
-        Controls.Add(GroupBox1)
-        Controls.Add(InfoPaciente)
-        ForeColor = Color.Transparent
-        FormBorderStyle = FormBorderStyle.None
-        Name = "Pacientes"
-        ShowInTaskbar = False
-        StartPosition = FormStartPosition.CenterParent
-        Text = "Pacientes"
-        InfoPaciente.ResumeLayout(False)
-        InfoPaciente.PerformLayout()
-        GroupBox1.ResumeLayout(False)
-        GroupBox1.PerformLayout()
-        CType(DataGridPacientes, ComponentModel.ISupportInitialize).EndInit()
-        PacBuscador.ResumeLayout(False)
-        PacBuscador.PerformLayout()
-        ResumeLayout(False)
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.InfoPaciente = New System.Windows.Forms.GroupBox()
+        Me.BtnAgregar = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextEmail = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PaclblCredencial = New System.Windows.Forms.Label()
+        Me.PaclblTelefono = New System.Windows.Forms.Label()
+        Me.PacLblApellido = New System.Windows.Forms.Label()
+        Me.PacLblNombre = New System.Windows.Forms.Label()
+        Me.TextTelefono = New System.Windows.Forms.TextBox()
+        Me.TextFechaNac = New System.Windows.Forms.TextBox()
+        Me.TextDNI = New System.Windows.Forms.TextBox()
+        Me.TextNombre = New System.Windows.Forms.TextBox()
+        Me.TextApellido = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextNCredencial = New System.Windows.Forms.TextBox()
+        Me.TextOSocial = New System.Windows.Forms.TextBox()
+        Me.DataGridPacientes = New System.Windows.Forms.DataGridView()
+        Me.DGBTurnosPaciente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DGBServicios = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DGBDIA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TextBuscar = New System.Windows.Forms.TextBox()
+        Me.PacBuscador = New System.Windows.Forms.GroupBox()
+        Me.brnVolver = New System.Windows.Forms.Button()
+        Me.InfoPaciente.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridPacientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PacBuscador.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'InfoPaciente
+        '
+        Me.InfoPaciente.Controls.Add(Me.BtnAgregar)
+        Me.InfoPaciente.Controls.Add(Me.Label2)
+        Me.InfoPaciente.Controls.Add(Me.TextEmail)
+        Me.InfoPaciente.Controls.Add(Me.Label1)
+        Me.InfoPaciente.Controls.Add(Me.PaclblCredencial)
+        Me.InfoPaciente.Controls.Add(Me.PaclblTelefono)
+        Me.InfoPaciente.Controls.Add(Me.PacLblApellido)
+        Me.InfoPaciente.Controls.Add(Me.PacLblNombre)
+        Me.InfoPaciente.Controls.Add(Me.TextTelefono)
+        Me.InfoPaciente.Controls.Add(Me.TextFechaNac)
+        Me.InfoPaciente.Controls.Add(Me.TextDNI)
+        Me.InfoPaciente.Controls.Add(Me.TextNombre)
+        Me.InfoPaciente.Controls.Add(Me.TextApellido)
+        Me.InfoPaciente.ForeColor = System.Drawing.Color.Black
+        Me.InfoPaciente.Location = New System.Drawing.Point(72, 102)
+        Me.InfoPaciente.Name = "InfoPaciente"
+        Me.InfoPaciente.Size = New System.Drawing.Size(509, 574)
+        Me.InfoPaciente.TabIndex = 0
+        Me.InfoPaciente.TabStop = False
+        Me.InfoPaciente.Text = "Info del Paciente"
+        '
+        'BtnAgregar
+        '
+        Me.BtnAgregar.BackColor = System.Drawing.Color.CadetBlue
+        Me.BtnAgregar.ForeColor = System.Drawing.Color.White
+        Me.BtnAgregar.Location = New System.Drawing.Point(347, 460)
+        Me.BtnAgregar.Name = "BtnAgregar"
+        Me.BtnAgregar.Size = New System.Drawing.Size(104, 51)
+        Me.BtnAgregar.TabIndex = 13
+        Me.BtnAgregar.Text = "Agregar"
+        Me.BtnAgregar.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(61, 208)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(35, 20)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "DNI"
+        '
+        'TextEmail
+        '
+        Me.TextEmail.Location = New System.Drawing.Point(202, 383)
+        Me.TextEmail.Name = "TextEmail"
+        Me.TextEmail.Size = New System.Drawing.Size(249, 27)
+        Me.TextEmail.TabIndex = 10
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(61, 263)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(88, 20)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "FECHA NAC"
+        '
+        'PaclblCredencial
+        '
+        Me.PaclblCredencial.AutoSize = True
+        Me.PaclblCredencial.ForeColor = System.Drawing.Color.Black
+        Me.PaclblCredencial.Location = New System.Drawing.Point(61, 390)
+        Me.PaclblCredencial.Name = "PaclblCredencial"
+        Me.PaclblCredencial.Size = New System.Drawing.Size(51, 20)
+        Me.PaclblCredencial.TabIndex = 8
+        Me.PaclblCredencial.Text = "EMAIL"
+        '
+        'PaclblTelefono
+        '
+        Me.PaclblTelefono.AutoSize = True
+        Me.PaclblTelefono.ForeColor = System.Drawing.Color.Black
+        Me.PaclblTelefono.Location = New System.Drawing.Point(61, 326)
+        Me.PaclblTelefono.Name = "PaclblTelefono"
+        Me.PaclblTelefono.Size = New System.Drawing.Size(80, 20)
+        Me.PaclblTelefono.TabIndex = 7
+        Me.PaclblTelefono.Text = "TELEFONO"
+        '
+        'PacLblApellido
+        '
+        Me.PacLblApellido.AutoSize = True
+        Me.PacLblApellido.ForeColor = System.Drawing.Color.Black
+        Me.PacLblApellido.Location = New System.Drawing.Point(61, 78)
+        Me.PacLblApellido.Name = "PacLblApellido"
+        Me.PacLblApellido.Size = New System.Drawing.Size(75, 20)
+        Me.PacLblApellido.TabIndex = 6
+        Me.PacLblApellido.Text = "APELLIDO"
+        '
+        'PacLblNombre
+        '
+        Me.PacLblNombre.AutoSize = True
+        Me.PacLblNombre.ForeColor = System.Drawing.Color.Black
+        Me.PacLblNombre.Location = New System.Drawing.Point(61, 150)
+        Me.PacLblNombre.Name = "PacLblNombre"
+        Me.PacLblNombre.Size = New System.Drawing.Size(70, 20)
+        Me.PacLblNombre.TabIndex = 5
+        Me.PacLblNombre.Text = "NOMBRE"
+        '
+        'TextTelefono
+        '
+        Me.TextTelefono.Location = New System.Drawing.Point(202, 326)
+        Me.TextTelefono.Name = "TextTelefono"
+        Me.TextTelefono.Size = New System.Drawing.Size(249, 27)
+        Me.TextTelefono.TabIndex = 4
+        '
+        'TextFechaNac
+        '
+        Me.TextFechaNac.Location = New System.Drawing.Point(202, 260)
+        Me.TextFechaNac.Name = "TextFechaNac"
+        Me.TextFechaNac.Size = New System.Drawing.Size(249, 27)
+        Me.TextFechaNac.TabIndex = 3
+        '
+        'TextDNI
+        '
+        Me.TextDNI.Location = New System.Drawing.Point(202, 201)
+        Me.TextDNI.Name = "TextDNI"
+        Me.TextDNI.Size = New System.Drawing.Size(249, 27)
+        Me.TextDNI.TabIndex = 2
+        '
+        'TextNombre
+        '
+        Me.TextNombre.Location = New System.Drawing.Point(202, 143)
+        Me.TextNombre.Name = "TextNombre"
+        Me.TextNombre.Size = New System.Drawing.Size(249, 27)
+        Me.TextNombre.TabIndex = 1
+        '
+        'TextApellido
+        '
+        Me.TextApellido.Location = New System.Drawing.Point(202, 78)
+        Me.TextApellido.Name = "TextApellido"
+        Me.TextApellido.Size = New System.Drawing.Size(249, 27)
+        Me.TextApellido.TabIndex = 0
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.TextNCredencial)
+        Me.GroupBox1.Controls.Add(Me.TextOSocial)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Black
+        Me.GroupBox1.Location = New System.Drawing.Point(617, 102)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(509, 228)
+        Me.GroupBox1.TabIndex = 13
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Obra Social"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(61, 146)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(119, 20)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "N° CREDENCIAL"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(61, 81)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(76, 20)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "O. SOCIAL"
+        '
+        'TextNCredencial
+        '
+        Me.TextNCredencial.Location = New System.Drawing.Point(202, 143)
+        Me.TextNCredencial.Name = "TextNCredencial"
+        Me.TextNCredencial.Size = New System.Drawing.Size(249, 27)
+        Me.TextNCredencial.TabIndex = 1
+        '
+        'TextOSocial
+        '
+        Me.TextOSocial.Location = New System.Drawing.Point(202, 78)
+        Me.TextOSocial.Name = "TextOSocial"
+        Me.TextOSocial.Size = New System.Drawing.Size(249, 27)
+        Me.TextOSocial.TabIndex = 0
+        '
+        'DataGridPacientes
+        '
+        Me.DataGridPacientes.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.DataGridPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridPacientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DGBTurnosPaciente, Me.DGBServicios, Me.DGBDIA})
+        Me.DataGridPacientes.GridColor = System.Drawing.Color.Black
+        Me.DataGridPacientes.Location = New System.Drawing.Point(617, 365)
+        Me.DataGridPacientes.Name = "DataGridPacientes"
+        Me.DataGridPacientes.ReadOnly = True
+        Me.DataGridPacientes.RowHeadersWidth = 51
+        Me.DataGridPacientes.Size = New System.Drawing.Size(509, 311)
+        Me.DataGridPacientes.TabIndex = 14
+        '
+        'DGBTurnosPaciente
+        '
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.DGBTurnosPaciente.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DGBTurnosPaciente.HeaderText = "Turnos"
+        Me.DGBTurnosPaciente.MinimumWidth = 6
+        Me.DGBTurnosPaciente.Name = "DGBTurnosPaciente"
+        Me.DGBTurnosPaciente.ReadOnly = True
+        Me.DGBTurnosPaciente.Width = 125
+        '
+        'DGBServicios
+        '
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.DGBServicios.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DGBServicios.HeaderText = "Servicios"
+        Me.DGBServicios.MinimumWidth = 6
+        Me.DGBServicios.Name = "DGBServicios"
+        Me.DGBServicios.ReadOnly = True
+        Me.DGBServicios.Width = 125
+        '
+        'DGBDIA
+        '
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.DGBDIA.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DGBDIA.HeaderText = "Día Turno"
+        Me.DGBDIA.MinimumWidth = 6
+        Me.DGBDIA.Name = "DGBDIA"
+        Me.DGBDIA.ReadOnly = True
+        Me.DGBDIA.Width = 125
+        '
+        'TextBuscar
+        '
+        Me.TextBuscar.Location = New System.Drawing.Point(23, 31)
+        Me.TextBuscar.Name = "TextBuscar"
+        Me.TextBuscar.Size = New System.Drawing.Size(408, 27)
+        Me.TextBuscar.TabIndex = 15
+        '
+        'PacBuscador
+        '
+        Me.PacBuscador.Controls.Add(Me.TextBuscar)
+        Me.PacBuscador.Location = New System.Drawing.Point(72, 13)
+        Me.PacBuscador.Name = "PacBuscador"
+        Me.PacBuscador.Size = New System.Drawing.Size(753, 84)
+        Me.PacBuscador.TabIndex = 18
+        Me.PacBuscador.TabStop = False
+        Me.PacBuscador.Text = "Buscador de Pacientes"
+        '
+        'brnVolver
+        '
+        Me.brnVolver.BackColor = System.Drawing.Color.CadetBlue
+        Me.brnVolver.ForeColor = System.Drawing.Color.White
+        Me.brnVolver.Location = New System.Drawing.Point(861, 32)
+        Me.brnVolver.Name = "brnVolver"
+        Me.brnVolver.Size = New System.Drawing.Size(265, 51)
+        Me.brnVolver.TabIndex = 19
+        Me.brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
+        Me.brnVolver.UseVisualStyleBackColor = False
+        '
+        'Pacientes
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ClientSize = New System.Drawing.Size(1364, 756)
+        Me.Controls.Add(Me.brnVolver)
+        Me.Controls.Add(Me.PacBuscador)
+        Me.Controls.Add(Me.DataGridPacientes)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.InfoPaciente)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Name = "Pacientes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Pacientes"
+        Me.InfoPaciente.ResumeLayout(False)
+        Me.InfoPaciente.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.DataGridPacientes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PacBuscador.ResumeLayout(False)
+        Me.PacBuscador.PerformLayout()
+        Me.ResumeLayout(False)
+
     End Sub
 
     Friend WithEvents InfoPaciente As GroupBox
@@ -366,5 +359,6 @@ Partial Class Pacientes
     Friend WithEvents DGBTurnosPaciente As DataGridViewTextBoxColumn
     Friend WithEvents DGBServicios As DataGridViewTextBoxColumn
     Friend WithEvents DGBDIA As DataGridViewTextBoxColumn
-    Private brnVolver As Object
+    Friend WithEvents brnVolver As Button
+
 End Class
