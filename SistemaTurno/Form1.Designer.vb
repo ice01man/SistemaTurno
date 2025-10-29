@@ -64,7 +64,7 @@ Partial Class Form1
         ToolStripContainer1.ContentPanel.BackgroundImageLayout = ImageLayout.Stretch
         ToolStripContainer1.ContentPanel.Controls.Add(GroupBox1)
         ToolStripContainer1.ContentPanel.ForeColor = SystemColors.ActiveBorder
-        ToolStripContainer1.ContentPanel.Size = New Size(1382, 775)
+        ToolStripContainer1.ContentPanel.Size = New Size(1382, 779)
         ToolStripContainer1.Dock = DockStyle.Top
         ToolStripContainer1.LeftToolStripPanelVisible = False
         ToolStripContainer1.Location = New Point(0, 0)
@@ -92,6 +92,7 @@ Partial Class Form1
         GroupBox1.Controls.Add(LogintxtUsuario)
         GroupBox1.ForeColor = SystemColors.ButtonHighlight
         GroupBox1.Location = New Point(550, 200)
+        GroupBox1.Margin = New Padding(0)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(314, 386)
         GroupBox1.TabIndex = 0
@@ -167,7 +168,7 @@ Partial Class Form1
         MenuStrip1.Items.AddRange(New ToolStripItem() {MenuInicio, MenuPacientes, MenuAdmin})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(1382, 28)
+        MenuStrip1.Size = New Size(1382, 24)
         MenuStrip1.TabIndex = 4
         MenuStrip1.Text = "MenuStrip1"
         ' 

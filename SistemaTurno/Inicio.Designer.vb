@@ -26,7 +26,7 @@ Partial Class Inicio
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        MonthCalendar1 = New MonthCalendar()
+        MonthCalendar = New MonthCalendar()
         DGVTurnos = New DataGridView()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
         F1DgbTelefono = New DataGridViewTextBoxColumn()
@@ -45,11 +45,11 @@ Partial Class Inicio
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' MonthCalendar1
+        ' MonthCalendar
         ' 
-        MonthCalendar1.Location = New Point(868, 65)
-        MonthCalendar1.Name = "MonthCalendar1"
-        MonthCalendar1.TabIndex = 5
+        MonthCalendar.Location = New Point(868, 65)
+        MonthCalendar.Name = "MonthCalendar"
+        MonthCalendar.TabIndex = 5
         ' 
         ' DGVTurnos
         ' 
@@ -180,7 +180,7 @@ Partial Class Inicio
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1382, 803)
         Controls.Add(lblTurnosDiaActual)
-        Controls.Add(MonthCalendar1)
+        Controls.Add(MonthCalendar)
         Controls.Add(DGVTurnos)
         Controls.Add(GroupBox1)
         FormBorderStyle = FormBorderStyle.None
@@ -193,7 +193,7 @@ Partial Class Inicio
         PerformLayout()
     End Sub
 
-    Friend WithEvents MonthCalendar1 As MonthCalendar
+    Friend WithEvents MonthCalendar As MonthCalendar
     Friend WithEvents DGVTurnos As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button2 As Button

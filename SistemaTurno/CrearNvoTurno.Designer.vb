@@ -65,7 +65,7 @@ Partial Class CrearNvoTurno
         ' 
         ' dtpHora
         ' 
-        dtpHora.Location = New Point(565, 480)
+        dtpHora.Location = New Point(565, 473)
         dtpHora.Name = "dtpHora"
         dtpHora.Size = New Size(292, 27)
         dtpHora.TabIndex = 25
@@ -83,7 +83,7 @@ Partial Class CrearNvoTurno
         ' 
         lblHora.AutoSize = True
         lblHora.ForeColor = Color.Black
-        lblHora.Location = New Point(389, 520)
+        lblHora.Location = New Point(389, 521)
         lblHora.Name = "lblHora"
         lblHora.Size = New Size(42, 20)
         lblHora.TabIndex = 23
@@ -174,9 +174,9 @@ Partial Class CrearNvoTurno
         ' cmbHora
         ' 
         cmbHora.FormattingEnabled = True
-        cmbHora.Location = New Point(565, 520)
+        cmbHora.Location = New Point(723, 518)
         cmbHora.Name = "cmbHora"
-        cmbHora.Size = New Size(151, 28)
+        cmbHora.Size = New Size(134, 28)
         cmbHora.TabIndex = 33
         ' 
         ' lblProfesional
@@ -229,9 +229,9 @@ Partial Class CrearNvoTurno
         ' 
         lblDiasTrabajo1.BackColor = Color.LightGray
         lblDiasTrabajo1.Location = New Point(565, 395)
-        lblDiasTrabajo1.MaximumSize = New Size(250, 0)
+        lblDiasTrabajo1.MaximumSize = New Size(3000, 250)
         lblDiasTrabajo1.Name = "lblDiasTrabajo1"
-        lblDiasTrabajo1.Size = New Size(250, 60)
+        lblDiasTrabajo1.Size = New Size(292, 63)
         lblDiasTrabajo1.TabIndex = 39
         ' 
         ' CrearNvoTurno

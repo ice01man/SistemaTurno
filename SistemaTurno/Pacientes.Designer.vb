@@ -306,14 +306,14 @@ Partial Class Pacientes
         ' 
         ' brnVolver
         ' 
-        brnVolver.BackColor = Color.CadetBlue
-        brnVolver.ForeColor = Color.Transparent
-        brnVolver.Location = New Point(861, 32)
-        brnVolver.Name = "brnVolver"
-        brnVolver.Size = New Size(265, 51)
-        brnVolver.TabIndex = 19
-        brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
-        brnVolver.UseVisualStyleBackColor = False
+        'brnVolver.BackColor = Color.CadetBlue
+        'brnVolver.ForeColor = Color.Transparent
+        'brnVolver.Location = New Point(861, 32)
+        'brnVolver.Name = "brnVolver"
+        'brnVolver.Size = New Size(265, 51)
+        'brnVolver.TabIndex = 19
+        'brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
+        'brnVolver.UseVisualStyleBackColor = False
         ' 
         ' Pacientes
         ' 

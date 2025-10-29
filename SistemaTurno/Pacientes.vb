@@ -209,9 +209,6 @@ Public Class Pacientes
     ' End If
     ' End Sub
 
-    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
-
-    End Sub
 
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
         GuardarPacientesEnCSV()

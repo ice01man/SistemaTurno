@@ -472,28 +472,6 @@ Public Class CrearNvoTurno
         lblDiasTrabajo1.BackColor = Color.FromArgb(224, 224, 224)
     End Sub
 
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        Me.Close()
-    End Sub
 
-    Private Sub CrearNvoTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
-    Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub cmbHora_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbHora.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles lblDiasTrabajo1.Click
-
-    End Sub
 End Class
 

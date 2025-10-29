@@ -1,4 +1,6 @@
-﻿Public Class Inicio
+﻿Imports System.Globalization
+
+Public Class Inicio
 
     ' Ultima actualizacion 21/10
     'Ultima Actualizacion 17/09/2025 
@@ -51,13 +53,16 @@
                 Dim lineas As String() = My.Computer.FileSystem.ReadAllText(rutaArchivo).Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
 
                 ' Recorrer cada línea del archivo
-                For Each linea As String In lineas
+                'For Each linea As String In lineas
+                For i As Integer = 1 To lineas.Length - 1
+                    Dim linea As String = lineas(i)
                     ' Separar los datos por la coma
                     Dim datos() As String = linea.Split(","c)
+                    Dim Textpaciente As String = datos(0) & " " & datos(1)
 
                     If datos.Length >= 5 Then ' Asegurarse de que la línea tiene todos los campos necesarios
                         ' Agregar una nueva fila al DataGridView con los datos de la línea
-                        DGVTurnos.Rows.Add(datos(2), datos(3), datos(4), datos(0), datos(1))
+                        DGVTurnos.Rows.Add(Textpaciente, datos(3), datos(4), datos(6), datos(7))
 
                     End If
                 Next
@@ -70,7 +75,6 @@
         CargarTurnosEnDataGridView()
     End Sub
 
-    Private Sub lblTurnosDiaActual_Click(sender As Object, e As EventArgs) Handles lblTurnosDiaActual.Click
 
-    End Sub
+
 End Class

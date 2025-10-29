@@ -129,7 +129,5 @@
 
     End Sub
 
-    Private Sub ToolStripContainer1_TopToolStripPanel_Click(sender As Object, e As EventArgs) Handles ToolStripContainer1.TopToolStripPanel.Click
 
-    End Sub
 End Class
