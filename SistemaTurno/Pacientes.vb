@@ -34,12 +34,12 @@ Public Class Pacientes
                     Dim campos() As String = linea.Split(","c)
 
                     If campos.Length >= 8 Then
-                        Dim apellido As String = campos(1).Trim()
-                        If Not pacientesData.ContainsKey(apellido) Then
-                            pacientesData.Add(apellido, campos)
+                        Dim dni As String = campos(3).Trim()
+                        If Not pacientesData.ContainsKey(dni) Then
+                            pacientesData.Add(dni, campos)
                         Else
 
-                            pacientesData(apellido) = campos
+                            pacientesData(dni) = campos
                         End If
                     End If
                 End While
@@ -64,7 +64,7 @@ Public Class Pacientes
     End Sub
 
     Private Sub buscardatagrid()
-
+        MsgBox("Ingreso BuscarGrid")
         Dim apellido = TextApellido.Text
 
         Dim rutaArchivo As String = "turnos.csv"
@@ -84,8 +84,10 @@ Public Class Pacientes
 
                     If datos.Length >= 5 Then ' Asegurarse de que la línea tiene todos los campos necesarios
                         ' Agregar una nueva fila al DataGridView con los datos de la línea
-                        If datos(2).Trim() = apellido Then
-                            DataGridPacientes.Rows.Add(datos(7), datos(6), datos(0), datos(1))
+                        If datos(0).Trim() = apellido Then
+                            Dim vpaciente = datos(0) & ", " & datos(1)
+                            Dim vhorario = datos(6) & "- " & datos(7)
+                            DataGridPacientes.Rows.Add(vpaciente, datos(5), datos(4), vhorario)
                             ' DataGridPacientes.ForeColor = BLACK
                         End If
 
@@ -137,6 +139,7 @@ Public Class Pacientes
             MessageBox.Show("Debe ingresar un apellido para guardar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+        LimpiarFormulario()
 
         Dim datos() As String = {
             TextApellido.Text,
@@ -230,7 +233,7 @@ Public Class Pacientes
     ' End Sub
 
     Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
-
+        'BtnBuscar_Click()
     End Sub
 
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
