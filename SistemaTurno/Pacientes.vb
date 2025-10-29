@@ -64,7 +64,7 @@ Public Class Pacientes
     End Sub
 
     Private Sub buscardatagrid()
-        MsgBox("Ingreso BuscarGrid")
+
         Dim apellido = TextApellido.Text
 
         Dim rutaArchivo As String = "turnos.csv"
@@ -224,21 +224,6 @@ Public Class Pacientes
         BtnAgregar.Text = "Guardar"
     End Sub
 
-    '  Private Sub brnVolver_Click(sender As Object, e As EventArgs)
-    '  If FormPrincipal IsNot Nothing Then
-    '  Dim frmInicio As New Inicio
-    '       frmInicio.FormPrincipal = FormPrincipal
-    '       FormPrincipal.MostrarFormulario(frmInicio)
-    ' End If
-    ' End Sub
-
-<<<<<<< HEAD
-=======
-    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
-        'BtnBuscar_Click()
-    End Sub
->>>>>>> 85cfe872abd2025a9a855f9bc09646708fae30f6
-
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
         Dim apellido As String = If(TextApellido?.Text, String.Empty).Trim()
 
@@ -263,5 +248,6 @@ Public Class Pacientes
 
         MessageBox.Show("Paciente guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 
 End Class

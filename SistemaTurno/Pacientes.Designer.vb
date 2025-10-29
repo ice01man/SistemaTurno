@@ -21,6 +21,7 @@ Partial Class Pacientes
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         InfoPaciente = New GroupBox()
         BtnAgregar = New Button()
         Label2 = New Label()
@@ -41,12 +42,12 @@ Partial Class Pacientes
         TextNCredencial = New TextBox()
         TextOSocial = New TextBox()
         DataGridPacientes = New DataGridView()
+        TextBuscar = New TextBox()
+        PacBuscador = New GroupBox()
         DGBTurnosPaciente = New DataGridViewTextBoxColumn()
         asistencia = New DataGridViewTextBoxColumn()
         DGBEspecialidad = New DataGridViewTextBoxColumn()
         DGBDIA = New DataGridViewTextBoxColumn()
-        TextBuscar = New TextBox()
-        PacBuscador = New GroupBox()
         InfoPaciente.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(DataGridPacientes, ComponentModel.ISupportInitialize).BeginInit()
@@ -243,50 +244,12 @@ Partial Class Pacientes
         DataGridPacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridPacientes.Columns.AddRange(New DataGridViewColumn() {DGBTurnosPaciente, asistencia, DGBEspecialidad, DGBDIA})
         DataGridPacientes.GridColor = Color.Black
-        DataGridPacientes.Location = New Point(617, 365)
+        DataGridPacientes.Location = New Point(630, 365)
         DataGridPacientes.Name = "DataGridPacientes"
         DataGridPacientes.ReadOnly = True
         DataGridPacientes.RowHeadersWidth = 51
         DataGridPacientes.Size = New Size(615, 311)
         DataGridPacientes.TabIndex = 14
-        ' 
-        ' DGBTurnosPaciente
-        ' 
-        DataGridViewCellStyle1.ForeColor = Color.Black
-        DGBTurnosPaciente.DefaultCellStyle = DataGridViewCellStyle1
-        DGBTurnosPaciente.HeaderText = "Paciente"
-        DGBTurnosPaciente.MinimumWidth = 6
-        DGBTurnosPaciente.Name = "DGBTurnosPaciente"
-        DGBTurnosPaciente.ReadOnly = True
-        DGBTurnosPaciente.Width = 125
-        ' 
-        ' asistencia
-        ' 
-        asistencia.HeaderText = "Asistencia"
-        asistencia.MinimumWidth = 6
-        asistencia.Name = "asistencia"
-        asistencia.ReadOnly = True
-        asistencia.Width = 125
-        ' 
-        ' DGBEspecialidad
-        ' 
-        DataGridViewCellStyle2.ForeColor = Color.Black
-        DGBEspecialidad.DefaultCellStyle = DataGridViewCellStyle2
-        DGBEspecialidad.HeaderText = "Especialidad"
-        DGBEspecialidad.MinimumWidth = 6
-        DGBEspecialidad.Name = "DGBEspecialidad"
-        DGBEspecialidad.ReadOnly = True
-        DGBEspecialidad.Width = 125
-        ' 
-        ' DGBDIA
-        ' 
-        DataGridViewCellStyle3.ForeColor = Color.Black
-        DGBDIA.DefaultCellStyle = DataGridViewCellStyle3
-        DGBDIA.HeaderText = "Día Turno"
-        DGBDIA.MinimumWidth = 6
-        DGBDIA.Name = "DGBDIA"
-        DGBDIA.ReadOnly = True
-        DGBDIA.Width = 125
         ' 
         ' TextBuscar
         ' 
@@ -305,9 +268,49 @@ Partial Class Pacientes
         PacBuscador.TabStop = False
         PacBuscador.Text = "Buscador de Pacientes"
         ' 
+        ' DGBTurnosPaciente
+        ' 
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DGBTurnosPaciente.DefaultCellStyle = DataGridViewCellStyle1
+        DGBTurnosPaciente.HeaderText = "Paciente"
+        DGBTurnosPaciente.MinimumWidth = 6
+        DGBTurnosPaciente.Name = "DGBTurnosPaciente"
+        DGBTurnosPaciente.ReadOnly = True
+        DGBTurnosPaciente.Width = 125
+        ' 
+        ' asistencia
+        ' 
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        asistencia.DefaultCellStyle = DataGridViewCellStyle2
+        asistencia.HeaderText = "Asistencia"
+        asistencia.MinimumWidth = 6
+        asistencia.Name = "asistencia"
+        asistencia.ReadOnly = True
+        asistencia.Width = 125
+        ' 
+        ' DGBEspecialidad
+        ' 
+        DataGridViewCellStyle3.ForeColor = Color.Black
+        DGBEspecialidad.DefaultCellStyle = DataGridViewCellStyle3
+        DGBEspecialidad.HeaderText = "Especialidad"
+        DGBEspecialidad.MinimumWidth = 6
+        DGBEspecialidad.Name = "DGBEspecialidad"
+        DGBEspecialidad.ReadOnly = True
+        DGBEspecialidad.Width = 125
+        ' 
+        ' DGBDIA
+        ' 
+        DataGridViewCellStyle4.ForeColor = Color.Black
+        DGBDIA.DefaultCellStyle = DataGridViewCellStyle4
+        DGBDIA.HeaderText = "Día Turno"
+        DGBDIA.MinimumWidth = 6
+        DGBDIA.Name = "DGBDIA"
+        DGBDIA.ReadOnly = True
+        DGBDIA.Width = 150
+        ' 
         ' Pacientes
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1364, 756)
