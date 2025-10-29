@@ -2,9 +2,6 @@
 Partial Class Pacientes
     Inherits System.Windows.Forms.Form
 
-    Public Property Form1 As Form1
-
-    'Actualizacion de prueba
     'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
@@ -17,12 +14,8 @@ Partial Class Pacientes
         End Try
     End Sub
 
-    'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
 
-    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
-    'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -49,7 +42,8 @@ Partial Class Pacientes
         TextOSocial = New TextBox()
         DataGridPacientes = New DataGridView()
         DGBTurnosPaciente = New DataGridViewTextBoxColumn()
-        DGBServicios = New DataGridViewTextBoxColumn()
+        asistencia = New DataGridViewTextBoxColumn()
+        DGBEspecialidad = New DataGridViewTextBoxColumn()
         DGBDIA = New DataGridViewTextBoxColumn()
         TextBuscar = New TextBox()
         PacBuscador = New GroupBox()
@@ -85,7 +79,7 @@ Partial Class Pacientes
         ' BtnAgregar
         ' 
         BtnAgregar.BackColor = Color.CadetBlue
-        BtnAgregar.ForeColor = Color.Transparent
+        BtnAgregar.ForeColor = Color.White
         BtnAgregar.Location = New Point(347, 460)
         BtnAgregar.Name = "BtnAgregar"
         BtnAgregar.Size = New Size(104, 51)
@@ -207,7 +201,7 @@ Partial Class Pacientes
         GroupBox1.Size = New Size(509, 228)
         GroupBox1.TabIndex = 13
         GroupBox1.TabStop = False
-        GroupBox1.Text = "Info del Paciente"
+        GroupBox1.Text = "Obra Social"
         ' 
         ' Label5
         ' 
@@ -215,9 +209,9 @@ Partial Class Pacientes
         Label5.ForeColor = Color.Black
         Label5.Location = New Point(61, 146)
         Label5.Name = "Label5"
-        Label5.Size = New Size(120, 20)
+        Label5.Size = New Size(116, 20)
         Label5.TabIndex = 8
-        Label5.Text = "N^ CEDRENCIAL"
+        Label5.Text = "N° CREDENCIAL"
         ' 
         ' Label7
         ' 
@@ -247,41 +241,48 @@ Partial Class Pacientes
         ' 
         DataGridPacientes.BackgroundColor = Color.DarkGray
         DataGridPacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridPacientes.Columns.AddRange(New DataGridViewColumn() {DGBTurnosPaciente, DGBServicios, DGBDIA})
+        DataGridPacientes.Columns.AddRange(New DataGridViewColumn() {DGBTurnosPaciente, asistencia, DGBEspecialidad, DGBDIA})
         DataGridPacientes.GridColor = Color.Black
         DataGridPacientes.Location = New Point(617, 365)
         DataGridPacientes.Name = "DataGridPacientes"
         DataGridPacientes.ReadOnly = True
         DataGridPacientes.RowHeadersWidth = 51
-        DataGridPacientes.RowTemplate.ReadOnly = True
-        DataGridPacientes.Size = New Size(509, 311)
+        DataGridPacientes.Size = New Size(615, 311)
         DataGridPacientes.TabIndex = 14
         ' 
         ' DGBTurnosPaciente
         ' 
         DataGridViewCellStyle1.ForeColor = Color.Black
         DGBTurnosPaciente.DefaultCellStyle = DataGridViewCellStyle1
-        DGBTurnosPaciente.HeaderText = "Turnos"
+        DGBTurnosPaciente.HeaderText = "Paciente"
         DGBTurnosPaciente.MinimumWidth = 6
         DGBTurnosPaciente.Name = "DGBTurnosPaciente"
         DGBTurnosPaciente.ReadOnly = True
         DGBTurnosPaciente.Width = 125
         ' 
-        ' DGBServicios
+        ' asistencia
+        ' 
+        asistencia.HeaderText = "Asistencia"
+        asistencia.MinimumWidth = 6
+        asistencia.Name = "asistencia"
+        asistencia.ReadOnly = True
+        asistencia.Width = 125
+        ' 
+        ' DGBEspecialidad
         ' 
         DataGridViewCellStyle2.ForeColor = Color.Black
-        DGBServicios.DefaultCellStyle = DataGridViewCellStyle2
-        DGBServicios.HeaderText = "Servicios"
-        DGBServicios.MinimumWidth = 6
-        DGBServicios.Name = "DGBServicios"
-        DGBServicios.ReadOnly = True
-        DGBServicios.Width = 125
+        DGBEspecialidad.DefaultCellStyle = DataGridViewCellStyle2
+        DGBEspecialidad.HeaderText = "Especialidad"
+        DGBEspecialidad.MinimumWidth = 6
+        DGBEspecialidad.Name = "DGBEspecialidad"
+        DGBEspecialidad.ReadOnly = True
+        DGBEspecialidad.Width = 125
         ' 
         ' DGBDIA
         ' 
         DataGridViewCellStyle3.ForeColor = Color.Black
         DGBDIA.DefaultCellStyle = DataGridViewCellStyle3
-        DGBDIA.HeaderText = "DIA Turno"
+        DGBDIA.HeaderText = "Día Turno"
         DGBDIA.MinimumWidth = 6
         DGBDIA.Name = "DGBDIA"
         DGBDIA.ReadOnly = True
@@ -304,17 +305,6 @@ Partial Class Pacientes
         PacBuscador.TabStop = False
         PacBuscador.Text = "Buscador de Pacientes"
         ' 
-        ' brnVolver
-        ' 
-        'brnVolver.BackColor = Color.CadetBlue
-        'brnVolver.ForeColor = Color.Transparent
-        'brnVolver.Location = New Point(861, 32)
-        'brnVolver.Name = "brnVolver"
-        'brnVolver.Size = New Size(265, 51)
-        'brnVolver.TabIndex = 19
-        'brnVolver.Text = "VOLVER AL MENÚ PRINCIPAL"
-        'brnVolver.UseVisualStyleBackColor = False
-        ' 
         ' Pacientes
         ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
@@ -325,10 +315,8 @@ Partial Class Pacientes
         Controls.Add(DataGridPacientes)
         Controls.Add(GroupBox1)
         Controls.Add(InfoPaciente)
-        ForeColor = Color.Transparent
         FormBorderStyle = FormBorderStyle.None
         Name = "Pacientes"
-        ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterParent
         Text = "Pacientes"
         InfoPaciente.ResumeLayout(False)
@@ -339,6 +327,7 @@ Partial Class Pacientes
         PacBuscador.ResumeLayout(False)
         PacBuscador.PerformLayout()
         ResumeLayout(False)
+
     End Sub
 
     Friend WithEvents InfoPaciente As GroupBox
@@ -364,7 +353,8 @@ Partial Class Pacientes
     Friend WithEvents PacBuscador As GroupBox
     Friend WithEvents BtnAgregar As Button
     Friend WithEvents DGBTurnosPaciente As DataGridViewTextBoxColumn
-    Friend WithEvents DGBServicios As DataGridViewTextBoxColumn
+    Friend WithEvents asistencia As DataGridViewTextBoxColumn
+    Friend WithEvents DGBEspecialidad As DataGridViewTextBoxColumn
     Friend WithEvents DGBDIA As DataGridViewTextBoxColumn
-    Private brnVolver As Object
+
 End Class

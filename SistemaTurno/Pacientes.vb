@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 'Actualización al 24 de septiembre
+'Actualización al 29/10
 
 
 
@@ -33,12 +34,12 @@ Public Class Pacientes
                     Dim campos() As String = linea.Split(","c)
 
                     If campos.Length >= 8 Then
-                        Dim apellido As String = campos(1).Trim()
-                        If Not pacientesData.ContainsKey(apellido) Then
-                            pacientesData.Add(apellido, campos)
+                        Dim dni As String = campos(3).Trim()
+                        If Not pacientesData.ContainsKey(dni) Then
+                            pacientesData.Add(dni, campos)
                         Else
 
-                            pacientesData(apellido) = campos
+                            pacientesData(dni) = campos
                         End If
                     End If
                 End While
@@ -63,7 +64,7 @@ Public Class Pacientes
     End Sub
 
     Private Sub buscardatagrid()
-
+        MsgBox("Ingreso BuscarGrid")
         Dim apellido = TextApellido.Text
 
         Dim rutaArchivo As String = "turnos.csv"
@@ -83,8 +84,10 @@ Public Class Pacientes
 
                     If datos.Length >= 5 Then ' Asegurarse de que la línea tiene todos los campos necesarios
                         ' Agregar una nueva fila al DataGridView con los datos de la línea
-                        If datos(2).Trim() = apellido Then
-                            DataGridPacientes.Rows.Add(datos(7), datos(6), datos(0), datos(1))
+                        If datos(0).Trim() = apellido Then
+                            Dim vpaciente = datos(0) & ", " & datos(1)
+                            Dim vhorario = datos(6) & "- " & datos(7)
+                            DataGridPacientes.Rows.Add(vpaciente, datos(5), datos(4), vhorario)
                             ' DataGridPacientes.ForeColor = BLACK
                         End If
 
@@ -96,9 +99,7 @@ Public Class Pacientes
             End Try
         End If
 
-
     End Sub
-
 
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs)
@@ -138,6 +139,7 @@ Public Class Pacientes
             MessageBox.Show("Debe ingresar un apellido para guardar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+        LimpiarFormulario()
 
         Dim datos() As String = {
             TextApellido.Text,
@@ -177,6 +179,27 @@ Public Class Pacientes
         LimpiarFormulario()
     End Sub
 
+    ' Genera un ID simple y consecutivo si no hay uno cargado
+    Private Function SiguienteId() As String
+        ' Si tenés otra lógica de IDs, reemplazala acá.
+        Return (pacientesData.Count + 1).ToString()
+    End Function
+
+    ' Construye la fila con el MISMO orden que usa tu código:
+    ' [0]=ID, [1]=Apellido, [2]=Nombre, [3]=DNI, [4]=FechaNac, [5]=Tel, [6]=Email, [7]=OSocial, [8]=NCredencial
+    Private Function CrearFilaPacienteDesdeFormulario() As String()
+        Dim fila(8) As String
+        fila(0) = SiguienteId()              ' ID (puede ser vacío si preferís)
+        fila(1) = If(TextApellido?.Text, "").Trim()
+        fila(2) = If(TextNombre?.Text, "").Trim()
+        fila(3) = If(TextDNI?.Text, "").Trim()
+        fila(4) = If(TextFechaNac?.Text, "").Trim()
+        fila(5) = If(TextTelefono?.Text, "").Trim()
+        fila(6) = If(TextEmail?.Text, "").Trim()
+        fila(7) = If(TextOSocial?.Text, "").Trim()
+        fila(8) = If(TextNCredencial?.Text, "").Trim()
+        Return fila
+    End Function
 
     Private Sub LimpiarFormulario()
         TextApellido.Clear()
@@ -209,8 +232,36 @@ Public Class Pacientes
     ' End If
     ' End Sub
 
+<<<<<<< HEAD
+=======
+    Private Sub TextBuscar_TextChanged(sender As Object, e As EventArgs) Handles TextBuscar.TextChanged
+        'BtnBuscar_Click()
+    End Sub
+>>>>>>> 85cfe872abd2025a9a855f9bc09646708fae30f6
 
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
+        Dim apellido As String = If(TextApellido?.Text, String.Empty).Trim()
+
+        If apellido = "" Then
+            MessageBox.Show("Debe ingresar al menos el Apellido para guardar el paciente.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+
+        ' 1) Tomo los datos del formulario en el orden correcto (ID, APE, NOM, DNI, FNA, TEL, EMA, OSO, NCRED)
+        Dim fila As String() = CrearFilaPacienteDesdeFormulario()
+
+        ' 2) Actualizo el diccionario en memoria usando el APELLIDO como clave, como ya hace tu código
+        If pacientesData.ContainsKey(apellido) Then
+            pacientesData(apellido) = fila
+        Else
+            pacientesData.Add(apellido, fila)
+        End If
+
+        ' 3) Guardo todo el diccionario al CSV y refresco el autocompletado
         GuardarPacientesEnCSV()
+        ConfigurarAutoComplete()
+
+        MessageBox.Show("Paciente guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 End Class
