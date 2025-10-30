@@ -1,4 +1,3 @@
-Apellido,Nombre,DNI,Telefono,Asistencia,Especialidad,Profesional,Fecha,Hora
-Torres,Agustin,24602776,11002378911,Cardiología,Consulta,29/10/2025,09:00
-Garcia,Cecilia,28845623,11108550110,Cardiología,Consulta,29/10/2025,09:30
-Fernandez,Ana,24061758,11909143317,Cardiología,Consulta,29/10/2025,11:00
+Apellido,Nombre,DNI,Telefono,Asistencia,Especialidad,Fecha,Hora,Profesional
+Ramirez,Ana,48122063,11566861799,Presente,Cardiología,05/11/2025,10:30,Núñez Martina
+Garcia,Jorge,24859594,11745639137,Ausente,Neurología,31/10/2025,10:30,Núñez Emiliano
