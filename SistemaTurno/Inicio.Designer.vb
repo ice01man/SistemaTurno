@@ -23,9 +23,9 @@ Partial Class Inicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar = New MonthCalendar()
         DGVTurnos = New DataGridView()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
@@ -38,7 +38,7 @@ Partial Class Inicio
         F1DgbBtnAusente = New DataGridViewButtonColumn()
         GroupBox1 = New GroupBox()
         btnPaciente = New Button()
-        Button2 = New Button()
+        btnTurnos = New Button()
         ToolTip1 = New ToolTip(components)
         lblTurnosDiaActual = New Label()
         CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
@@ -99,9 +99,9 @@ Partial Class Inicio
         ' 
         ' F1DgbbtnVer
         ' 
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.NullValue = "Ver"
-        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.NullValue = "Ver"
+        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle4
         F1DgbbtnVer.HeaderText = "Ver"
         F1DgbbtnVer.MinimumWidth = 6
         F1DgbbtnVer.Name = "F1DgbbtnVer"
@@ -110,9 +110,9 @@ Partial Class Inicio
         ' 
         ' F1DgbBtnAsistio
         ' 
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.NullValue = "Editar"
-        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.NullValue = "Editar"
+        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle5
         F1DgbBtnAsistio.HeaderText = "Asistio"
         F1DgbBtnAsistio.MinimumWidth = 6
         F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
@@ -120,9 +120,9 @@ Partial Class Inicio
         ' 
         ' F1DgbBtnAusente
         ' 
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.NullValue = "Eliminar"
-        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.NullValue = "Eliminar"
+        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle6
         F1DgbBtnAusente.HeaderText = "Ausente"
         F1DgbBtnAusente.MinimumWidth = 6
         F1DgbBtnAusente.Name = "F1DgbBtnAusente"
@@ -131,7 +131,7 @@ Partial Class Inicio
         ' GroupBox1
         ' 
         GroupBox1.Controls.Add(btnPaciente)
-        GroupBox1.Controls.Add(Button2)
+        GroupBox1.Controls.Add(btnTurnos)
         GroupBox1.Location = New Point(83, 65)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(615, 207)
@@ -149,16 +149,16 @@ Partial Class Inicio
         btnPaciente.Text = "👤 Pacientes"
         btnPaciente.UseVisualStyleBackColor = False
         ' 
-        ' Button2
+        ' btnTurnos
         ' 
-        Button2.BackColor = SystemColors.ActiveCaption
-        Button2.ForeColor = Color.Black
-        Button2.Location = New Point(69, 55)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(198, 107)
-        Button2.TabIndex = 0
-        Button2.Text = "➕ Turnos"
-        Button2.UseVisualStyleBackColor = False
+        btnTurnos.BackColor = SystemColors.ActiveCaption
+        btnTurnos.ForeColor = Color.Black
+        btnTurnos.Location = New Point(69, 55)
+        btnTurnos.Name = "btnTurnos"
+        btnTurnos.Size = New Size(198, 107)
+        btnTurnos.TabIndex = 0
+        btnTurnos.Text = "➕ Turnos"
+        btnTurnos.UseVisualStyleBackColor = False
         ' 
         ' lblTurnosDiaActual
         ' 
@@ -196,7 +196,7 @@ Partial Class Inicio
     Friend WithEvents MonthCalendar As MonthCalendar
     Friend WithEvents DGVTurnos As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnTurnos As Button
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents lblTurnosDiaActual As Label
     Friend WithEvents Button1 As Button

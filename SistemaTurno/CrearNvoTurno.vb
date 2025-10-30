@@ -121,6 +121,8 @@ Public Class CrearNvoTurno
         Next
     End Sub
 
+
+
     'hora y dia
 
     Private Function ParseDayNameToDayOfWeek(dayName As String) As Nullable(Of DayOfWeek)
@@ -192,6 +194,8 @@ Public Class CrearNvoTurno
                 lblDiasTrabajo1.Text = "🩺 días laborales de " & profesionalSel & ":" & vbCrLf & String.Join(vbCrLf, dias)
                 lblDiasTrabajo1.BackColor = Color.FromArgb(210, 240, 255)
                 lblDiasTrabajo1.ForeColor = Color.DarkBlue
+                lblDiasTrabajo1.Visible = True
+                lblDiasTrabajo1.Refresh()
             End If
 
             ' configurar día permitido (si solo hay un día en el registro principal se usa)
@@ -288,7 +292,7 @@ Public Class CrearNvoTurno
         Dim ocupadas = cargarturnosocupados_por_especialidad(doctorSel.Especialidad, fechaSel) ' nota: comparacion por especialidad por formato actual del csv
 
         ' filtrar horarios disponibles
-        Dim disponibles = listaHoras.Where(Function(h) Not ocupadas.contains(h)).ToList()
+        Dim disponibles = listaHoras.Where(Function(h) Not ocupadas.Contains(h)).ToList()
 
         If disponibles.Count = 0 Then
             ' no hay horarios libres en ese rango
@@ -319,6 +323,32 @@ Public Class CrearNvoTurno
         Next
         Return ocupadas
     End Function
+
+    Private Sub CrearNvoTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' configuración visual del Label
+        lblDiasTrabajo1.AutoSize = False
+        lblDiasTrabajo1.MaximumSize = New Size(250, 0)
+        lblDiasTrabajo1.ForeColor = Color.DarkBlue
+        lblDiasTrabajo1.Font = New Font("Segoe UI", 9, FontStyle.Italic)
+        lblDiasTrabajo1.Text = "Seleccione un profesional para ver disponibilidad."
+        lblDiasTrabajo1.Visible = True
+
+        ' boton guardar
+        btnGuardar.BackColor = Color.FromArgb(30, 144, 255)
+        btnGuardar.ForeColor = Color.White
+        btnGuardar.FlatStyle = FlatStyle.Flat
+        btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 204)
+        btnGuardar.FlatAppearance.BorderSize = 1
+
+        ' boton cancelar
+        btnCancelar.BackColor = Color.FromArgb(220, 53, 69)
+        btnCancelar.ForeColor = Color.White
+        btnCancelar.FlatStyle = FlatStyle.Flat
+        btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(200, 35, 51)
+        btnCancelar.FlatAppearance.BorderSize = 1
+
+
+    End Sub
 
 
     ' guardar turno: validación más específica y mensajes
@@ -368,7 +398,7 @@ Public Class CrearNvoTurno
 
             ' crear línea en orden correcto 
 
-            Dim linea As String = $"{apellido},{nombre},{dni},{telefono},{especialidad},{tipoConsulta},{fecha},{hora}"
+            Dim linea As String = $"{apellido},{nombre},{dni},{telefono},{tipoConsulta},{especialidad},{fecha},{hora},{profesional}"
 
             Dim existeArchivo As Boolean = File.Exists(archivoTurnos)
             Using sw As New StreamWriter(archivoTurnos, True)
@@ -388,17 +418,7 @@ Public Class CrearNvoTurno
         End Try
     End Sub
 
-    ' dias laborales
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        ' configuración visual del Label
-
-        lblDiasTrabajo1.AutoSize = False
-        lblDiasTrabajo1.MaximumSize = New Size(250, 0)
-        lblDiasTrabajo1.ForeColor = Color.DarkBlue
-        lblDiasTrabajo1.Font = New Font("Segoe UI", 9, FontStyle.Italic)
-        lblDiasTrabajo1.Text = "Seleccione un profesional para ver disponibilidad."
-    End Sub
 
     ' botones
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -445,31 +465,30 @@ Public Class CrearNvoTurno
         AddHandler dtpHora.ValueChanged, AddressOf dtpHora_ValueChanged
 
     End Sub
-    Private Sub CrearNvoTurno_Load_(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        ' boton guardar
-
-        btnGuardar.BackColor = Color.FromArgb(30, 144, 255)
-        btnGuardar.ForeColor = Color.White
-        btnGuardar.FlatStyle = FlatStyle.Flat
-        btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(0, 102, 204)
-        btnGuardar.FlatAppearance.BorderSize = 1
-
-        ' boton cancelar
-
-        btnCancelar.BackColor = Color.FromArgb(220, 53, 69)
-        btnCancelar.ForeColor = Color.White
-        btnCancelar.FlatStyle = FlatStyle.Flat
-        btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(200, 35, 51)
-        btnCancelar.FlatAppearance.BorderSize = 1
-
-    End Sub
     Private Sub btnVer_MouseEnter(sender As Object, e As EventArgs)
         lblDiasTrabajo1.BackColor = Color.FromArgb(200, 200, 200)
     End Sub
 
     Private Sub btnVer_MouseLeave(sender As Object, e As EventArgs)
         lblDiasTrabajo1.BackColor = Color.FromArgb(224, 224, 224)
+    End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
+    End Sub
+
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub cmbHora_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbHora.SelectedIndexChanged
+
     End Sub
 
 

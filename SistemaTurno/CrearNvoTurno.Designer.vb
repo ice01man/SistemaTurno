@@ -227,11 +227,11 @@ Partial Class CrearNvoTurno
         ' 
         ' lblDiasTrabajo1
         ' 
-        lblDiasTrabajo1.BackColor = Color.LightGray
+        lblDiasTrabajo1.ForeColor = SystemColors.ButtonHighlight
         lblDiasTrabajo1.Location = New Point(565, 395)
-        lblDiasTrabajo1.MaximumSize = New Size(3000, 250)
+        lblDiasTrabajo1.MaximumSize = New Size(250, 0)
         lblDiasTrabajo1.Name = "lblDiasTrabajo1"
-        lblDiasTrabajo1.Size = New Size(292, 63)
+        lblDiasTrabajo1.Size = New Size(250, 60)
         lblDiasTrabajo1.TabIndex = 39
         ' 
         ' CrearNvoTurno
