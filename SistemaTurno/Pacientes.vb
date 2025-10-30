@@ -87,7 +87,7 @@ Public Class Pacientes
                         If datos(0).Trim() = apellido Then
                             Dim vpaciente = datos(0) & ", " & datos(1)
                             Dim vhorario = datos(6) & "- " & datos(7)
-                            DataGridPacientes.Rows.Add(vpaciente, datos(5), datos(4), vhorario)
+                            DataGridPacientes.Rows.Add(vpaciente, datos(4), datos(5), vhorario)
                             ' DataGridPacientes.ForeColor = BLACK
                         End If
 
