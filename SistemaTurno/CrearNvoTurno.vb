@@ -1,5 +1,7 @@
 Imports System.IO
 Imports System.Reflection
+Imports System.Diagnostics
+
 
 'Actualizado el 25/10
 
@@ -10,7 +12,8 @@ Public Class CrearNvoTurno
     Public Property FormPrincipal As Form1
     Private turnosFile As String = "turnos.csv"
     Private doctoresFile As String = "doctores.csv"
-
+    Private cronometro As Stopwatch = New Stopwatch()
+    Private inicioCapturado As Boolean = False
 
 
     Private Class Persona
@@ -64,6 +67,13 @@ Public Class CrearNvoTurno
     End Sub
 
     Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.TextChanged
+
+        ' iniciar cronómetro
+        If Not inicioCapturado AndAlso Txt_ApellidoNombre.Text.Trim() <> "" Then
+            cronometro.Restart()
+            inicioCapturado = True
+        End If
+
         Dim textoIngresado As String = Txt_ApellidoNombre.Text.Trim()
         Dim pacienteExistente = pacientes.FirstOrDefault(Function(p) String.Equals(p.ApellidoNombre, textoIngresado, StringComparison.OrdinalIgnoreCase))
 
@@ -408,9 +418,15 @@ Public Class CrearNvoTurno
                 sw.WriteLine(linea)
             End Using
 
-            MessageBox.Show("Turno guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            cronometro.Stop()
+            Dim tiempoTotal As TimeSpan = cronometro.Elapsed
+            Dim mensajeTiempo As String = $"Tiempo para agendar el turno: {tiempoTotal.Minutes:D2}:{tiempoTotal.Seconds:D2} minutos."
+
+            MessageBox.Show($"Turno guardado correctamente.{vbCrLf}{mensajeTiempo}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
             LimpiarCampos()
             CargarHorasDisponibles()
+            cronometro.Reset()
+            inicioCapturado = False
 
         Catch ex As Exception
             MessageBox.Show("Error al guardar el turno: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -479,17 +495,7 @@ Public Class CrearNvoTurno
     End Sub
 
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
-    End Sub
-
-    Private Sub btnDiasTrabajo_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub cmbHora_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbHora.SelectedIndexChanged
-
-    End Sub
 
 
 End Class

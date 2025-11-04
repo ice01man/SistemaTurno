@@ -50,7 +50,7 @@ Partial Class CrearNvoTurno
         btnCancelar.Location = New Point(431, 588)
         btnCancelar.Name = "btnCancelar"
         btnCancelar.Size = New Size(94, 29)
-        btnCancelar.TabIndex = 28
+        btnCancelar.TabIndex = 19
         btnCancelar.Text = "Cancelar"
         btnCancelar.UseVisualStyleBackColor = True
         ' 
@@ -59,7 +59,7 @@ Partial Class CrearNvoTurno
         btnGuardar.Location = New Point(801, 588)
         btnGuardar.Name = "btnGuardar"
         btnGuardar.Size = New Size(94, 29)
-        btnGuardar.TabIndex = 27
+        btnGuardar.TabIndex = 20
         btnGuardar.Text = "Guardar"
         btnGuardar.UseVisualStyleBackColor = True
         ' 
@@ -68,7 +68,7 @@ Partial Class CrearNvoTurno
         dtpHora.Location = New Point(565, 473)
         dtpHora.Name = "dtpHora"
         dtpHora.Size = New Size(292, 27)
-        dtpHora.TabIndex = 25
+        dtpHora.TabIndex = 16
         ' 
         ' cmbAsistencia
         ' 
@@ -77,7 +77,7 @@ Partial Class CrearNvoTurno
         cmbAsistencia.Location = New Point(565, 275)
         cmbAsistencia.Name = "cmbAsistencia"
         cmbAsistencia.Size = New Size(292, 28)
-        cmbAsistencia.TabIndex = 24
+        cmbAsistencia.TabIndex = 8
         ' 
         ' lblHora
         ' 
@@ -86,7 +86,7 @@ Partial Class CrearNvoTurno
         lblHora.Location = New Point(389, 521)
         lblHora.Name = "lblHora"
         lblHora.Size = New Size(42, 20)
-        lblHora.TabIndex = 23
+        lblHora.TabIndex = 17
         lblHora.Text = "Hora"
         ' 
         ' lblFecha
@@ -96,7 +96,7 @@ Partial Class CrearNvoTurno
         lblFecha.Location = New Point(389, 480)
         lblFecha.Name = "lblFecha"
         lblFecha.Size = New Size(47, 20)
-        lblFecha.TabIndex = 22
+        lblFecha.TabIndex = 15
         lblFecha.Text = "Fecha"
         ' 
         ' lblAsistencia
@@ -106,7 +106,7 @@ Partial Class CrearNvoTurno
         lblAsistencia.Location = New Point(389, 275)
         lblAsistencia.Name = "lblAsistencia"
         lblAsistencia.Size = New Size(75, 20)
-        lblAsistencia.TabIndex = 21
+        lblAsistencia.TabIndex = 7
         lblAsistencia.Text = "Asistencia"
         ' 
         ' txtTelefono
@@ -114,7 +114,7 @@ Partial Class CrearNvoTurno
         txtTelefono.Location = New Point(565, 235)
         txtTelefono.Name = "txtTelefono"
         txtTelefono.Size = New Size(292, 27)
-        txtTelefono.TabIndex = 20
+        txtTelefono.TabIndex = 6
         ' 
         ' lblTelefono
         ' 
@@ -123,7 +123,7 @@ Partial Class CrearNvoTurno
         lblTelefono.Location = New Point(389, 235)
         lblTelefono.Name = "lblTelefono"
         lblTelefono.Size = New Size(67, 20)
-        lblTelefono.TabIndex = 19
+        lblTelefono.TabIndex = 5
         lblTelefono.Text = "Teléfono"
         ' 
         ' lblPaciente
@@ -133,7 +133,7 @@ Partial Class CrearNvoTurno
         lblPaciente.Location = New Point(389, 155)
         lblPaciente.Name = "lblPaciente"
         lblPaciente.Size = New Size(136, 20)
-        lblPaciente.TabIndex = 17
+        lblPaciente.TabIndex = 0
         lblPaciente.Text = "Apellido y Nombre"
         ' 
         ' Label1
@@ -143,7 +143,7 @@ Partial Class CrearNvoTurno
         Label1.Location = New Point(389, 315)
         Label1.Name = "Label1"
         Label1.Size = New Size(93, 20)
-        Label1.TabIndex = 29
+        Label1.TabIndex = 9
         Label1.Text = "Especialidad"
         ' 
         ' cmbEspecialidad
@@ -153,14 +153,14 @@ Partial Class CrearNvoTurno
         cmbEspecialidad.Location = New Point(565, 315)
         cmbEspecialidad.Name = "cmbEspecialidad"
         cmbEspecialidad.Size = New Size(292, 28)
-        cmbEspecialidad.TabIndex = 30
+        cmbEspecialidad.TabIndex = 10
         ' 
         ' btnAgregar
         ' 
         btnAgregar.Location = New Point(887, 154)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(94, 29)
-        btnAgregar.TabIndex = 31
+        btnAgregar.TabIndex = 2
         btnAgregar.Text = "+ Agregar"
         btnAgregar.UseVisualStyleBackColor = True
         ' 
@@ -169,7 +169,7 @@ Partial Class CrearNvoTurno
         Txt_ApellidoNombre.Location = New Point(565, 155)
         Txt_ApellidoNombre.Name = "Txt_ApellidoNombre"
         Txt_ApellidoNombre.Size = New Size(292, 27)
-        Txt_ApellidoNombre.TabIndex = 32
+        Txt_ApellidoNombre.TabIndex = 1
         ' 
         ' cmbHora
         ' 
@@ -177,7 +177,7 @@ Partial Class CrearNvoTurno
         cmbHora.Location = New Point(723, 518)
         cmbHora.Name = "cmbHora"
         cmbHora.Size = New Size(134, 28)
-        cmbHora.TabIndex = 33
+        cmbHora.TabIndex = 18
         ' 
         ' lblProfesional
         ' 
@@ -186,7 +186,7 @@ Partial Class CrearNvoTurno
         lblProfesional.Location = New Point(389, 355)
         lblProfesional.Name = "lblProfesional"
         lblProfesional.Size = New Size(83, 20)
-        lblProfesional.TabIndex = 34
+        lblProfesional.TabIndex = 11
         lblProfesional.Text = "Profesional"
         ' 
         ' cmbProfesional
@@ -196,7 +196,7 @@ Partial Class CrearNvoTurno
         cmbProfesional.Location = New Point(565, 355)
         cmbProfesional.Name = "cmbProfesional"
         cmbProfesional.Size = New Size(292, 28)
-        cmbProfesional.TabIndex = 35
+        cmbProfesional.TabIndex = 12
         ' 
         ' lblDNI
         ' 
@@ -205,7 +205,7 @@ Partial Class CrearNvoTurno
         lblDNI.Location = New Point(389, 195)
         lblDNI.Name = "lblDNI"
         lblDNI.Size = New Size(35, 20)
-        lblDNI.TabIndex = 36
+        lblDNI.TabIndex = 3
         lblDNI.Text = "DNI"
         ' 
         ' txtDNI
@@ -213,7 +213,7 @@ Partial Class CrearNvoTurno
         txtDNI.Location = New Point(565, 195)
         txtDNI.Name = "txtDNI"
         txtDNI.Size = New Size(292, 27)
-        txtDNI.TabIndex = 37
+        txtDNI.TabIndex = 4
         ' 
         ' Label2
         ' 
@@ -222,7 +222,7 @@ Partial Class CrearNvoTurno
         Label2.Location = New Point(389, 395)
         Label2.Name = "Label2"
         Label2.Size = New Size(126, 20)
-        Label2.TabIndex = 38
+        Label2.TabIndex = 13
         Label2.Text = "Ver días laborales"
         ' 
         ' lblDiasTrabajo1
@@ -232,7 +232,7 @@ Partial Class CrearNvoTurno
         lblDiasTrabajo1.MaximumSize = New Size(250, 0)
         lblDiasTrabajo1.Name = "lblDiasTrabajo1"
         lblDiasTrabajo1.Size = New Size(250, 60)
-        lblDiasTrabajo1.TabIndex = 39
+        lblDiasTrabajo1.TabIndex = 14
         ' 
         ' CrearNvoTurno
         ' 
