@@ -14,6 +14,19 @@ Public Class Inicio
         Catch ex As Exception
             MessageBox.Show("Error al cargar los turnos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+
+
+        Dim btnAcercaDe As New Button()
+        btnAcercaDe.Text = "ℹ Acerca de"
+        btnAcercaDe.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+        btnAcercaDe.BackColor = Color.FromArgb(173, 216, 230)
+        btnAcercaDe.FlatStyle = FlatStyle.Flat
+        btnAcercaDe.FlatAppearance.BorderColor = Color.SteelBlue
+        btnAcercaDe.FlatAppearance.BorderSize = 1
+        btnAcercaDe.ForeColor = Color.Navy
+
+
+
     End Sub
 
     ' ===========================================================
@@ -181,6 +194,24 @@ Public Class Inicio
         End If
     End Sub
 
+    Private Sub btn_AcercaDe_Click(sender As Object, e As EventArgs) Handles btn_AcercaDe.Click
+        Dim mensaje As String =
+        "📅 SISTEMA DE GESTIÓN DE TURNOS MÉDICOS
+        Versión 1.0
 
+        Este sistema permite administrar turnos de pacientes y profesionales de manera rápida y sencilla.
 
+        Funciones principales:
+        • Registro y autocompletado de pacientes.
+        • Filtrado por especialidad y profesional.
+        • Control de disponibilidad horaria.
+        • Almacenamiento de turnos en archivos CSV.
+
+        Desarrollado en Visual Basic .NET
+        © 2025 - Todos los derechos reservados.
+        Autores: Paulo Reta, Clara Carmagnac, M Victoria Marcos."
+
+        MessageBox.Show(mensaje, "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
 End Class

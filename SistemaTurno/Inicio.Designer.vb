@@ -23,9 +23,9 @@ Partial Class Inicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar = New MonthCalendar()
         DGVTurnos = New DataGridView()
         F1DgbPacientes = New DataGridViewTextBoxColumn()
@@ -41,13 +41,14 @@ Partial Class Inicio
         btnTurnos = New Button()
         ToolTip1 = New ToolTip(components)
         lblTurnosDiaActual = New Label()
+        btn_AcercaDe = New Button()
         CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
         ' MonthCalendar
         ' 
-        MonthCalendar.Location = New Point(868, 65)
+        MonthCalendar.Location = New Point(868, 120)
         MonthCalendar.Name = "MonthCalendar"
         MonthCalendar.TabIndex = 5
         ' 
@@ -99,9 +100,9 @@ Partial Class Inicio
         ' 
         ' F1DgbbtnVer
         ' 
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.NullValue = "Ver"
-        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = "Ver"
+        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle1
         F1DgbbtnVer.HeaderText = "Ver"
         F1DgbbtnVer.MinimumWidth = 6
         F1DgbbtnVer.Name = "F1DgbbtnVer"
@@ -110,9 +111,9 @@ Partial Class Inicio
         ' 
         ' F1DgbBtnAsistio
         ' 
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.NullValue = "Editar"
-        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = "Editar"
+        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
         F1DgbBtnAsistio.HeaderText = "Asistio"
         F1DgbBtnAsistio.MinimumWidth = 6
         F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
@@ -120,9 +121,9 @@ Partial Class Inicio
         ' 
         ' F1DgbBtnAusente
         ' 
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.NullValue = "Eliminar"
-        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = "Eliminar"
+        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
         F1DgbBtnAusente.HeaderText = "Ausente"
         F1DgbBtnAusente.MinimumWidth = 6
         F1DgbBtnAusente.Name = "F1DgbBtnAusente"
@@ -173,12 +174,24 @@ Partial Class Inicio
         lblTurnosDiaActual.Text = "PRÓXIMOS TURNOS"
         lblTurnosDiaActual.TextAlign = ContentAlignment.BottomCenter
         ' 
+        ' btn_AcercaDe
+        ' 
+        btn_AcercaDe.Font = New Font("Segoe UI Emoji", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btn_AcercaDe.ForeColor = SystemColors.ActiveCaptionText
+        btn_AcercaDe.Location = New Point(871, 75)
+        btn_AcercaDe.Name = "btn_AcercaDe"
+        btn_AcercaDe.Size = New Size(94, 29)
+        btn_AcercaDe.TabIndex = 19
+        btn_AcercaDe.Text = "ℹ Acerca de"
+        btn_AcercaDe.UseVisualStyleBackColor = True
+        ' 
         ' Inicio
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1382, 803)
+        Controls.Add(btn_AcercaDe)
         Controls.Add(lblTurnosDiaActual)
         Controls.Add(MonthCalendar)
         Controls.Add(DGVTurnos)
@@ -209,4 +222,5 @@ Partial Class Inicio
     Friend WithEvents F1DgbBtnAsistio As DataGridViewButtonColumn
     Friend WithEvents F1DgbBtnAusente As DataGridViewButtonColumn
     Friend WithEvents btnPaciente As Button
+    Friend WithEvents btn_AcercaDe As Button
 End Class

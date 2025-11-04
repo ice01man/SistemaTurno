@@ -1,6 +1,8 @@
 Imports System.IO
 Imports System.Reflection
 Imports System.Diagnostics
+Imports System.Drawing
+
 
 
 'Actualizado el 25/10
@@ -357,6 +359,23 @@ Public Class CrearNvoTurno
         btnCancelar.FlatAppearance.BorderColor = Color.FromArgb(200, 35, 51)
         btnCancelar.FlatAppearance.BorderSize = 1
 
+        ' boton ayuda
+        btnAyuda.Text = "❓ Ayuda"
+        btnAyuda.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+        btnAyuda.BackColor = Color.FromArgb(173, 216, 230)
+        btnAyuda.FlatStyle = FlatStyle.Flat
+        btnAyuda.FlatAppearance.BorderColor = Color.SteelBlue
+        btnAyuda.FlatAppearance.BorderSize = 1
+        btnAyuda.ForeColor = Color.Navy
+
+        'boton agregar
+        btnAgregar.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+        btnAgregar.BackColor = Color.FromArgb(224, 240, 255) ' Fondo celeste suave
+        btnAgregar.FlatStyle = FlatStyle.Flat
+        btnAgregar.FlatAppearance.BorderColor = Color.SteelBlue
+        btnAgregar.FlatAppearance.BorderSize = 1
+        btnAgregar.ForeColor = Color.Navy
+
 
     End Sub
 
@@ -491,12 +510,47 @@ Public Class CrearNvoTurno
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        Me.Close()
+        Close()
     End Sub
 
+    Private Sub btnAyuda_Click(sender As Object, e As EventArgs) Handles btnAyuda.Click
+        Dim mensaje =
+        " 🩺 SISTEMA DE GESTIÓN DE TURNOS MÉDICOS
+        Versión 1.0
 
+        ℹ Instrucciones de uso:
 
+        1. Ingrese el apellido y nombre del paciente.
+           • Si ya existe en la base, los datos se completan automáticamente.
+           • Si es nuevo, puede agregarlo con el botón 'Agregar'.
 
+        2. Seleccione la especialidad médica.
+           • El sistema mostrará los profesionales disponibles.
 
+        3. Elija el profesional.
+           • Al seleccionarlo, se mostrarán los días y horarios laborales.
+
+        4. Seleccione la fecha y hora disponibles para el turno.
+           • Solo se permiten fechas válidas según la agenda del profesional.
+
+        5. Indique el tipo de consulta (consulta o estudio).
+
+        6. Presione 'Guardar' para confirmar el turno.
+           • Si algún campo falta, el sistema avisará.
+           • Al guardar, se mostrará el tiempo total que tardó en completar el turno.
+
+        
+        💾 Los turnos se almacenan automáticamente en:
+            turnos.csv
+        📁 Los datos de pacientes y doctores se leen de:
+            pacientes.csv y doctores.csv
+
+        Desarrollado en Visual Basic .NET
+        © 2025 - Todos los derechos reservados.
+        Autores: Paulo Reta, Clara Carmagnac, M Victoria Marcos."
+
+        MessageBox.Show(mensaje, "Ayuda del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
 End Class
 

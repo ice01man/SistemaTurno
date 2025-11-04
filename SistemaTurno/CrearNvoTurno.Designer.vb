@@ -43,11 +43,12 @@ Partial Class CrearNvoTurno
         txtDNI = New TextBox()
         Label2 = New Label()
         lblDiasTrabajo1 = New Label()
+        btnAyuda = New Button()
         SuspendLayout()
         ' 
         ' btnCancelar
         ' 
-        btnCancelar.Location = New Point(431, 588)
+        btnCancelar.Location = New Point(616, 588)
         btnCancelar.Name = "btnCancelar"
         btnCancelar.Size = New Size(94, 29)
         btnCancelar.TabIndex = 19
@@ -234,12 +235,22 @@ Partial Class CrearNvoTurno
         lblDiasTrabajo1.Size = New Size(250, 60)
         lblDiasTrabajo1.TabIndex = 14
         ' 
+        ' btnAyuda
+        ' 
+        btnAyuda.Location = New Point(431, 588)
+        btnAyuda.Name = "btnAyuda"
+        btnAyuda.Size = New Size(94, 29)
+        btnAyuda.TabIndex = 21
+        btnAyuda.Text = "❓ Ayuda"
+        btnAyuda.UseVisualStyleBackColor = True
+        ' 
         ' CrearNvoTurno
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1364, 756)
+        Controls.Add(btnAyuda)
         Controls.Add(lblDiasTrabajo1)
         Controls.Add(Label2)
         Controls.Add(txtDNI)
@@ -295,4 +306,5 @@ Partial Class CrearNvoTurno
     Friend WithEvents ComboHorarios As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents lblDiasTrabajo1 As Label
+    Friend WithEvents btnAyuda As Button
 End Class
