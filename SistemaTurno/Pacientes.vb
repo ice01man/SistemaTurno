@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 'Actualización al 24 de septiembre
 'Actualización al 29/10
+'Actualización al 04/11
 
 
 
@@ -102,16 +103,47 @@ Public Class Pacientes
     End Sub
 
 
-    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs)
-        Dim apellido As String = If(TextBuscar?.Text, String.Empty).Trim()
+    ' Private Sub BtnBuscar_Click(sender As Object, e As EventArgs)
+    'Dim apellido As String = If(TextBuscar?.Text, String.Empty).Trim()
 
-        If String.IsNullOrEmpty(apellido) Then
-            MessageBox.Show("Escribí un apellido en la caja de búsqueda.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    'If String.IsNullOrEmpty(apellido) Then
+    'MessageBox.Show("Escribí un apellido en la caja de búsqueda.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    'Return
+    'End If
+
+    '  If pacientesData.ContainsKey(apellido) Then
+    '     Dim datos = pacientesData(apellido)
+    '    TextApellido.Text = datos(1)
+    '   TextNombre.Text = datos(2)
+    '  TextDNI.Text = datos(3)
+    ' TextFechaNac.Text = datos(4)
+    'TextTelefono.Text = datos(5)
+    'TextEmail.Text = datos(6)
+    'TextOSocial.Text = datos(7)
+    'TextNCredencial.Text = datos(8)
+    'Else
+    '   MessageBox.Show("Paciente no encontrado. Puede cargarlo como nuevo.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '  LimpiarFormulario()
+    ' TextApellido.Text = apellido
+    'End If
+
+    ' buscardatagrid()
+
+
+    '    End Sub
+
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs)
+        ' La clave del diccionario es el DNI (campos(3))
+        Dim clave As String = If(TextBuscar?.Text, String.Empty).Trim()
+
+        If String.IsNullOrEmpty(clave) Then
+            MessageBox.Show("Escribí un DNI en el buscador.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
-        If pacientesData.ContainsKey(apellido) Then
-            Dim datos = pacientesData(apellido)
+        If pacientesData.ContainsKey(clave) Then
+            Dim datos As String() = pacientesData(clave)
+            ' Orden esperado: [0]=ID, [1]=Apellido, [2]=Nombre, [3]=DNI, [4]=FechaNac, [5]=Tel, [6]=Email, [7]=OSocial, [8]=NCred
             TextApellido.Text = datos(1)
             TextNombre.Text = datos(2)
             TextDNI.Text = datos(3)
@@ -121,16 +153,15 @@ Public Class Pacientes
             TextOSocial.Text = datos(7)
             TextNCredencial.Text = datos(8)
         Else
+            ' <<< NO copiar el valor del buscador a Apellido >>>
             MessageBox.Show("Paciente no encontrado. Puede cargarlo como nuevo.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             LimpiarFormulario()
-            TextApellido.Text = apellido
+            ' Si querés, podés dejar el DNI en su textbox:
+            ' TextDNI.Text = clave   ' <-- solo si lo deseás
         End If
 
         buscardatagrid()
-
-
     End Sub
-
 
 
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs)
@@ -249,5 +280,45 @@ Public Class Pacientes
         MessageBox.Show("Paciente guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
+    ' ======== VALIDACIONES DE CAMPOS NUMÉRICOS Y DE TEXTO ========
+
+    ' Permitir sólo números en DNI y Teléfono
+    Private Sub TextDNI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextDNI.KeyPress
+        ' Permite números, tecla de retroceso y tab
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+            ErrorProvider1.SetError(TextDNI, "Solo se permiten números")
+        Else
+            ErrorProvider1.SetError(TextDNI, "")
+        End If
+    End Sub
+
+    Private Sub TextTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextTelefono.KeyPress
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+            ErrorProvider1.SetError(TextTelefono, "Solo se permiten números")
+        Else
+            ErrorProvider1.SetError(TextTelefono, "")
+        End If
+    End Sub
+
+    ' Permitir solo letras en Apellido y Nombre
+    Private Sub TextApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextApellido.KeyPress
+        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+            ErrorProvider1.SetError(TextApellido, "Solo se permiten letras")
+        Else
+            ErrorProvider1.SetError(TextApellido, "")
+        End If
+    End Sub
+
+    Private Sub TextNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextNombre.KeyPress
+        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+            ErrorProvider1.SetError(TextNombre, "Solo se permiten letras")
+        Else
+            ErrorProvider1.SetError(TextNombre, "")
+        End If
+    End Sub
 
 End Class
