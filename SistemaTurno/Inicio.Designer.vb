@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Inicio
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,12 @@ Partial Class Inicio
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar = New MonthCalendar()
         DGVTurnos = New DataGridView()
         Paciente = New DataGridViewTextBoxColumn()
@@ -39,13 +42,14 @@ Partial Class Inicio
         btnTurnos = New Button()
         ToolTip1 = New ToolTip(components)
         lblTurnosDiaActual = New Label()
+        btn_AcercaDe = New Button()
         CType(DGVTurnos, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
         ' MonthCalendar
         ' 
-        MonthCalendar.Location = New Point(868, 65)
+        MonthCalendar.Location = New Point(868, 120)
         MonthCalendar.Name = "MonthCalendar"
         MonthCalendar.TabIndex = 5
         ' 
@@ -104,27 +108,34 @@ Partial Class Inicio
         ' 
         ' Ver
         ' 
-        Ver.HeaderText = "Ver"
-        Ver.MinimumWidth = 6
-        Ver.Name = "Ver"
-        Ver.Text = "Ver"
-        Ver.Width = 125
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = "Ver"
+        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle1
+        F1DgbbtnVer.HeaderText = "Ver"
+        F1DgbbtnVer.MinimumWidth = 6
+        F1DgbbtnVer.Name = "F1DgbbtnVer"
+        F1DgbbtnVer.Text = "VER"
+        F1DgbbtnVer.Width = 125
         ' 
         ' Asistio
         ' 
-        Asistio.HeaderText = "Asistio"
-        Asistio.MinimumWidth = 6
-        Asistio.Name = "Asistio"
-        Asistio.Resizable = DataGridViewTriState.True
-        Asistio.Width = 125
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.NullValue = "Editar"
+        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
+        F1DgbBtnAsistio.HeaderText = "Asistio"
+        F1DgbBtnAsistio.MinimumWidth = 6
+        F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
+        F1DgbBtnAsistio.Width = 125
         ' 
         ' Ausente
         ' 
-        Ausente.HeaderText = "Ausente"
-        Ausente.MinimumWidth = 6
-        Ausente.Name = "Ausente"
-        Ausente.Resizable = DataGridViewTriState.True
-        Ausente.Width = 125
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = "Eliminar"
+        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
+        F1DgbBtnAusente.HeaderText = "Ausente"
+        F1DgbBtnAusente.MinimumWidth = 6
+        F1DgbBtnAusente.Name = "F1DgbBtnAusente"
+        F1DgbBtnAusente.Width = 125
         ' 
         ' GroupBox1
         ' 
@@ -162,7 +173,7 @@ Partial Class Inicio
         ' 
         lblTurnosDiaActual.AutoSize = True
         lblTurnosDiaActual.BackColor = Color.CornflowerBlue
-        lblTurnosDiaActual.Font = New Font("Segoe UI", 16F)
+        lblTurnosDiaActual.Font = New Font("Segoe UI", 16.0F)
         lblTurnosDiaActual.ForeColor = Color.White
         lblTurnosDiaActual.Location = New Point(83, 301)
         lblTurnosDiaActual.Name = "lblTurnosDiaActual"
@@ -171,12 +182,24 @@ Partial Class Inicio
         lblTurnosDiaActual.Text = "PRÓXIMOS TURNOS"
         lblTurnosDiaActual.TextAlign = ContentAlignment.BottomCenter
         ' 
+        ' btn_AcercaDe
+        ' 
+        btn_AcercaDe.Font = New Font("Segoe UI Emoji", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btn_AcercaDe.ForeColor = SystemColors.ActiveCaptionText
+        btn_AcercaDe.Location = New Point(871, 75)
+        btn_AcercaDe.Name = "btn_AcercaDe"
+        btn_AcercaDe.Size = New Size(94, 29)
+        btn_AcercaDe.TabIndex = 19
+        btn_AcercaDe.Text = "ℹ Acerca de"
+        btn_AcercaDe.UseVisualStyleBackColor = True
+        ' 
         ' Inicio
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         ClientSize = New Size(1382, 803)
+        Controls.Add(btn_AcercaDe)
         Controls.Add(lblTurnosDiaActual)
         Controls.Add(MonthCalendar)
         Controls.Add(DGVTurnos)
@@ -199,13 +222,5 @@ Partial Class Inicio
     Friend WithEvents lblTurnosDiaActual As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents btnPaciente As Button
-    Friend WithEvents Paciente As DataGridViewTextBoxColumn
-    Friend WithEvents Telefono As DataGridViewTextBoxColumn
-    Friend WithEvents TipoConsulta As DataGridViewTextBoxColumn
-    Friend WithEvents Especialidad As DataGridViewTextBoxColumn
-    Friend WithEvents Profesional As DataGridViewTextBoxColumn
-    Friend WithEvents TurnoDiaHora As DataGridViewTextBoxColumn
-    Friend WithEvents Ver As DataGridViewButtonColumn
-    Friend WithEvents Asistio As DataGridViewCheckBoxColumn
-    Friend WithEvents Ausente As DataGridViewCheckBoxColumn
+    Friend WithEvents btn_AcercaDe As Button
 End Class
