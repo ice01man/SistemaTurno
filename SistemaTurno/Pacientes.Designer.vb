@@ -42,12 +42,12 @@ Partial Class Pacientes
         TextNCredencial = New TextBox()
         TextOSocial = New TextBox()
         DataGridPacientes = New DataGridView()
-        TextBuscar = New TextBox()
-        PacBuscador = New GroupBox()
         DGBTurnosPaciente = New DataGridViewTextBoxColumn()
         asistencia = New DataGridViewTextBoxColumn()
         DGBEspecialidad = New DataGridViewTextBoxColumn()
         DGBDIA = New DataGridViewTextBoxColumn()
+        TextBuscar = New TextBox()
+        PacBuscador = New GroupBox()
         InfoPaciente.SuspendLayout()
         GroupBox1.SuspendLayout()
         CType(DataGridPacientes, ComponentModel.ISupportInitialize).BeginInit()
@@ -251,23 +251,6 @@ Partial Class Pacientes
         DataGridPacientes.Size = New Size(615, 311)
         DataGridPacientes.TabIndex = 14
         ' 
-        ' TextBuscar
-        ' 
-        TextBuscar.Location = New Point(23, 31)
-        TextBuscar.Name = "TextBuscar"
-        TextBuscar.Size = New Size(408, 27)
-        TextBuscar.TabIndex = 15
-        ' 
-        ' PacBuscador
-        ' 
-        PacBuscador.Controls.Add(TextBuscar)
-        PacBuscador.Location = New Point(72, 13)
-        PacBuscador.Name = "PacBuscador"
-        PacBuscador.Size = New Size(753, 84)
-        PacBuscador.TabIndex = 18
-        PacBuscador.TabStop = False
-        PacBuscador.Text = "Buscador de Pacientes"
-        ' 
         ' DGBTurnosPaciente
         ' 
         DataGridViewCellStyle1.ForeColor = Color.Black
@@ -307,6 +290,23 @@ Partial Class Pacientes
         DGBDIA.Name = "DGBDIA"
         DGBDIA.ReadOnly = True
         DGBDIA.Width = 150
+        ' 
+        ' TextBuscar
+        ' 
+        TextBuscar.Location = New Point(23, 31)
+        TextBuscar.Name = "TextBuscar"
+        TextBuscar.Size = New Size(408, 27)
+        TextBuscar.TabIndex = 15
+        ' 
+        ' PacBuscador
+        ' 
+        PacBuscador.Controls.Add(TextBuscar)
+        PacBuscador.Location = New Point(72, 13)
+        PacBuscador.Name = "PacBuscador"
+        PacBuscador.Size = New Size(753, 84)
+        PacBuscador.TabIndex = 18
+        PacBuscador.TabStop = False
+        PacBuscador.Text = "Buscador de Pacientes"
         ' 
         ' Pacientes
         ' 

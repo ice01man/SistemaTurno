@@ -1,9 +1,10 @@
 Imports System.IO
 Imports System.Reflection
 Imports System.Diagnostics
+Imports System.Char
 
 
-'Actualizado el 25/10
+'Actualizado el 9/11
 
 Public Class CrearNvoTurno
 
@@ -20,6 +21,8 @@ Public Class CrearNvoTurno
         Public Property ApellidoNombre As String
         Public Property Telefono As String
         Public Property DNI As String
+        Public Property ObraSocial As String
+        Public Property NroCredencial As String
     End Class
 
     Private Class Doctor
@@ -52,9 +55,11 @@ Public Class CrearNvoTurno
             Dim datos = lineas(i).Split(","c)
             If datos.Length >= 6 Then
                 pacientes.Add(New Persona With {
-                    .ApellidoNombre = $"{datos(1).Trim()} {datos(2).Trim()}",
+                    .ApellidoNombre = $"{datos(1).Trim()}, {datos(2).Trim()}",
                     .DNI = datos(3).Trim(),
-                    .Telefono = datos(5).Trim()
+                    .Telefono = datos(5).Trim(),
+                    .ObraSocial = datos(7).Trim(),
+                    .NroCredencial = datos(8).Trim()
                 })
             End If
         Next
@@ -66,15 +71,16 @@ Public Class CrearNvoTurno
         Txt_ApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource
     End Sub
 
-    Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.TextChanged
+    Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.KeyPress, Txt_ApellidoNombre.TextChanged
+
 
         ' iniciar cronómetro
-        If Not inicioCapturado AndAlso Txt_ApellidoNombre.Text.Trim() <> "" Then
+        If Not inicioCapturado AndAlso Txt_ApellidoNombre.Text.Trim <> "" Then
             cronometro.Restart()
             inicioCapturado = True
         End If
 
-        Dim textoIngresado As String = Txt_ApellidoNombre.Text.Trim()
+        Dim textoIngresado = Txt_ApellidoNombre.Text.Trim
         Dim pacienteExistente = pacientes.FirstOrDefault(Function(p) String.Equals(p.ApellidoNombre, textoIngresado, StringComparison.OrdinalIgnoreCase))
 
         If pacienteExistente IsNot Nothing Then
@@ -364,6 +370,8 @@ Public Class CrearNvoTurno
     ' guardar turno: validación más específica y mensajes
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+
+
         Try
             Dim archivoTurnos As String = "turnos.csv"
             Dim nombreCompleto = Txt_ApellidoNombre.Text.Trim()
@@ -374,6 +382,7 @@ Public Class CrearNvoTurno
             Dim tipoConsulta = If(cmbAsistencia.SelectedItem, String.Empty)?.ToString()
             Dim fecha = dtpHora.Value.ToString("dd/MM/yyyy")
             Dim hora = If(cmbHora.SelectedItem, String.Empty)?.ToString()
+            Dim Asistencia = ""
 
             ' validaciones 
 
@@ -381,9 +390,9 @@ Public Class CrearNvoTurno
             If String.IsNullOrWhiteSpace(nombreCompleto) Then faltan.Add("Paciente")
             If String.IsNullOrWhiteSpace(dni) Then faltan.Add("DNI")
             If String.IsNullOrWhiteSpace(telefono) Then faltan.Add("Teléfono")
+            If String.IsNullOrWhiteSpace(tipoConsulta) Then faltan.Add("Tipo de Consulta")
             If String.IsNullOrWhiteSpace(especialidad) Then faltan.Add("Especialidad")
             If String.IsNullOrWhiteSpace(profesional) Then faltan.Add("Profesional")
-            If String.IsNullOrWhiteSpace(tipoConsulta) Then faltan.Add("Tipo de Consulta")
             If String.IsNullOrWhiteSpace(hora) Then faltan.Add("Hora")
 
             If faltan.Count > 0 Then
@@ -394,9 +403,14 @@ Public Class CrearNvoTurno
 
             ' separar apellido y nombre 
 
-            Dim partes() As String = nombreCompleto.Split(" "c, 2)
+            Dim partes() As String = nombreCompleto.Split(","c, 2)
             Dim apellido As String = partes(0).Trim()
-            Dim nombre As String = If(partes.Length > 1, partes(1).Trim(), "")
+            Dim nombre As String = partes(1).Trim()
+
+
+            If partes.Length > 0 Then
+                apellido = partes(0).Trim()
+            End If
 
             ' validar turno duplicado 
 
@@ -408,12 +422,12 @@ Public Class CrearNvoTurno
 
             ' crear línea en orden correcto 
 
-            Dim linea As String = $"{apellido},{nombre},{dni},{telefono},{tipoConsulta},{especialidad},{fecha},{hora},{profesional}"
+            Dim linea As String = $"{apellido},{nombre},{dni},{telefono},{tipoConsulta},{especialidad},{profesional},{fecha},{hora},{Asistencia}"
 
             Dim existeArchivo As Boolean = File.Exists(archivoTurnos)
             Using sw As New StreamWriter(archivoTurnos, True)
                 If Not existeArchivo Then
-                    sw.WriteLine("Apellido,Nombre,Dni,Telefono,Especialidad,TipoConsulta,Fecha,Hora")
+                    sw.WriteLine("Apellido,Nombre,Dni,Telefono,TipoConsulta,Especialidad,Profesional,Fecha,Hora,Asistencia")
                 End If
                 sw.WriteLine(linea)
             End Using
@@ -438,9 +452,15 @@ Public Class CrearNvoTurno
 
     ' botones
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim formularioPacientes As New Pacientes()
-        formularioPacientes.ShowDialog()
-        CargarPacientes()
+
+        MsgBox("Se abrirá el formulario de Pacientes para agregar un nuevo paciente.", MsgBoxStyle.Information, "Agregar Paciente")
+        If FormPrincipal IsNot Nothing Then
+            Dim frm As New Pacientes()
+            FormPrincipal.AbrirFormularioInterno(frm)
+        End If
+        '  Dim formularioPacientes As New Pacientes()
+        '  formularioPacientes.ShowDialog()
+        ' CargarPacientes()
     End Sub
 
 
@@ -494,8 +514,12 @@ Public Class CrearNvoTurno
         Me.Close()
     End Sub
 
-
-
+    Private Sub txtDNI_TextChanged(sender As Object, e As KeyPressEventArgs) Handles txtDNI.KeyPress
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            MsgBox("Solo se permiten números en el DNI.", MsgBoxStyle.Exclamation, "Entrada inválida")
+            e.Handled = True ' Bloquea la tecla (ej: si es una letra)
+        End If
+    End Sub
 
 
 End Class

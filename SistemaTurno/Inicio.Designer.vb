@@ -23,19 +23,17 @@ Partial Class Inicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar = New MonthCalendar()
         DGVTurnos = New DataGridView()
-        F1DgbPacientes = New DataGridViewTextBoxColumn()
-        F1DgbTelefono = New DataGridViewTextBoxColumn()
-        F1DgbServicio = New DataGridViewTextBoxColumn()
-        F1DgbTurnoDia = New DataGridViewTextBoxColumn()
-        F1DgbTurnohora = New DataGridViewTextBoxColumn()
-        F1DgbbtnVer = New DataGridViewButtonColumn()
-        F1DgbBtnAsistio = New DataGridViewButtonColumn()
-        F1DgbBtnAusente = New DataGridViewButtonColumn()
+        Paciente = New DataGridViewTextBoxColumn()
+        Telefono = New DataGridViewTextBoxColumn()
+        TipoConsulta = New DataGridViewTextBoxColumn()
+        Especialidad = New DataGridViewTextBoxColumn()
+        Profesional = New DataGridViewTextBoxColumn()
+        TurnoDiaHora = New DataGridViewTextBoxColumn()
+        Ver = New DataGridViewButtonColumn()
+        Asistio = New DataGridViewCheckBoxColumn()
+        Ausente = New DataGridViewCheckBoxColumn()
         GroupBox1 = New GroupBox()
         btnPaciente = New Button()
         btnTurnos = New Button()
@@ -55,78 +53,78 @@ Partial Class Inicio
         ' 
         DGVTurnos.BackgroundColor = SystemColors.InactiveCaption
         DGVTurnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DGVTurnos.Columns.AddRange(New DataGridViewColumn() {F1DgbPacientes, F1DgbTelefono, F1DgbServicio, F1DgbTurnoDia, F1DgbTurnohora, F1DgbbtnVer, F1DgbBtnAsistio, F1DgbBtnAusente})
+        DGVTurnos.Columns.AddRange(New DataGridViewColumn() {Paciente, Telefono, TipoConsulta, Especialidad, Profesional, TurnoDiaHora, Ver, Asistio, Ausente})
         DGVTurnos.Location = New Point(83, 341)
         DGVTurnos.Name = "DGVTurnos"
         DGVTurnos.RowHeadersWidth = 51
-        DGVTurnos.Size = New Size(1054, 317)
+        DGVTurnos.Size = New Size(1207, 317)
         DGVTurnos.TabIndex = 4
         ' 
-        ' F1DgbPacientes
+        ' Paciente
         ' 
-        F1DgbPacientes.HeaderText = "Pacientes"
-        F1DgbPacientes.MinimumWidth = 6
-        F1DgbPacientes.Name = "F1DgbPacientes"
-        F1DgbPacientes.Width = 125
+        Paciente.HeaderText = "Paciente"
+        Paciente.MinimumWidth = 6
+        Paciente.Name = "Paciente"
+        Paciente.Width = 125
         ' 
-        ' F1DgbTelefono
+        ' Telefono
         ' 
-        F1DgbTelefono.HeaderText = "Telefono"
-        F1DgbTelefono.MinimumWidth = 6
-        F1DgbTelefono.Name = "F1DgbTelefono"
-        F1DgbTelefono.Width = 125
+        Telefono.HeaderText = "Telefono"
+        Telefono.MinimumWidth = 6
+        Telefono.Name = "Telefono"
+        Telefono.Width = 125
         ' 
-        ' F1DgbServicio
+        ' TipoConsulta
         ' 
-        F1DgbServicio.HeaderText = "Servicio"
-        F1DgbServicio.MinimumWidth = 6
-        F1DgbServicio.Name = "F1DgbServicio"
-        F1DgbServicio.Width = 125
+        TipoConsulta.HeaderText = "TipoConsulta"
+        TipoConsulta.MinimumWidth = 6
+        TipoConsulta.Name = "TipoConsulta"
+        TipoConsulta.Width = 125
         ' 
-        ' F1DgbTurnoDia
+        ' Especialidad
         ' 
-        F1DgbTurnoDia.HeaderText = "Turno Dia"
-        F1DgbTurnoDia.MinimumWidth = 6
-        F1DgbTurnoDia.Name = "F1DgbTurnoDia"
-        F1DgbTurnoDia.Width = 125
+        Especialidad.HeaderText = "Especialidad"
+        Especialidad.MinimumWidth = 6
+        Especialidad.Name = "Especialidad"
+        Especialidad.Width = 125
         ' 
-        ' F1DgbTurnohora
+        ' Profesional
         ' 
-        F1DgbTurnohora.HeaderText = "Turno Hora"
-        F1DgbTurnohora.MinimumWidth = 6
-        F1DgbTurnohora.Name = "F1DgbTurnohora"
-        F1DgbTurnohora.Width = 125
+        Profesional.HeaderText = "Profesional"
+        Profesional.MinimumWidth = 6
+        Profesional.Name = "Profesional"
+        Profesional.Width = 125
         ' 
-        ' F1DgbbtnVer
+        ' TurnoDiaHora
         ' 
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.NullValue = "Ver"
-        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle4
-        F1DgbbtnVer.HeaderText = "Ver"
-        F1DgbbtnVer.MinimumWidth = 6
-        F1DgbbtnVer.Name = "F1DgbbtnVer"
-        F1DgbbtnVer.Text = "VER"
-        F1DgbbtnVer.Width = 125
+        TurnoDiaHora.HeaderText = "TurnoDiaHora"
+        TurnoDiaHora.MinimumWidth = 6
+        TurnoDiaHora.Name = "TurnoDiaHora"
+        TurnoDiaHora.Width = 125
         ' 
-        ' F1DgbBtnAsistio
+        ' Ver
         ' 
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.NullValue = "Editar"
-        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle5
-        F1DgbBtnAsistio.HeaderText = "Asistio"
-        F1DgbBtnAsistio.MinimumWidth = 6
-        F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
-        F1DgbBtnAsistio.Width = 125
+        Ver.HeaderText = "Ver"
+        Ver.MinimumWidth = 6
+        Ver.Name = "Ver"
+        Ver.Text = "Ver"
+        Ver.Width = 125
         ' 
-        ' F1DgbBtnAusente
+        ' Asistio
         ' 
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.NullValue = "Eliminar"
-        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle6
-        F1DgbBtnAusente.HeaderText = "Ausente"
-        F1DgbBtnAusente.MinimumWidth = 6
-        F1DgbBtnAusente.Name = "F1DgbBtnAusente"
-        F1DgbBtnAusente.Width = 125
+        Asistio.HeaderText = "Asistio"
+        Asistio.MinimumWidth = 6
+        Asistio.Name = "Asistio"
+        Asistio.Resizable = DataGridViewTriState.True
+        Asistio.Width = 125
+        ' 
+        ' Ausente
+        ' 
+        Ausente.HeaderText = "Ausente"
+        Ausente.MinimumWidth = 6
+        Ausente.Name = "Ausente"
+        Ausente.Resizable = DataGridViewTriState.True
+        Ausente.Width = 125
         ' 
         ' GroupBox1
         ' 
@@ -200,13 +198,14 @@ Partial Class Inicio
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents lblTurnosDiaActual As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents F1DgbPacientes As DataGridViewTextBoxColumn
-    Friend WithEvents F1DgbTelefono As DataGridViewTextBoxColumn
-    Friend WithEvents F1DgbServicio As DataGridViewTextBoxColumn
-    Friend WithEvents F1DgbTurnoDia As DataGridViewTextBoxColumn
-    Friend WithEvents F1DgbTurnohora As DataGridViewTextBoxColumn
-    Friend WithEvents F1DgbbtnVer As DataGridViewButtonColumn
-    Friend WithEvents F1DgbBtnAsistio As DataGridViewButtonColumn
-    Friend WithEvents F1DgbBtnAusente As DataGridViewButtonColumn
     Friend WithEvents btnPaciente As Button
+    Friend WithEvents Paciente As DataGridViewTextBoxColumn
+    Friend WithEvents Telefono As DataGridViewTextBoxColumn
+    Friend WithEvents TipoConsulta As DataGridViewTextBoxColumn
+    Friend WithEvents Especialidad As DataGridViewTextBoxColumn
+    Friend WithEvents Profesional As DataGridViewTextBoxColumn
+    Friend WithEvents TurnoDiaHora As DataGridViewTextBoxColumn
+    Friend WithEvents Ver As DataGridViewButtonColumn
+    Friend WithEvents Asistio As DataGridViewCheckBoxColumn
+    Friend WithEvents Ausente As DataGridViewCheckBoxColumn
 End Class
