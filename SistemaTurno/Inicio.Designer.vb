@@ -28,15 +28,15 @@ Partial Class Inicio
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MonthCalendar = New MonthCalendar()
         DGVTurnos = New DataGridView()
-        Paciente = New DataGridViewTextBoxColumn()
-        Telefono = New DataGridViewTextBoxColumn()
-        TipoConsulta = New DataGridViewTextBoxColumn()
-        Especialidad = New DataGridViewTextBoxColumn()
-        Profesional = New DataGridViewTextBoxColumn()
-        TurnoDiaHora = New DataGridViewTextBoxColumn()
-        Ver = New DataGridViewButtonColumn()
-        Asistio = New DataGridViewCheckBoxColumn()
-        Ausente = New DataGridViewCheckBoxColumn()
+        Dim Paciente = New DataGridViewTextBoxColumn()
+        Dim Telefono = New DataGridViewTextBoxColumn()
+        Dim TipoConsulta = New DataGridViewTextBoxColumn()
+        Dim Especialidad = New DataGridViewTextBoxColumn()
+        Dim Profesional = New DataGridViewTextBoxColumn()
+        Dim TurnoDiaHora = New DataGridViewTextBoxColumn()
+        Dim Ver = New DataGridViewButtonColumn()
+        Dim Asistio = New DataGridViewCheckBoxColumn()
+        Dim Ausente = New DataGridViewCheckBoxColumn()
         GroupBox1 = New GroupBox()
         btnPaciente = New Button()
         btnTurnos = New Button()
@@ -110,32 +110,32 @@ Partial Class Inicio
         ' 
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.NullValue = "Ver"
-        F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle1
-        F1DgbbtnVer.HeaderText = "Ver"
-        F1DgbbtnVer.MinimumWidth = 6
-        F1DgbbtnVer.Name = "F1DgbbtnVer"
-        F1DgbbtnVer.Text = "VER"
-        F1DgbbtnVer.Width = 125
+        'F1DgbbtnVer.DefaultCellStyle = DataGridViewCellStyle1
+        'F1DgbbtnVer.HeaderText = "Ver"
+        'F1DgbbtnVer.MinimumWidth = 6
+        'F1DgbbtnVer.Name = "F1DgbbtnVer"
+        'F1DgbbtnVer.Text = "VER"
+        'F1DgbbtnVer.Width = 125
         ' 
         ' Asistio
         ' 
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.NullValue = "Editar"
-        F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
-        F1DgbBtnAsistio.HeaderText = "Asistio"
-        F1DgbBtnAsistio.MinimumWidth = 6
-        F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
-        F1DgbBtnAsistio.Width = 125
+        'F1DgbBtnAsistio.DefaultCellStyle = DataGridViewCellStyle2
+        'F1DgbBtnAsistio.HeaderText = "Asistio"
+        'F1DgbBtnAsistio.MinimumWidth = 6
+        'F1DgbBtnAsistio.Name = "F1DgbBtnAsistio"
+        'F1DgbBtnAsistio.Width = 125
         ' 
         ' Ausente
         ' 
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.NullValue = "Eliminar"
-        F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
-        F1DgbBtnAusente.HeaderText = "Ausente"
-        F1DgbBtnAusente.MinimumWidth = 6
-        F1DgbBtnAusente.Name = "F1DgbBtnAusente"
-        F1DgbBtnAusente.Width = 125
+        'F1DgbBtnAusente.DefaultCellStyle = DataGridViewCellStyle3
+        'F1DgbBtnAusente.HeaderText = "Ausente"
+        'F1DgbBtnAusente.MinimumWidth = 6
+        'F1DgbBtnAusente.Name = "F1DgbBtnAusente"
+        'F1DgbBtnAusente.Width = 125
         ' 
         ' GroupBox1
         ' 

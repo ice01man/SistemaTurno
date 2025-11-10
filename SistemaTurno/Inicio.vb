@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Linq.Expressions
 Imports Microsoft.VisualBasic.FileIO
 
 Public Class Inicio
@@ -266,14 +267,17 @@ Public Class Inicio
         Try
             ' Llama a la función principal, pasando la fecha seleccionada.
             CargarTurnosEnDataGridView(fechaSeleccionada)
+        Catch
+            MessageBox.Show("Error al guardar asistencia: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
+
+    End Sub
     Private Sub btn_AcercaDe_Click(sender As Object, e As EventArgs) Handles btn_AcercaDe.Click
         Dim mensaje As String =
         "📅 SISTEMA DE GESTIÓN DE TURNOS MÉDICOS
         Versión 1.0
-
-        Catch ex As Exception
-            MessageBox.Show("Error al cargar los turnos filtrados: " & ex.Message, "Error de Filtro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
         Este sistema permite administrar turnos de pacientes y profesionales de manera rápida y sencilla.
 
         Funciones principales: 
@@ -281,6 +285,6 @@ Public Class Inicio
         • Filtrado por especialidad y profesional.
         • Control de disponibilidad horaria.
         • Almacenamiento de turnos en archivos CSV.
-
+        "
     End Sub
 End Class
