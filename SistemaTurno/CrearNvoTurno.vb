@@ -2,6 +2,7 @@ Imports System.IO
 Imports System.Reflection
 Imports System.Diagnostics
 Imports System.Drawing
+Imports System.Char
 
 
 
@@ -72,8 +73,7 @@ Public Class CrearNvoTurno
         Txt_ApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource
     End Sub
 
-    Private Sub Txt_ApellidoNombre_TextChanged(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.KeyPress, Txt_ApellidoNombre.TextChanged
-
+    Private Sub Txt_ApellidoNombre_KeyPress(sender As Object, e As EventArgs) Handles Txt_ApellidoNombre.KeyPress, Txt_ApellidoNombre.TextChanged
 
         ' iniciar cronómetro
         If Not inicioCapturado AndAlso Txt_ApellidoNombre.Text.Trim <> "" Then
@@ -87,11 +87,11 @@ Public Class CrearNvoTurno
         If pacienteExistente IsNot Nothing Then
             txtTelefono.Text = pacienteExistente.Telefono
             txtDNI.Text = pacienteExistente.DNI
-            btnAgregar.Enabled = False
+
         Else
             txtTelefono.Clear()
             txtDNI.Clear()
-            btnAgregar.Enabled = True
+
         End If
     End Sub
 
@@ -373,13 +373,7 @@ Public Class CrearNvoTurno
         btnAyuda.FlatAppearance.BorderSize = 1
         btnAyuda.ForeColor = Color.Navy
 
-        'boton agregar
-        btnAgregar.Font = New Font("Segoe UI", 9, FontStyle.Regular)
-        btnAgregar.BackColor = Color.FromArgb(224, 240, 255) ' Fondo celeste suave
-        btnAgregar.FlatStyle = FlatStyle.Flat
-        btnAgregar.FlatAppearance.BorderColor = Color.SteelBlue
-        btnAgregar.FlatAppearance.BorderSize = 1
-        btnAgregar.ForeColor = Color.Navy
+
 
 
     End Sub
@@ -469,11 +463,11 @@ Public Class CrearNvoTurno
 
 
     ' botones
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs)
 
         MsgBox("Se abrirá el formulario de Pacientes para agregar un nuevo paciente.", MsgBoxStyle.Information, "Agregar Paciente")
         If FormPrincipal IsNot Nothing Then
-            Dim frm As New Pacientes()
+            Dim frm As New Pacientes
             FormPrincipal.AbrirFormularioInterno(frm)
         End If
         '  Dim formularioPacientes As New Pacientes()
@@ -571,5 +565,7 @@ Public Class CrearNvoTurno
         MessageBox.Show(mensaje, "Ayuda del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
+
+
 End Class
 

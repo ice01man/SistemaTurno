@@ -34,7 +34,6 @@ Partial Class CrearNvoTurno
         lblPaciente = New Label()
         Label1 = New Label()
         cmbEspecialidad = New ComboBox()
-        btnAgregar = New Button()
         Txt_ApellidoNombre = New TextBox()
         cmbHora = New ComboBox()
         lblProfesional = New Label()
@@ -156,15 +155,6 @@ Partial Class CrearNvoTurno
         cmbEspecialidad.Size = New Size(292, 28)
         cmbEspecialidad.TabIndex = 10
         ' 
-        ' btnAgregar
-        ' 
-        btnAgregar.Location = New Point(887, 154)
-        btnAgregar.Name = "btnAgregar"
-        btnAgregar.Size = New Size(94, 29)
-        btnAgregar.TabIndex = 2
-        btnAgregar.Text = "+ Agregar"
-        btnAgregar.UseVisualStyleBackColor = True
-        ' 
         ' Txt_ApellidoNombre
         ' 
         Txt_ApellidoNombre.Location = New Point(565, 155)
@@ -259,7 +249,6 @@ Partial Class CrearNvoTurno
         Controls.Add(lblProfesional)
         Controls.Add(cmbHora)
         Controls.Add(Txt_ApellidoNombre)
-        Controls.Add(btnAgregar)
         Controls.Add(cmbEspecialidad)
         Controls.Add(dtpHora)
         Controls.Add(Label1)
@@ -293,7 +282,6 @@ Partial Class CrearNvoTurno
     Friend WithEvents lblPaciente As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbEspecialidad As ComboBox
-    Friend WithEvents btnAgregar As Button
     Friend WithEvents Txt_ApellidoNombre As TextBox
     Friend WithEvents cmbHora As ComboBox
     Friend WithEvents lblProfesional As Label

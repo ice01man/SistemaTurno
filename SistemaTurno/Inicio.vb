@@ -284,7 +284,9 @@ Public Class Inicio
         • Registro y autocompletado de pacientes.
         • Filtrado por especialidad y profesional.
         • Control de disponibilidad horaria.
-        • Almacenamiento de turnos en archivos CSV.
+        • Almacenamiento de turnos en archivos.
         "
+
+        MessageBox.Show(mensaje, "Ayuda del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class
